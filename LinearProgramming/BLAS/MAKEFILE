@@ -1,0 +1,17 @@
+.POSIX:
+
+FC      = gfortran
+FFLAGS  = -std=f2018
+LDFLAGS =
+LDLIBS  = -lblas
+TARGET  = blassolution
+
+.PHONY: all clean
+
+all:
+	$(FC) $(FFLAGS) $(LDFLAGS) -o $(TARGET) example.f90 $(LDLIBS)
+
+clean:
+	rm $(TARGET)
+
+#run make to build the executable.
