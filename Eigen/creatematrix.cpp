@@ -3,6 +3,9 @@
 using namespace std ;
 using namespace Eigen ;
 
+// Matrix3f is a 3x3 matrix of floats. 
+// Matrix4d is 4x4 matrix of doubles.
+
 Matrix3f A ;
 Matrix4d B ;
 
@@ -13,10 +16,15 @@ Matrix <float,20,75> M2 ;
 int main () {
 // Set all elements to ones
 A = Matrix3f::Ones();
-  cout << A;
+  cout << "Matrix A: " << A << "\n";
+ 
+B = Matrix4d::Identity();
+  cout << "Matrix B: " << B << endl;
  
 Matrix4f M1 = Matrix4f::Random();
 Matrix4f M2 = Matrix4f::Constant(2.3);
-  cout << M1 + M2 << endl ;
+  cout << "Matrix M1: " << M1 << endl ;
+  cout << "Matrix M2: " << M2 << endl ;
+  cout << "M1 + M2: " << M1 + M2 << endl ;
 return 0;
 }
