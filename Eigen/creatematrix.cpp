@@ -16,15 +16,15 @@ Matrix <float,20,75> M2 ;
 int main () {
 // Set all elements to ones
 A = Matrix3f::Ones();
-  cout << "Matrix A: " << A << "\n";
+  cout << "Matrix A: \n" << A << endl;
  
 B = Matrix4d::Identity();
-  cout << "Matrix B: " << B << endl;
+  cout << "Matrix B: \n" << B << endl;
  
 Matrix4f M1 = Matrix4f::Random();
 Matrix4f M2 = Matrix4f::Constant(2.3);
-  cout << "Matrix M1: " << M1 << endl ;
-  cout << "Matrix M2: " << M2 << endl ;
-  cout << "M1 + M2: " << M1 + M2 << endl ;
+  cout << "Matrix M1: \n" << M1 << endl ;
+  cout << "Matrix M2: \n" << M2 << endl ;
+  cout << "M1 + M2: \n" << M1 + M2 << endl ;
 return 0;
 }
