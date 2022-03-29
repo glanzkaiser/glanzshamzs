@@ -28,7 +28,7 @@ print(d)
 dot = a.dot(b)
 print(dot)
 dot = (a*b).sum()
-print=('Dot product: ')
+print('Dot product: ')
 print(dot)
 
 # in newer versions
