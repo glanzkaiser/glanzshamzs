@@ -19,3 +19,4 @@ int main (int argc, const char * argv[])
   }
   return(info);
 }
+/* gcc ch9-1-LUDecomposition.c -o solc -llapacke -llapack -lblas -lgfortran -lm -Wall */
