@@ -1,4 +1,5 @@
 
+import numpy as np
 
 # dot product/inner product
 a = np.array([1,2])
