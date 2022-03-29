@@ -73,3 +73,5 @@ if (verbose) then
 end if
 
 end Program DirectSolve
+
+! gfortran ch9-1-LUDecomposition.f90 -o solg -llapack -lblas
