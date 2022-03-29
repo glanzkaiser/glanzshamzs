@@ -20,6 +20,6 @@ c = a * b
 print('a * b: ')
 print(c)
 
-print('Dot product of vectors a and b: ')
+print('a . b: ')
 d = np.sum(c)
 print(d)
