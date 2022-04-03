@@ -49,7 +49,7 @@ plt.legend()
 plt.show()
 
 fig, ax = plt.subplots()
-ax.plot(dis['timestamp'], dis['Close'))
+ax.plot(dis['timestamp'], dis['Close'])
 ax.format_xdata = mdates.DateFormatter('%Y-%M')
 plt.xticks(rotation=45)
 plt.xlabel('Earth Year')
