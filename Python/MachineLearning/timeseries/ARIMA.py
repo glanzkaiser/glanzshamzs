@@ -8,6 +8,7 @@ sns.set()
 
 dis = pd.read_csv('DIS.csv')
 dis.head()
+dis['timestamp'] = pd.to_datetime(dis['Date'])
 
 signal = np.copy(dis.Close.values)
 
@@ -34,22 +35,22 @@ def auto_regressive(signal, p, d, q, future_count = 10):
 
 future_count = 15
 
-formatter = mdates.DateFormatter("%Y") ### formatter of the date
-locator = mdates.YearLocator() ### where to put the labels
-
 predicted_15 = auto_regressive(signal,15,1,2,future_count)
 predicted_30 = auto_regressive(signal,30,1,2,future_count)
 
 plt.figure(figsize=(15, 7))
 ax = plt.gca()
-ax.xaxis.set_major_formatter(formatter) ## calling the formatter for the x-axis
-ax.xaxis.set_major_locator(locator) ## calling the locator for the x-axis
 
 plt.plot(signal, label = 'DIS')
 plt.plot(predicted_15, label = 'ARIMA 15 MA')
 plt.plot(predicted_30, label = 'ARIMA 30 MA')
 plt.xlabel('Earth Year')
+plt.xticks(rotation=45)
 plt.ylabel('Price') 
 plt.legend()
-plt.show()
 
+fig, ax = plt.subplots()
+ax.plot(dis['timestamp'], dis['bidopen'))
+ax.format_xdata = mdates.DateFormatter('%Y-%M')
+
+plt.show()
