@@ -50,7 +50,7 @@ plt.show()
 
 fig, ax = plt.subplots()
 ax.plot(dis['timestamp'], dis['Close'])
-ax.format_xdata = mdates.DateFormatter('%Y-%M')
+ax.format_xdata = mdates.DateFormatter('%Y(%D)')
 plt.xticks(rotation=45)
 plt.xlabel('Earth Year')
 plt.ylabel('DIS Price') 
