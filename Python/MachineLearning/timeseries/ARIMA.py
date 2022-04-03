@@ -39,18 +39,16 @@ predicted_15 = auto_regressive(signal,15,1,2,future_count)
 predicted_30 = auto_regressive(signal,30,1,2,future_count)
 
 plt.figure(figsize=(15, 7))
-ax = plt.gca()
 
 plt.plot(signal, label = 'DIS')
 plt.plot(predicted_15, label = 'ARIMA 15 MA')
 plt.plot(predicted_30, label = 'ARIMA 30 MA')
-plt.xlabel('Earth Year')
-plt.xticks(rotation=45)
-plt.ylabel('Price') 
-plt.legend()
 
 fig, ax = plt.subplots()
-ax.plot(dis['timestamp'], dis['bidopen'))
+ax.plot(dis['timestamp'], dis['Close'))
 ax.format_xdata = mdates.DateFormatter('%Y-%M')
-
+plt.xticks(rotation=45)
+plt.xlabel('Earth Year')
+plt.ylabel('Price') 
+plt.legend()                              
 plt.show()
