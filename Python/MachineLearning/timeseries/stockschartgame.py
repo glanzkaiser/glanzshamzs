@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import datetime
 import seaborn as sns
+import numpy as np
 import matplotlib.dates as mdates
 sns.set()
 
