@@ -5,7 +5,7 @@
 using namespace cv;
 int main()
 {
-    std::string image_path = samples::findFile("starry_night.jpg");
+    std::string image_path = samples::findFile("/opt/hamzstlib/icon/freya.png");
     Mat img = imread(image_path, IMREAD_COLOR);
     if(img.empty())
     {
