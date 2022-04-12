@@ -1,8 +1,6 @@
 import cv2 as cv
 import sys
 
-print ("Package Imported")
-
 img = cv.imread("/opt/hamzstlib/icon/freya.png")
 if img is None:
     sys.exit("Could not read the image.")
