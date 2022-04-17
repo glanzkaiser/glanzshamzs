@@ -1,0 +1,50 @@
+From Valhalla with Love (Lasthrim Projection based on this as the root):
+
+*The first capital letter S is stands for simple number, if you change it into:
+D -> Double
+C -> Complex
+Z -> Double Complex
+
+BLAS Level 1:
+    SROTG - setup Givens rotation
+    SROTMG - setup modified Givens rotation
+    SROT - apply Givens rotation
+    SROTM - apply modified Givens rotation
+    SSWAP - swap x and y
+    SSCAL - x = a*x
+    SCOPY - copy x into y
+    SAXPY - y = a*x + y
+    SDOT - dot product
+    SDSDOT - dot product with extended precision accumulation
+    SNRM2 - Euclidean norm
+    SCNRM2- Euclidean norm
+    SASUM - sum of absolute values
+    ISAMAX - index of max abs value
+
+BLAS Level 2:
+
+    SGEMV - matrix vector multiply
+    SGBMV - banded matrix vector multiply
+    SSYMV - symmetric matrix vector multiply
+    SSBMV - symmetric banded matrix vector multiply
+    SSPMV - symmetric packed matrix vector multiply
+    STRMV - triangular matrix vector multiply
+    STBMV - triangular banded matrix vector multiply
+    STPMV - triangular packed matrix vector multiply
+    STRSV - solving triangular matrix problems
+    STBSV - solving triangular banded matrix problems
+    STPSV - solving triangular packed matrix problems
+    SGER - performs the rank 1 operation A := alpha*x*y' + A
+    SSYR - performs the symmetric rank 1 operation A := alpha*x*x' + A
+    SSPR - symmetric packed rank 1 operation A := alpha*x*x' + A
+    SSYR2 - performs the symmetric rank 2 operation, A := alpha*x*y' + alpha*y*x' + A
+    SSPR2 - performs the symmetric packed rank 2 operation, A := alpha*x*y' + alpha*y*x' + A
+
+BLAS Level 3:
+
+    SGEMM - matrix matrix multiply
+    SSYMM - symmetric matrix matrix multiply
+    SSYRK - symmetric rank-k update to a matrix
+    SSYR2K - symmetric rank-2k update to a matrix
+    STRMM - triangular matrix matrix multiply
+    STRSM - solving triangular matrix with multiple right hand sides
