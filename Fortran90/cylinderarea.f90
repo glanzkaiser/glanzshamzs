@@ -19,9 +19,9 @@ program cylinder
 !   and read them.
 
     write (*,*) 'Enter radius:'
-    read (*,iostat=ierr) radius
+    read *, radius
     write (*,*) 'Enter height:'
-    read (*,iostat=ierr) height
+    read *, height
 
 !   If radius and height could not be read from input,
 !   then cycle through the loop.
