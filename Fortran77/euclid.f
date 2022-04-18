@@ -18,7 +18,7 @@
       FUNCTION NGCD(NA, NB)
         IA = NA
         IB = NB
-        IF (IB.NE.0) THEN
+    1   IF (IB.NE.0) THEN
           ITEMP = IA
           IA = IB
           IB = MOD(ITEMP, IB)
