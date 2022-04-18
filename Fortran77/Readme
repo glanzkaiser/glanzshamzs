@@ -1,1 +1,10 @@
-g77 -o euclid euclid.f
+gfortran -o euclid euclid.f
+
+A Fortran program generally consists of a main program (or driver) and possibly several subprograms (procedures or subroutines). 
+The structure of a main program is:
+
+program name
+declarations
+statements
+stop
+end
