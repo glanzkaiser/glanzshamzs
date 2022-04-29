@@ -16,11 +16,13 @@ markercolors = [
     :red   :yellow :brown :white
 ]
 
-plot(
+Plots.pyplot()
+f = plot(
     xs,
     data,
     label = labels,
     shape = markershapes,
     color = markercolors,
     markersize = 10
-)
+);
+@show f
