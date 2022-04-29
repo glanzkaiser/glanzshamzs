@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 
     /* run Julia commands */
     jl_eval_string("print(sqrt(2.0))");
+    printf("\n");
 
     /* strongly recommended: notify Julia that the
          program is about to terminate. this allows
