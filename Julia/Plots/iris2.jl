@@ -1,4 +1,5 @@
 using RDatasets
+using PyPlot
 iris = dataset("datasets", "iris");
 
 # load the StatsPlots recipes (for DataFrames) available via:
