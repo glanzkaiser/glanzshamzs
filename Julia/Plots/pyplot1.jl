@@ -1,4 +1,4 @@
-using Plots
+using PyPlot
  
 #data to plot
 globaltemperatures = [14.4, 14.5, 14.8, 15.2, 15.5, 15.8];
