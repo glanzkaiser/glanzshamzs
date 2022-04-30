@@ -1,4 +1,4 @@
-using Plots
+using PyPlot
 
 # 10 data points in 4 series
 xs = range(0, 2π, length = 10)
