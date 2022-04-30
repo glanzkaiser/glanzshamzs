@@ -5,7 +5,7 @@ using DataFrames
 using CSV
    
 # Reading the CSV file
-Iris = CSV.read("Iris.csv");
+Iris = dataset("datasets", "iris");
   
 # Using Plots Package 
 using Plots 
