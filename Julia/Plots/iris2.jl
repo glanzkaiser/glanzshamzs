@@ -1,5 +1,6 @@
 # Using the DataFrames Package
 using DataFrames
+using RDatasets
    
 # Using the CSV package
 using CSV
