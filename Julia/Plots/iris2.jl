@@ -7,7 +7,7 @@ iris = dataset("datasets", "iris");
 using StatsPlots
 
 # Scatter plot with some custom settings
-@df iris scatter(
+scatter(
     :SepalLength,
     :SepalWidth,
     group = :Species,
@@ -17,3 +17,4 @@ using StatsPlots
     m = (0.5, [:cross :hex :star7], 12),
     bg = RGB(0.2, 0.2, 0.2)
 )
+PyPlot.title("Scatter Plot")
