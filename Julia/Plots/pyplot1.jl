@@ -15,3 +15,6 @@ scatter!(numindustries, globaltemperatures, label="points")
 #adding labels to plot
 xlabel!("Number of Industries")
 ylabel!("Global Temperature (°C)")
+
+#save plot
+png("/opt/hamzstlib/glanzshamzs/glanzshamzs/Julia")
