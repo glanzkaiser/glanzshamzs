@@ -1,0 +1,337 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7126,        276]*)
+(*NotebookOutlinePosition[      7982,        306]*)
+(*  CellTagsIndexPosition[      7938,        302]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[StyleBox["Newton's  Method",
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->29,
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+
+Cell[TextData[StyleBox[
+"The programm stops when either one of the following \nsatisfies \n    (a)  \
+|x_{n+1}-x_n| < delta\n    (b)  |f(x_n)| < epsilon \n    (c)  number of  \
+iteration < max ",
+  FontSize->22,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Off[General::spell1];
+Clear[NewtonIte,f0,x0,delta,epsilon,max,d ];
+NewtonIte[f0_,x0_,delta_,epsilon_,max_,d_] :=
+Module[{f,k,small,cond},
+  Set@@{f[x_],f0};
+  p0 = x0;
+  Y0 = N[f[p0],d];
+  p1 = p0+1;
+  k = 0;
+  cond = 0;
+  Print[\"p = \",N[p0,d],\"\\t   f[p] = \",
+    N[Y0,d]];
+  While[cond==0 && k < max,
+    Df = N[f'[p0],d];
+    If[Df==0, cond=1; Dp=p1-p0;p1=p0,
+              Dp=Y0/Df;p1=p0-Dp];
+    Y1 = N[f[p1],d];
+    Print[\"p = \",N[p1,d],\"\\t   
+      f[p] = \",N[Y1,d],
+               \"\\t  |dp| <= \",N[Dp,d]];
+    If[N[Abs[p1-p0],d] < delta,  
+      cond=1];
+    If[Abs[Y1]<epsilon, cond=1];
+    If[RelErr<delta && Abs[Y1]<epsilon,  
+        cond=1];
+    p0 = p1;
+    Y0 = Y1;
+    k  = k+1;  ]; ];
+  On[General::spell1];  \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Find the solution to the equation  x sin(x)  = 1.",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = x Sin[x] - 1  ; 
+Print[\"The function is f[x] = \",f[x]];  
+Plot[f[x],{x,0,2},
+PlotLabel->\"The curve y = f(x).\"];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["NewtonIte[f[x],0.5,10^-10,10^-10,10,8 ]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontSize->18,
+    FontSlant->"Plain"],
+  StyleBox["Find the solution to the equation  ",
+    FontSize->22,
+    FontSlant->"Plain"],
+  StyleBox[" \n  15(1 - Exp[-x/10]) - x =0.                              ",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = 15(1 - Exp[-x/10]) - x;
+Print[\"The function is f[x] = \",f[x]]; 
+Plot[f[x],{x,0,9},
+PlotLabel->\"The curve y = f(x).\"];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["NewtonIte[f[x],8.0,10^-10,10^-10,10,8]  ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 3",
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontSize->18,
+    FontSlant->"Plain"],
+  StyleBox["Find the solution to the equation  ",
+    FontSize->22,
+    FontSlant->"Plain"],
+  StyleBox[" \n  (x-1)^m =0.                              ",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = (x -1)^8;\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["NewtonIte[f[x],1.1,10^-10,10^-10,100,8] ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"The reason that we didn't get the right result in this\ncase lies in the \
+fact that the method stops when \n                   |f(x_n)| < epsilon, \n\
+and in this example, f(x_n) can be very small due to\nthe high power, even \
+when x_n is still far from the \nroot. ",
+  FontSize->22,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell[TextData[StyleBox["Newton's  Method",
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->29,
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+
+Cell[TextData[StyleBox[
+"The following is the same programm but without \nthe stopping time  |f(x_n)| \
+< epsilon.",
+  FontSize->22,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Off[General::spell1];
+Clear[NewtonIte2,f0,x0,delta,max,d ];
+NewtonIte2[f0_,x0_,delta_,max_,d_] :=
+Module[{f,k,small,cond},
+  Set@@{f[x_],f0};
+  p0 = x0;
+  Y0 = N[f[p0],d];
+  p1 = p0+1;
+  k = 0;
+  cond = 0;
+  Print[\"p = \",N[p0,d],\"\\t   f[p] = \",
+    N[Y0,d]];
+  While[cond==0 && k < max,
+    Df = N[f'[p0],d];
+    If[Df==0, cond=1; Dp=p1-p0;p1=p0,
+              Dp=Y0/Df;p1=p0-Dp];
+    Y1 = N[f[p1],d];
+    Print[\"p = \",N[p1,d],\"\\t   
+      f[p] = \",N[Y1,d],
+               \"\\t  |dp| <= \",N[Dp,d]];
+    If[N[Abs[p1-p0],d] < delta,  
+      cond=1];
+    If[RelErr<delta,cond=1];
+    p0 = p1;
+    Y0 = Y1;
+    k  = k+1;  ]; ];
+  On[General::spell1];  \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 4",
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontSize->18,
+    FontSlant->"Plain"],
+  StyleBox["Find the solution to the equation  ",
+    FontSize->22,
+    FontSlant->"Plain"],
+  StyleBox[" \n  (x-1)^m =0.                              ",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = (x -1)^12;\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+NewtonIte2[f[x],1.1,10^-6, 50,8]  
+\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 177}, {Automatic, 29}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 190, 6, 38, "Left Header"],
+Cell[1902, 57, 309, 8, 125, "Header"],
+Cell[2214, 67, 806, 32, 539, "Input"],
+Cell[3023, 101, 256, 9, 28, "Header"],
+Cell[3282, 112, 204, 8, 97, "Input"],
+Cell[3489, 122, 100, 2, 46, "Input"],
+Cell[3592, 126, 419, 15, 52, "Header"],
+Cell[4014, 143, 210, 8, 97, "Input"],
+Cell[4227, 153, 100, 2, 46, "Input"],
+Cell[4330, 157, 404, 15, 52, "Header"],
+Cell[4737, 174, 98, 5, 46, "Input"],
+Cell[4838, 181, 100, 2, 29, "Input"],
+Cell[4941, 185, 409, 9, 149, "Header"],
+Cell[5353, 196, 190, 6, 38, "Left Header"],
+Cell[5546, 204, 230, 7, 53, "Header"],
+Cell[5779, 213, 728, 30, 471, "Input"],
+Cell[6510, 245, 404, 15, 52, "Header"],
+Cell[6917, 262, 99, 5, 46, "Input"],
+Cell[7019, 269, 103, 5, 46, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,178 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3519,        129]*)
+(*NotebookOutlinePosition[      4375,        159]*)
+(*  CellTagsIndexPosition[      4331,        155]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Condition Number of Matrix", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[StyleBox[
+"We compute the condition number of H using:\n              Cond(H) = ||H|| \
+||H^{-1}||\nwhere we take ||H|| as \\infty norm. ",
+  FontSize->19]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Off[General::spell1]; 
+Clear[Cond,H0,n];
+Cond[H0_] :=
+Module[{H, invH, n, h, g,x},
+     H=H0;
+     n=Length[H];
+     invH=Inverse[H];
+  Module[{i,j},
+   h=Table[0,{n}];
+   g=Table[0,{n}];
+     For[i=1,i<=n,i++,
+       h[[i]]=Sum[Abs[H[[i,j]]],    \t\t\t\t{j,1,n}] ]; 
+     For[i=1,i<=n,i++,
+       g[[i]]=Sum[Abs[invH[[i,j]]], \t\t\t\t{j,1,n}] ]; 
+  ]; 
+x= Max[Table[h[[i]], {i,1,n} ]]* 
+\t Max[Table[g[[i]], {i,1,n} ]];  
+Return[x]];
+On[General::spell1];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->20,
+    FontWeight->"Bold"],
+  StyleBox[": We consider Hilbert matrix: ",
+    FontSize->20]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[H,n];
+H[n_]:=Table[1/(i+j+1), {i,0,n}, {j,0,n}];
+Do[Print[StringForm[\"n=``,     Cond[Hn]=
+`` \" , n , Cond[H[n]]//N  ]], 
+   {n, 1, 10}]   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->20,
+    FontWeight->"Bold"],
+  StyleBox[": We consider Vandermond matrix based on\n i =1,2,...,n: ",
+    FontSize->20]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[H, n]; 
+H[n_] := Table[i^j, {i,1,n+1}, {j,0,n}];
+Do[Print[StringForm[\"n=``    Cond[Hn]=
+`` \" ,n , Cond[H[n]]//N  ]], 
+  {n, 1, 10}]  
+\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 184}, {43, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 113, 3, 39, "Left Header"],
+Cell[1825, 54, 250, 6, 74, "Left Header"],
+Cell[2078, 62, 522, 22, 369, "Input"],
+Cell[2603, 86, 227, 9, 31, "Left Header"],
+Cell[2833, 97, 213, 8, 114, "Input"],
+Cell[3049, 107, 254, 9, 54, "Left Header"],
+Cell[3306, 118, 209, 9, 114, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,293 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7598,        228]*)
+(*NotebookOutlinePosition[      8453,        260]*)
+(*  CellTagsIndexPosition[      8409,        256]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Adams-Bashforth-Moulton Method: d=2"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[StyleBox[
+" Here is the method of solving  a system of two equations x' = f(t,x,y), \n \
+y' = g(t,x,y),  with initial value  x(a) = x0, y(a)=y0; The inital values \n \
+are obtained using the Runge-Kutta method of order 4.  ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Off[General::spell1];\nClear[ABM2D,F0,a,b,X0,n];\nABM2D[F0_,a_,b_,X0_,n_] :=\
+\nModule[{f,f0,f1,f2,f3,f4,h,h2,j,k, X, T},\n  Set@@{f[t_,{x_,y_}],F0};\n  h \
+= (b - a)/n //N;\n  T = Table[0,{n+1}];\n  X = Table[0,{n+1}];\n  T[[1]] = a \
+//N;\n  X[[1]] = X0 //N;\n  For[j=1, j<=3,j++,\n    F1 = h f[T[[j]],X[[j]]] \
+//N;\n    F2 = h f[T[[j]]+ h/2, X[[j]] + F1/2] //N;\n    F3 = h f[T[[j]] + \
+h/2, X[[j]]+ F2/2] //N;\n    F4 = h f[T[[j]] + h,X[[j]] + F3] //N;\n    \
+X[[j+1]] = X[[j]] + (F1 + 2F2 + 2F3 + F4)/6 //N;\n    T[[j+1]] = a + h j \
+//N];\n  f0 = f[T[[1]],X[[1]]];\n  f1 = f[T[[2]],X[[2]]];\n  f2 = \
+f[T[[3]],X[[3]]];\n  f3 = f[T[[4]],X[[4]]];\n  h2 = h/24;\n  \
+For[k=4,k<=n,k++,\n    P = X[[k]] + h2 (-9f0 + 37f1 - 59f2 + 55f3);\n    \
+T[[k+1]] = a + h k;\n    f4 = f[T[[k+1]],P];\n    X[[k+1]] = X[[k]] + h2 (f1 \
+- 5f2 + 19f3 + 9f4);\n    f0 = f1;\n    f1 = f2;\n    f2 = f3;\n    f3 = \
+f[T[[k+1]],X[[k+1]]] ];\n  sol = Transpose[{T,X}];\n  Return[sol] ];\n\
+On[General::spell1];"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[{
+  StyleBox["Examle 1:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn: x' = x+4y -e^t and y' = x+y+2 e^t,\nwith initial value \
+x(0) =4 and y(0)=5/4. We look for the solution on \nthe interval [0,2]. ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f,f1,f2,t,x];   \nf1[t_,{x_,y_}] = x+ 4 y - Exp[t];\nf2[t_,{x_,y_}] = \
+x+ y + 2 Exp[t];\nf[t_,{x_,y_}] ={f1[t,{x,y}],f2[t,{x,y}]} "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["ABM2D[f[t,{x,y}], 0,1,{4,5/4},10]    "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[ABM,ABMX,ABMY];\n ABM= ABM2D[f[t,{x,y}], 0,1,{4,5/4},100];   \n \
+ABMX=Table[{ABM[[i,1]],ABM[[i,2,1]]}, {i,1,101}]; \n \
+ABMY=Table[{ABM[[i,1]],ABM[[i,2,2]]} ,{i,1,101}];  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[graph1, graph2];\n graph1=ListPlot[ABMX, PlotJoined->True,AspectRatio \
+-> 0.5,\n             DisplayFunction->Identity]; \n \
+graph2=ListPlot[ABMY,PlotJoined->True,AspectRatio -> 0.5,  \n             \
+DisplayFunction->Identity]; \n \
+Show[graph1,graph2,DisplayFunction->$DisplayFunction];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["Compare with ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["Mathematica",
+    FontSize->16],
+  StyleBox[" solution:  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ss=DSolve[{x'[t]==x[t]+4 y[t]-Exp[t], \n           y'[t]== y[t]+x[t]+ 2 \
+Exp[t],\n           x[0]==4, y[0]== 5/4}, {x[t], y[t]},t] \nxx[t_]= x[t] /. \
+First[ss];  \nyy[t_]= y[t] /. Last[ss] ;  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[" Check the errors:  ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error1 = Table[ABMX[[i,2]]-xx[(i-1)/100] //N, {i,1,101}];\nMax[Abs[%]] "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error2= Table[ABMY[[i,2]]-yy[ (i-1)/100]//N, {i,90,101}];\nMax[Abs[%]]  "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn: x'' +4x' + 4x=0, with initial values\n x(0) =1 and \
+x'(0)=-1/2. We look for the solution on the interval \n [0,pi]. First we \
+transform it to the system equations:\n x' = y and y' = (- 5x - 5 y)/2 with \
+initial values x(0)=1,y(0)=-1/2.",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f,f1,f2,t,x];   \nf1[t_,{x_,y_}] = y; \nf2[t_,{x_,y_}] = (-5 y -5 x)/2 \
+;\nf[t_,{x_,y_}] ={f1[t,{x,y}],f2[t,{x,y}]} "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[" ABM2D[f[t,{x,y}], 0,Pi,{0,1/2},10]     "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[ABM,ABMX,ABMY];\n ABM= ABM2D[f[t,{x,y}], 0,Pi,{0,1/2},100];  \n \
+ABMX=Table[{ABM[[i,1]],ABM[[i,2,1]]}, {i,1,101}];  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[graph1, graph2];\n ListPlot[ABMX, PlotJoined->True,AspectRatio \
+->0.25]              "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["Compare with ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["Mathematica",
+    FontSize->16],
+  StyleBox[" solution:  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[ss]; \nss=DSolve[{2 x''[t] +5 x'[t]+ 5 x[t] ==0, \n           x[0]==0, \
+x'[0]==  1/2}, x[t],t]; \nxx[t_]= x[t] /. First[ss] //ComplexExpand;  \n\
+xx[t]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[xx[t], {t,0, Pi}, AspectRatio-> 0.25 ]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error1 = Table[ABMX[[i,2]]-xx[Pi(i-1)/100] //N, {i,1,101}];\nMax[Abs[%]]   \
+"], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 108}, {37, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 304, 10, 70, "Left Header"],
+Cell[2018, 63, 342, 7, 70, "Left Header"],
+Cell[2363, 72, 1047, 15, 70, "Input"],
+Cell[3413, 89, 382, 12, 70, "Left Header"],
+Cell[3798, 103, 191, 3, 70, "Input"],
+Cell[3992, 108, 90, 1, 70, "Input"],
+Cell[4085, 111, 233, 4, 70, "Input"],
+Cell[4321, 117, 351, 6, 70, "Input"],
+Cell[4675, 125, 350, 15, 70, "Left Header"],
+Cell[5028, 142, 248, 4, 70, "Input"],
+Cell[5279, 148, 149, 4, 70, "Left Header"],
+Cell[5431, 154, 128, 3, 70, "Input"],
+Cell[5562, 159, 129, 3, 70, "Input"],
+Cell[5694, 164, 491, 14, 70, "Left Header"],
+Cell[6188, 180, 177, 3, 70, "Input"],
+Cell[6368, 185, 93, 1, 70, "Input"],
+Cell[6464, 188, 178, 3, 70, "Input"],
+Cell[6645, 193, 147, 3, 70, "Input"],
+Cell[6795, 198, 350, 15, 70, "Left Header"],
+Cell[7148, 215, 212, 4, 70, "Input"],
+Cell[7363, 221, 98, 1, 70, "Input"],
+Cell[7464, 224, 131, 3, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

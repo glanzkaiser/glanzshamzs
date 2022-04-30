@@ -1,0 +1,19 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: gradient_hessian
+#
+# Gradient vector and Hessian matrix
+#
+with(linalg):
+F := cos(Pi*x) + sin(Pi*y) + exp(x*y);
+G := grad(F, [x,y]);
+H := hessian(F, [x,y]);
+x := 1; y :=1;
+map(eval, F);
+map(eval, G);
+map(eval, H);

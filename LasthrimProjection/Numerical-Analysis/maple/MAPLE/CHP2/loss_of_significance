@@ -1,0 +1,19 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  loss_of_significance
+#
+# Avoiding loss of significance in subtraction for the function
+# f(x) = x - sin(x) near x = 0:
+
+ y := sum((-1)^(k-1)*x^(2*k+1)/(2*k+1)!, k=1..10);
+ Digits := 40;
+ for x from 0.1 by 0.1 to 2.5 do
+     x; apx := evalf(y):
+     cal := x - sin(x):
+     error := abs(apx - cal);
+ od;
+

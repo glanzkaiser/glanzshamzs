@@ -1,0 +1,17 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: xsinx
+#
+# Evaluate x - sin x at different points
+#
+y := sum( (-1)^(k-1)*x^(2*k+1)/(2*k+1)!, k=1..10 );
+Digits := 100;
+x := 0.4;
+z := evalf(y);
+t := x - sin(x);
+d := z - t;

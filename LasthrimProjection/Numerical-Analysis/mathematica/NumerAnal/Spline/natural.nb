@@ -1,0 +1,461 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     10210,        389]*)
+(*NotebookOutlinePosition[     11065,        419]*)
+(*  CellTagsIndexPosition[     11021,        415]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Natural Cubic Spline Function:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[{
+  StyleBox[
+  "We start with definitions.  XY is the data, h[k] =X[k+1]-X[k],\nd[k] = \
+(Y[k+1]-Y[k])/h[k]; the coefficients of the tri-diagonal\nmatrix is a[k], \
+b[k], c[k], the right hand side vecor is v[k], and\nz[k] = S''[x[k]].",
+    FontSize->18],
+  StyleBox["  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Off[General::spell1]; 
+Clear[Differences,XY0,n];
+Differences[XY0_] := 
+Block[{k},
+  XY = XY0;
+  n = Length[XY]-1;
+  X = Transpose[XY][[1]];
+  Y = Transpose[XY][[2]];
+  h = Table[0,{n}];
+  d = Table[0,{n}];
+  z = Table[0,{n+1}];
+  a = Table[0,{n-1}];
+  b = Table[0,{n-1}];
+  c = Table[0,{n-1}];
+  v = Table[0,{n-1}];
+  s = Table[0,{n},{4}];
+  h[[1]] = X[[2]] - X[[1]];
+  d[[1]] = (Y[[2]]-Y[[1]])/h[[1]];
+  For[k=2,k<=n,k++,
+    h[[k]] = X[[k+1]] - X[[k]];
+    d[[k]] = (Y[[k+1]]-Y[[k]])/h[[k]];
+    a[[k-1]] = h[[k]];
+    b[[k-1]] = 2 (h[[k-1]] + h[[k]]);
+    c[[k-1]] = h[[k]];
+    v[[k-1]] = 6(d[[k]]-d[[k-1]])];];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox["This solves a system of tri-diagonal equations:",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[TriDiagonal,a0,b0,c0,v0];
+TriDiagonal[a0_,b0_,c0_,v0_] :=
+Module[{k,t},
+  a = a0; b=b0; c=c0; v=v0;
+  For[k=2,k<=n-1,k++,
+    t = a[[k-1]]/b[[k-1]];
+    b[[k]] = b[[k]] - t c[[k-1]];
+    v[[k]] = v[[k]] - t v[[k-1]];];
+  z[[n]] = v[[n-1]]/b[[n-1]];
+  For[k=n-2,1<=k,k--,
+    z[[k+1]] = (v[[k]] - 
+       c[[k]] z[[k+2]])/b[[k]];];];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"This gives boundary conditions which can be modified to deal with cubic \
+interpolation splines \nwith other boundary conditions:",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+ Clear[Coeffs];
+ Coeffs:=
+ Block[{},
+  z[[1]]  = 0;
+  z[[n+1]] = 0, ];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"This computes the terms in individual spline pieces:",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[ComputeCoeff,d,h,z,y];
+ComputeCoeff[d_,h_,z_,y_] :=
+Block[{k},
+  For[k=1,k<=n,k++,
+    s[[k,1]] = Y[[k]];
+    s[[k,2]] = d[[k]]-h[[k]](2 z[[k]]+
+      z[[k+1]])/6;
+    s[[k,3]] = z[[k]]/2;
+    s[[k,4]] = (z[[k+1]] - z[[k]])/
+       (6 h[[k]]) ]; ];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"This makes up the spline function, called SP[n,x]:  ",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[Sm, SP]
+S1[x_] := If[x< X[[2]],
+  ((s[[1,4]](x - X[[1]])+s[[1,3]])*
+    (x-X[[1]])+s[[1,2]])(x - X[[1]])+
+     s[[1,1]],0] ;
+Sm[m_,x_] :=
+  If[X[[m]]<=x && x<X[[m+1]],
+   ((s[[m,4]](x - X[[m]])+s[[m,3]])*
+   (x-X[[m]])+s[[m,2]])(x - X[[m]])+
+    s[[m,1]],  0] ; 
+Sn[n_,x_] := If[X[[n]]<=x,
+    ((s[[n,4]](x - X[[n]])+s[[n,3]])*
+    (x-X[[n]])+s[[n,2]])(x - X[[n]])+
+     s[[n,1]],0] ;
+SP[x_] := S1[x] +
+    Sum[Sm[i,x], {i,2,n-1}] + Sn[n,x];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"(Note: Each Sm[m,x] defines the m-th piece of the \nspline function, which \
+is a cubic polynomial on its \nsupport interval and zero outside. Hence, it \
+is not \ncontinuous and the graph of Sm[m,x] has two \nvertical bars in both \
+ends. Because of this, the graph\nof Sp[n,x] has vertical bars at both end \
+points.To \novercome this, we define the end piece seperately as \nS1[x] and \
+Sn[n,x]. )",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["This excutes the above steps to make up a spline:",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[MakeSpline];
+MakeSpline :=
+Block[{},
+  Differences[XY];
+  TriDiagonal[a,b,c,v];
+  ComputeCoeff[d,h,z,Y] ];
+On[General::spell1];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->22,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Construct natural cubic spline for the\n given data.",
+    FontSize->22,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+XY = {{0.,1.},{1.,0.},{2.,0.}, {3.,1.},{4.,2.}, {5.,2.},{6.,1.}}    \
+  \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+MakeSpline;
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},DisplayFunction->Identity];
+gr = Plot[SP[x],{x,0,6},DisplayFunction->Identity];
+txt = StringForm[\"Natural Spline 
+ y = S[x]\"];
+Show[gr,dots,DisplayFunction->$DisplayFunction,
+PlotLabel->txt,AxesLabel->{\"x\",\"y    \"}];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Here are some pieces of Sm[m,x]. Notice the \nvertical bars that appear due \
+to the discontinuity. ",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[parts]
+parts=Plot[{Sm[1,x], Sm[6,x], Sm[4,x]}, {x,0,6}, DisplayFunction->Identity];
+Show[parts,dots,DisplayFunction->$DisplayFunction]
+\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Let us look at the individual cubic polynomial that \nforms the spline.   We \
+define P[k,x] as the cubic \npolynomial that forms the k-th piece of cubic \
+spline. \nIn this example, k=1,2,...,6",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[P,x];
+P[m_,x_] :=
+((s[[m,4]](x - X[[m]])+s[[m,3]])*
+(x-X[[m]])+s[[m,2]])(x - X[[m]])+
+ s[[m,1]] ;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Print[P[1,x]]; Print[P[2,x]]; 
+Print[P[3,x]]; Print[P[4,x]]; 
+Print[P[5,x]]; Print[P[6,x]]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+piece=Plot[{P[1,x], P[2,x],P[3,x],
+ P[4,x],P[5,x],P[6,x]}, 
+{x, 0,6}, PlotRange->{{0,6},{-0.2,2.2}},
+DisplayFunction->Identity];
+Show[piece,dots,DisplayFunction->$DisplayFunction]
+\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->22,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ". Construct natural cubic spline for the\ngiven data which outlines a car: \
+",
+    FontSize->22,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+XY = {{0.,0.8},{0.5,0.8},{1.,1.2}, 
+{8.,3.},{11.,6.},{18.,6.}, {20.5,3.5},
+{24.,3.}, {25.,0}}          \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+MakeSpline;
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]}, DisplayFunction->Identity];
+gr = Plot[SP[x],{x,0,26},
+  PlotRange->{{0,26},{0,8.1}},  
+  AspectRatio -> 0.25,
+DisplayFunction->Identity];
+txt = StringForm[\"Natural Spline 
+   y = S[x]\"];
+Show[gr,dots,DisplayFunction->$DisplayFunction,
+PlotLabel->txt,AxesLabel->{\"x\",\"y\"}];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 3",
+    FontSize->22,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Construct natural cubic spline \ninterpolating the function",
+    FontSize->22,
+    FontSlant->"Plain"],
+  StyleBox[
+  " f(x) = 1 / (1+25 x^2)  over\n [-1,1] using equally spaced points.",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY,dots];
+f[x_] = 1 /(1+ 25x^2);
+XY= Table[{0.2 i, f[0.2 i]},{i, -5, 5}] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+MakeSpline;
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},DisplayFunction->Identity];
+F = Plot[f[x], {x, -1,1},DisplayFunction->Identity]; 
+gr = Plot[SP[x],{x,-1,1},DisplayFunction->Identity];
+txt = StringForm[\"Natural Spline  
+y = S[x]\"];
+Show[ gr,dots,DisplayFunction->$DisplayFunction,
+PlotLabel->txt,AxesLabel->{\"x\",\"y\"}];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Show[F, gr,dots,DisplayFunction->$DisplayFunction,
+PlotLabel->txt,AxesLabel->{\"x\",\"y\"}];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 138}, {Automatic, 3}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 117, 3, 39, "Left Header"],
+Cell[1829, 54, 412, 12, 85, "Left Header"],
+Cell[2244, 68, 683, 28, 437, "Input"],
+Cell[2930, 98, 170, 4, 32, "Left Header"],
+Cell[3103, 104, 406, 15, 216, "Input"],
+Cell[3512, 121, 253, 6, 80, "Left Header"],
+Cell[3768, 129, 137, 8, 97, "Input"],
+Cell[3908, 139, 198, 6, 27, "Left Header"],
+Cell[4109, 147, 322, 13, 182, "Input"],
+Cell[4434, 162, 176, 5, 32, "Left Header"],
+Cell[4613, 169, 514, 19, 284, "Input"],
+Cell[5130, 190, 524, 10, 200, "Left Header"],
+Cell[5657, 202, 172, 4, 32, "Left Header"],
+Cell[5832, 208, 201, 10, 131, "Input"],
+Cell[6036, 220, 295, 11, 53, "Header"],
+Cell[6334, 233, 140, 5, 46, "Input"],
+Cell[6477, 240, 349, 10, 216, "Input"],
+Cell[6829, 252, 224, 6, 56, "Left Header"],
+Cell[7056, 260, 208, 7, 114, "Input"],
+Cell[7267, 269, 318, 7, 104, "Left Header"],
+Cell[7588, 278, 170, 8, 97, "Input"],
+Cell[7761, 288, 159, 6, 63, "Input"],
+Cell[7923, 296, 247, 9, 131, "Input"],
+Cell[8173, 307, 321, 13, 53, "Header"],
+Cell[8497, 322, 171, 6, 63, "Input"],
+Cell[8671, 330, 406, 13, 233, "Input"],
+Cell[9080, 345, 411, 14, 76, "Header"],
+Cell[9494, 361, 146, 6, 63, "Input"],
+Cell[9643, 369, 401, 11, 233, "Input"],
+Cell[10047, 382, 159, 5, 63, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

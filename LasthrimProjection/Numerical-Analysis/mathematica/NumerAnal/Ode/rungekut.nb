@@ -1,0 +1,326 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6390,        260]*)
+(*NotebookOutlinePosition[      7246,        290]*)
+(*  CellTagsIndexPosition[      7202,        286]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Fouth order Runger-Kutta method:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->29,
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+
+Cell["\<\
+Here is the 4th order Runger-Kutta's method of solving 
+x' = f(t,x)  with initial value x(a) = x0:   \
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Off[General::spell1];
+Clear[RungeKutt ,f0,a,b,x0,n];
+RungeKutt[f0_,a_,b_,x0_,n_] :=
+Module[{f,h,j,F1,F2,F3,F4,T,X},
+  Set@@{f[t_,x_],f0};
+  h = (b - a)/n //N;
+  T = Table[0,{n+1}];
+  X = Table[0,{n+1}];
+  T[[1]] = a //N;
+  X[[1]] = x0 //N;
+  For[j=1, j<=n,j++,
+    F1 = h f[T[[j]],X[[j]]] //N;
+    F2=h f[T[[j]]+h/2,X[[j]]+F1/2]//N;
+    F3=h f[T[[j]]+h/2,X[[j]]+F2/2]//N;
+    F4=h f[T[[j]]+ h, X[[j]]+F3] //N;
+    X[[j+1]] = X[[j]] + (F1 + 2 F2 +
+         2 F3 + F4)/6 //N;
+    T[[j+1]] = a + h j //N];
+ Return[Transpose[{T,X}]] ];
+On[General::spell1]; \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1:",
+    FontWeight->"Bold"],
+  "  Differential Eqn: x' = Cos[t] - Sin[x] + t^2 with\ninitial value x(-1) \
+=3."
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+ Clear[f,t,x];   
+f[t_,x_] = Cos[t] - Sin[x] +t^2;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["RungeKutt[f[t,x],-1,1,3,10]   ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[pts];
+pts = RungeKutt[f[t,x],-1,1,3,200];
+ListPlot[pts,PlotJoined->True, AspectRatio -> 0.5]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontWeight->"Bold"],
+  "Compare with Mathematica solution:  "
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[ss];
+ss=NDSolve[{x'[t]==f[t,x[t]],
+    x[-1]==3},x[t],{t,-1,1}];
+Plot[Evaluate[x[t]/.ss],
+ {t,-1,1},AspectRatio -> 0.5];  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+According to Mathematica description, this solution is good 
+up to MachinePrecision -10 = 6 digits.  Let us look at the error 
+on the first 10 points, while  h = 2/200 = 0.01:\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[xx];
+xx[t_]= x[t] /. First[ss];
+Error = Table[pts[[i,2]]-
+  xx[-1+ (i-1) /100], {i,1,10}]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox[
+  "The accumulation of errors is not obvious in this example. \n Let us look \
+the last 10 points.  ",
+    FontSize->19]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Error = Table[pts[[i,2]]-
+  xx[-1+ (i-1) /100], {i,190,200}]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontWeight->"Bold"],
+  "  Differential Eqn: x' = x[t] + Exp[t] + t x[t] with\ninitial value x( 1) \
+=2."
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f,t,x];
+f[t_,x_] = (t *x - x^2) / t^2; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[pts];
+pts = RungeKutt[f[t,x],1,3,2,200 ];
+ListPlot[pts,PlotJoined->True, AspectRatio -> 1]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontWeight->"Bold"],
+  "Compare with the exact solution: "
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[ss,xx];
+ss=DSolve[{x'[t]==f[t,x[t]],x[1]==2},x[t],t];
+xx[t_]= x[t] /. First[ss] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Plot[xx[t], {t, 1,3},AspectRatio -> 1]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Let us look at the error on the first 11 points being evaluated, 
+where h = 2/100 = 0.05.\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+ Error1 = Table[pts[[i,2]]-
+   xx[1+ (i-1) /100], {i,1,10}]//N \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+The accumulation of error becomes is not a lot in this example.
+Let us look at the error in on the last 11 points being evaluated:\
+\>", 
+  "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Error2=Table[pts[[i,2]]-
+ xx[1+ (i-1) /100], {i,90,100}]//N \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Compare to the previous examples, the Runge-Kutta method 
+gives a higher precision as it should be.\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 183}, {Automatic, 97}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 164, 5, 39, "Left Header"],
+Cell[1876, 56, 196, 6, 46, "Left Header"],
+Cell[2075, 64, 621, 23, 352, "Input"],
+Cell[2699, 89, 230, 8, 46, "Left Header"],
+Cell[2932, 99, 117, 5, 46, "Input"],
+Cell[3052, 106, 89, 2, 29, "Input"],
+Cell[3144, 110, 167, 6, 80, "Input"],
+Cell[3314, 118, 180, 7, 27, "Left Header"],
+Cell[3497, 127, 195, 8, 97, "Input"],
+Cell[3695, 137, 270, 7, 65, "Left Header"],
+Cell[3968, 146, 162, 7, 80, "Input"],
+Cell[4133, 155, 290, 11, 52, "Left Header"],
+Cell[4426, 168, 127, 5, 46, "Input"],
+Cell[4556, 175, 231, 8, 46, "Left Header"],
+Cell[4790, 185, 112, 5, 46, "Input"],
+Cell[4905, 192, 165, 6, 80, "Input"],
+Cell[5073, 200, 177, 7, 27, "Left Header"],
+Cell[5253, 209, 153, 6, 80, "Input"],
+Cell[5409, 217, 99, 2, 29, "Input"],
+Cell[5511, 221, 184, 6, 46, "Left Header"],
+Cell[5698, 229, 130, 5, 46, "Input"],
+Cell[5831, 236, 228, 7, 46, "Left Header"],
+Cell[6062, 245, 127, 5, 46, "Input"],
+Cell[6192, 252, 194, 6, 46, "Left Header"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

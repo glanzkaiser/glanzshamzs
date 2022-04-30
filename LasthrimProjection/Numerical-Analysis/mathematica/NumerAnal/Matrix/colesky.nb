@@ -1,0 +1,177 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3390,        126]*)
+(*NotebookOutlinePosition[      4244,        156]*)
+(*  CellTagsIndexPosition[      4200,        152]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Cholesky Decomposition:  ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+The following is the Cholesky decomposition of a 
+real, symmetric, positive definite matrix A, it takes 
+the form A = LL^t, where L is lower triangular.\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Off[General::spell1];
+Clear[Cholesky,a0];
+Cholesky[a0_] :=
+  Module[{a, i,j,k,p,n},
+  a = a0;
+  n = Length[a];
+  Module[{i,j},
+   x = Table[0,{n},{n}];
+  Clear[i,j,k,p];
+   For[k=1,k<=n,k++, 
+    x[[k,k]]=( a[[k,k]]- 
+    Sum[(x[[k,i]])^2,{i,1,k-1}])^(0.5);
+     For[p=k+1,p<=n,p++,
+      x[[p,k]]=(a[[p,k]]-
+        Sum[x[[p,j]]* x[[k,j]],
+          {j,1,k-1}]) / x[[k,k]] ];]; ];  
+  Return[x]; ]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->19,
+    FontWeight->"Bold"],
+  StyleBox[": Here is a matrix of 3 by 3:",
+    FontSize->19]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+A={{2,1,1},{1,4,1},{1,1,2}};
+MatrixForm[A] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Here is the matrix L:  ",
+  FontSize->20]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+L=Cholesky[A];
+MatrixForm[L] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Let us  verify  the factorization:   ",
+  FontSize->20]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["MatrixForm[L . Transpose[L] ] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 98}, {Automatic, 2}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 112, 3, 39, "Left Header"],
+Cell[1824, 54, 247, 7, 80, "Left Header"],
+Cell[2074, 63, 467, 20, 301, "Input"],
+Cell[2544, 85, 226, 9, 30, "Left Header"],
+Cell[2773, 96, 110, 5, 46, "Input"],
+Cell[2886, 103, 146, 4, 31, "Left Header"],
+Cell[3035, 109, 96, 5, 46, "Input"],
+Cell[3134, 116, 160, 4, 31, "Left Header"],
+Cell[3297, 122, 89, 2, 29, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

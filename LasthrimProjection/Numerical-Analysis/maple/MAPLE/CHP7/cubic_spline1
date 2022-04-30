@@ -1,0 +1,15 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  cubic_spline1
+#
+# Generate and plot the natural cubic spline function
+# for the data (x,y) = {(-1,1), (0,2), (1,-1)}
+
+ readlib(spline):
+ S := spline([-1, 0, 1], [1, 2, -1], x, cubic);
+ plot(S(x),x= -1..1);
+

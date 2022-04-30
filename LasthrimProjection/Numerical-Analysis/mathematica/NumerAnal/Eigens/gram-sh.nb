@@ -1,0 +1,305 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6970,        230]*)
+(*NotebookOutlinePosition[      7825,        262]*)
+(*  CellTagsIndexPosition[      7781,        258]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Gram-Schmidt Process : "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[StyleBox[
+"We apply the Gram-Schmidt process to the columns of a matrix A.\nThe result \
+is an orthonormal matrix Q and an upper triangle matrix\nT. The relation is A \
+= Q.T.  \nWe again use \"digit\" to control the accuracy.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Off[General::spell1];\nClear[GramSchmidt,a0];\nGramSchmidt[a0_] := \n\
+Module[{a, b, n, m }, \n a = a0;\n mna = Dimensions[a];\n m = mna[[1]]; \n n \
+= mna[[2]];\n   norm[V_] :=N[ Sqrt[V.Conjugate[V]/.List->Plus], digit];\n   \
+b=Transpose[a];   (*In ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " a[[k]] is the k-th \n                      row of a,here we work with \
+columns*)\n   Clear[t]; \n   t=Table[0,{i,1,n},{j,1,n}];\n For[k=1, k <= n, \
+k++,\n      t[[k,k]] =  norm[b[[k]]];\n      b[[k]] = N[ b[[k]] / t[[k,k]], \
+digit]; \n    For[j=k+1, j <=n, j++,\n      t[[k,j]] = \
+N[Conjugate[b[[k]]].b[[j]]/.List->Plus,digit];\n      b[[j]] = N[b[[j]] - \
+t[[k,j]] b[[k]],digit]; ];];\n a=Transpose[b];     \n Return[a]; ];\n  \
+On[General::spell1];   "
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[digit];\ndigit = 8; "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": Here is a matrix of 2 by 2: ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[A];\nA={{1,2},{1,1}}; \nMatrixForm[A]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["GS=GramSchmidt[A];\nMatrixForm[GS] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[t] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Let us verify: A = GS. t, and  GS^T . GS = I: ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[GS.t]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[Transpose[GS].GS] ]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": Here is a matrix of 3 by 3: ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A];\nA={{2,1,0},{1,2,1}, {0,1,2}} ;\nMatrixForm[A]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[GS];\nGS=GramSchmidt[A];\nMatrixForm[GS]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[t] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Let us verify: A = GS. t, and  GS^T . GS = I: ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[GS.t]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[Transpose[GS].GS]] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 3",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ": We can apply Gram-Schmidt process on a family of \nvectors. Here are two \
+vectors, which we write as columns of a\nmatrix of 3 by 2: ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A,B];\nB={{1,2,1},{2,1,1} } ;\nA=Transpose[B];  \nMatrixForm[A] "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[GS];\nGS=GramSchmidt[A];\nMatrixForm[GS]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[t] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Let us verify: A = GS. t, and  GS^T . GS = I: ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[GS.t]] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[Transpose[GS].GS]] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 4",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": Here is a complex matrix of 3 by 2: ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A];\nA={{1+I,2},{1,1},{1,2-2I}}; \nMatrixForm[A]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[GS];\nGS=GramSchmidt[A];\nMatrixForm[Chop[GS] ]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[t] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Let us verify: A = GS. t, and  GS^* . GS = I: ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[GS.t]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[ Transpose[Conjugate[GS]].GS]  ]"], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 284}, {Automatic, 27}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 292, 10, 70, "Left Header"],
+Cell[2006, 63, 345, 7, 70, "Left Header"],
+Cell[2354, 72, 826, 15, 70, "Input"],
+Cell[3183, 89, 79, 1, 70, "Input"],
+Cell[3265, 92, 259, 10, 70, "Left Header"],
+Cell[3527, 104, 96, 1, 70, "Input"],
+Cell[3626, 107, 88, 1, 70, "Input"],
+Cell[3717, 110, 67, 1, 70, "Input"],
+Cell[3787, 113, 175, 4, 70, "Left Header"],
+Cell[3965, 119, 69, 1, 70, "Input"],
+Cell[4037, 122, 88, 1, 70, "Input"],
+Cell[4128, 125, 259, 10, 70, "Left Header"],
+Cell[4390, 137, 112, 2, 70, "Input"],
+Cell[4505, 141, 101, 1, 70, "Input"],
+Cell[4609, 144, 67, 1, 70, "Input"],
+Cell[4679, 147, 175, 4, 70, "Left Header"],
+Cell[4857, 153, 75, 1, 70, "Input"],
+Cell[4935, 156, 88, 1, 70, "Input"],
+Cell[5026, 159, 368, 12, 70, "Left Header"],
+Cell[5397, 173, 127, 3, 70, "Input"],
+Cell[5527, 178, 101, 1, 70, "Input"],
+Cell[5631, 181, 67, 1, 70, "Input"],
+Cell[5701, 184, 175, 4, 70, "Left Header"],
+Cell[5879, 190, 76, 1, 70, "Input"],
+Cell[5958, 193, 88, 1, 70, "Input"],
+Cell[6049, 196, 267, 10, 70, "Left Header"],
+Cell[6319, 208, 108, 2, 70, "Input"],
+Cell[6430, 212, 107, 2, 70, "Input"],
+Cell[6540, 216, 67, 1, 70, "Input"],
+Cell[6610, 219, 175, 4, 70, "Left Header"],
+Cell[6788, 225, 75, 1, 70, "Input"],
+Cell[6866, 228, 101, 1, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

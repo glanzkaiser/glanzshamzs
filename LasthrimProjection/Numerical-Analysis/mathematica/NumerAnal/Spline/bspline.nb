@@ -1,0 +1,942 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     19899,        876]*)
+(*NotebookOutlinePosition[     20755,        906]*)
+(*  CellTagsIndexPosition[     20711,        902]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["B-Splines Curves:", "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[StyleBox[
+"To form a B-spline curve, we often use B-Spline functions\nbased on integer \
+nodes: ",
+  FontSize->19,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[B0,B1, B2,B3];
+B0[x_] = If[ 0<= x && x <1, 1,0];
+B1[x_] = If[0 <= x  && x <2,x B0[x]+ 
+ (2-x) B0[x-1], 0];
+B2[x_] = If[0 <= x  && x <3,x B1[x]/2+
+ (3-x) B1[x-1]/2, 0];
+B3[x_] = If[0 <= x  && x <4,
+  x B2[x]/3 + (4-x) B2[x-1]/3, 0];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Here are graph of several B-Splines of degree 2: ",
+  FontSize->18,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Plot[{B2[x], B2[x-1], B2[x-2]}, 
+{x, 0,5},AspectRatio -> 0.25]    
+    \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .25 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.02381 0.190476 0.005952 0.31746 [
+[.21429 -0.00655 -3 -9 ]
+[.21429 -0.00655 3 0 ]
+[.40476 -0.00655 -3 -9 ]
+[.40476 -0.00655 3 0 ]
+[.59524 -0.00655 -3 -9 ]
+[.59524 -0.00655 3 0 ]
+[.78571 -0.00655 -3 -9 ]
+[.78571 -0.00655 3 0 ]
+[.97619 -0.00655 -3 -9 ]
+[.97619 -0.00655 3 0 ]
+[.01131 .0377 -18 -4.5 ]
+[.01131 .0377 0 4.5 ]
+[.01131 .06944 -18 -4.5 ]
+[.01131 .06944 0 4.5 ]
+[.01131 .10119 -18 -4.5 ]
+[.01131 .10119 0 4.5 ]
+[.01131 .13294 -18 -4.5 ]
+[.01131 .13294 0 4.5 ]
+[.01131 .16468 -18 -4.5 ]
+[.01131 .16468 0 4.5 ]
+[.01131 .19643 -18 -4.5 ]
+[.01131 .19643 0 4.5 ]
+[.01131 .22817 -18 -4.5 ]
+[.01131 .22817 0 4.5 ]
+[ 0 0 0 0 ]
+[ 1 .25 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.21429 .00595 m
+.21429 .0122 L
+s
+[(1)] .21429 -0.00655 0 1 Mshowa
+.40476 .00595 m
+.40476 .0122 L
+s
+[(2)] .40476 -0.00655 0 1 Mshowa
+.59524 .00595 m
+.59524 .0122 L
+s
+[(3)] .59524 -0.00655 0 1 Mshowa
+.78571 .00595 m
+.78571 .0122 L
+s
+[(4)] .78571 -0.00655 0 1 Mshowa
+.97619 .00595 m
+.97619 .0122 L
+s
+[(5)] .97619 -0.00655 0 1 Mshowa
+.125 Mabswid
+.0619 .00595 m
+.0619 .0097 L
+s
+.1 .00595 m
+.1 .0097 L
+s
+.1381 .00595 m
+.1381 .0097 L
+s
+.17619 .00595 m
+.17619 .0097 L
+s
+.25238 .00595 m
+.25238 .0097 L
+s
+.29048 .00595 m
+.29048 .0097 L
+s
+.32857 .00595 m
+.32857 .0097 L
+s
+.36667 .00595 m
+.36667 .0097 L
+s
+.44286 .00595 m
+.44286 .0097 L
+s
+.48095 .00595 m
+.48095 .0097 L
+s
+.51905 .00595 m
+.51905 .0097 L
+s
+.55714 .00595 m
+.55714 .0097 L
+s
+.63333 .00595 m
+.63333 .0097 L
+s
+.67143 .00595 m
+.67143 .0097 L
+s
+.70952 .00595 m
+.70952 .0097 L
+s
+.74762 .00595 m
+.74762 .0097 L
+s
+.82381 .00595 m
+.82381 .0097 L
+s
+.8619 .00595 m
+.8619 .0097 L
+s
+.9 .00595 m
+.9 .0097 L
+s
+.9381 .00595 m
+.9381 .0097 L
+s
+.25 Mabswid
+0 .00595 m
+1 .00595 L
+s
+.02381 .0377 m
+.03006 .0377 L
+s
+[(0.1)] .01131 .0377 1 0 Mshowa
+.02381 .06944 m
+.03006 .06944 L
+s
+[(0.2)] .01131 .06944 1 0 Mshowa
+.02381 .10119 m
+.03006 .10119 L
+s
+[(0.3)] .01131 .10119 1 0 Mshowa
+.02381 .13294 m
+.03006 .13294 L
+s
+[(0.4)] .01131 .13294 1 0 Mshowa
+.02381 .16468 m
+.03006 .16468 L
+s
+[(0.5)] .01131 .16468 1 0 Mshowa
+.02381 .19643 m
+.03006 .19643 L
+s
+[(0.6)] .01131 .19643 1 0 Mshowa
+.02381 .22817 m
+.03006 .22817 L
+s
+[(0.7)] .01131 .22817 1 0 Mshowa
+.125 Mabswid
+.02381 .0123 m
+.02756 .0123 L
+s
+.02381 .01865 m
+.02756 .01865 L
+s
+.02381 .025 m
+.02756 .025 L
+s
+.02381 .03135 m
+.02756 .03135 L
+s
+.02381 .04405 m
+.02756 .04405 L
+s
+.02381 .0504 m
+.02756 .0504 L
+s
+.02381 .05675 m
+.02756 .05675 L
+s
+.02381 .0631 m
+.02756 .0631 L
+s
+.02381 .07579 m
+.02756 .07579 L
+s
+.02381 .08214 m
+.02756 .08214 L
+s
+.02381 .08849 m
+.02756 .08849 L
+s
+.02381 .09484 m
+.02756 .09484 L
+s
+.02381 .10754 m
+.02756 .10754 L
+s
+.02381 .11389 m
+.02756 .11389 L
+s
+.02381 .12024 m
+.02756 .12024 L
+s
+.02381 .12659 m
+.02756 .12659 L
+s
+.02381 .13929 m
+.02756 .13929 L
+s
+.02381 .14563 m
+.02756 .14563 L
+s
+.02381 .15198 m
+.02756 .15198 L
+s
+.02381 .15833 m
+.02756 .15833 L
+s
+.02381 .17103 m
+.02756 .17103 L
+s
+.02381 .17738 m
+.02756 .17738 L
+s
+.02381 .18373 m
+.02756 .18373 L
+s
+.02381 .19008 m
+.02756 .19008 L
+s
+.02381 .20278 m
+.02756 .20278 L
+s
+.02381 .20913 m
+.02756 .20913 L
+s
+.02381 .21548 m
+.02756 .21548 L
+s
+.02381 .22183 m
+.02756 .22183 L
+s
+.02381 .23452 m
+.02756 .23452 L
+s
+.02381 .24087 m
+.02756 .24087 L
+s
+.02381 .24722 m
+.02756 .24722 L
+s
+.25 Mabswid
+.02381 0 m
+.02381 .25 L
+s
+0 0 m
+1 0 L
+1 .25 L
+0 .25 L
+closepath
+clip
+newpath
+.5 Mabswid
+.02381 .00595 m
+.02499 .00596 L
+.02605 .00597 L
+.02729 .00601 L
+.02846 .00605 L
+.03053 .00615 L
+.03279 .0063 L
+.03527 .00653 L
+.0379 .00682 L
+.04262 .0075 L
+.04749 .00841 L
+.05205 .00944 L
+.06244 .01248 L
+.07305 .01656 L
+.08274 .02115 L
+.10458 .03449 L
+.12357 .04949 L
+.14429 .06946 L
+.18493 .11953 L
+.22406 .18014 L
+.24404 .20652 L
+.25455 .2176 L
+.26565 .2272 L
+.27559 .23397 L
+.28086 .23686 L
+.28651 .23941 L
+.29171 .24127 L
+.29644 .24255 L
+.29872 .24303 L
+.3012 .24344 L
+.30234 .2436 L
+.30355 .24373 L
+.30467 .24384 L
+.30571 .24392 L
+.30685 .24399 L
+.30809 .24403 L
+.30931 .24405 L
+.3106 .24404 L
+.31181 .244 L
+.31295 .24394 L
+.31397 .24387 L
+.31508 .24378 L
+.31764 .24347 L
+.32034 .24302 L
+.32518 .2419 L
+.32968 .24049 L
+.33389 .23885 L
+.34346 .23397 L
+.35387 .22684 L
+.36375 .21832 L
+Mistroke
+.38229 .19772 L
+.42053 .13949 L
+.46123 .08452 L
+.50041 .04529 L
+.52186 .02951 L
+.53168 .02362 L
+.54205 .01833 L
+.55164 .01427 L
+.56216 .01074 L
+.56678 .00949 L
+.57173 .00837 L
+.57606 .00756 L
+.58065 .00688 L
+.58317 .00659 L
+.58595 .00633 L
+.58717 .00624 L
+.58848 .00615 L
+.58971 .00609 L
+.59085 .00604 L
+.5922 .00599 L
+.59291 .00598 L
+.59367 .00596 L
+.59447 .00595 L
+.59522 .00595 L
+.5959 .00595 L
+.59663 .00595 L
+.60193 .00595 L
+.62206 .00595 L
+.66303 .00595 L
+.70249 .00595 L
+.74043 .00595 L
+.78082 .00595 L
+.8197 .00595 L
+.86102 .00595 L
+.90084 .00595 L
+.93914 .00595 L
+.97619 .00595 L
+Mfstroke
+.02381 .00595 m
+.06244 .00595 L
+.10458 .00595 L
+.14415 .00595 L
+.18221 .00595 L
+.20178 .00595 L
+.20742 .00595 L
+.21019 .00595 L
+.2114 .00595 L
+.21274 .00595 L
+.21394 .00595 L
+.21506 .00596 L
+.21625 .00597 L
+.21753 .006 L
+.21819 .00602 L
+.21892 .00605 L
+.22024 .00611 L
+.22272 .00626 L
+.22527 .00648 L
+.22803 .00678 L
+.23303 .00749 L
+.23791 .00839 L
+.24239 .00941 L
+.25259 .01237 L
+.26336 .01649 L
+.283 .02661 L
+.30133 .0391 L
+.34024 .07536 L
+.3816 .12843 L
+.4023 .16061 L
+.42145 .19006 L
+.44003 .21258 L
+.44954 .22176 L
+.45978 .22989 L
+.46994 .23614 L
+.47438 .23831 L
+.47925 .24028 L
+.48386 .24177 L
+.48815 .24282 L
+.49053 .24326 L
+.49269 .24358 L
+.49388 .24372 L
+.49518 .24384 L
+.4964 .24393 L
+.49753 .24399 L
+.49878 .24403 L
+.49997 .24405 L
+.50104 .24404 L
+.5022 .24401 L
+.50346 .24394 L
+Mistroke
+.50417 .2439 L
+.50481 .24385 L
+.50722 .24359 L
+.50947 .24326 L
+.5119 .24281 L
+.51629 .24173 L
+.52153 .23999 L
+.52705 .23765 L
+.53693 .23211 L
+.54644 .22518 L
+.55661 .21601 L
+.57496 .19489 L
+.61637 .13142 L
+.65627 .07926 L
+.69465 .04223 L
+.71446 .02816 L
+.72458 .0223 L
+.73548 .01699 L
+.74567 .01297 L
+.75499 .01008 L
+.76391 .00803 L
+.76839 .00727 L
+.77329 .00663 L
+.77583 .00638 L
+.77717 .00627 L
+.77859 .00617 L
+.77983 .0061 L
+.78119 .00604 L
+.78243 .006 L
+.78359 .00597 L
+.7848 .00596 L
+.78595 .00595 L
+.78698 .00595 L
+.7881 .00595 L
+.79293 .00595 L
+.8139 .00595 L
+.85465 .00595 L
+.89388 .00595 L
+.9316 .00595 L
+.97177 .00595 L
+.97619 .00595 L
+Mfstroke
+.02381 .00595 m
+.06244 .00595 L
+.10458 .00595 L
+.14415 .00595 L
+.18221 .00595 L
+.22272 .00595 L
+.26171 .00595 L
+.30316 .00595 L
+.34309 .00595 L
+.3815 .00595 L
+.39174 .00595 L
+.39675 .00595 L
+.40134 .00595 L
+.40252 .00595 L
+.40381 .00595 L
+.40503 .00595 L
+.40616 .00596 L
+.40747 .00598 L
+.40867 .00602 L
+.41005 .00607 L
+.41134 .00614 L
+.4141 .00633 L
+.41664 .00657 L
+.42237 .00731 L
+.42706 .00813 L
+.4321 .00922 L
+.44119 .01176 L
+.452 .01571 L
+.46185 .02021 L
+.48094 .03134 L
+.5017 .04706 L
+.54248 .08893 L
+.58175 .14299 L
+.6195 .19997 L
+.63884 .22072 L
+.64972 .22952 L
+.6597 .23576 L
+.66444 .23812 L
+.6695 .2402 L
+.67428 .24175 L
+.67862 .24282 L
+.68128 .24331 L
+.68373 .24365 L
+.68501 .24379 L
+.68642 .2439 L
+.68713 .24395 L
+.6879 .24399 L
+.68862 .24402 L
+.68927 .24403 L
+.69055 .24405 L
+Mistroke
+.69174 .24403 L
+.69304 .24399 L
+.69377 .24395 L
+.69443 .24391 L
+.69564 .24381 L
+.69695 .24368 L
+.69932 .24336 L
+.70171 .24294 L
+.70426 .24239 L
+.70886 .24109 L
+.71432 .23907 L
+.7193 .23678 L
+.73013 .23029 L
+.74038 .22226 L
+.76033 .20135 L
+.77876 .17585 L
+.81808 .11532 L
+.85588 .06928 L
+.8769 .04909 L
+.89614 .03399 L
+.91502 .02232 L
+.92463 .01758 L
+.93488 .01342 L
+.94525 .01014 L
+.95466 .00798 L
+.9592 .00722 L
+.96159 .00688 L
+.96412 .00659 L
+.96633 .00638 L
+.96876 .00619 L
+.96983 .00613 L
+.97097 .00607 L
+.97196 .00603 L
+.97304 .006 L
+.97388 .00598 L
+.97466 .00596 L
+.9754 .00596 L
+.97619 .00595 L
+Mfstroke
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+  ImageSize->{288, 72},
+  ImageMargins->{{43, 0}, {0, 0}},
+  ImageRegion->{{0, 1}, {0, 1}},
+  ImageCache->GraphicsData["Bitmap", "\<\
+CF5dJ6E]HGAYHf4PAg9QL6QYHg<PAVmbKF5d0`40004P0000B0800@400ooo8Ol00?oo8Ol00?oo8Ol0
+04oo00@002co00@002_o00<<02go00<l02[o00<001;o001Ao`03?00[o`03?00[o`04?00]o`03?00]
+o`03?00?o`00DOl00c`0;?l00c`0;Ol00c`0:?l502ko00<l00oo001Ao`03?00]o`03?00Zo`03300Z
+o`04?00/o`03000Bo`00DOl00c`0;_l00c`0:ol00c`0:Ol00c00;?l00c`04_l004oo00<002go00@l
+02[o00@l02co00<<02_o00<l01;o001Ao`03?00/o`03300[o`03300]o`03?00Zo`04000Ao`008_l0
+0c`0nol002;o00<l0?_o000LooL03Ol002;o00<<00Go00<002Co00<l00Go00<002Co00/oo0006_l0
+0`001_l00c`08_l010001_l00c`08_l00`001ol00c`04Ol002;o00<l00So00<<02co00<<02co00<<
+01Co00<002co00<<02_o00<001ko000Ro`03300:o`03000/o`03300/o`03300@o`03300/o`03300/
+o`03300Oo`008_l00``03?l00``0;?l00``0;?l00``03?l00``0;?l00``0;?l00``08Ol0017o00<<
+00Ol00?000D?4?l00``0;?l00``0;?l00c`02?l00``0;Ol00c`0:ol00``08ol0013o00@l00[o1Cl0
+0c`03ol00c`0;?l00c`0:ol00``01_l00``0;?l00``0:ol00``09Ol0013o00@l00[o1Cl00``04?l0
+0``0;?l00``0;?l00c`01o`[o`03?00/o`03?00Uo`004?l013`02_l8?a;o00<l02_o00<<02co23lZ
+o`03300/o`03300Wo`004?l013`02_l5?`03?00Co`03?00/o`03?00[o`03000]o`03?00/o`03?00X
+o`004?l013`02?l010<01_0Do`03300/o`03?00Zo`03<00/o`03?00/o`03?00Yo`004Ol00``02_l8
+?aGo00<l02co00<l02So23lWo`03?00/o`03?00Zo`008_l00``05ol00c`0;?l00c`09_l00c`01o`U
+o`03?00/o`03?00[o`004Ol00``01o`00l001@lJo`03300/o`03?00To`03?005o`03?00To`03?00/
+o`03?00/o`004?l013`02?l013l01_0Io`03?00[o`03?00Ro`03?007o`03?00Ro`03?00/o`03?00]
+o`004?l013`02Ol013l01L0Jo`03?00[o`03?00Po`03?009o`03?00Po`03?00/o`03?00^o`004?l0
+13`02_l8?a[o00<l02co00<l01ko00<l00_o00<l01ko00<l02co00<l02oo000@o`04?00;o`Ll6ol0
+0c`0;?l00c`07?l00c`03Ol00c`07?l00c`0;?l00c`0<?l0013o00@l00So00<l00Ll7?l00c`0;?l0
+0c`06_l00c`03ol00c`06_l00c`0;?l00c`0<Ol0017o00<<00Wo00<<00Kc7Ol00c`0;?l00c`06?l0
+0``04Ol00c`06?l00c`0;?l00c`0<_l0017o00<<00Ol1_05`ako00<l02co00<l01Oo00<l01;o00<l
+01Oo00<l02_o00<l03?o000@o`04?008o`03?007?1ko00<l02co00<l01Ko00<l01?o00<l01Ko00<l
+02co00<l03?o000@o`04?00;o`04?00Ro`03?00/o`03?00Do`03?00Eo`03?00Do`03?00/o`03?00d
+o`004?l013`02Ol010l01L0Po`03?00/o`03?00Co`03?00Fo`03?00Bo`03?00/o`03?00eo`004?l0
+13`02ol013`09?l00c`0;?l00c`04Ol00c`05ol00c`04_l00c`0:ol00c`0=_l0013o00@l00So00<l
+00Ll8_l00c`0:ol00c`04?l00c`06Ol00c`04?l00c`0:ol00c`0=ol0017o00<<00Wo00<<00K`8ol0
+0c`0:ol00c`03_l00c`06ol00c`03_l00c`0:ol00c`0>?l002;o00<l02Go00<l02_o00<l00go00<l
+01co00<l00co00<l02co00<l03So000Ao`033007o0Sl00<l02Co00<l02co00<l00_o00<l01go00<l
+00co00<l02_o00<l03Wo000@o`04?00:o`Do00<l02Go00<l02co00<l00Wo00<l01oo00<l00[o00<l
+02co00<l03Wo000@o`04?007o`D01_<Uo`03?00/o`03?008o`03?00Qo`03?008o`03?00/o`03?00j
+o`004?l013`01ol00c`01Cl00``09_l00c`0;?l00c`01ol00c`08_l00c`01_l00c`0;?l00c`0>ol0
+013o00@l00So00@c00K`9ol00c`0;?l00c`01Ol00c`08ol00c`01_l00c`0;?l00c`0>ol0013o00@l
+00Wo00<<00Kc9ol00c`0;?l013l01o`To`04?`07o2_o00<l03co000Ao`03300:o`Do00<l02So00<l
+02co00<l00Ol9Ol00c`01_<[o`03?00mo`008_l00``0:_l00c`0:ol00c`01_<Vo`03?006lb_o00<l
+03go000Ao`033007o0G01_<Yo`03?00/o`04?00[o`04?00^o`03?00no`004?l013`02ol7?2[o00<l
+02co00<`02co00<<02go00<l03oo000@o`04?00;o`04?00^o`03?00[o`03300/o`03300]o`03?00o
+o`004?l013`02?l01@?01L0[o`03?00[o`03300/o`03300/o`03?010o`004?l013`02?l013l01_0/
+o`03?00Zo`03<00[o`04?00[o`03?011o`004?l013`02?l00c`01o`/o`03?00Yo`04?00[o`04?00[
+o`03?011o`004Ol00``02?l00`001c`]o`03?00Wo`03?006lbKo00<l00Kc9_l00c`0@_l002;o00<<
+02oo00<l02Ko00<l00Ol9?l013l01o`To`03?013o`004Ol00``01o`6l0G?;ol00c`09?l013l01o`T
+o`04?`07o2Co00<l04?o000@o`04?008o`03?007?2oo00<l02?o00<l00Ko00<l02?o00<l00Ko00<l
+02?o00<l04Co000@o`04?008o`03?005?003?00_o`03?00Ro`03?007o`03?00Qo`033008o`03?00Q
+o`03?015o`004?l013`02?l00`001o`ao`03?00Po`03?009o`03?00Po`03?008o`03?00Po`03?016
+o`004?l013`02?l013l01_0bo`03?00No`03?00:o`03?00Oo`03?00:o`03?00Oo`03?016o`004?l0
+13`02?l013l01_0bo`03?00Mo`03?00<o`03?00Mo`03?00<o`03?00Mo`03?017o`004Ol00``02Ol0
+0`001_<co`03?00Ko`03?00>o`03?00Ko`03?00>o`03?00Ko`03?018o`008_l00``0=Ol00c`06Ol0
+0c`04?l00c`06Ol00c`04?l00c`06Ol00c`0BOl0017o00<<00Ol1_<5ccGo00<l01Oo00<<01;o00<l
+01Oo00<l01;o00<l01Oo00<l04[o000@o`04?009o`03?006l3Ko00<<01Go00<l01Co00<l01Go00<l
+01Co00<l01Go00<l04_o000@o`04?00:o`Do00<<03So00<l01;o00<l01Ko00<<01?o00<l01Ko00<<
+01;o00<<04go000@o`04?00:o`Po>Ol00c`03ol00``06Ol00``04?l00``06Ol00``04?l00``0C_l0
+013o00@l00_o1c`jo`03300<o`03000Mo`03300<o`03300Mo`03300<o`03301@o`004?l013`02?l0
+0c`01c`lo`030008o`03300Qo`030007o`03000Qo`040007o`03001Co`004Ol00``02?l010001_<o
+o`P09ol702So1`1Fo`008_l00``0nol00001\
+\>"],
+  ImageRangeCache->{{{0, 287}, {71, 0}} -> {-0.74136, -0.142007, 0.021379, 
+  0.012828}}],
+
+Cell[BoxData[
+    TagBox[\(\[SkeletonIndicator]  Graphics  \[SkeletonIndicator]\),
+      False,
+      Editable->False]], "Output"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Here are graph of several B-Splines of degree 3: ",
+  FontSize->18,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Plot[{B3[x], B3[x-1],B3[x-2],B3[x-3]},
+ {x, 0,7},AspectRatio -> 0.25]    
+    \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Cubic B-Splines curves: If we use n+1 equally spaced nodes on \n[0,1] \
+(including 0 and 1 as nodes), there are n sub-intervals  on\n[0,1]. \
+Consequently, there are n+3 cubic B-splines not vanishing\non [0,1]. They are \
+given by B3[n x -i] for i = -3, -2, -1, 0, ....,n. \nWe can use them to build \
+a spline curve.",
+  FontSize->18,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY];
+XY = {{0.,1.},{1.,0.},{2.,0.2}, 
+{3.,1.}};
+Clear[B,BX,BY];
+B[t_] = XY[[1]]B3[t+3]+XY[[2]]B3[t+2]+
+ XY[[3]] B3[t+1] +XY[[4]] B3[t];
+BX[x_] = B[x][[1]];
+BY[x_] = B[x][[2]];       \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots]; 
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},
+   DisplayFunction-> Identity];
+gr = ParametricPlot[{BX[t],BY[t]}, 
+ {t,0,1}, AspectRatio -> 0.5,
+     PlotRange -> {{0,3}, {0,1}},
+DisplayFunction->Identity];
+txt = StringForm[\"B-Spline Curve and Control Points\"];
+Show[gr,Graphics[Line[XY]],dots,
+DisplayFunction->$DisplayFunction,
+PlotLabel->txt];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[XY];
+XY = XY = {{0.,0.2},{1.,0.},{2.,0.2},
+ {3.,1.},{4.,1.3},{5.,1.3}, {6.,1.}, 
+ {5.,0.8}};
+Clear[B,BX,BY];
+B[t_] = XY[[1]]B3[5t+3]+
+  XY[[2]]B3[5t+2]+ XY[[3]] B3[5t+1] +
+  XY[[4]] B3[5t]+ XY[[5]]B3[5t-1]+
+  XY[[6]] B3[5t-2]+XY[[7]] B3[5t-3] +
+  XY[[8]] B3[5t-4];
+BX[x_] = B[x][[1]];
+BY[x_] = B[x][[2]];       \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots]; 
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},DisplayFunction->
+Identity];
+gr = ParametricPlot[{BX[t],BY[t]},
+{t,0,1},DisplayFunction->Identity];
+txt = StringForm[\"Bspline Curve and Control Points\"];
+Show[gr,Graphics[Line[XY]],dots,
+DisplayFunction->$DisplayFunction,
+PlotLabel->txt];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Here is an example for a graph that is a closed curve. There are 8 \npoints. \
+If you use n+1=6 notes on [0,1] (so that there are 5+3 =8\nB-spline piece not \
+vanishing on [0,1]), you won't get a closed\ncurve:",
+  FontSize->18,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY];
+XY = XY = {{5.,0.5},{3.5,0.2},{2.,0.5},
+ {3.,1.},{4.,1.3}, {5.,1.3}, {6.,1.}, 
+ {5.,0.5}};
+Clear[B,BX,BY];
+B[t_] = XY[[1]]B3[5t+3]+
+ XY[[2]] B3[5t+2]+ XY[[3]] B3[5t+1]+
+ XY[[4]] B3[5t]+ XY[[5]]B3[5t-1]+
+ XY[[6]] B3[5t-2]+ XY[[7]] B3[5t-3]+
+ XY[[8]]B3[5t-4];
+BX[x_] = B[x][[1]];
+BY[x_] = B[x][[2]];       \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots]; 
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},DisplayFunction->
+ Identity];
+gr = ParametricPlot[{BX[t],BY[t]},
+{t,0,1}, DisplayFunction->Identity];
+txt = StringForm[\"Bspline Curve and Control Points\"];
+Show[gr,Graphics[Line[XY]],dots,
+DisplayFunction->$DisplayFunction,
+PlotLabel->txt];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Instead, we can use  n+1=8 nodes on [0,1] (so that there are \n7+3=10 \
+non-vanishing B-splines on [0,1]), and we use the data \nin a circular way; \
+that is, we define new points P9=P2, P10=P3.",
+  FontSize->18,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY];
+XY = XY = {{5.,0.5},{3.5,0.2},{2.,0.5},  
+ {3.,1.},{4.,1.3},{5.,1.3}, {6.,1.},
+ {5.,0.5}};
+Clear[B,BX,BY];
+B[t_] = XY[[1]]B3[7t+3]+
+  XY[[2]] B3[7t+2]+ XY[[3]]B3[7t+1]+
+  XY[[4]] B3[7t] +XY[[5]]B3[7t-1]+
+  XY[[6]] B3[7t-2]+XY[[7]] B3[7t-3]+
+  XY[[8]]B3[7t-4]+XY[[2]] B3[7t-5]+
+  XY[[3]]B3[7t-6] ;
+BX[x_] = B[x][[1]];
+BY[x_] = B[x][[2]];       \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots]; 
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},DisplayFunction->Identity];
+gr = ParametricPlot[{BX[t],BY[t]},
+{t,0,1},  DisplayFunction->Identity];
+txt = StringForm[\"Bspline Curve and Control Points\"];
+Show[gr,Graphics[Line[XY]],dots,
+DisplayFunction->$DisplayFunction,
+PlotLabel->txt];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 150}, {Automatic, 62}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 99, 3, 35, "Header"],
+Cell[1811, 54, 226, 7, 49, "Header"],
+Cell[2040, 63, 304, 11, 148, "Input"],
+Cell[2347, 76, 189, 5, 24, "Header"],
+
+Cell[CellGroupData[{
+Cell[2561, 85, 138, 6, 63, "Input"],
+Cell[2702, 93, 12544, 606, 80, 7983, 545, "GraphicsData", 
+"PostScript", "Graphics"],
+Cell[15249, 701, 130, 3, 24, "Output"]
+}, Open  ]],
+Cell[15394, 707, 189, 5, 24, "Header"],
+Cell[15586, 714, 145, 6, 63, "Input"],
+Cell[15734, 722, 458, 10, 100, "Header"],
+Cell[16195, 734, 256, 11, 148, "Input"],
+Cell[16454, 747, 431, 14, 233, "Input"],
+Cell[16888, 763, 385, 15, 216, "Input"],
+Cell[17276, 780, 369, 12, 199, "Input"],
+Cell[17648, 794, 351, 8, 81, "Header"],
+Cell[18002, 804, 383, 15, 216, "Input"],
+Cell[18388, 821, 371, 12, 199, "Input"],
+Cell[18762, 835, 335, 8, 62, "Header"],
+Cell[19100, 845, 422, 16, 233, "Input"],
+Cell[19525, 863, 370, 11, 199, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

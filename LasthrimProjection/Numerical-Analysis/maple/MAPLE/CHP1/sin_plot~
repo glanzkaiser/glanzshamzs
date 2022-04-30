@@ -1,0 +1,22 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  sin_plot
+#
+# Plot four taylor series approximation of sin(x):
+#
+ f(x) := sin(x);
+ g(x) := x;
+ h(x) := g(x) - (x^3)/6;
+ k(x) := h(x) + (x^5)/120;
+ 
+ ps1 := plot(f(x), x= -Pi..Pi);
+ ps2 := plot(g(x), x= -Pi..Pi);
+ ps3 := plot(h(x), x= -Pi..Pi);
+ ps4 := plot(k(x), x= -Pi..Pi); 
+ plot([ps1,ps2,ps3,ps4], title = 'Approximations_of_sin');
+ 
+

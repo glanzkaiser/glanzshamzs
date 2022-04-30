@@ -1,0 +1,159 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4122,        109]*)
+(*NotebookOutlinePosition[      4981,        141]*)
+(*  CellTagsIndexPosition[      4937,        137]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Cubic Bezire Curves"], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->22],
+
+Cell[TextData[StyleBox[" Cubic Bezier curve has 4control points:",
+  FontSize->16,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"Clear[XY];\nXY = {{0.,1.},{1.,0.},{2.,0.2}, {3.,1.}};\nClear[B,BX,BY];\n\
+B[t_] = XY[[1]]t^3+XY[[2]] 3t^2(1-t)+\n             XY[[3]] 3t(1-t)^2 \
++XY[[4]] (1-t)^3;\nBX[x_] = B[x][[1]];\nBY[x_] = B[x][[2]];        "], "Input",\
+
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"Clear[dots];  \ndots = ListPlot[XY,PlotStyle->{PointSize[0.02]},\n           \
+     DisplayFunction->Identity];\ngr = ParametricPlot[{BX[t],BY[t]},{t,0,1},\n\
+     DisplayFunction->Identity];\ntxt = StringForm[\"Bezier Curve and Control \
+Points\"];\nShow[gr,Graphics[Line[XY]],dots,\n\
+DisplayFunction->$DisplayFunction,\nPlotLabel->txt];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+" One may joint severl cubic Bezier curves to form a composite curve,\n which \
+has C^1 smoothness.  We need to take the joint point on the \n line that \
+joint the second last point on the first piece to the second \n point on the \
+second piece. Here is an example of two pieces:",
+  FontSize->16,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"Clear[XY];\nXY = XY = {{0.,0.2},{1.,0.},{2.,0.2}, {3.,0.75},{4.,1.3},\n      \
+ {5.,1.3}, {6.,1.}};\nClear[B1, BX1, BY1,B2, BX2,BY2];\nB1[t_] = \
+XY[[1]]t^3+XY[[2]] 3t^2(1-t)+\n             XY[[3]] 3t(1-t)^2 +XY[[4]] \
+(1-t)^3;\nBX1[x_] = B1[x][[1]];\nBY1[x_] = B1[x][[2]]; \nB2[t_] = XY[[4]] \
+t^3+XY[[5]] 3t^2(1-t)+\n             XY[[6]] 3t(1-t)^2+XY[[7]] (1-t)^3;\n\
+BX2[x_] = B2[x][[1]];  \nBY2[x_] = B2[x][[2]];    "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},\n                \
+DisplayFunction->Identity];\ngr1 = ParametricPlot[{BX1[t],BY1[t]},{t,0,1},\n  \
+   DisplayFunction->Identity];\ngr2 = ParametricPlot[{BX2[t],BY2[t]},{t,0,1},\
+\n     DisplayFunction->Identity];\ntxt = StringForm[\"Bezier Curve and \
+Control Points\"];\nShow[gr1,gr2,Graphics[Line[XY]],dots,\n\
+DisplayFunction->$DisplayFunction, \nPlotLabel->txt];  "], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 228}, {Automatic, -18}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 134, 4, 70, "Header"],
+Cell[1848, 57, 203, 6, 70, "Header"],
+Cell[2054, 65, 270, 5, 70, "Input"],
+Cell[2327, 72, 393, 6, 70, "Input"],
+Cell[2723, 80, 444, 10, 70, "Header"],
+Cell[3170, 92, 475, 7, 70, "Input"],
+Cell[3648, 101, 471, 7, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

@@ -1,0 +1,5 @@
+The value of RAND_MAX used in this chapter may not always be the same on
+different platforms/compilers. It is at least 32767. One may want to check
+this value (the definition of RAND_MAX) on the compiler of one's choice 
+before compiling and executing the program.
+

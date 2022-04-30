@@ -1,0 +1,148 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      2775,        101]*)
+(*NotebookOutlinePosition[      3630,        131]*)
+(*  CellTagsIndexPosition[      3586,        127]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Back Substitution:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Here is the back Substitution that solves an upper-tridiagonal \
+system:\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Off[General::spell1];
+Clear[BackSub,a0,b0];
+BackSub[a0_,b0_] :=
+Module[{a,b,x,k,sum, n},
+  a = a0;
+  b = b0;
+  n= Length[b];
+    Module[{i,j},
+    x = Table[0,{i,n}];
+    x[[n]] = b[[n]]/a[[n,n]];
+    Clear[i,j,k];
+    For[i=n-1,1<=i,i--,
+      sum = 0;
+      For[j=i+1,j<=n,j++,
+        sum = sum + a[[i,j]] x[[j]] ]; 
+      x[[i]] = (b[[i]] - sum)/a[[i,i]]; ]; ];
+      Return[x]; ];
+On[General::spell1];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+A = N[{{3,-1,2,3},{0,-2,7,-4},{0,0,6,5},{0,0,0,3}}];
+B = N[{20,-7,4,6}];
+StringForm[\"A=``    B = ``\", 
+  MatrixForm[A], MatrixForm[B]] \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+X = BackSub[A,B];
+TableForm[X] \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 96}, {Automatic, 57}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 105, 3, 39, "Left Header"],
+Cell[1817, 54, 167, 6, 56, "Left Header"],
+Cell[1987, 62, 474, 21, 335, "Input"],
+Cell[2464, 85, 205, 7, 97, "Input"],
+Cell[2672, 94, 99, 5, 46, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

@@ -1,0 +1,73 @@
+FILE NAME               Description of MATLAB code
+
+CHP1/
+  sin_plot.m            Graph of Taylor series partial sums for sin(x)
+   s1.m, s2.m, s3.m      invoked by "sin_plot.m"
+  sqrt_approx.m         Variable precision arithmetic for approximation
+
+
+CHP3/
+  fun_roots.m           Roots of functions or polynomials
+   G.m                   invoked by "fun_roots.m"
+  gauss_newton.m        Newton's method for solving nonlinear systems
+   Fun.m                 invoked by "gauss_newton.m
+  poly_roots1.m         Roots of a cubic polynomial
+  poly_roots2.m         Roots of a fifth degree polynomial
+
+CHP4/
+  newtn_int_poly.m      Newton interpolation polynomial equidistant pts
+  runge_fun.m           Polynomial interpolation for the Runge function
+
+CHP5/
+  num_int1.m            Numerical integration of exp(-x*x)
+   f1.m                  invoked by "num_int1.m"
+  num_int2.m            Numerical integration of sin(x)/x
+   f2.m                  invoked by "num_int2.m"
+  num_int3.m            Numerical intergratin of cos(2*x)/exp(x)
+   f3.m                  invoked by "num_int3.m"
+ 
+CHP6/
+  gauss_elim1.m         Gaussian elimination to solve linear systems
+  gauss_elim2.m         Gaussian elimination to solve linear systems
+  lu_fact.m             LU decomposition along with pivoting matrix
+  sng_val_decomp.m      Singular value decompositon of a matrix
+
+CHP7/
+  spline_plot.m         Plot of a cubic spline curve
+  spline_sin_plot.m     Plot of a cubic spline curve for sin(x)
+
+CHP8/
+  euler.m               Euler's method for solving an ODE
+   f.m                   invoked by "euler.m"
+  rk_ode23.m            Runge-Kutta method for solving an IVP
+   ode23file1.m          invoked by "rk_ode23.m"
+  rkf_ode45.m           Runge-Kutta Fehlberg method for solving an IVP
+   ode45file1.m          invoked by "rkf_ode45.m"
+CHP9/
+  ls_fit.m              Linear least squares fit for polynomials
+  np_ls_fit.m           Least squares fit for a non-polynomial function
+  rk2_ode23.m           Runge-Kutta method for systems of ODEs
+   ode23file2.m          invoked by "rk2_ODE23.m"
+  rkf2_ode45.m          Runge-Kutta-Fehlberg method for systems of ODEs
+   ode45file2.m          invoked by "rkf2_ode45.m"
+
+CHP10/
+  p_inv1.m              Minimal solution using Pseudoinverse of matrices
+  p_inv2.m              Find pseudoinverse in case of loss in rank
+
+CHP14/
+  min_val1.m            Minimizing multivariate functions
+  min_val2.m            Find local minimum of a function
+   q1.m, q2.m            invoked by "min_val1.m" and "min_val2.m"
+
+CHP15/
+  lin_prog1.m           Maximize subject to inequality constraints
+   fun1.m                invoked by "lin_prog1.m"
+  lin_prog2.m           Minimize subject to inequality constraints
+   fun2.m                invoked by "lin_prog2.m"
+  lin_prog3.m           Minimize subject to equality constraints
+   fun3.m                invoked by "lin_prog3.m" 
+  lin_prog4.m           Minimize subject to inequality constraints
+   fun4.m                invoked by "lin_prog4.m"
+
+

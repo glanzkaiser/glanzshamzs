@@ -1,0 +1,187 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5337,        137]*)
+(*NotebookOutlinePosition[      6192,        169]*)
+(*  CellTagsIndexPosition[      6148,        165]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Piecewise Linear Spline Interpolation:"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->22],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Construct piecewise line spline interpolating the function\n",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox[" f(x) = cos x  over [-1,1] using equally spaced points.",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"Clear[f, XY,dots];\nf[x_] = Cos[x];\nXY= Table[{N[0.2 i Pi], N[f[0.2 i \
+Pi]]},{i, 0, 5}] ;\ndots = ListPlot[XY,PlotStyle->{PointSize[0.02]},\n        \
+        DisplayFunction->Identity];\nF = Plot[f[x], {x, \
+0,3.15},DisplayFunction->Identity]; \nShow[F, Graphics[Line[XY]],dots,\n\
+AspectRatio -> 0.5,\nDisplayFunction->$DisplayFunction,\nPlotLabel-> \"f(x) \
+and Linear Spline Interpolation\",\nAxesLabel->{\"x\",\"y    \"}];\nShow[ \
+Graphics[Line[XY]],dots,\nAspectRatio -> 0.5,\n\
+DisplayFunction->$DisplayFunction,\nPlotLabel->\"Linear Spline \
+Interpolation\",\nAxesLabel->{\"x\",\"y    \"}];\n\n"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f, XY,dots];\nf[x_] = Cos[x];\nXY= Table[{N[0.1 i Pi], N[f[0.1 i \
+Pi]]},{i, 0, 10}] ;\ndots = ListPlot[XY,PlotStyle->{PointSize[0.02]},\n       \
+         DisplayFunction->Identity];\nF = Plot[f[x], {x, 0, \
+3.15},DisplayFunction->Identity]; \ntxt = StringForm[\"f(x) and Linear Spline \
+Interpolation\"];\nShow[F, Graphics[Line[XY]],dots,\nAspectRatio -> 0.5,\n\
+DisplayFunction->$DisplayFunction,\nPlotLabel->txt,AxesLabel->{\"x\",\"y    \
+\"}];\nShow[ Graphics[Line[XY]],dots,\nAspectRatio -> 0.5,\n\
+DisplayFunction->$DisplayFunction,\nPlotLabel->\"Linear Spline \
+Interpolation\",\nAxesLabel->{\"x\",\"y    \"}];\n"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Construct piecewise line spline interpolating the function\n",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox[
+  " f(x) = 1 / (1+25 x^2)  over [-1,1] using equally spaced points.",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"Clear[XY,dots];\nf[x_] = 1 /(1+ 25x^2);\nXY= Table[{0.2 i, f[0.2 i]},{i, -5, \
+5}] ;\ndots = ListPlot[XY,PlotStyle->{PointSize[0.02]},\n                \
+DisplayFunction->Identity];\nF = Plot[f[x], {x, \
+-1,1},DisplayFunction->Identity]; \ntxt = StringForm[\"Linear Spline \
+Interpolation\"];\nShow[F, Graphics[Line[XY]],dots,\n\
+DisplayFunction->$DisplayFunction,\nPlotLabel-> \"f(x) and Linear Spline \
+Interpolation\",\nAxesLabel->{\"x\",\"y    \"}];\nShow[ \
+Graphics[Line[XY]],dots,\nDisplayFunction->$DisplayFunction,\n\
+PlotLabel->txt,AxesLabel->{\"x\",\"y    \"}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[XY,dots];\nf[x_] = 1 /(1+ 25x^2);\nXY= Table[{0.1 i, f[0.1 i]},{i, \
+-10, 10}] ;\ndots = ListPlot[XY,PlotStyle->{PointSize[0.02]},\n               \
+ DisplayFunction->Identity];\nF = Plot[f[x], {x, \
+-1,1},DisplayFunction->Identity]; \ntxt = StringForm[\"Linear Spline \
+Interpolation\"];\nShow[F, Graphics[Line[XY]],dots,\n\
+DisplayFunction->$DisplayFunction,\nPlotLabel-> \"f(x) and Linear Spline \
+Interpolation\",\nAxesLabel->{\"x\",\"y    \"}];\nShow[ \
+Graphics[Line[XY]],dots,\nDisplayFunction->$DisplayFunction,\n\
+PlotLabel->txt,AxesLabel->{\"x\",\"y    \"}];"], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 108}, {37, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 158, 4, 70, "Left Header"],
+Cell[1872, 57, 421, 14, 70, "Header"],
+Cell[2296, 73, 659, 10, 70, "Input"],
+Cell[2958, 85, 680, 10, 70, "Input"],
+Cell[3641, 97, 433, 15, 70, "Header"],
+Cell[4077, 114, 626, 10, 70, "Input"],
+Cell[4706, 126, 628, 10, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

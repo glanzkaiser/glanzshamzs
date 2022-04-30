@@ -1,0 +1,345 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6452,        274]*)
+(*NotebookOutlinePosition[      7308,        304]*)
+(*  CellTagsIndexPosition[      7264,        300]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[StyleBox["Gaussian Quadrature Formula for dx:",
+  FontWeight->"Bold"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[StyleBox[
+"First we consider quadrature formula w.r.t.  dx on [-1,1]. \nFirst let us \
+print out a few Legendre polynomials:",
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+For[j=0, j<=5, j++,
+  Print[\"P\",j,\"(x)=\",LegendreP[j,x]] ]     \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Case n=3",
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": The nodes are zeros of P[3,x]:",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["Solve[LegendreP[3,x]==0,x]", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[x1,x2,x3];
+xx  = {Sqrt[3/5], 0, -Sqrt[3/5]}; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["We solve for weights:",
+    FontSize->21,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Solve[{A1 + A2 + A3 == 2,  
+A1 xx[[1]]+A2 xx[[2]]+A3 xx[[3]]== 0,
+A1 xx[[1]]^2 + A2 xx[[2]]^2 + 
+  A3 xx[[3]]^2 ==2/3}, {A1,A2,A3}]      \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A];
+A[1]= 5/9; A[2]=8/9; A[3]=5/9; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["Here is the Gaussian quadrature formula of degree 3: ",
+    FontSize->21,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+ Gauss3[f_] := Sum[A[k] * f[xx[[k]] ],
+   {k,3}]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[g]; g[x_] = x^4;
+Gauss3[g] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["There is a formula for the quadrature weights, it is given by",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[A,x];
+dP[n_,x_]=D[LegendreP[n,x],x]   ;
+A[k_]:= -2 / ((n+1) LegendreP[n+1,xx[[k]]] dP[n,xx[[k]]]) ;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["n=3;  A[3] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Case n=4",
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": The nodes are zeros of P[4,x]:",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["Solve[LegendreP[4,x]==0,x]", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[xx];
+xx ={ Sqrt[30 + Sqrt[480]] / Sqrt[70],
+   -Sqrt[30 + Sqrt[480]] / Sqrt[70],
+   Sqrt[30 - Sqrt[480]] / Sqrt[70],
+  - Sqrt[30- Sqrt[480]] / Sqrt[70]};  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A,x];
+dP[n_,x_]=D[LegendreP[n,x],x]  ;
+A[k_]:= -2/((n+1)LegendreP[n+1,xx[[k]]] dP[n,xx[[k]]]); \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[n];
+n=4;  A[1] //N\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[" Gauss4[f_] := Sum[A[k] * f[xx[[k]] ] , {k,4}]; ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Let us verify that it indeed integrate polynomials exactly\nup to n=7:",
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+ diff[m_] := Sum[N[A[k] * xx[[k]]^m,8] , {k,4}] - \
+(1-(-1)^(m+1))/(m+1);\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["diff[7] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Gaussian Quadrature for Chebyshev weight", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox[
+  "We consider  Gaussian quadrature formula w.r.t.  \ndx/Sqrt[1-x^2] on \
+[-1,1]. The nodes of this formula are \nzeros of T_{n+1}(x):",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[xx,n,k];
+xx[k_] = Cos[ (2k+1) Pi / (2n+2)];
+GaussCheb[f_]:=(Pi/(n+1)) Sum[f[xx[k]],
+  {k,0,n}]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[n,g];
+n=100;
+g[x_]= Cos[x];
+GaussCheb[g]//N \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+NIntegrate[g[x] / Sqrt[1-x^2], 
+ {x,-1,1}] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 106}, {Automatic, 23}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 164, 4, 37, "Left Header"],
+Cell[1876, 55, 238, 6, 51, "Header"],
+Cell[2117, 63, 134, 5, 63, "Input"],
+Cell[2254, 70, 236, 9, 28, "Header"],
+Cell[2493, 81, 85, 2, 29, "Input"],
+Cell[2581, 85, 118, 5, 46, "Input"],
+Cell[2702, 92, 230, 10, 29, "Header"],
+Cell[2935, 104, 204, 7, 80, "Input"],
+Cell[3142, 113, 108, 5, 46, "Input"],
+Cell[3253, 120, 262, 10, 29, "Header"],
+Cell[3518, 132, 117, 5, 46, "Input"],
+Cell[3638, 139, 100, 5, 46, "Input"],
+Cell[3741, 146, 252, 9, 28, "Header"],
+Cell[3996, 157, 172, 6, 80, "Input"],
+Cell[4171, 165, 70, 2, 29, "Input"],
+Cell[4244, 169, 236, 9, 28, "Header"],
+Cell[4483, 180, 85, 2, 29, "Input"],
+Cell[4571, 184, 228, 8, 97, "Input"],
+Cell[4802, 194, 168, 6, 80, "Input"],
+Cell[4973, 202, 91, 5, 46, "Input"],
+Cell[5067, 209, 107, 2, 46, "Input"],
+Cell[5177, 213, 195, 5, 51, "Header"],
+Cell[5375, 220, 140, 5, 46, "Input"],
+Cell[5518, 227, 67, 2, 29, "Input"],
+Cell[5588, 231, 127, 3, 70, "Left Header"],
+Cell[5718, 236, 325, 11, 74, "Header"],
+Cell[6046, 249, 169, 7, 80, "Input"],
+Cell[6218, 258, 117, 7, 80, "Input"],
+Cell[6338, 267, 110, 5, 46, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

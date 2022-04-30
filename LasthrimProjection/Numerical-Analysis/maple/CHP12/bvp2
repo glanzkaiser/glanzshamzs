@@ -1,0 +1,27 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: bvp2
+#
+# Solving a BVP
+#
+ode  := (D@@2)(x)(t) = exp(t) - 3*sin(t) + D(x)(t) - x(t);
+soln := dsolve(ode, x(t));
+subs(t=1,");
+evalf(");
+eqn1 := subs(x(1)=1.09737491,");
+subs(t=2, soln);
+evalf(");
+eqn2 := subs(x(2)=8.63749661,");
+solve({eqn1, eqn2}, {_C1, _C2});
+nsoln := evalf(soln);
+subs(t=1, nsoln);
+evalf(");
+subs(t=1.54545, nsoln);
+evalf(");
+subs(t=2, nsoln);
+evalf(");

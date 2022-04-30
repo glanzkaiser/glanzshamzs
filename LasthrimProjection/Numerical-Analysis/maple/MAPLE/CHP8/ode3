@@ -1,0 +1,36 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  ode3
+#
+# Here is a Maple code which works out the initial value problem:
+# x'(t) = 1 + x^2 + t^3, with initial condition x(1) = -4, using 
+# the Taylor series method of order 4.
+
+ y := array(1..4);
+ Digits := 24;
+ n := 100;
+ h := 0.01;
+ T := 1;
+ X := -4;
+# f is a function of x and t
+ f := (x,t) -> 1 + (x(t))^2 + t^3;
+# differentiate f with respect to t
+ one := 1 + (x(t))^2 + t^3;
+ two := diff(f(x,t),t);
+ three := diff(",t);
+ four := diff(",t);
+ first := diff(x(t),t);
+ second := diff(",t);
+ third := diff(",t);
+ for k from 1 to n do
+   y[1] := subs(t = T, x(T) = X, one);
+   y[2] := subs(first = y[1], t = T, x(T) = X, two);
+   y[3] := subs({first = y[1], second = y[2]}, t =T, x(T) = X, three);
+   y[4] := subs({first = y[1], second = y[2], third = y[3]}, t=T,x(T)=X,four);
+   X := X + sum(y[i]*h^i/factorial(i), i=1..4);
+   T := T + h;
+ od;

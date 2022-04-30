@@ -1,0 +1,18 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: gauss_elim
+#
+# Gaussian elimination
+#
+with(linalg):
+A := array([[  3, -13,  9,   3, -19],
+    	    [ -6,   4,  1, -18, -34],
+	    [  6,  -2,  2,   4,  16],
+	    [ 12,  -8,  6,  10,  26]]);
+L := gausselim(A);
+x := backsub(L);

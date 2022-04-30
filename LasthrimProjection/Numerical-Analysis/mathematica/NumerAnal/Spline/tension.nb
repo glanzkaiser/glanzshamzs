@@ -1,0 +1,253 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7578,        194]*)
+(*NotebookOutlinePosition[      8433,        226]*)
+(*  CellTagsIndexPosition[      8389,        222]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Tension Splines:"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->22],
+
+Cell[TextData[StyleBox[
+"We start with definitions.  XY is the data, h[k] =X[k+1]-X[k];\nd[k] and \
+bta[k] are intermediate quantities, the coefficients of the tri-diagonal \
+matrix is a[k], b[k], c[k], the right hand side vecor is\n v[k], and m[k] = \
+S''[x[k]].  ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Off[General::spell1]; \nClear[Differences,XY0,n];\nDifferences[XY0_] := \n\
+Block[{k},\n  XY = XY0;\n  n = Length[XY]-1;\n  X = Transpose[XY][[1]];\n  Y \
+= Transpose[XY][[2]];\n  h = Table[0,{n}];\n  d = Table[0,{n}];\n  m = \
+Table[0,{n+1}];\n  a = Table[0,{n-1}];\n  b = Table[0,{n-1}];\n  c = \
+Table[0,{n-1}];\n  bta = Table[0, {n}];\n  v = Table[0,{n-1}];\n  s = \
+Table[0,{n},{3}];\n  Ch[x_]:= (Exp[x]+Exp[-x])/2;\n  Sh[x_]:= \
+(Exp[x]-Exp[-x])/2;\n  h[[1]] = X[[2]] - X[[1]];\n  d[[1]] = \
+(Y[[2]]-Y[[1]])/h[[1]];\n  For[k=2,k<=n,k++,\n    h[[k]]   =  X[[k+1]] - \
+X[[k]];\n    bta[[k]] =  (tau Ch[tau h[[k]]] / Sh[tau h[[k]]])\n         - (1 \
+/ h[[k]]);\n    d[[k]]   = tau^2 (Y[[k+1]] - Y[[k]])/h[[k]];\n    a[[k-1]] = \
+(1 / h[[k]]) - (tau /Sh[tau h[[k]]]);\n    b[[k-1]] = 2 (bta[[k-1]] + \
+bta[[k]]);\n    c[[k-1]] = (1 / h[[k]]) - (tau /Sh[tau h[[k]]]);\n    \
+v[[k-1]] = (d[[k]] - d[[k-1]]) ]; ];"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[StyleBox["This solves a system of tri-diagonal equations:",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[TriDiagonal,a0,b0,c0,v0];\nTriDiagonal[a0_,b0_,c0_,v0_] :=\n\
+Module[{k,t},\n  a = a0; b=b0; c=c0; v=v0;\n  For[k=2,k<=n-1,k++,\n    t = \
+a[[k-1]]/b[[k-1]];\n    b[[k]] = b[[k]] - t c[[k-1]];\n    v[[k]] = v[[k]] - \
+t v[[k-1]];];\n  m[[n]] = v[[n-1]]/b[[n-1]];\n  For[k=n-2,1<=k,k--,\n    \
+m[[k+1]] = (v[[k]] - c[[k]] m[[k+2]])/b[[k]];];];"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+" Clear[Coeffs];\n Coeffs:=\n Block[{},\n  m[[1]]  = 0;\n  m[[n+1]] = 0, ];"],
+   "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"This computes the terms in individual spline pieces:",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[ComputeCoeff,d, h, bta, m, y];\nComputeCoeff[d_,h_, bta_,m_,y_] :=\n\
+Block[{k},\n  For[k=1,k<=n,k++,\n    s[[k,1]] = tau^2 Sh[tau h[[k]]];\n    \
+s[[k,2]] = (y[[k]]-m[[k]]/ tau^2 ) / h[[k]];\n    s[[k,3]] = \
+(y[[k+1]]-m[[k+1]]/ tau^2 ) / h[[k]];\n    ]; ];"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[StyleBox["This makes up the spline function, called SP[x]:  ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[Sr, SP]\nS1[x_] := If[x< X[[2]],\n    ((m[[1]] Sh[tau (X[[2]]-x)] +\n  \
+   m[[2]] Sh[tau (x-X[[1]])]) / s[[1,1]])\n     + \
+s[[1,2]](X[[2]]-x)+s[[1,3]](x-X[[1]]), 0] ;     \nSr[r_,x_] :=\n  \
+If[X[[r]]<=x && x<X[[r+1]],\n   ((m[[r]]Sh[tau (X[[r+1]]-x)] +\n     \
+m[[r+1]]Sh[tau (x-X[[r]])]) / s[[r,1]])\n     + \
+s[[r,2]](X[[r+1]]-x)+s[[r,3]](x-X[[r]]), 0] ; \nSn[n_,x_] := If[X[[n]]<=x,\n  \
+ (( m[[n]]Sh[tau (X[[n+1]]-x)] +\n     m[[n+1]]Sh[tau (x-X[[n]])]) / \
+s[[n,1]])\n     + s[[n,2]](X[[n+1]]-x)+s[[n,3]](x-X[[n]]), 0] ; \nSP[x_] := \
+S1[x] +\n      Sum[Sr[i,x], {i,2,n-1}] + Sn[n,x];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[MakeSpline];\nMakeSpline :=\nBlock[{},\n  Differences[XY];\n  \
+TriDiagonal[a,b,c,v];\n  ComputeCoeff[d,h, bta,m,Y] ];\n\
+On[General::spell1];"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Construct tension spline for the given data.",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"XY = {{0.,0.8},{0.5,0.8},{1.,1.2}, {8.,3.},{11.,6.},\n     {18.,6.}, \
+{20.5,3.5},{24.,3.}, {25.,0}}      "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"Clear[tau];\ntau=8;\nMakeSpline;\ndots = \
+ListPlot[XY,PlotStyle->{PointSize[0.02]},\n                \
+DisplayFunction->Identity];\ngr = Plot[SP[x],{x,0,26},\n\
+PlotRange->{{0,26},{0,7.1}}, AspectRatio -> 0.25,\n\
+DisplayFunction->Identity];\ntxt = StringForm[\"Tension Spline with tau \
+=8\"];\nShow[gr,dots,DisplayFunction->$DisplayFunction,\n\
+PlotLabel->txt,AxesLabel->{\"x\",\"y    \"}];\n\
+Show[gr,DisplayFunction->$DisplayFunction,\nPlotLabel->txt,AxesLabel->{\"x\",\
+\"y    \"}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[tau];\ntau=0.1;\nMakeSpline;\ndots = \
+ListPlot[XY,PlotStyle->{PointSize[0.02]},\n                \
+DisplayFunction->Identity];\ngr = Plot[SP[x],{x,0,26},\n\
+PlotRange->{{0,26},{0,7.1}}, AspectRatio -> 0.25,\n\
+DisplayFunction->Identity];\ntxt = StringForm[\"Tension Spline with tau \
+=0.1\"];\nShow[gr,dots,DisplayFunction->$DisplayFunction,\n\
+PlotLabel->txt,AxesLabel->{\"x\",\"y    \"}];\n\
+Show[gr,DisplayFunction->$DisplayFunction,\nPlotLabel->txt,AxesLabel->{\"x\",\
+\"y    \"}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[tau];\ntau=1;\nMakeSpline;\ndots = \
+ListPlot[XY,PlotStyle->{PointSize[0.02]},\n                \
+DisplayFunction->Identity];\ngr = Plot[SP[x],{x,0,26},\n\
+PlotRange->{{0,26},{0,7.1}}, AspectRatio -> 0.25,\n\
+DisplayFunction->Identity];\ntxt = StringForm[\"Tension Spline with tau \
+=1\"];\nShow[gr,dots,DisplayFunction->$DisplayFunction,\n\
+PlotLabel->txt,AxesLabel->{\"x\",\"y    \"}];\n\
+Show[gr,DisplayFunction->$DisplayFunction,\nPlotLabel->txt,AxesLabel->{\"x\",\
+\"y    \"}];"], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 152}, {87, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 136, 4, 70, "Left Header"],
+Cell[1850, 57, 370, 8, 70, "Left Header"],
+Cell[2223, 67, 967, 14, 70, "Input"],
+Cell[3193, 83, 176, 4, 70, "Left Header"],
+Cell[3372, 89, 403, 6, 70, "Input"],
+Cell[3778, 97, 131, 3, 70, "Input"],
+Cell[3912, 102, 182, 5, 70, "Left Header"],
+Cell[4097, 109, 319, 5, 70, "Input"],
+Cell[4419, 116, 179, 4, 70, "Left Header"],
+Cell[4601, 122, 652, 10, 70, "Input"],
+Cell[5256, 134, 203, 4, 70, "Input"],
+Cell[5462, 140, 310, 12, 70, "Header"],
+Cell[5775, 154, 161, 3, 70, "Input"],
+Cell[5939, 159, 542, 10, 70, "Input"],
+Cell[6484, 171, 546, 10, 70, "Input"],
+Cell[7033, 183, 542, 10, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

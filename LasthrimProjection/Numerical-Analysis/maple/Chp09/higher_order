@@ -1,0 +1,13 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: higher-order
+#
+# Solving a higher-order ODE
+#
+dsolve( {(D@@2)(x)(t) = -3*(cos(t))^2 +2, x(0) = 0, D(x)(0) = 0}, x(t) );
+

@@ -1,0 +1,204 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4036,        154]*)
+(*NotebookOutlinePosition[      4892,        184]*)
+(*  CellTagsIndexPosition[      4848,        180]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Secant  Method", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Off[General::spell1];
+Clear[Secant,f0,x0,x1,delta,epsilon,max,x];
+Secant[f0_,x0_,x1_,delta_,epsilon_,max_,d_] :=
+Module[{f,k,small,cond},
+  Set@@{f[x_],f0};
+  p0 = x0;
+  Y0 = N[f[p0],d];
+  p1 = x1;
+  Y1 = N[f[p1],d];
+  k = 0;
+  cond = 0;
+  Print[\"p = \",N[p0,d],\"\\t   f[p] = \",
+    N[Y0,d]];
+  Print[\"p = \",N[p1,d],\"\\t   f[p] = \",
+    N[Y1,d]];
+  While[cond==0 && k < max,
+    Df = (Y1-Y0)/(p1-p0);
+    If[Df==0, cond=1;Dp=p1-p0;p2=p1,
+              Dp=Y1/Df;p2=p1-Dp];
+    Y2 = N[f[p2],d];
+    Print[\"p = \",N[p2,d ],\"\\t   
+      f[p] = \",N[Y2,d ],
+            \"\\t  |dp| <= \",N[Dp,d ]];
+             
+    If[N[Abs[Dp],d] < delta,  cond=1];
+    If[Abs[Y2]<epsilon, cond=1];
+    p0 = p1;
+    Y0 = Y1;
+    p1 = p2;
+    Y1 = Y2;
+    k  = k+1;  ];  ]; 
+On[General::spell1];  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->19,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["Find the solution to the equation  x sin(x)  = 1.",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x];  
+f[x_] = x Sin[x] - 1  ;  
+Print[\"The function is f[x] = \",f[x]];  
+Plot[f[x],{x,0,2},
+PlotLabel->\"The curve y = f(x).\"];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Secant[f[x],0,0.5,10^-10,10^-10,10,8 ]    ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->19,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox[
+  "Find the solution to the equation   \n    15(1 - Exp[-x/10]) - x =0.       \
+                       ",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = 15(1 - Exp[-x/10]) - x;
+Print[\"The function is f[x] = \",f[x]]; 
+Plot[f[x],{x,0,9},
+PlotLabel->\"The curve y = f(x).\"];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Secant[f[x],7.0,8.0,10^-10,10^-10,100,8]   
+\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 163}, {Automatic, 38}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 101, 3, 39, "Left Header"],
+Cell[1813, 54, 854, 35, 590, "Input"],
+Cell[2670, 91, 332, 13, 28, "Header"],
+Cell[3005, 106, 206, 8, 97, "Input"],
+Cell[3214, 116, 101, 2, 46, "Input"],
+Cell[3318, 120, 386, 15, 51, "Header"],
+Cell[3707, 137, 210, 8, 97, "Input"],
+Cell[3920, 147, 112, 5, 63, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

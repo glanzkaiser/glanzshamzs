@@ -1,0 +1,370 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7235,        303]*)
+(*NotebookOutlinePosition[      8091,        333]*)
+(*  CellTagsIndexPosition[      8047,        329]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Gaussian Elimination : ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+The Gaussian Elimination can be looked at as two
+steps: the first step is an  LU decomposition,  
+QA=LU, where Q is a permutation matrix,  L is a
+unit lower triangular matrix that contains the 
+multipliers, and U is an upper triangular matrix. The 
+following is Gaussian elimination with scaled row
+pivoting, where we keep the permutation vecrot in P
+(the matrix Q is defined by 
+              Q[i,j] = \\delta[p[i],j]).
+We  use \"digit\" in the algorithm so that every step is 
+computed up to the given digits.\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Off[General::spell1];
+Clear[GaussLU,a0,p,s];
+GaussLU[a0_] := 
+Module[{a,i,j,k,n,x,z},
+  a = a0;
+  n = Length[a];
+    x=Table[a[[i,j]],{i,1,n},{j,1,n}];
+    For[i=1,i<=n,i++, p[i]=i];
+    For[i=1,i<=n,i++, 
+       s[i]=Max[Table[Abs[a[[i,j]]],\t\t\t\t\t\t{j,1,n}]] ];
+     For[k=1,k<=n-1,k++,
+      Block[{l,i,j},
+      For[j=k+1,j<=n,j++,
+         If[Abs[x[[p[j],k]]]/s[p[j]]
+           > Abs[x[[p[k],k]]]/s[p[k]],
+       t=p[k]; p[k]=p[j]; p[j]=t ]; ];
+      For[i=k+1,i<=n,i++,
+         z = N[x[[p[i],k]]/x[[p[k],
+           k]],digit];
+          x[[p[i],k]]=z; 
+          For[l=k+1,l<=n,l++,
+           x[[p[i],l]]=N[x[[p[i],l]]-
+             z x[[p[k],l]],digit];
+      ];];];];
+    Clear[P,Q,L,U,T];     
+    P=Table[p[i],{i,1,n}];
+    Q=Table[0,{i,1,n},{j,1,n}]; 
+    For[i=1,i<=n,i++, Q[[i,p[i]]]=1];
+    T=Q.x; 
+    L=Table[If[i !=j,  If[i > j,
+       T[[i,j]], 0],1],{i,n},{j,n}];  
+    U=Table[If[i <=j, T[[i,j]], 0],    \t\t\t\t\t\t{i,n},{j,n}];     
+    Return[x]; ];
+On[General::spell1]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"The following line defines \"digit =10\", so that each \nstep is computed up \
+to 10 decimal points.",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24],
+
+Cell["\<\
+Clear[digit];
+digit = 10;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->22,
+    FontWeight->"Bold"],
+  StyleBox[": Here is a matrix of 3 by 3: ",
+    FontSize->22]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A];
+A = {{2,3,-6},{1,-6,8},{3,-2,1}}; 
+TableForm[A]   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[LU];
+LU = GaussLU[A];
+MatrixForm[LU] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["P ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+TableForm[L]//N 
+TableForm[U]//N\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["TableForm[L.U - Q.A] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->22,
+    FontWeight->"Bold"],
+  StyleBox[": Here is a matrix of 4 by 4: ",
+    FontSize->22]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A];
+A = {{2,4,-4,0},{1,5,-5,-3},{2,3,1,3},{1,4,-2,2}}; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[LU];
+LU = GaussLU[A];
+MatrixForm[LU]//N \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["P ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+TableForm[L]//N 
+TableForm[U]//N\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Solving Equations with Gaussian Elimination: ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+After QLU decomposition, the Gaussian Elimination  has  been \
+carried out and we can solve the equations
+rather easily.\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Off[General::spell1];
+Clear[GaussSol,a0,b0];
+GaussSol[a0_,b0_] :=
+Module[{a,b,k,n,x}, 
+  a = a0;
+  b = b0;  
+  n = Length[b];
+  x = Table[0,{i, n}];
+  Clear[i,k];
+  For[k=1,k<=n-1,k++,
+    For[i=k+1,i<=n,i++,
+    b[[p[i]]] =N[ b[[p[i]]] -
+      a[[p[i],k]] b[[p[k]]],digit] ];];
+  Clear[i,j];
+  For[i=n,1<=i,i--,
+     x[[i]] = N[(b[[p[i]]] - 
+      Sum[a[[p[i],j]] x[[j]], 
+      {j, i+1, n}])/a[[p[i],i]],digit]; ];
+  Return[x]; ];  
+ On[General::spell1];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2'",
+    FontSize->22,
+    FontWeight->"Bold"],
+  StyleBox[
+  ": Here is a systems of 4 by 4, the matrix is\nthe same as in the Example \
+2.",
+    FontSize->22]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A,B]; 
+A = {{2,4,-4,0},{1,5,-5,-3},{2,3,1,3},{1,4,-2,2}};
+B = {12,18,8,8};
+StringForm[\"A= ``    B = ``\", MatrixForm[A], MatrixForm[B]] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[LU];
+LU=GaussLU[A];
+GaussSol[LU,B]//N \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->20],
+  StyleBox[
+  ": Here is a systems of 3 by 3, which can't be \nsolved by naive Gaussian,",
+    
+    FontSize->20,
+    FontWeight->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18,
+  FontWeight->"Bold"],
+
+Cell["\<\
+Clear[A,B]; 
+A = {{1,2,-4},{2,4,-5},{2,3,1}};
+B = {12,18,8 };
+MatrixForm[A]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Pivot[A];
+N[ GaussPivot[Pivot[A],B], 7]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 175}, {Automatic, 15}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 110, 3, 39, "Left Header"],
+Cell[1822, 54, 606, 15, 272, "Left Header"],
+Cell[2431, 71, 1068, 37, 624, "Input"],
+Cell[3502, 110, 224, 6, 56, "Left Header"],
+Cell[3729, 118, 92, 5, 46, "Input"],
+Cell[3824, 125, 227, 9, 32, "Left Header"],
+Cell[4054, 136, 127, 6, 63, "Input"],
+Cell[4184, 144, 110, 6, 63, "Input"],
+Cell[4297, 152, 61, 2, 29, "Input"],
+Cell[4361, 156, 99, 5, 46, "Input"],
+Cell[4463, 163, 80, 2, 29, "Input"],
+Cell[4546, 167, 227, 9, 32, "Left Header"],
+Cell[4776, 178, 128, 5, 63, "Input"],
+Cell[4907, 185, 113, 6, 63, "Input"],
+Cell[5023, 193, 61, 2, 29, "Input"],
+Cell[5087, 197, 99, 5, 46, "Input"],
+Cell[5189, 204, 132, 3, 70, "Left Header"],
+Cell[5324, 209, 215, 7, 80, "Left Header"],
+Cell[5542, 218, 523, 23, 369, "Input"],
+Cell[6068, 243, 278, 11, 56, "Left Header"],
+Cell[6349, 256, 210, 7, 114, "Input"],
+Cell[6562, 265, 111, 6, 63, "Input"],
+Cell[6676, 273, 301, 12, 54, "Left Header"],
+Cell[6980, 287, 142, 7, 80, "Input"],
+Cell[7125, 296, 106, 5, 46, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

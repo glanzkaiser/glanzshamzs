@@ -1,0 +1,391 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7609,        322]*)
+(*NotebookOutlinePosition[      8466,        352]*)
+(*  CellTagsIndexPosition[      8422,        348]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Divided Difference Table", "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[StyleBox[
+"The  following constracts  the divided difference table for \nthe given data \
+(x1, y1) , ....,  (xn,yn).",
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Off[General::spell1];
+Clear[DividedDifference];
+DividedDifferece[XY0_] :=
+Block[{j,k,n,a,p,sum,X,Y},
+  X = Transpose[XY0][[1]];
+  Y = Transpose[XY0][[2]];
+  n = Length[XY0]-1;
+  d = Table[0,{n+1},{n+1}];
+  a = Table[0,{n+1}];
+  p = Table[0,{n+1}];
+  For[k=0,k<=n,k++,
+    d[[k+1,1]] = Y[[k+1]];];
+  For[j=1,j<=n,j++,
+    For[k=j,k<=n,k++,
+      d[[k+1,j+1]]=
+       (d[[k+1,j]]- d[[k,j]])/
+         (X[[k+1]]-X[[k-j+1]]) ];];];
+  On[General::spell1];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[data];
+data={{0,-1}, {1, 2}, {2,1}, {3, 0}}   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+
+N[DividedDifferece[data]];
+TableForm[d]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[data];
+data={{0,1}, {0.5, 2}, {1,0}, {1.5, -1}, {2, 1}}\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+N[DividedDifferece[data]];
+TableForm[d]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[f,x];
+f[x_] = Cos[x]
+xy = Table[{i,N[f[i],8]},{i,0,3}]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+N[DividedDifferece[xy]]; 
+TableForm[d]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Newton Form of Interpolation Polynomial", "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[StyleBox[
+"The  following gives Newton interpolation polynomial using divided\n\
+difference table. ",
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Off[General::spell1];
+Clear[NewtonForm];
+NewtonForm[XY0_] :=
+Block[{j,k,n,a,p,sum,X,Y},
+  X = Transpose[XY0][[1]];
+  Y = Transpose[XY0][[2]];
+  n = Length[XY0]-1;
+  d = Table[0,{n+1},{n+1}];
+  a = Table[0,{n+1}];
+  p = Table[0,{n+1}];
+  For[k=0,k<=n,k++,
+    d[[k+1,1]] = Y[[k+1]];];
+  For[j=1,j<=n,j++,
+    For[k=j,k<=n,k++,
+      d[[k+1,j+1]]=
+      (d[[k+1,j]]-d[[k,j]])/
+           (X[[k+1]]-X[[k-j+1]]) ];];
+  For[k=0,k<=n,k++,
+    a[[k+1]] = Together[d[[k+1,k+1]]];];
+  p[[1]] = 1;
+  For[k=1,k<=n,k++,
+    p[[k+1]] = p[[k]] (x-X[[k]]) ];
+  sum = 0;
+  For[k=0,k<=n,k++,
+    sum = sum + a[[k+1]] p[[k+1]];];
+  sum = sum/.h->H;
+  Return[sum]; ];
+On[General::spell1]; \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Given data as follows:",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[data];
+data={{0,-1}, {1, 2}, {2,1}, {3, 0}} \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+
+N[DividedDifferece[data]];
+TableForm[d]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[P,x];
+P[x_] = N[NewtonForm[data],10]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle->{PointSize[0.02]},
+        DisplayFunction->Identity];
+g = Plot[{P[x]}, {x, -0.2, 3.5},
+DisplayFunction->Identity];
+Show[g,dots, PlotLabel->\"data and the Newton polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Given data as follows:",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[data];
+data={{0,1}, {0.5, 2}, {1,0}, {1.5, -1}, {2, 1}}\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+N[DividedDifferece[data]];
+TableForm[d]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[P,x];
+P[x_] = N[NewtonForm[data],10]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots];
+dots = ListPlot[data,PlotStyle->{PointSize[0.02]},
+        DisplayFunction->Identity];
+g = Plot[{P[x]}, {x, -0.2, 2.2},
+DisplayFunction->Identity];
+Show[g,dots, PlotLabel->\"data and the Newton polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 3",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox[
+  "Construct Lagrange interpolating polynomial \nof degree 3 for the function \
+ f(x) = cos x over [0, 1.2] .",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x];
+f[x_] = Cos[x]
+xy = Table[{i,N[f[i],8]},{i,0,3}]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[P3,x];
+P3[x_] = N[NewtonForm[xy],10]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["TableForm[d]", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[xy,PlotStyle->{PointSize[0.02]},
+        DisplayFunction->Identity];
+pointset = Map[Point,xy];
+graphset = Prepend[pointset,PointSize[0.02]];
+dots = Graphics[graphset];
+Print[\"The function is f[x] = \",f[x]];
+g3 = Plot[ f[x], {x,-1, 4}, 
+     DisplayFunction->Identity];
+g4 = Plot[{P3[x]},{x,-1, 4},
+PlotStyle -> Thickness[0.01],
+DisplayFunction->Identity];
+Show[g3,g4,dots,PlotRange->{{-1, 4},{-1.1,1.1}},
+PlotLabel->\"f(x) and the Newton polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{108, Automatic}, {-35, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 106, 3, 35, "Header"],
+Cell[1818, 54, 230, 6, 51, "Header"],
+Cell[2051, 62, 518, 21, 318, "Input"],
+Cell[2572, 85, 119, 5, 46, "Input"],
+Cell[2694, 92, 108, 6, 63, "Input"],
+Cell[2805, 100, 128, 5, 63, "Input"],
+Cell[2936, 107, 107, 5, 46, "Input"],
+Cell[3046, 114, 128, 6, 63, "Input"],
+Cell[3177, 122, 106, 5, 46, "Input"],
+Cell[3286, 129, 121, 3, 35, "Header"],
+Cell[3410, 134, 213, 6, 74, "Header"],
+Cell[3626, 142, 738, 31, 488, "Input"],
+Cell[4367, 175, 265, 11, 24, "Header"],
+Cell[4635, 188, 117, 5, 46, "Input"],
+Cell[4755, 195, 108, 6, 63, "Input"],
+Cell[4866, 203, 110, 5, 46, "Input"],
+Cell[4979, 210, 337, 9, 165, "Input"],
+Cell[5319, 221, 265, 11, 24, "Header"],
+Cell[5587, 234, 128, 5, 63, "Input"],
+Cell[5718, 241, 106, 5, 46, "Input"],
+Cell[5827, 248, 110, 5, 46, "Input"],
+Cell[5940, 255, 350, 10, 182, "Input"],
+Cell[6293, 267, 392, 15, 51, "Header"],
+Cell[6688, 284, 128, 6, 63, "Input"],
+Cell[6819, 292, 110, 5, 46, "Input"],
+Cell[6932, 299, 71, 2, 29, "Input"],
+Cell[7006, 303, 599, 17, 335, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

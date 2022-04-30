@@ -1,0 +1,259 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5789,        198]*)
+(*NotebookOutlinePosition[      6647,        230]*)
+(*  CellTagsIndexPosition[      6603,        226]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Power Method"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[
+"Here is the algorithm for the power method, in which we again\nuse digit to \
+determine the decimal points."], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->16,
+  FontWeight->"Plain",
+  FontSlant->"Plain",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[
+"Off[General::spell1]; \nClear[PowerMeth,A0, X0,n, m, M];\nPowerMeth[A0_,X0_, \
+M_]:=\nModule[{A, Y, n },\n  A=A0;\n  X=X0; \n  n=Length[A];\n    m=0; z=0;\n \
+   Y=A.X;   \n    For[i=1, i<=n, i++,\n      If[Abs[Y[[i]]] >= z, \
+z=Abs[Y[[i]]]; m=i] ];\n Clear[Y];\n lambda = 0;\n For[k=1, k<=M, k++,\n    Y \
+= A.X;\n    lambda = Y[[m]]/X[[m]];\n    X = Y / Max[Abs[Y]];\n    \
+Print[N[{lambda,X},digit]  ]; ];\n Return[N[{lambda,X},digit]]; ];\n\
+On[General::spell1];    "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["We take here \"digit =10\": "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->16,
+  FontWeight->"Plain",
+  FontSlant->"Plain",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData["Clear[digit]; \ndigit=10;  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ":  Here is a 3 by 3 system, whose maximum eigenvalue\nis lambda =6, and \
+the eigenvector is (1,1,1)^T.",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A,X];\nA = {{6,5,-5},{2,6,-2},{2,5,-1}};\nTableForm[A]\nX = {-1,1,1}   \
+"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["PowerMeth[A,X, 15]   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Let us verify it: "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->16,
+  FontWeight->"Plain",
+  FontSlant->"Plain",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData["N[A.X -lambda X,8]   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[":  Here is a 3 by 3 system,",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A,X];\nA = {{1,2,3},{2,3,4},{3,4,5}}; \nTableForm[A]\nX = \
+Table[Random[Real, {-1,1}], {i,1,3}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["PowerMeth[A,X, 12] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"This is a symmetric metrix, we can use the error estimate\n     Min_i ( \
+|\\lambda - \\lambda_i | <= ||AX - lambda X||_2\nto check how good this \
+approximation is.  "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->16,
+  FontWeight->"Plain",
+  FontSlant->"Plain",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[
+"norm[V_] :=N[ Sqrt[V^2/.List->Plus], digit]; \nnorm[A.X-lambda X]  "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 3",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[":  Here is a rondam 4 by 4 matrix:",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A,X];\nA = Table[Table[Random[Real, {-1,1}],{i,1,6}],{i,1,6}]; \n\
+TableForm[A]\nX = Table[Random[Real, {-1,1}], {i,1,6}] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["PowerMeth[A,X, 12] "], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{149, Automatic}, {43, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 281, 10, 70, "Left Header"],
+Cell[1995, 63, 377, 12, 70, "Left Header"],
+Cell[2375, 77, 524, 8, 70, "Input"],
+Cell[2902, 87, 297, 10, 70, "Left Header"],
+Cell[3202, 99, 80, 1, 70, "Input"],
+Cell[3285, 102, 335, 12, 70, "Left Header"],
+Cell[3623, 116, 133, 3, 70, "Input"],
+Cell[3759, 121, 74, 1, 70, "Input"],
+Cell[3836, 124, 287, 10, 70, "Left Header"],
+Cell[4126, 136, 74, 1, 70, "Input"],
+Cell[4203, 139, 256, 10, 70, "Left Header"],
+Cell[4462, 151, 156, 3, 70, "Input"],
+Cell[4621, 156, 72, 1, 70, "Input"],
+Cell[4696, 159, 437, 13, 70, "Left Header"],
+Cell[5136, 174, 124, 3, 70, "Input"],
+Cell[5263, 179, 263, 10, 70, "Left Header"],
+Cell[5529, 191, 182, 3, 70, "Input"],
+Cell[5714, 196, 72, 1, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

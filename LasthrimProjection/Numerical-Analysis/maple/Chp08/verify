@@ -1,0 +1,14 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: verify
+#
+# Numeric solution of an ODE
+#
+ode := D(x)(t) = 1 + x(t)^2 + t^3;
+f := dsolve( {ode, x(0)=0}, x(t), numeric);
+f(0); f(1);

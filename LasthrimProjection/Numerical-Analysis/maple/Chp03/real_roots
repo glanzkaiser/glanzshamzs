@@ -1,0 +1,13 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: real_roots
+#
+# Finding roots of funtions
+#
+fsolve(x^3 - 3*x + 1, x, 0..1);
+fsolve(x^3 - 2*sin(x), x, 0.5..2);

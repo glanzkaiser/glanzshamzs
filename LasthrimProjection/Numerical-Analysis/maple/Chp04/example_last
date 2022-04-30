@@ -1,0 +1,13 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: example_last
+#
+# Newton's interpolation polynomial
+#
+interp([1, -2, 0, 3, -1, 7], [-2, -56, -2, 4, -16, 376], x);
+convert(", horner, x);

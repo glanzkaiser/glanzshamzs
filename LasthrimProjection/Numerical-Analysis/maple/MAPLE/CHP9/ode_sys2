@@ -1,0 +1,34 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# ode_sys2
+#
+# Solving system of three ordinary differential equations:
+# X' = AX + V, where X = (x1,x2,x3), A is 3-by-3 matrix, and 
+# V = (v1,v2,v3) is a constant vector; X(0)= given.
+ 
+# The following code gives the analytical solution to the given
+# initial value problem:
+
+ sys := D(x1)(t)= -(8/3)*x1(t)-(4/3)*x2(t)+x3(t)+12,
+        D(x2)(t)= -(17/3)*x1(t)-(4/3)*x2(t)+x3(t)+29,
+        D(x3)(t)= -(35/3)*x1(t)+(14/3)*x2(t)-2*x3(t)+48;
+ init := x1(0)=0, x2(0)=0, x3(0)=0;
+ sol := dsolve({sys, init},{x1(t),x2(t),x3(t)});
+
+# Alternative numerical solution is given by the following:
+
+ sol := dsolve({sys, init},{x1(t), x2(t), x3(t)}, numeric);
+
+# Graphing the analytical solution:
+
+ x1(t) := 17/3+exp(-3*t)-(25/3)*exp(-2*t)+(5/3)*exp(-t);
+ x2(t) := 73/6+2*exp(-3*t)-(125/6)*exp(-2*t)+(20/3)*exp(-t);
+ x3(t) := 58/3+(7/3)*exp(-3*t)-(100/3)*exp(-2*t)+(53/3)*exp(-t);
+ plot1 := plot(x1(t), t = 0..8);
+ plot2 := plot(x2(t), t = 0..8);
+ plot3 := plot(x3(t), t = 0..8);
+ plots[display]({plot1,plot2,plot3});

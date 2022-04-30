@@ -1,0 +1,275 @@
+import inputs;
+
+public class matrix
+{
+  private 
+	 int columna,fila;
+    	 double[][] arreglo;
+
+//with row 'i' a matrix-vector y is made and returns that new matrix
+    	 matrix vfila(int i)  //Calcula el vector fila i
+     	  {
+     	   matrix afila=new matrix(1,columna);//se almacena el vector filai
+     	   for(int j=0;j<columna;j++)
+     	    {
+     	     afila.arreglo[0][j]=arreglo[i][j];
+     	    }
+     	   return afila;
+     	  }
+
+//with column 'i' a matrix-vector y is made and returns that new matrix
+         matrix vcolumna(int i)  //Calcula el vector columna i
+     	  {
+     	   matrix acolumna=new matrix(1,fila);//se almacena el vectorcolumna i
+     	   for(int j=0;j<fila;j++)
+     	    {
+     	     acolumna.arreglo[0][j]=arreglo[j][i];
+     	    }
+     	   return acolumna;
+          }
+
+//the point product of 2 matrices-vectors is calculated
+	 double propunto(matrix a, matrix b)
+	   {
+	     double resultado=0;
+	     if ((a.columna!=b.columna)||(a.fila!=b.fila)||(a.fila!=1))
+	      {
+	    System.out.println("Error passing vectors of different size");
+	     	return 0.0;
+	      }
+	     else
+	      {
+	        for(int i=0;i<columna;i++)
+	          {
+	            resultado+=(a.arreglo[0][i])*(b.arreglo[0][i]);
+	          }
+	        return resultado;
+	      }
+	   }
+
+//Esta funcion le agrega la matriz identidad a una matriz cuadrada
+//this function adds to the identified matrix a matrix squared	    
+	 matrix aumentada()
+	   {
+	      if (columna!=fila)
+          	{
+           System.out.println("Error passsing matrices of different size");
+  	    	 return null;
+  	  	}
+  	      else
+	   	{
+		 matrix b=new matrix(fila,columna*2);
+	          for(int i=0;i<fila;i++)
+	   	   for(int j=0;j<columna*2;j++)
+	   	    {
+	   	     if(j<columna)
+	   	       b.arreglo[i][j]=arreglo[i][j];
+	   	     else
+	   	       if(i+columna==j)
+	   	         b.arreglo[i][j]=1.0;
+	   	       else 
+	   	         b.arreglo[i][j]=0.0;
+	   	    }
+	   	  return b;
+                 }	   
+	   }
+
+//This fucntion joins 2 matrices and returns the matrix 
+//Warning: the number of rows in the 2 matrices need to be equal
+	matrix pegaM(matrix a)
+	 {
+	  matrix unida=new matrix(fila,columna+a.columna);
+	    for(int i=0;i<fila;i++)
+	      for(int j=0;j<unida.columna;j++)
+	       {
+	        if(j<columna)
+	          unida.arreglo[i][j]=arreglo[i][j];
+	        else
+	          unida.arreglo[i][j]=a.arreglo[i][j-columna];
+	       }        	  
+	  return unida;
+	}
+	
+//This function returns a submatrix going from column x to column y
+//Warning: 0<=x<=y  ; y<=columna  ;Ampliarse al caso de submatrix de n*m
+	matrix submatriz(int x,int y)
+	  {
+	    matrix sub=new matrix(fila,y-x+1);
+	    for(int i=0;i<fila;i++)
+	      for(int j=x,k=0;j<=y;j++,k++)
+	      	sub.arreglo[i][k]=arreglo[i][j];
+	     return sub;
+	  }	   
+	                
+//This function is called by a mtrix of [n,2n] and only returns a matrix
+//with those elements inside of [n,n]    
+	matrix separada() 
+	  {
+	    matrix b=new matrix(fila,columna/2);
+	    for(int i=0;i<fila;i++)
+	      for(int j=0;j<columna/2;j++)
+	           b.arreglo[i][j]=arreglo[i][j+columna/2];
+	    return b;
+	  }
+
+  public
+  
+//constructor
+
+	matrix(){}
+	 
+//constructs a matrix from [a,b]
+       matrix(int a,int b)
+        {
+         fila=a;
+         columna=b;
+         arreglo=new double[fila][columna];	
+        }
+
+//the row 'i' of a matrix with the row 'j' of the matrix b are equal
+       void samerow(matrix a,int i,matrix b,int j)
+        {
+          for(int k=0;k<a.columna;k++)
+            a.arreglo[i][k]=b.arreglo[j][k];
+        }
+
+//reads a matrix and displays a message in string s
+        void ReadMatrix(String s)
+        {
+	  int x,y;
+	  for(int i=0;i<fila;i++)
+	   {
+	     System.out.println(s + (i+1));
+	     for(int j=0;j<columna;j++)
+	     {    
+                arreglo[i][j]=inputs.readDob();
+             }
+           }
+        }
+        
+//prints the matrix
+        void printMatrix()
+        {
+         if(this==null)
+           System.out.println("[]");
+         else
+         {
+          System.out.println("");
+          for (int i=0;i<fila;i++)
+           {
+            System.out.print("[");
+            for (int j=0;j<columna;j++)
+              System.out.print(arreglo[i][j]+"  ");
+            System.out.print("]");
+            System.out.flush();
+            System.out.println("");
+           }
+	  System.out.println("");
+         }
+        }
+
+//puts the value 'c' in the elements
+       void intr(int i,int j,double c)
+        {
+         arreglo[i][j]=c;
+        }
+	
+//returns the element i,j of a matrix
+       double retrive(int i,int j)
+        {
+         return(arreglo[i][j]);
+        }
+
+//returns the product of 2 matrices
+       matrix multi(matrix b)
+        {
+         if (columna!=b.fila)
+          {
+          System.out.println("Error passing matrices of different size");
+  	    return null;
+  	  }
+  	 else
+	   {
+	    matrix resp=new matrix(fila,b.columna);
+	    for(int j=0;j<b.columna;j++)
+	     for(int i=0;i<fila;i++)
+	     {    
+               resp.arreglo[i][j]=propunto(this.vfila(i),b.vcolumna(j));
+             }
+	    return resp;
+	   }
+        }
+
+//multiplies a matrix with a scalar
+       matrix scalar(double x)
+        {
+          matrix resp=new matrix(fila,columna);
+          for(int i=0;i<fila;i++)
+	     for(int j=0;j<columna;j++)
+	     {
+	      resp.arreglo[i][j]=arreglo[i][j]*x;
+	     }
+	   return resp;    
+        }
+
+//returns true if the differece between all the elements of 2 matrice dont
+//go beyond the tolerance of tol
+	boolean igual(matrix x,double tol)
+	{
+	  if(fila!=x.fila||columna!=x.columna)
+	    return false;
+	  else
+	   {
+	    for(int i=0;i<fila;i++)
+	     for(int j=0;j<columna;j++)
+	       if(Math.abs(x.arreglo[i][j]-arreglo[i][j])>=tol)
+	         return false;   
+	   }
+	  return true;
+	}
+//adds 2 matrices
+       matrix suma(matrix x)
+        {
+          matrix resp=new matrix(fila,columna);
+          for(int i=0;i<fila;i++)
+	     for(int j=0;j<columna;j++)
+	     {
+	      resp.arreglo[i][j]=arreglo[i][j]+x.arreglo[i][j];
+	     }
+	   return resp;    
+        }
+
+//returns the number of rows in a matrix
+       int f()
+       {return fila;}
+       
+//returns the number of columns of a matrix
+       int c()
+       {return columna;} 
+
+//returns the inverse of a matrix
+    matrix inverse()
+     {
+       matrix inv=new matrix();
+       	  inv=this.aumentada();
+          for(int ciclo=0;ciclo<inv.f();ciclo++)
+	    {  inv.samerow(inv,ciclo,inv.vfila(ciclo).scalar(1/inv.retrive(ciclo,ciclo)),0);
+	      for(int j=ciclo+1;j<inv.f();j++)
+     		inv.samerow(inv,j,inv.vfila(j).suma(inv.vfila(ciclo).scalar(-inv.retrive(j,ciclo))),0);
+              for(int j=0;j<ciclo;j++)
+		inv.samerow(inv,j,inv.vfila(j).suma(inv.vfila(ciclo).scalar(-inv.retrive(j,ciclo))),0);
+	    }
+       inv=inv.separada();
+       return inv;
+     }
+
+//returns the transposing of a matrix
+    matrix trans()
+    {
+      matrix trans=new matrix(columna,fila);
+      for(int i=0;i<columna;i++)
+      	for(int j=0;j<fila;j++)
+      	  trans.arreglo[i][j]=arreglo[j][i];
+      return trans;
+    }
+}

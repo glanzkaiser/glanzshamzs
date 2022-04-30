@@ -1,0 +1,68 @@
+
+CHP1/
+   sin_plot
+   Taylor_series
+   Horner_symbolic
+   sqrt_approx
+
+CHP2/
+   loss_of_significance
+   
+
+CHP3/
+   fun_roots
+   poly_roots1
+   poly_roots2
+
+CHP4/
+   diff_exact
+   Newton_interp
+   runge_fun
+
+CHP5/
+   num_int1
+   num_int2
+   trapezoid_rule
+
+CHP6/
+   gauss_elim
+   sng_val_decomp
+
+CHP7/
+   Bernstein_poly
+   ctrl_pt_curve
+   cubic_spline1
+   cubic_spline2
+
+CHP8/
+   Adams_Mlt_coeff
+   Euler
+   ODE1
+   ODE2
+   ODE3
+   ODE4
+
+CHP9/
+   ODE-2nd_order
+   ODE_sys1
+   ODE_sys2
+
+CHP10/
+   minimal_sol
+   SVD_Penrose
+
+CHP11/
+   rand_num
+
+CHP12/
+   bvp
+
+CHP14/
+   grad_hessian
+
+CHP15/
+   lin_prog1
+   lin_prog2
+   lin_prog3
+   lin_prog4
+

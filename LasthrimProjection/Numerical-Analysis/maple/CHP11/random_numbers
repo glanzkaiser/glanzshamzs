@@ -1,0 +1,14 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: random_numbers
+#
+# Generating random numbers
+#
+with(stats):
+x := RandUniform(0..1):
+seq(x(),i=1..10);

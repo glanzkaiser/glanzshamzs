@@ -1,0 +1,223 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4354,        167]*)
+(*NotebookOutlinePosition[      5209,        197]*)
+(*  CellTagsIndexPosition[      5165,        193]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[StyleBox["Romberg Integration:",
+  FontSize->30,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->29,
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+
+Cell[TextData[{
+  StyleBox[
+  "In the following algorithm, we put the array of Romberg \nintegral R[n,m] \
+in the matrix \"r\"; the output is R[n,n], \nn =1,...,M and we",
+    FontSize->21],
+  StyleBox[" print out the last matrix (R[n,m]).",
+    FontSize->20]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Off[General::spell1]; 
+Clear[Romberg,f0,a,b,M];
+Romberg[f0_,a_, b_,M_] :=
+Module[{f, h, n, m,i},
+  Set@@{f[x_],f0};
+  r = Table[0,{i,1,M+1},{j,1,M+1}];
+  h= b - a; 
+  r[[1,1]]= N[h*(f[a] + f[b])/2,digit]; 
+  For[n=1, n<=M, n++,
+    h = h /2;
+    r[[n+1,1]] = N[r[[n ,1]] /2 + 
+       h * Sum[f[a+(2i-1)h],{i,1,
+       2^(n-1)}],digit];
+    For[m=1, m <=n, m++,
+       r[[n+1,m+1 ]]= N[r[[n+1,m]]+ 
+        (r[[n+1,m]]-r[[n,m]])/(4^m-1),
+        digit];];  
+   Print[\"n=\",n, \"    \", r[[n,n]]];
+   ]; 
+ Print[ MatrixForm[r]  ];];
+On[General::spell1];    \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[digit];
+digit=16; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->20,
+    FontWeight->"Bold"],
+  StyleBox[": Integrate   f(x) = e^{- x^2} over [0, 1].",
+    FontSize->20]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = Exp[-x^2];  \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Romberg[f[x],0,1, 10]   ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[NIntegrate[f[x],{x,0,1}], digit] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontSize->20,
+    FontWeight->"Bold"],
+  StyleBox[" Integrate   f(x) = Sin \\sqrt[x] over [0, 1]. ",
+    FontSize->20]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f,x];
+f[x_] = Sin[ Sqrt[x] ];  \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"For this function, it's derivative is unbounded on [0,1], \nthe convergence \
+is slow. ",
+  FontSize->20]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Simplify[f''[x] ]   ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Romberg[f[x],0,1, 10]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[NIntegrate[f[x],{x,0,1}], digit] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 90}, {57, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 210, 7, 40, "Left Header"],
+Cell[1922, 58, 342, 10, 80, "Left Header"],
+Cell[2267, 70, 624, 24, 369, "Input"],
+Cell[2894, 96, 91, 5, 46, "Input"],
+Cell[2988, 103, 240, 9, 31, "Left Header"],
+Cell[3231, 114, 101, 5, 46, "Input"],
+Cell[3335, 121, 83, 2, 29, "Input"],
+Cell[3421, 125, 94, 2, 29, "Input"],
+Cell[3518, 129, 245, 9, 31, "Left Header"],
+Cell[3766, 140, 105, 5, 46, "Input"],
+Cell[3874, 147, 211, 6, 54, "Left Header"],
+Cell[4088, 155, 80, 2, 29, "Input"],
+Cell[4171, 159, 82, 2, 29, "Input"],
+Cell[4256, 163, 94, 2, 29, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

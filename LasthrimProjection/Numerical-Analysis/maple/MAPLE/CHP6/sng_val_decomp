@@ -1,0 +1,26 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  sing_val_decomp
+#
+# Using Maple Linear Algebra package to determine
+# the singular-value decomposition of the matrix A:
+
+ with(linalg):
+ A := matrix([[1, 3, -2], [2, 7, 5], [-2, -3, 4], [5, -3, -2]]);
+ S := evalf(Svd(A, U, V));
+ U := evalm(U);
+ V := evalm(V);
+ UAV :=  evalm(transpose(U) &* A &* V);
+
+# Creating the diagonal matrix D, and checking the work
+# done by Maple:
+
+ evalm(transpose(U) &* U);
+ evalm(V &* transpose(V));
+ DD := diag(S[1], S[2], S[3]);
+ DD2:= stack(DD, [0,0,0]);
+ evalm(U &* DD2 &* transpose(V));    # This product gives the matrix A

@@ -1,0 +1,18 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: coupled_system
+#
+# Solving a coupled ODE system
+#
+sysode := { D(x)(t) = x(t) - y(t) + 2*t - t^2 - t^3, 
+            D(y)(t) = x(t) + y(t) - 4*t^2 + t^3 };
+fcns := {x(t), y(t)};
+ic := {x(0) = 1, y(0) = 0};
+dsolve( sysode union ic, fcns);
+f := dsolve( sysode union ic, fcns, numeric ); 
+f(0); f(1);

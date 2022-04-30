@@ -1,0 +1,14 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  fun_roots
+#
+# Evaluate zeroes of the functions f(x) = x^3 - 3x + 1, 
+# and g(x) = x^3 - 2sin(x)
+
+ fsolve(x^3 - 3*x + 1, x, 0..1);
+ fsolve(x^3 - 2*sin(x), x, 0.5..2);
+ 

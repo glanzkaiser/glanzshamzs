@@ -1,0 +1,206 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4180,        151]*)
+(*NotebookOutlinePosition[      5036,        181]*)
+(*  CellTagsIndexPosition[      4992,        177]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Runge's Example for Polynomial Interpolation", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Consider interpolation of  the  function  f(x) =
+ 1 / (1+25 x^2)  over [-1,1] using equally spaced points.\
+\>", "Left Header",\
+
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["f[x_] = 1 /(1+ 25x^2)", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Plot[f[x], {x, -1, 1}]", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+data= Table[{0.2 i, f[0.2 i]},
+{i, -5, 5}] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[g,Q];
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle->{PointSize[0.02]},
+        DisplayFunction->Identity];
+g1=Plot[{f[x], g[x]}, {x, -1.1,1.1},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-1.1,1.1},
+ {-0.4,2}},
+PlotLabel->\"f(x) and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Changing the ploting range:  ", "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20,
+  FontSlant->"Plain"],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle->
+{PointSize[0.02]},
+         DisplayFunction->Identity];
+g1=Plot[{f[x], g[x]}, {x, -1.25,1.25},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-1.25,1.25},
+  {-4,2}},
+PlotLabel->\"f(x) and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Runge's Example with Chebyshev Nodes ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Clear[data];
+data= Table[{Cos[(2i+1) Pi /20]//N, 
+f[Cos[(2i+1) Pi /20]//N]},{i, 0, 9}] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle->{PointSize[0.02]},
+                DisplayFunction->Identity];
+g1=Plot[{f[x], g[x]}, {x, -1,1},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-1,1},{0,1}},
+PlotLabel->\"f(x) and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 165}, {69, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 131, 3, 70, "Left Header"],
+Cell[1843, 54, 203, 7, 54, "Left Header"],
+Cell[2049, 63, 80, 2, 29, "Input"],
+Cell[2132, 67, 81, 2, 29, "Input"],
+Cell[2216, 71, 110, 5, 46, "Input"],
+Cell[2329, 78, 139, 6, 63, "Input"],
+Cell[2471, 86, 383, 11, 199, "Input"],
+Cell[2857, 99, 133, 4, 28, "Header"],
+Cell[2993, 105, 388, 12, 199, "Input"],
+Cell[3384, 119, 124, 3, 39, "Left Header"],
+Cell[3511, 124, 154, 6, 63, "Input"],
+Cell[3668, 132, 127, 5, 46, "Input"],
+Cell[3798, 139, 378, 10, 199, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

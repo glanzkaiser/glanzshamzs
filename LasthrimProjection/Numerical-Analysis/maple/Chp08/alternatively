@@ -1,0 +1,17 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: alternatively
+#
+# Solving and plotting an ODE
+#
+ode := D(x)(t) = 2 + (x(t) - t - 1)^2;
+f := dsolve( {ode, x(1)=2}, x(t), numeric);
+f(1); f(1.5625);
+F := t -> f(t);
+plot(F, 1..1.5625);
+

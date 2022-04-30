@@ -1,0 +1,16 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  ode2
+#
+# Numerical solution to the initial value problem
+# x' = 1+x^2+t^3, with initial condition x(1)= -4:
+
+ ode := D(x)(t) = 1 + x(t)^2 + t^3;
+ f := dsolve({ode, x(1) = -4}, x(t), numeric);
+ f(1);
+ f(2);
+ 

@@ -1,0 +1,245 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6118,        185]*)
+(*NotebookOutlinePosition[      6973,        217]*)
+(*  CellTagsIndexPosition[      6929,        213]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Sooting method for linear 2nd order eqn:"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[StyleBox[
+"Here is the  sooting method for the linear second order equation\n x'' = \
+p(t) x' + q(t) x + r(t) with the boundary values x(a) = alpha and\n x(b) = \
+beta. The method solves two equations with initial values \n x1(a) = alpha, \
+x1(b)=0, and x1(a)=alpha, x1(b)=1. Then the solution\n is given by   \n       \
+        x = lambda x1 + (1-lambda) x2, \nwhere  \n               lambda = \
+(beta -x2(b) ) / (x1(b) - x2(b)). \nTo solve the initial problems, we set \
+y=x' and transform the problem\nto a system of two equations : x' = y, y' = \
+p(t) y + q(t) x + r(t), and use\nthe 4th order Runger-Kutta's method for \
+solving a systemof equations.    ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+" First we need to open the notebook: Runger2D.ma. Then,  ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[LinearBdd,p0,q0,r0,a,b,alpha,beta,m]; \n\
+Shooting[p0_,q0_,r0_,a_,b_,alpha_,beta_,m_] :=\n  \
+Module[{f1,f2,f,p,q,r,lambda},\n    Set@@{p[t_],p0};\n    Set@@{q[t_],q0};\n  \
+  Set@@{r[t_],r0};\n    Set@@{f1[t_,{x_,y_}],y};\n    \
+Set@@{f2[t_,{x_,y_}],p[t] y + q[t] x + r[t]};\n    Set@@{f[t_,{x_,y_}], \
+{f1[t,{x,y}],f2[t,{x,y}]} };\n    sol1 = \
+RungeKutta2D[f[t,{x,y}],a,b,{alpha,0},m];\n    sol2 = \
+RungeKutta2D[f[t,{x,y}],a,b,{alpha,1},m];\n    Clear[i];\n    lambda = \
+(beta-sol2[[m+1,2,1]])/(sol1[[m+1,2,1]]-\n                                    \
+  sol2[[m+1,2,1]]);\n    sol = Table[{sol1[[i,1]], lambda *sol1[[i,2,1]] + \n \
+                   (1-lambda)*sol2[[i,2,1]]},{i,1,m+1}];\n    Return[sol]; ];\
+\nOn[General::spell1];"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[{
+  StyleBox["Examle 1:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn:  x'' = x with boundary value x(0) =0 and\n x(1)= 1.  ",
+    
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[p,q,r,t];\np[t_] = 0;\nq[t_] = 1;\nr[t_] = 0;  "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"Clear[pts]; \npts = Shooting[p[t],q[t],r[t],0,1,0,1,25];\nListPlot[pts, \
+AxesLabel->{\"t\",\"x\"}]; "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"ss=DSolve[{x''[t] - x[t] ==0, x[0]==0, x[1]==1},x[t],t];\nxx[t_]= x[t] /. \
+First[ss];  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[xx[t], {t,0,1}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error = Table[pts[[i,2]]-xx[(i-1)/25] //N, {i,1,26}];\nMax[Abs[Error]] "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn:  x'' +(1/t)x' +(1-1/(4t^2))x=t^(1/2)Cos t\nwith \
+boundary value x(1) =1 and x(6)= - 0.5.  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[p,q,r,t];\np[t_] = -1/t; \nq[t_] = -(1-1/(4t^2));\nr[t_] = Sqrt[t] \
+Cos[t]; "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData["Shooting[p[t],q[t],r[t],1,6,1.0,-0.5,25]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[pts]; \npts = Shooting[p[t],q[t],r[t],1,6,1.0,-0.5,100];\n\
+ListPlot[pts,PlotRange->{{0,6.2},{-3.2,1.2}},\n        \
+AxesLabel->{\"t\",\"x\"}]; "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["This boundary problem has exact solution:  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"f[t_]=(t Cos[t] +t^2 Sin[t] -4 C Sin[t] +4 C1 Cos[t])/\n      (4 t^(1/2));\n\
+xx[t_] = f[t]/.{C->-2.960284381/4,C1->0.2354853843/4}"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"Error1 = Table[pts[[i,2]]-xx[1+5(i-1)/100] //N, {i,1,101}];\n\
+Max[Abs[Error1]]  "], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{172, Automatic}, {Automatic, 77}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 309, 10, 70, "Left Header"],
+Cell[2023, 63, 778, 13, 70, "Left Header"],
+Cell[2804, 78, 187, 5, 70, "Left Header"],
+Cell[2994, 85, 798, 13, 70, "Input"],
+Cell[3795, 100, 311, 12, 70, "Left Header"],
+Cell[4109, 114, 108, 2, 70, "Input"],
+Cell[4220, 118, 156, 3, 70, "Input"],
+Cell[4379, 123, 142, 3, 70, "Input"],
+Cell[4524, 128, 73, 1, 70, "Input"],
+Cell[4600, 131, 128, 3, 70, "Input"],
+Cell[4731, 136, 344, 12, 70, "Left Header"],
+Cell[5078, 150, 138, 3, 70, "Input"],
+Cell[5219, 155, 93, 1, 70, "Input"],
+Cell[5315, 158, 205, 4, 70, "Input"],
+Cell[5523, 164, 265, 10, 70, "Left Header"],
+Cell[5791, 176, 186, 3, 70, "Input"],
+Cell[5980, 181, 135, 3, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

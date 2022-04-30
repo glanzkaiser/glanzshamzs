@@ -1,0 +1,247 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6253,        188]*)
+(*NotebookOutlinePosition[      7111,        220]*)
+(*  CellTagsIndexPosition[      7067,        216]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Finite Difference method for 2nd order eqn:"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[StyleBox[
+"Here is the finite difference method  for the linear second order \nequation \
+x'' = p(t) x' + q(t) x + r(t) with the boundary values \nx(a) = alpha and \
+x(b) = beta.  The tridiagonal matrix is given with\ndiagonal =(d_0, ..., \
+d_{n-1}),  upper subdiagonal =(c_0,...,c_{n-2}) \nand lower subdiagonal \
+=(a_0,...,a_{n-2}) . The right hand side of\nA X =b is given by b = (b_0, \
+..., b_{n-1}).  ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[FiniteDiff,a,b,alpha,beta,n];\nFiniteDiff[a_,b_,alpha_,beta_,n_] :=\n\
+Module[{i,h,j,t,a0,b0,c0,d0,X0},\n  h  = (b-a)/(n)//N;\n  t = \
+Table[a+j*h,{j,n-1}];\n  a0 = Table[0,{n-2}];\n  c0 = Table[0,{n-2}];\n  d0 = \
+Table[1,{n-1}];\n  b0 = Table[0,{n-1}];\n    For[j=1,j<=n-2,j++,\n        \
+a0[[j]] = -1 - h/2 p[t[[j+1]]];  \n        c0[[j]] = -1 + h/2 p[t[[j]]]; ]; \n\
+    For[j=1,j<=n-1,j++,\n        d0[[j]] = 2 + h^2 q[t[[j]]];  \n        \
+b0[[j]] = - h^2 r[t[[j]]]; ]; \n        b0[[1]]  = b0[[1]]  +(1 + h/2 \
+p[t[[1]]]) alpha;\n        b0[[n-1]]= b0[[n-1]]+(1 - h/2 p[t[[n-1]]])beta;\n  \
+Clear[X0];\n  X0 = Table[0,{n-1}];\n    For[k=2,k<=n-1,k++,\n      Module[{},\
+\n        tem = a0[[k-1]]/d0[[k-1]];\n        d0[[k]] = d0[[k]] - tem \
+c0[[k-1]];\n        b0[[k]] = b0[[k]] - tem b0[[k-1]] ]];\n      X0[[n-1]] =  \
+b0[[n-1]]/d0[[n-1]];\n    For[k=n -2,1<=k,k--,\n      X0[[k]] = (b0[[k]] - \
+c0[[k]] X0[[k+1]])/ d0[[k]] ];\n   sol = Table[{0,0},{n+1}];\n   \
+For[i=1,i<=n-1,i++, \n      sol[[i+1]] = {t[[i]],X0[[i]]}; ];\n      sol[[1]] \
+  = {a,alpha};\n      sol[[n+1]] = {b, beta};\n  Return[sol]; ]; \n\
+On[General::spell1];"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[{
+  StyleBox["Examle 1:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn:  x'' = x with boundary value x(0) =0 and\n x(1)= 1.  ",
+    
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[p,q,r,t];\np[t_] = 0;\nq[t_] = 1; \nr[t_] = 0;  "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"Clear[pts]; \npts = FiniteDiff[0,1,0,1,25];\nListPlot[pts, \
+AxesLabel->{\"t\",\"x\"}];  "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"ss=DSolve[{x''[t] - x[t] ==0, x[0]==0, x[1]==1},x[t],t];\nxx[t_]= x[t] /. \
+First[ss];  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[xx[t], {t,0,1}] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error = Table[pts[[i,2]]-xx[(i-1)/25] //N, {i,1,26}];\nMax[Abs[Error]]  "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn:  x'' +(1/t)x' +(1-1/(4t^2))x=t^(1/2)Cos t\nwith \
+boundary value x(1) =1 and x(6)= - 0.5.  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[p,q,r,t];\np[t_] = -1/t; \nq[t_] = -(1-1/(4t^2));\nr[t_] = Sqrt[t] \
+Cos[t];  "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"Clear[pts]; \npts = FiniteDiff[1,6,1.0,-0.5,100]; \nListPlot[pts, \
+PlotRange->{{0,6.2},{-3.2,1.2}},\n        AxesLabel->{\"t\",\"x\"}]; "], 
+  "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["This boundary problem has exact solution:  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"f[t_]=(t Cos[t] +t^2 Sin[t] -4 C Sin[t] +4 C1 Cos[t])/ \n      (4 t^(1/2));\n\
+xx[t_] = f[t]/.{C->-2.960284381/4,C1->0.2354853843/4}"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"Error1 = Table[pts[[i,2]]-xx[1+5(i-1)/100] //N, {i,1,101}];\n\
+Max[Abs[Error1]]   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["Recall that the error estimate of the method is O(h^2). ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{259, Automatic}, {Automatic, 32}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 312, 10, 70, "Left Header"],
+Cell[2026, 63, 526, 10, 70, "Left Header"],
+Cell[2555, 75, 1203, 17, 70, "Input"],
+Cell[3761, 94, 311, 12, 70, "Left Header"],
+Cell[4075, 108, 109, 2, 70, "Input"],
+Cell[4187, 112, 144, 3, 70, "Input"],
+Cell[4334, 117, 142, 3, 70, "Input"],
+Cell[4479, 122, 74, 1, 70, "Input"],
+Cell[4556, 125, 129, 3, 70, "Input"],
+Cell[4688, 130, 344, 12, 70, "Left Header"],
+Cell[5035, 144, 139, 3, 70, "Input"],
+Cell[5177, 149, 195, 4, 70, "Input"],
+Cell[5375, 155, 265, 10, 70, "Left Header"],
+Cell[5643, 167, 187, 3, 70, "Input"],
+Cell[5833, 172, 136, 3, 70, "Input"],
+Cell[5972, 177, 278, 10, 70, "Left Header"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

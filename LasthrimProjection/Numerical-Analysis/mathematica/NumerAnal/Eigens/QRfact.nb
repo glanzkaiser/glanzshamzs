@@ -1,0 +1,267 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6456,        199]*)
+(*NotebookOutlinePosition[      7311,        231]*)
+(*  CellTagsIndexPosition[      7267,        227]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["QR-Factorization: "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[StyleBox[
+"The QR factorization yields  A = QR, where  if A_{m,n}, then\nQ_{m,m} is \
+unitary and R_{m,n} is unper triangle. The matrix \ncould be complex. \nWe \
+again use \"digit\" to control the accuracy.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Off[General::spell1];\nClear[QRfact,a0];\nQRfact[a0_] := \nModule[{a, b,n, \
+m,k,c,beta,y,v,vvt,u}, \n a = a0;\n mna = Dimensions[a];\n m = mna[[1]];  \n \
+n = mna[[2]];\n   norm[V_] :=N[ Sqrt[V.Conjugate[V]/.List->Plus], digit];\n   \
+ b = Transpose[a];\n    q = IdentityMatrix[m];\n Clear[i,k];\n For[k=1, k <= \
+m-1, k++,\n   c=Table[If[i >=k, b[[k,i]],0], {i,1,m}];(*k-th column*)\n   \
+beta =N[ -(b[[k,k]]/ Abs[b[[k,k]]]) norm[c],digit];\n   y =  c - beta \
+Table[If[i !=k,0,1], {i,1,m}];\n   alpha = N[Sqrt[2] / norm[y],digit];\n   v \
+= alpha y;\n   vvt= Table[v[[i]] Conjugate[v[[j]]],{i,m},{j,m}];\n   u = \
+IdentityMatrix[m]-vvt;  \n   b = Simplify[b.Transpose[u]];\n   q = u.q;   \n \
+(*Print[\"U\",k,\"=\" MatrixForm[Chop[u]]]; Print[\"    \"];\n    \
+Print[\"Q\",k,\"=\" MatrixForm[Chop[q]]]; Print[\"    \"];\n    \
+Print[\"R\",k,\"=\" MatrixForm[Chop[Transpose[b]]]];\n   Print[ \" \"] *)\n   \
+    (* The above bracket can be used to print out the\n          intermediate \
+steps *)   \n    ];\na=Transpose[b];\nReturn[a]; ];\nOn[General::spell1];     \
+"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["digit = 8;   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": Here is a matrix of 3 by 2: ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A];\nA={{1,2},{1,1},{1,-1}};  \nMatrixForm[A]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[R];\nR=QRfact[A];   \nMatrixForm[Chop[R]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"Here we have used q = q_k .... q_1. It  follows that q.A=R, which\nis the \
+same as A = Q. R, where Q=Transpose[q].",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[Q];\nQ=Transpose[q];\nMatrixForm[Q]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Q.R]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[Q.Transpose[Q]] ]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": Here is a matrix of 4 by 3: ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A];\nA={{63,41,-88},{42,60,51},{0,-28,56},{126,82,-71}}; \n\
+MatrixForm[A]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[R];\nR=QRfact[A]; \nMatrixForm[Chop[R]] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Here  is the  matrix Q =Transpose[q], and A = QR.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[Q];\nQ=Transpose[q];\nMatrixForm[Q]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[Q.R] ] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[Q.Transpose[Q]]] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 3",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": Here is a matrix of 3 by 2 with complex entries: ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A];\nA={{-1+I,2},{0, 1+I},{1-2I ,2} }; \nMatrixForm[A]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[R];\nR=QRfact[A]; \nMatrixForm[Chop[Simplify[R]]] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox["Here  is the  matrix Q =Transpose[q], and A = QR.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[Q];\nQ=Transpose[Conjugate[q]]; \nMatrixForm[Chop[Q]]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[Q.R]]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[Q. Transpose[Conjugate[Q]]] ] "], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{282, Automatic}, {62, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 287, 10, 70, "Left Header"],
+Cell[2001, 63, 326, 7, 70, "Left Header"],
+Cell[2330, 72, 1124, 16, 70, "Input"],
+Cell[3457, 90, 66, 1, 70, "Input"],
+Cell[3526, 93, 259, 10, 70, "Left Header"],
+Cell[3788, 105, 107, 2, 70, "Input"],
+Cell[3898, 109, 100, 1, 70, "Input"],
+Cell[4001, 112, 245, 6, 70, "Left Header"],
+Cell[4249, 120, 96, 1, 70, "Input"],
+Cell[4348, 123, 70, 1, 70, "Input"],
+Cell[4421, 126, 86, 1, 70, "Input"],
+Cell[4510, 129, 259, 10, 70, "Left Header"],
+Cell[4772, 141, 136, 3, 70, "Input"],
+Cell[4911, 146, 99, 1, 70, "Input"],
+Cell[5013, 149, 178, 4, 70, "Left Header"],
+Cell[5194, 155, 96, 1, 70, "Input"],
+Cell[5293, 158, 76, 1, 70, "Input"],
+Cell[5372, 161, 86, 1, 70, "Input"],
+Cell[5461, 164, 280, 10, 70, "Left Header"],
+Cell[5744, 176, 116, 2, 70, "Input"],
+Cell[5863, 180, 110, 2, 70, "Input"],
+Cell[5976, 184, 178, 4, 70, "Left Header"],
+Cell[6157, 190, 115, 2, 70, "Input"],
+Cell[6275, 194, 76, 1, 70, "Input"],
+Cell[6354, 197, 99, 1, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

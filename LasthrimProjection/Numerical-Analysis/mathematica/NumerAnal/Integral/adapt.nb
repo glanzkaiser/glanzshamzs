@@ -1,0 +1,333 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7211,        272]*)
+(*NotebookOutlinePosition[      8067,        302]*)
+(*  CellTagsIndexPosition[      8023,        298]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Adaptive Quadrature:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28,
+  FontWeight->"Bold"],
+
+Cell[TextData[StyleBox[
+"In the following algorithm, the Simpson's rule is used in \nthe adaptive \
+quadrature. We use M for the number of\nmaximum steps, \"tau\" for the  given \
+error. ",
+  FontSize->20]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Off[General::spell1]; 
+Clear[Adpt,f0,a,b,M,tau]; 
+Adpt[f0_,a_, b_,M_,tau_] :=
+Module[{f, v,h,Delta,fa,fb,fc,fv,
+           fz,fy,S,S1,S2,Sigma,c },
+  Set@@{f[x_],f0};
+  v = Table[0,{i,1,M+1},{j,1,6}];
+  Delta= b - a; 
+  Sigma=0;
+  h = Delta /2;
+  c = (a+b)/2;
+  k =1; Cond=0;
+  fa =N[f[a],digit]; fb = N[f[b],digit]; fc=N[f[c],digit];
+  S= N[(fa+ 4 fc +fb)h/3,digit];
+  v[[1]] = {a,h,fa,fc,fb,S};
+  While[1 <=k && k<=M && Cond==0,
+    h = v[[k,2]]/2;
+    fy =N[ f[v[[k,1]]+h], digit];
+    S1=N[(v[[k,3]]+4fy+v[[k,4]])*h/3,
+       digit];
+    fz=N[f[v[[k,1]]+3h],digit];
+    S2=N[(v[[k,4]]+4fz+v[[k,5]])*h/3,
+       digit];
+      If[ N[Abs[S1+S2 -v[[k,6]]],
+            digit] <= 30*tau*h /Delta,
+        Sigma =N[Sigma+S1+S2+(S1+S2-
+              v[[k,6]])/15, digit];
+        k=k-1; 
+        If[k ==0,Cond =1;Print[Sigma]],
+      If[k == M,Cond =1;Print[\"Fail\"]]; 
+         fv=v[[k,5]];   
+         v[[k]] = {v[[k,1]],h,v[[k,3]],
+             fy,v[[k,4]],S1};
+         k=k+1;
+         v[[k]] = {v[[k-1,1]]+2h,h,
+             v[[k-1,5]],fz,fv,S2};  
+      ];  ]; ];  
+ On[General::spell1];     \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[digit];
+digit=16;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->20,
+    FontWeight->"Bold"],
+  StyleBox[": Integrate   f(x) = e^{- x^2} over [0, 1].",
+    FontSize->20]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f];
+f[x_] = Exp[-x^2];  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Adpt[f[x],0,1, 10 , 0.5*10^(-8)]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"In the algorithm we use M to control the maximum steps.\nIf M is reached \
+before the solution, then it give output \n\"Fail\". ",
+  FontSize->20]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Adpt[f[x],0,1, 4, 0.5*10^(-8)]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Compare with the numerical value obtained from \nmathematica:",
+  FontSize->20]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[NIntegrate[f[x],{x,0,1}],digit]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["Note: ",
+    FontSize->21,
+    FontWeight->"Bold"],
+  StyleBox[
+  "Adopted quadrature schemes use a large number of \nintervals where the \
+function changes rapidly, which can\nslow down the program.",
+    FontSize->20],
+  StyleBox["  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f];
+f[x_] = x^(1/4);
+Adpt[f[x],0,1,5, 0.5*10^(-8)] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[NIntegrate[f[x],{x,0,1}],digit]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox[
+  "The following is the same algorithm as the above, but \nthree  \"Print\" \
+command are added. They print out the \nsubdivision of the interval, and the \
+intervals that are done.",
+    FontSize->20],
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Off[General::spell1]; 
+Clear[Adpt,f0,a,b,M,tau]; 
+Adpt[f0_,a_, b_,M_,tau_] :=
+Module[{f, v,h,Delta,fa,fb,fc,fv,fz,
+        fy,S,S1,S2, Sigma,c },
+  Set@@{f[x_],f0};
+  v = Table[0,{i,1,M+1},{j,1,6}];
+  Delta= b - a; 
+  Sigma=0;
+  h = Delta /2;
+  c = (a+b)/2;
+  k =1; Cond=0;
+  fa =N[f[a],digit]; fb = N[f[b],digit]; fc=N[f[c],digit];
+  S= N[(fa+ 4 fc +fb)h/3,digit];
+  v[[1]] = {a,h,fa,fc,fb,S};
+  While[1 <=k && k<=M && Cond==0,
+    h = v[[k,2]]/2;
+    fy =N[ f[v[[k,1]]+h], digit];
+    S1=N[(v[[k,3]]+4fy +v[[k,4]])*h/3,
+       digit];
+    fz=N[f[v[[k,1]]+3h],digit];
+    S2=N[(v[[k,4]]+4fz +v[[k,5]])*h/3,
+       digit];
+      If[ N[Abs[S1+S2 -v[[k,6]]],
+         digit] <= 30*tau*h /Delta,
+         Sigma =N[Sigma+S1+S2+(S1+S2-
+            v[[k,6]])/15, digit];
+      k=k-1; 
+      If[k ==0,Cond =1;Print[Sigma] ],
+      If[k == M,Cond =1; Print[\"Fail\"]]; 
+         fv=v[[k,5]];   
+      v[[k]] = {v[[k,1]],h,v[[k,3]],
+           fy,v[[k,4]],S1};
+ Print[v[[k,1]]//N, \" \",v[[k,1]]+h//N];  
+         k=k+1;
+      v[[k]] ={v[[k-1,1]]+2h,h,
+           v[[k-1,5]],fz,fv,S2};  
+ Print[v[[k,1]]//N, \"  \",v[[k,1]]+h//N];  
+      ];  ]; ];  
+ On[General::spell1];     \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->20,
+    FontWeight->"Bold"],
+  StyleBox[": Integrate   f(x) = Sqrt[x] over [0, 1].",
+    FontSize->20]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f];
+f[x_] = Sqrt[x];  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Adpt[f[x],0,1, 5 , 0.5*10^(-3)]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 168}, {Automatic, 10}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 129, 4, 37, "Left Header"],
+Cell[1841, 55, 286, 7, 77, "Left Header"],
+Cell[2130, 64, 1164, 41, 675, "Input"],
+Cell[3297, 107, 90, 5, 46, "Input"],
+Cell[3390, 114, 240, 9, 31, "Left Header"],
+Cell[3633, 125, 97, 5, 46, "Input"],
+Cell[3733, 132, 93, 2, 29, "Input"],
+Cell[3829, 136, 252, 6, 77, "Left Header"],
+Cell[4084, 144, 91, 2, 29, "Input"],
+Cell[4178, 148, 185, 5, 54, "Left Header"],
+Cell[4366, 155, 94, 2, 29, "Input"],
+Cell[4463, 159, 473, 18, 78, "Left Header"],
+Cell[4939, 179, 124, 6, 63, "Input"],
+Cell[5066, 187, 94, 2, 29, "Input"],
+Cell[5163, 191, 371, 12, 77, "Left Header"],
+Cell[5537, 205, 1236, 43, 743, "Input"],
+Cell[6776, 250, 238, 9, 31, "Left Header"],
+Cell[7017, 261, 95, 5, 46, "Input"],
+Cell[7115, 268, 92, 2, 29, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

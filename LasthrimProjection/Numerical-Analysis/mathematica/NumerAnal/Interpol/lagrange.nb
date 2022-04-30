@@ -1,0 +1,289 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5876,        229]*)
+(*NotebookOutlinePosition[      6733,        259]*)
+(*  CellTagsIndexPosition[      6689,        255]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Lagrange Form of Interpolation Polynomial", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Off[General::spell1];
+Clear[Lagrange,XY0,t];
+Lagrange[XY0_,t_] := 
+Block[{j,k,n,prod,sum,term,X,Y,XY},
+  XY = XY0;
+  n = Length[XY]-1;
+  X = Transpose[XY][[1]];
+  Y = Transpose[XY][[2]];
+  sum = 0;
+  Clear[P,L];
+    For[k=0,k<=n,k++,
+      prod = 1;
+      For[j=0,j<=n,j++,
+        term=Which[j==k,1, j!=k,
+    (t-X[[j+1]])/(X[[k+1]]-X[[j+1]])];
+        prod=prod term ];
+      L[k,x_] = prod;
+      sum = sum + Y[[k+1]] prod ];
+  P[x_] = sum;
+  Return[P[x]]; ];
+On[General::spell1];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->19,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["Construct Lagrange interpolating polynomial\nfor the data:",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY];
+XY={{0,1}, {0.5, 2}, {1,0}, {1.5, -1}, {2, 1}}\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[P1,x];
+P1[x_] = N[Lagrange[XY,x],10]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Q1[x_] = N[Expand[P1[x]],10]", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},
+        DisplayFunction->Identity];
+ gr1 = Plot[{ Q1[x]},{x,-0.5, 2.5},
+DisplayFunction->Identity];
+Show[gr1,dots,PlotRange->{{-0.5,2.5},{-4,4}},
+AxesLabel->{\"x\",\"y\"},
+PlotLabel->\"f(x) and the Lagrange polynomial.\",
+DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox[
+  "Construct Lagrange interpolating polynomials \nof degree 2 and 3 for the \
+function  f(x) = cos x over \n[0, 1.2] .",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell[TextData[StyleBox["Degree 2:   x- points = {0, 0.6, 1.2}",
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x];
+f[x_] = Cos[x]
+XY = {{0.0,f[0.0]},{0.6,f[0.6]},{1.2,f[1.2]}};
+N[XY,10]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[P2,x];
+P2[x_] = N[Lagrange[XY,x],10]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Q2[x_] = N[Expand[P2[x]],10]", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},
+        DisplayFunction->Identity];
+Print[\"The function is f[x] = \",f[x]];
+gr2 = Plot[ Cos[x], {x,-1,2}, 
+     DisplayFunction->Identity];
+gr3 = Plot[Q2[x] ,{x,-1,2.1},
+PlotStyle -> Thickness[0.01],
+DisplayFunction->Identity];
+Show[gr2,gr3,dots,PlotRange->{{-1,2.1},
+{-0.8,1.15}},
+AxesLabel->{\"x\",\"y\"},
+PlotLabel->\"f(x) and the Lagrange polynomial.\",
+DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Degree 3:   x- points = {0, 0.64, 0.8, 1.2}",
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,x];
+f[x_] = Cos[x]
+XY = {{0.0,f[0.0]},{0.4,f[0.4]},
+{0.8,f[0.8]},{1.2,f[1.2]}};N[XY,10]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[P3,x];
+P3[x_] = N[Lagrange[XY,x],10]\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Q3[x_] = N[Expand[P3[x]],10]", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},
+        DisplayFunction->Identity];
+Print[\"The function is f[x] = \",f[x]];
+gr4 = Plot[Q3[x] ,{x,-1,2.1},
+PlotStyle -> Thickness[0.01],
+DisplayFunction->Identity];
+Show[gr2,gr4,dots,PlotRange->{{-1,2.1},
+{-0.8,1.15}},
+AxesLabel->{\"x\",\"y\"},
+PlotLabel->\"f(x) and the Lagrange polynomial.\",
+DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 260}, {Automatic, -11}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 128, 3, 70, "Left Header"],
+Cell[1840, 54, 551, 24, 369, "Input"],
+Cell[2394, 80, 341, 13, 51, "Header"],
+Cell[2738, 95, 124, 5, 63, "Input"],
+Cell[2865, 102, 110, 5, 46, "Input"],
+Cell[2978, 109, 88, 2, 29, "Input"],
+Cell[3069, 113, 374, 11, 199, "Input"],
+Cell[3446, 126, 401, 15, 74, "Header"],
+Cell[3850, 143, 161, 4, 28, "Header"],
+Cell[4014, 149, 150, 7, 97, "Input"],
+Cell[4167, 158, 110, 5, 46, "Input"],
+Cell[4280, 165, 88, 2, 29, "Input"],
+Cell[4371, 169, 511, 16, 267, "Input"],
+Cell[4885, 187, 167, 4, 28, "Header"],
+Cell[5055, 193, 163, 7, 80, "Input"],
+Cell[5221, 202, 110, 5, 46, "Input"],
+Cell[5334, 209, 88, 2, 29, "Input"],
+Cell[5425, 213, 447, 14, 250, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

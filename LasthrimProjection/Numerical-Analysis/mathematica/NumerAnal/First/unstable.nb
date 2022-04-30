@@ -1,0 +1,216 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4896,        161]*)
+(*NotebookOutlinePosition[      5752,        191]*)
+(*  CellTagsIndexPosition[      5708,        187]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[StyleBox["Example on Instability",
+  FontSlant->"Italic"]], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->31],
+
+Cell["\<\
+Here is an example dealing with  the  numerical 
+solution of  the difference equation 
+               y[n+1] = e - (n+1) y[n]  .
+This equation comes from  the attempt to evaluate
+the following integral.  Let               
+         y[n] = int [ x^n exp(x) dx]   
+on the inteval  [0,1] . Then integration by parts 
+leads to this difference equation. It is easy to see 
+that the value of y[n] --> 0  as n --> infinity. \
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->23],
+
+Cell["e:= E//N  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->21],
+
+Cell["G[0]=e -1; G[n_]:= e - n * G[n-1]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->21],
+
+Cell[TextData[{
+  "As a comparision, we evaluate the value of this \nintegral using the \
+function \"Integral\" of \n",
+  StyleBox["mathematica",
+    FontSlant->"Italic"],
+  ", and print the results side by side."
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->23],
+
+Cell["F[n_]:= Integrate[x^n Exp[x], {x, 0,1}]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->21],
+
+Cell["\<\
+Do[Print[StringForm[\"n=``,         F =``,              G=``\", 
+n , F[n]//N , G[n] ]], {n, 25}]  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->21],
+
+Cell[TextData[{
+  "Surprisingly, the ",
+  StyleBox["mathematica",
+    FontSlant->"Italic"],
+  " function \"Integral\" \ndoes not produce the correct answer for n=19, 25, \
+\n30, etc.  This shows that we have to be more\ncareful in computing this \
+integral. In fact, the \n\"Integral\" in ",
+  StyleBox["mathematica",
+    FontSlant->"Italic"],
+  " finds the exact\nform of integral whenever it can, as it is shown\nby: "
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->23],
+
+Cell["Integrate[x^(20) Exp[x], {x, 0,1}]   ", "Input",
+  AspectRatioFixed->True,
+  FontSize->21],
+
+Cell[TextData[{
+  "The wrong answer  for  large  n occurs when we \nthen evaluate with \
+\"//N\" which askes for numerical \nvalue; ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " usually takes E=2.71828 \nwhich has accuracy up to 10^{-5}, but this \
+error \nleads to a loss of significant digits when multiplied \nby a large \
+number as in the above formula for  \nn =20."
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->23],
+
+Cell[TextData[{
+  "Using ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " for definite integral, it is more \nsensible to use \"Nintegral\". Here \
+is the result for \nthe same integrals:"
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->23],
+
+Cell["\<\
+H[n_]:=NIntegrate[x^(n) Exp[x], {x, 0,1}] ;
+Do[Print[StringForm[\"n=``,      H=``\", n, H[n] ] ],   
+{n, 16,25}] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->21],
+
+Cell[TextData[{
+  "The \"NIntegral\" in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " uses numerical\nintegration method suc as Simpson rule. "
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->23]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 164}, {Automatic, 23}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 145, 4, 49, "Text"],
+Cell[1857, 55, 512, 13, 233, "Left Header"],
+Cell[2372, 70, 69, 2, 33, "Input"],
+Cell[2444, 74, 94, 2, 54, "Input"],
+Cell[2541, 78, 296, 9, 83, "Left Header"],
+Cell[2840, 89, 100, 2, 54, "Input"],
+Cell[2943, 93, 165, 5, 75, "Input"],
+Cell[3111, 100, 503, 13, 183, "Left Header"],
+Cell[3617, 115, 96, 2, 54, "Input"],
+Cell[3716, 119, 467, 11, 183, "Left Header"],
+Cell[4186, 132, 281, 9, 83, "Left Header"],
+Cell[4470, 143, 180, 6, 117, "Input"],
+Cell[4653, 151, 239, 8, 58, "Left Header"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

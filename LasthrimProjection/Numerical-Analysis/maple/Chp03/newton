@@ -1,0 +1,26 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: newton
+#
+# Iterations doubling in Newton's method
+#
+Digits := 100;
+x := 4.0;
+for n from 1 by 1 to 10 do
+f := ((x - 2.0)*x + 1.0)*x - 3.0;
+g := (3.0*x - 4.0)*x + 1.0;
+x := x - f/g;
+od;
+y := x;
+x := 4.0;
+for n from 1 by 1 to 10 do
+f := ((x - 2.0)*x + 1.0)*x - 3.0;
+g := (3.0*x - 4.0)*x + 1.0;
+x := x - f/g;
+e := y - x;
+od;

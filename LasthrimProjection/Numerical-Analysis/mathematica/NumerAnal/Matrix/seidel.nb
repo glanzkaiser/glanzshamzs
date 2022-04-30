@@ -1,0 +1,298 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6084,        235]*)
+(*NotebookOutlinePosition[      6939,        265]*)
+(*  CellTagsIndexPosition[      6895,        261]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Gauss-Seidel Iteration", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["We consider Gauss-Seidel iteration:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Off[General::spell1];
+Clear[GaussSeidel,a0,b0, M0];
+GaussSeidel[a0_,b0_, M0_] :=
+Module[{a,b,k,n,x,u},
+  a = a0; b = b0; M = M0;
+  n = Length[b];
+  x = Table[0,{i, n}];
+  u = Table[0, {i,n}];
+  Clear[i,k];
+  For[k=1,k<=M,k++,
+    For[i=1, i<=n, i++,
+      x[[i]] = (b[[i]] - Sum[a[[i,j]]*
+         x[[j]], {j,1,i-1}]
+         - Sum[a[[i,j]] x[[j]], 
+            {j,i+1,n}])/a[[i,i]]    ];
+    Print[N[x,10]];  ]; 
+  Return[x]; ] 
+  On[General::spell1];  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->22,
+    FontWeight->"Bold"],
+  StyleBox[":  Here is a 3 by 3 system,",
+    FontSize->22]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A,B]; 
+A = {{4,-1,1},{4,-8,1},{-2,1,5}};
+B = {7,-21,15}; 
+StringForm[\"A= ``    B = ``\", MatrixForm[A], MatrixForm[B]] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[GaussSeidel[A,B,10],10]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->22,
+    FontWeight->"Bold"],
+  StyleBox[
+  ":  Here is another  3 by 3 system, for which\nthe convergence is slow. The \
+solution is given by \n(1/3,1/3,1/3). ",
+    FontSize->22]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A,B];
+A={ {1,1/2,1/3}, {1/3,1,1/2},{1/2,1/3,1} };  
+B={11/18,11/18,11/18};       \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["GaussSeidel[A,B,25]//N  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"We  should compare these results with Jacobi \niteration, whose spectral \
+radius of   I - Q^{-1}A \nis 0.833333...",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+ Clear[n,Q];
+ n=Length[A];
+ Q=Table[If[i >= j, A [[i,j]], 0], {i,n},{j,n}];  
+ Max[N[Abs[Eigenvalues[IdentityMatrix[n]-Inverse[Q].A]],8]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 3",
+    FontSize->22,
+    FontWeight->"Bold"],
+  StyleBox[
+  ":  Here is a 3 by 3 system for which the\nmethod does not converge. (the \
+solution is {1,1}). \nIn fact, the spectral radius is 2. ",
+    FontSize->22]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A,B]; 
+A = {{1,2},{2,1}};
+B = {1/3,1/3};  
+StringForm[\"A= ``    B = ``\", MatrixForm[A], MatrixForm[B]] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[GaussSeidel[A,B,10],10]   ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["In fact, the spectral radius of this matrix is 2. ",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+ Clear[n,Q]; 
+ n=Length[A]; 
+ Q=Table[If[i >=j, A [[i,j]], 0],  {i,n},{j,n}];  
+ Max[N[ Abs[Eigenvalues[IdentityMatrix[n]-Inverse[Q].A]],8]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 4",
+    FontSize->22,
+    FontWeight->"Bold"],
+  StyleBox[
+  ":  Here is a 4 by 4 system which will be \nused to compare with  Jacobi \
+method and SOR \nmethod.",
+    FontSize->22],
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A,B]; 
+A = {{1,0,-1/4,-1/4},{0,1,-1/4,-1/4},{-1/4,-1/4,1,0},
+      {-1/4,-1/4,0,1}};
+B = {1,1,1,1};   
+StringForm[\"A= ``    B = ``\", MatrixForm[A], MatrixForm[B]] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[GaussSeidel[A,B,10],10]   ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"For latter comparision , we compute the spectral\nradius of the matrix. ",
+  FontSize->22]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[n,Q]; 
+n=Length[A]; 
+Q=Table[If[i >= j, A [[i,j]], 0],  {i,n},{j,n}];  
+Max[N[ Abs[Eigenvalues[IdentityMatrix[n]-Inverse[Q].A]], 10]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 96}, {Automatic, 57}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 109, 3, 39, "Left Header"],
+Cell[1821, 54, 122, 3, 32, "Left Header"],
+Cell[1946, 59, 521, 21, 318, "Input"],
+Cell[2470, 82, 224, 9, 32, "Left Header"],
+Cell[2697, 93, 193, 7, 97, "Input"],
+Cell[2893, 102, 86, 2, 29, "Input"],
+Cell[2982, 106, 315, 11, 80, "Left Header"],
+Cell[3300, 119, 154, 6, 80, "Input"],
+Cell[3457, 127, 83, 2, 29, "Input"],
+Cell[3543, 131, 239, 6, 80, "Left Header"],
+Cell[3785, 139, 204, 7, 114, "Input"],
+Cell[3992, 148, 332, 11, 80, "Left Header"],
+Cell[4327, 161, 178, 7, 97, "Input"],
+Cell[4508, 170, 87, 2, 29, "Input"],
+Cell[4598, 174, 173, 4, 32, "Left Header"],
+Cell[4774, 180, 207, 7, 114, "Input"],
+Cell[4984, 189, 357, 14, 80, "Left Header"],
+Cell[5344, 205, 238, 8, 131, "Input"],
+Cell[5585, 215, 87, 2, 29, "Input"],
+Cell[5675, 219, 196, 5, 56, "Left Header"],
+Cell[5874, 226, 206, 7, 114, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

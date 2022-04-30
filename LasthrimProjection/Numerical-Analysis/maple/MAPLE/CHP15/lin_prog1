@@ -1,0 +1,13 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  lin_prog1
+#
+# Maximize the objective function subject to the given constraints:
+
+ obj := 2*x + 3*y;
+ consts := {5*x + 3*y <= 15, 3*x + 6*y <=18};
+ simplex[maximize](obj, consts, NONNEGATIVE);

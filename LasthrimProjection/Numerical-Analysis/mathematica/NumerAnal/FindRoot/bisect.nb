@@ -1,0 +1,225 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4455,        172]*)
+(*NotebookOutlinePosition[      5310,        202]*)
+(*  CellTagsIndexPosition[      5266,        198]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Bisection Method", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Off[General::spell1];
+Clear[Bisection,f0,a0,b0,delta,x];
+Bisection[f0_,a0_,b0_,delta_,d_] :=
+Module[{a,b,c,Ya,Yb,Yc,f,k,cond,MaxIter}, 
+  Set@@{f[x_],f0};
+  a = N[a0,d ];
+  b = N[b0,d ];
+  k = 0;
+  Ya = f[a];
+  Yb = f[b];
+  dx  = b - a;
+  cond = 0;
+  MaxIter = 1 + Floor[(Log[dx]-
+          Log[delta])/Log[2.0]]//N; 
+  Print[\"\\t\",\"\\t     a = \",N[a,d]];
+  Print[\"\\t\",\"\\t     b = \",N[b,d]];
+  While[cond==0 && k < MaxIter,
+    c  = (a+b)/2;
+    Yc = f[c];
+    Print[\"k = \",k,\"\\t    c = \",N[c,d],
+              \"\\t  |dc| <= \",N[dx,d]];
+    If[Yc==0, a=c; b=c; 
+           cond= PerfectZero];
+    If[Yb Yc>0, b=c;Yb=Yc, a=c;Ya=Yc];
+    dx = b-a;
+    k = k+1; ];
+    ]; 
+On[General::spell1]; \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->21,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Find the solution to the equation  \n           x Sin[x]-1=0.",
+    FontSize->21,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->25],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = x Sin[x] - 1 ;
+Print[\"The function is f[x] = \",f[x]]; 
+Plot[f[x],{x,0,2},
+PlotLabel->\"The curve y = f(x).\"];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Bisection[f[x],0,2,10^-10,8]  ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->21,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ". Find the solution to the equation  \n            x^3 - 12 x^2 + 3x \
++1=0.",
+    FontSize->21,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->25],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = x^3 - 12 x^2 + 3 x +1;
+Print[\"The function is f[x] = \",f[x]]; 
+Plot[f[x],{x,-2,2},
+PlotLabel->\"The curve y = f(x).\"];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Bisection[f[x],0,1,10^-5,8] ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 3",
+    FontSize->21,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ". Find the solution to the equation  \n            x^4 - 5 x^2 + 2x +1=0.",
+    
+    FontSize->21,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->25],
+
+Cell["\<\
+Clear[f,x]; 
+f[x_] = x^4 - 5 x^2 + 2 x +1;
+Print[\"The function is f[x] = \",f[x]]; 
+Plot[f[x],{x,-2,2},
+PlotLabel->\"The curve y = f(x).\"];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["Bisection[f[x],-2,2,10^-5,8] ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 101}, {Automatic, 5}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 103, 3, 39, "Left Header"],
+Cell[1815, 54, 776, 31, 505, "Input"],
+Cell[2594, 87, 304, 11, 53, "Header"],
+Cell[2901, 100, 201, 8, 97, "Input"],
+Cell[3105, 110, 90, 2, 29, "Input"],
+Cell[3198, 114, 320, 13, 53, "Header"],
+Cell[3521, 129, 210, 8, 97, "Input"],
+Cell[3734, 139, 88, 2, 29, "Input"],
+Cell[3825, 143, 322, 13, 53, "Header"],
+Cell[4150, 158, 209, 8, 97, "Input"],
+Cell[4362, 168, 89, 2, 29, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

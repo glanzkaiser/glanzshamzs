@@ -1,0 +1,206 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5587,        152]*)
+(*NotebookOutlinePosition[      6443,        184]*)
+(*  CellTagsIndexPosition[      6399,        180]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Parametric Cubic Spline Curve:"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->22],
+
+Cell[TextData[StyleBox[
+"We use naturanl cubic interpolation splines to produce a parametric\ncurve:",
+  
+  FontSize->16,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"Off[General::spell1]; \nClear[MakeZ,V];\nMakeZ[V_] := \nBlock[{},\n  n = \
+Length[V]-1;\nh=Table[a,{n+1}];b=Table[a,{n+1}];\n\
+u=Table[a,{n+1}];v=Table[a,{n+1}];\nz=Table[a,{n+1}];\nFor[i=1,i<=n,i++,\n    \
+    h[[i]] = V[[i+1,1]] - V[[i,1]];\n        b[[i]] = 6 (V[[i+1,2]] - \
+V[[i,2]])/h[[i]];\n        ];\nu[[1]] = 2 (h[[1]] + h[[2]]);\nv[[1]] = b[[2]] \
+- b[[1]];\nFor[i=2,i<=n,i++,\n  u[[i]] = 2 (h[[i]] + h[[i-1]]) - h[[i-1]] ^2 \
+/ u[[i-1]];\n  v[[i]] = b[[i]] - b[[i-1]] - h[[i-1]] v[[i-1]] / u[[i-1]];\n   \
+  ];\nz[[n+1]] = 0;\nFor[i=n,i>=2,i--,\n        z[[i]] = (v[[i]] - h[[i]] \
+z[[i+1]]) / u[[i]];\n        ];\nz[[1]] = 0;\n] ;\n\nMakeSpline[] := \n\
+Block[{},\nS = Table[s,{n+1}];\nFor[i=1,i<=n,i++, \n  S[[i]] := Evaluate[\n  \
+N[ z[[i]]/ (6 h[[i]])] ( V[[i+1,1]] - x ) ^3 +\n  N[ z[[i+1]] / (6 h[[i]])] \
+(x - V[[i,1]]) ^3 +\n  N[ (V[[i+1,2]] / h[[i]] - (z[[i+1]] h[[i]])/6)] \n     \
+     (x - V[[i,1]]) +\n  N[ (V[[i,2]] / h[[i]] - (z[[i]] h[[i]])/6)]\n        \
+ (V[[i+1,1]] - x)];\n  ]] ;\n  \nEvalSpline[S_,V_,y_] :=\nBlock[{val=0},\n    \
+    For[i=1,i<=n,i++,\n                If[V[[i,1]] <= y <= V[[i+1,1]],\n      \
+          val = S[[i]] /. x->y,0]\n           ];val\n        ]; \n \n\
+Clear[Parameter,XY,X,Y]\nParameter[XY0_] :=\n  Block[{},\n  XY=XY0;\n  \
+n=Length[XY];\n  X=Table[{i-1,XY[[i,1]]}, {i,1,n}];\n  \
+Y=Table[{i-1,XY[[i,2]]}, {i,1,n}];\nV=X; \nMakeZ[X];\nz1 = z;h1 = h; \n\nV=Y;\
+\nMakeZ[Y];\nz2 = z;h2 = h;\n                \nClear[SX,V,z,h];\n\
+V=X;z=z1;h=h1;\nMakeSpline[];\nSX = S;\n\nClear[SY,V,z,h];\nV=Y;z=z2;h=h2;\n\
+MakeSpline[];\nSY = S; ];\nOn[General::spell1]; "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[".  A script D:",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"XY = {{3.2,9},{3.2,5.5},{1.5,1},{1.5,3},{4.5,2},{8.8,2.8},\n        \
+{10.2,7},{8.2,11.5},{5.2,12.2},{5,7},{6.5,0}};\nParameter[XY]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"curve=ParametricPlot[{EvalSpline[SX,X,t],EvalSpline[SY,Y,t]},{t,0,10},\n     \
+   Frame->False,Axes->False,AspectRatio->1]   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"nodes=ListPlot[XY,Frame->False,Axes->False,\n\
+AspectRatio->1,PlotStyle->PointSize[.02], \nDisplayFunction->Identity]; \n\
+Show[curve,nodes, DisplayFunction->$DisplayFunction]\n"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[".  A car (?):",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"Clear[XY,n];\nXY = {{1.,-0.2},{0.,0.}, {1.2,1.2}, {7.,2},{10.,4.}, \n\
+{14.,4.5},{18.,4.}, {20.5,2.5},{24.,2.}, {25.,0},\n{24,-0.2}};\n\
+Parameter[XY];       "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"curve=ParametricPlot[{EvalSpline[SX,X,t],EvalSpline[SY,Y,t]},{t,0,10},\n     \
+   Frame->False,Axes->False,AspectRatio->0.3]   \n "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"nodes=ListPlot[XY,Frame->False,Axes->False, \n\
+AspectRatio->1,PlotStyle->PointSize[.02],\nDisplayFunction->Identity];\n\
+Show[curve,nodes, DisplayFunction->$DisplayFunction] \n"], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 196}, {Automatic, 127}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 150, 4, 70, "Left Header"],
+Cell[1864, 57, 242, 8, 70, "Header"],
+Cell[2109, 67, 1671, 23, 70, "Input"],
+Cell[3783, 92, 278, 12, 70, "Header"],
+Cell[4064, 106, 187, 3, 70, "Input"],
+Cell[4254, 111, 179, 3, 70, "Input"],
+Cell[4436, 116, 231, 4, 70, "Input"],
+Cell[4670, 122, 277, 12, 70, "Header"],
+Cell[4950, 136, 213, 4, 70, "Input"],
+Cell[5166, 142, 184, 3, 70, "Input"],
+Cell[5353, 147, 231, 4, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

@@ -1,0 +1,18 @@
+set term postscript         # redirect output to postscript
+set output 'fig7-7.out'      # name postscript output file
+
+set xlabel "X  SCALE"
+set ylabel "Y  SCALE"
+set xrange [-2.1906:2.1906]
+set yrange [-8.5:8.5]
+
+#set noxzeroaxis 
+#set noyzeroaxis 
+
+set nokey                  # use no title (usually written upp right corner)
+
+
+plot "knot7-7" with points 1 1, "fig7-7a.dat" with lines 2 1, "fig7-7b.dat" with lines 1 1
+
+clear                      # clear current definitions (optional)
+

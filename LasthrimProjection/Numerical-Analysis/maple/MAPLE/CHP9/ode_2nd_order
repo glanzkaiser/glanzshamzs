@@ -1,0 +1,14 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  ode_2nd_order
+#
+# Solving second order initial-value problem:
+# x"(t) = -3 (cos(t))^2 + 2
+# with the initial conditions:  x(0)=0, x'(0)=0
+
+ dsolve ({(D@@2)(x)(t) = -3*cos(t)^2 + 2, x(0)=0,
+           D(x)(0)=0}, x(t));

@@ -1,0 +1,185 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3738,        140]*)
+(*NotebookOutlinePosition[      4377,        163]*)
+(*  CellTagsIndexPosition[      4333,        159]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Tridiagonal System", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["Here is the algorithm of solving tri-diagonal system,", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Off[General::spell1];
+Clear[TriDiagonal,a0,d0,c0,b0];
+TriDiagonal[a0_,d0_,c0_,b0_] :=
+Module[{i,xmult},
+  a = a0; d=d0; c=c0; b=b0;
+  n = Length[b];
+  x=Table[0,{i,n}];
+  For[i=2,i<=n,i++,
+    xmult = a[[i-1]]/d[[i-1]];
+    d[[i]] = d[[i]]-xmult*c[[i-1]];
+    b[[i]] = b[[i]]-xmult*b[[i-1]];];
+  x[[n]] = N[b[[n]]/d[[n]],digit];
+  For[i=n-1,1<=i,i--,
+    x[[i]] = N[(b[[i]] - c[[i]]*
+       x[[i+1]])/d[[i]],digit];];
+ Return[x]; ]; 
+ On[General::spell1];       \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+Clear[digit];
+digit = 7;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->20],
+  StyleBox[": Here is a systems of 4 by 4,  ",
+    FontSize->20,
+    FontWeight->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18,
+  FontWeight->"Bold"],
+
+Cell["\<\
+Clear[a,d,c,b, A]; 
+a = {4,-4,0}; d={1,5,-5,-3};
+c={2,3,1}; b={1,4,-2,2} ;
+A= Table[Switch[i-j,-1,c[[i]],0,
+d[[i]],1,a[[i-1]],_,0], {i,4},{j,4}];
+MatrixForm[A]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["TriDiagonal[a ,d ,c ,b ]",
+  FontSize->18]], "Input"],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->20],
+  StyleBox[": Here is a systems of 4 by 4,  ",
+    FontSize->20,
+    FontWeight->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18,
+  FontWeight->"Bold"],
+
+Cell["\<\
+Clear[a,d,c,b, A]; 
+a = {-1,-1,-1,-1,-1}; d={4,4,4,4,4,4};
+c={-1,-1,-1,-1,-1}; b={1,2,3,4,5,6} ;
+A= Table[Switch[i-j,-1,c[[i]],0,
+d[[i]],1,a[[i-1]],_,0], {i,6},{j,6}];
+MatrixForm[A]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["TriDiagonal[a ,d ,c ,b ]",
+  FontSize->18]], "Input"]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowSize->{520, 600},
+WindowMargins->{{123, Automatic}, {39, Automatic}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 105, 3, 39, "Left Header"],
+Cell[1817, 54, 140, 3, 32, "Left Header"],
+Cell[1960, 59, 530, 20, 301, "Input"],
+Cell[2493, 81, 91, 5, 46, "Input"],
+Cell[2587, 88, 252, 10, 31, "Left Header"],
+Cell[2842, 100, 226, 9, 114, "Input"],
+Cell[3071, 111, 77, 1, 29, "Input"],
+Cell[3151, 114, 252, 10, 31, "Left Header"],
+Cell[3406, 126, 248, 9, 114, "Input"],
+Cell[3657, 137, 77, 1, 29, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

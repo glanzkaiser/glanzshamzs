@@ -1,0 +1,22 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  sqrt_approx
+#
+# Write the Taylor series expansion of sqrt(1+h), find the 
+# approximation to sqrt(1+h) for h = 0.00001 and h = -0.00001.
+# Asking for the calculation to be done to 40 decimal digits:
+
+ y := taylor(sqrt(1+h), h=0);
+ p := convert(", polynom);
+ Digits := 40;
+ subs(h=0.00001, p);
+ evalf(");
+ subs(h = -0.00001 ,p);
+ evalf(");
+
+# Verification of the accuracy of the answer:
+ x := sqrt(1.00001);

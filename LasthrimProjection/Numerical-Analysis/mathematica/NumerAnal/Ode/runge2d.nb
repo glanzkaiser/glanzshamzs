@@ -1,0 +1,363 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      9346,        290]*)
+(*NotebookOutlinePosition[     10202,        322]*)
+(*  CellTagsIndexPosition[     10158,        318]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["4th-order Runger-Kutta method: d=2"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[StyleBox[
+" Here is the 4th order Runger-Kutta's method of solving a system\n of two \
+equations x' = f(t,x,y), y' = g(t,x,y),  with initial value \n  x(a) = x0, \
+y(a)=y0:   ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Off[General::spell1];\nClear[RungeKutta2D,f0,a,b,X0,n];\n\
+RungeKutta2D[f0_,a_,b_,X0_,n_] :=\nModule[{f,h,j,F1,F2,F3,F4,T,X,Y},\n  \
+Set@@{f[t_,{x_,y_}],f0};\n  h = (b - a)/n //N;\n  T = Table[0,{n+1}];\n  X = \
+Table[0,{n+1}];\n  T[[1]] = a //N;\n  X[[1]] = X0 //N;\n  For[j=1, j<=n,j++,\n\
+    F1 = h f[T[[j]],X[[j]]] //N;\n    F2 = h f[T[[j]] + h/2, X[[j]] + F1/2] \
+//N;\n    F3 = h f[T[[j]] + h/2, X[[j]] + F2/2] //N;\n    F4 = h f[T[[j]] + \
+h, X[[j]] + F3] //N;\n    X[[j+1]] = X[[j]] + (F1 + 2 F2 + 2 F3 + F4)/6 //N;\n\
+    T[[j+1]] = a + h j //N];\n Return[Transpose[{T,X}]] ];\n\
+On[General::spell1]; "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[{
+  StyleBox["Examle 1:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn: x' = x+4y -e^t and y' = x+y+2 e^t,\nwith initial value \
+x(0) =4 and y(0)=5/4. We look for the solution on \nthe interval [0,2]. ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f,f1,f2,t,x];   \nf1[t_,{x_,y_}] = x+ 4 y - Exp[t];\nf2[t_,{x_,y_}] = \
+x+ y + 2 Exp[t];\nf[t_,{x_,y_}] ={f1[t,{x,y}],f2[t,{x,y}]}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[" RungeKutta2D[f[t,{x,y}], 0,1,{4,5/4},10]   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[RK,RKX,RKY];\n RK= RungeKutta2D[f[t,{x,y}], 0,1,{4,5/4},100];  \n \
+RKX=Table[{RK[[i,1]],RK[[i,2,1]]}, {i,1,101}];\n \
+RKY=Table[{RK[[i,1]],RK[[i,2,2]]} ,{i,1,101}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[graph1, graph2];\n graph1=ListPlot[RKX, PlotJoined->True,AspectRatio \
+-> 0.5,\n             DisplayFunction->Identity]; \n \
+graph2=ListPlot[RKY,PlotJoined->True,AspectRatio -> 0.5, \n             \
+DisplayFunction->Identity]; \n \
+Show[graph1,graph2,DisplayFunction->$DisplayFunction];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["Compare with ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["Mathematica",
+    FontSize->16],
+  StyleBox[" solution:  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ss=DSolve[{x'[t]==x[t]+4 y[t]-Exp[t], \n           y'[t]== y[t]+x[t]+ 2 \
+Exp[t],\n           x[0]==4, y[0]== 5/4}, {x[t], y[t]},t] \nxx[t_]= x[t] /. \
+First[ss];  \nyy[t_]= y[t] /. Last[ss] ; "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[" Check the errors:  ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error1 = Table[RKX[[i,2]]-xx[(i-1)/100] //N, {i,1,101}];\nMax[Abs[%]]  "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error2= Table[RKY[[i,2]]-yy[ (i-1)/100]//N, {i,1,101}];\nMax[Abs[%]]  "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn: x' = x+y^2 -t^3 and y' = y+x^3+cos[t],\nwith initial \
+value x(1) =3 and y(1)=1. We look for the solution on the\ninterval [-2,1]. ",
+    
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f,f1,f2,t,x];   \nf1[t_,{x_,y_}] = x+y^2 -t^3;\nf2[t_,{x_,y_}] = y+x^3 \
++ Cos[t];\nf[t_,{x_,y_}] ={f1[t,{x,y}],f2[t,{x,y}]} "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["RK= RungeKutta2D[f[t,{x,y}], 1,-2,{3,1},10]   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[RK,RKX,RKY];\n RK= RungeKutta2D[f[t,{x,y}], 1,-2,{3,1},150];  \n \
+RKX=Table[{RK[[i,1]],RK[[i,2,1]]}, {i,1,151}];\n \
+RKY=Table[{RK[[i,1]],RK[[i,2,2]]} ,{i,1,151}];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[graph1, graph2];\n graph1=ListPlot[RKX, PlotJoined->True,AspectRatio \
+-> 0.5,\n             DisplayFunction->Identity]; \n \
+graph2=ListPlot[RKY,PlotJoined->True,AspectRatio -> 0.5, \n             \
+DisplayFunction->Identity]; \n Show[graph1,graph2,DisplayFunction->$DisplayFu \
+nction];"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["Compare with ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["Mathematica",
+    FontSize->16],
+  StyleBox[" solution:  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ss=NDSolve[{x'[t]==x[t]+y[t]^2 -t^3, y'[t]== y[t]+x[t]^3 + Cos[t], \n    \
+x[1]==3, y[1]== 1}, {x[t], y[t]},{t,-2,1}];\nxx[t_]= x[t] /. First[ss];  \n\
+yy[t_]= y[t] /. Last[ss] ; "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[solu1, solu2];\n solu1= Plot[xx[t], {t,-1.95,1}, AspectRatio -> 0.5, \
+\n             DisplayFunction->Identity]; \n solu2= Plot[yy[t], {t,-1.95,1}, \
+AspectRatio -> 0.5, \n             DisplayFunction->Identity]; \n \
+Show[solu1,solu2,DisplayFunction->$DisplayFunction] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 3:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "  Differential Eqn: x'' +4x' + 4x=0, with initial values\n x(0) =1 and \
+x'(0)=-1/2. We look for the solution on the interval \n [0,pi]. First we \
+transform it to the system equations:\n x' = y and y' = (- 5x - 5 y)/2 with \
+initial values x(0)=1,y(0)=-1/2.",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[f,f1,f2,t,x];   \nf1[t_,{x_,y_}] = y; \nf2[t_,{x_,y_}] = (-5 y -5 x)/2 \
+;\nf[t_,{x_,y_}] ={f1[t,{x,y}],f2[t,{x,y}]}"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[" RungeKutta2D[f[t,{x,y}], 0,Pi,{0,1/2},10]    "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[RK,RKX,RKY];\n RK= RungeKutta2D[f[t,{x,y}], 0,Pi,{0,1/2},100];  \n \
+RKX=Table[{RK[[i,1]],RK[[i,2,1]]}, {i,1,101}]; "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+" Clear[graph1, graph2];\n ListPlot[RKX, PlotJoined->True,AspectRatio ->0.25] \
+            "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["Compare with ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["Mathematica",
+    FontSize->16],
+  StyleBox[" solution:  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[ss];\nss=DSolve[{2 x''[t] +5 x'[t]+ 5 x[t] ==0, \n           x[0]==0, \
+x'[0]==  1/2}, x[t],t]; \nxx[t_]= x[t] /. First[ss] //ComplexExpand;  \n\
+xx[t]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[xx[t], {t,0, Pi}, AspectRatio-> 0.25 ] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error1 = Table[RKX[[i,2]]-xx[Pi(i-1)/100] //N, {i,1,101}];\nMax[Abs[%]]  "], 
+  "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{216, Automatic}, {Automatic, 127}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 303, 10, 70, "Left Header"],
+Cell[2017, 63, 294, 7, 70, "Left Header"],
+Cell[2314, 72, 666, 10, 70, "Input"],
+Cell[2983, 84, 382, 12, 70, "Left Header"],
+Cell[3368, 98, 190, 3, 70, "Input"],
+Cell[3561, 103, 97, 1, 70, "Input"],
+Cell[3661, 106, 226, 4, 70, "Input"],
+Cell[3890, 112, 348, 6, 70, "Input"],
+Cell[4241, 120, 350, 15, 70, "Left Header"],
+Cell[4594, 137, 247, 4, 70, "Input"],
+Cell[4844, 143, 149, 4, 70, "Left Header"],
+Cell[4996, 149, 128, 3, 70, "Input"],
+Cell[5127, 154, 127, 3, 70, "Input"],
+Cell[5257, 159, 389, 13, 70, "Left Header"],
+Cell[5649, 174, 185, 3, 70, "Input"],
+Cell[5837, 179, 99, 1, 70, "Input"],
+Cell[5939, 182, 225, 4, 70, "Input"],
+Cell[6167, 188, 349, 6, 70, "Input"],
+Cell[6519, 196, 350, 15, 70, "Left Header"],
+Cell[6872, 213, 233, 4, 70, "Input"],
+Cell[7108, 219, 332, 5, 70, "Input"],
+Cell[7443, 226, 491, 14, 70, "Left Header"],
+Cell[7937, 242, 176, 3, 70, "Input"],
+Cell[8116, 247, 99, 1, 70, "Input"],
+Cell[8218, 250, 177, 3, 70, "Input"],
+Cell[8398, 255, 145, 3, 70, "Input"],
+Cell[8546, 260, 350, 15, 70, "Left Header"],
+Cell[8899, 277, 211, 4, 70, "Input"],
+Cell[9113, 283, 97, 1, 70, "Input"],
+Cell[9213, 286, 130, 3, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

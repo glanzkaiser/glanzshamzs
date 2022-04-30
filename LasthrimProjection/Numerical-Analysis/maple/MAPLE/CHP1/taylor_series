@@ -1,0 +1,12 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  taylor-series
+#
+# Taylor series expansion of the function f(x) about x = 2:
+# 
+ f := 3*x^5 -2*x^4 + 15*x^3 +13*x^2 - 12*x -5;
+ taylor(", x = 2);

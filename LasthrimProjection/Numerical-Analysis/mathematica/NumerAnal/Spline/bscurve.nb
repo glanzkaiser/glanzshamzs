@@ -1,0 +1,397 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8522,        330]*)
+(*NotebookOutlinePosition[      9378,        360]*)
+(*  CellTagsIndexPosition[      9334,        356]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["B-Splines Curves:", "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->15,
+    FontSlant->"Plain"],
+  StyleBox[
+  "First we generate B-spline functions on [0,n] using \nequally spaced \
+knowts: \n       {0,0,0,0,1,2,3,...., n-2,n-1,n,n,n,n}. \nThere are n+3 \
+B-spline functions, they are  given by \n \
+C3[t],C2[t],C1[t],B3[t],B3[t-1],...,B3[t-(n-4)],\n C3[n-t],C2[n-t],C1[n-t]",
+    FontSize->22,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[B0,B1,B2,B3,C1,C2,C3]; 
+B0[x_] = If[ 0<= x && x <1, 1,0]; 
+B1[x_] = If[0 <= x  && x <2, x B0[x]+
+ (2-x) B0[x-1], 0];
+B2[x_] = If[0 <= x  && x <3, x B1[x]/2+
+ (3-x) B1[x-1]/2, 0];
+B3[x_] = If[0 <= x  && x <4, x B2[x]/3+
+ (4-x) B2[x-1]/3, 0];
+C3[x_] = (1-x)^3 B0[x];
+C2[x_] = x(1-x)(2-3x/2) B0[x]+
+ (2-x)^2 B1[x]/4;
+C1[x_] = x^2(1-x)B0[x]/2 +
+   x(2-x)B1[x]/4 + (3-x)B2[x]/3;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Plot[{C1[x],C2[x], C3[x], B3[x],
+ C1[4-x],C2[4-x], C3[4-x]}, {x, 0,4}] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["The B-spline curves are given by  \n   B(t)",
+    FontSize->21,
+    FontSlant->"Plain"],
+  StyleBox[" =",
+    FontSlant->"Plain"],
+  StyleBox[
+  "XY[1]C3[n t]+XY[2] C2[n t]+ XY[3] C1[n t] +\n       Sum_{i=1}^{n-3} XY[ \
+i+3]B3[ n t-i+1]+ \n       XY[n+1]C1[n-nt]+XY[n+2]C2[n-n t]+ XY[n+3]C3[n-nt]\n\
+Note that B(t) is actually a vector. We call its X-component \nBX(t) and its \
+Y-component BY(t)",
+    FontSize->19,
+    FontSlant->"Plain"],
+  StyleBox[". ",
+    FontFamily->"Courier",
+    FontSize->19,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Off[General::spell1]; 
+Clear[Bspline,XY0,t];
+Bspline[XY0_,t_] := 
+Block[{n,XY},
+  XY = XY0;
+  n = Length[XY]-3;
+  Clear[B];
+  B[t] = XY[[1]]C3[n*t]+
+    XY[[2]]C2[n*t]+ XY[[3]] C1[n*t]+
+  Sum[XY[[i+3]]B3[n*t-i+1],{i,n-3}]+
+   XY[[n+1]]C1[n-n*t]+XY[[n+2]]*
+    C2[n-n*t]+ XY[[n+3]]C3[n-n*t];
+ Return[B[t]];];
+ On[General::spell1]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Here is an example with 8 points, n=5 : ",
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY, B, BX, BY]; 
+XY = {{0.,0.2},{1.,0.},{2.,0.2}, 
+{3.,1.},{4.,1.3},{5.,1.3}, {6.,1.},
+ {5.,0.8}};  
+B[t_] = Bspline[XY,t];
+BX[t_] = B[t][[1]];
+BY[t_] = B[t][[2]];   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots]; 
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},DisplayFunction->Identity];
+gr = ParametricPlot[{BX[t],BY[t]},{t,0,1},DisplayFunction->Identity];
+txt = StringForm[\"Bspline Curve and Control Points\"];
+Show[gr,Graphics[Line[XY]],dots, 
+DisplayFunction->$DisplayFunction,
+Axes->False, PlotLabel->txt]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Here is another example which is a closed curve with\n 7 points, to make \
+spline closed, we make it 8 points \n with the last point same as the first \
+one.",
+  FontSize->21,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY, B, BX, BY];
+XY = {{5.,0.5},{3.5,0.2},{2.,0.5}, 
+{3.,1.},{4.,1.3},{5.,1.3}, {6.,1.},
+{5.,0.5}};
+B[t_] = Bspline[XY,t];
+BX[t_] = B[t][[1]];
+BY[t_] = B[t][[2]];   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots];  
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},DisplayFunction->Identity];
+gr = ParametricPlot[{BX[t],BY[t]},{t,0,1},DisplayFunction->Identity];
+txt = StringForm[\"Bspline Curve and Control Points\"];
+Show[gr,Graphics[Line[XY]],dots,
+DisplayFunction->$DisplayFunction,
+Axes->False, PlotLabel->txt];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Here are some nice examples of what we can draw: ",
+  FontSize->21,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->21,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". A script D: ",
+    FontSize->21,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY, B, BX, BY];
+XY = {{-1,4},{-0.8,0},{-1.5,-6},
+  {-1.8,-5}, {-1.5,-3},{-0.5,-5},
+  {0,-4},{0.7,2}, {0,7},{-1,8},
+  {-1.5,2},{0,-8}};
+B[t_] = Bspline[XY,t];
+BX[t_] = B[t][[1]];
+BY[t_] = B[t][[2]];   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+curve=ParametricPlot[{BX[t],BY[t]},{t,0,1}, Axes->False,AspectRatio \
+->1]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+nodes=ListPlot[XY,Frame->False,Axes->False, \
+PlotStyle->PointSize[.02],DisplayFunction->Identity]; 
+Show[curve,nodes,Graphics[Line[XY]], 
+DisplayFunction->$DisplayFunction]   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 3",
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". A duck head: . ",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY, B, BX, BY];
+XY = {{4,-0.5},{3.6,0},{3.25,0}, 
+{3.2,0.1}, {3.25,0.2},{3.6,0.3},
+{3.75,1.2},{4.1,1.3}, {4.5,0},
+{4,-0.5}};
+B[t_] = Bspline[XY,t];
+BX[t_] = B[t][[1]];
+BY[t_] = B[t][[2]];  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["curve=ParametricPlot[{BX[t],BY[t]},{t,0,1}, Axes->False];", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+nodes=ListPlot[XY,Frame->False,Axes->False, \
+PlotStyle->PointSize[.02],
+DisplayFunction->Identity]; 
+Show[curve,nodes,Graphics[Line[XY]], 
+DisplayFunction->$DisplayFunction]  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 4",
+    FontSize->21,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". A car: . ",
+    FontSize->21,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY,n];
+XY = {{0.,0.}, {1.2,1.2}, {8.,1.2},
+{10.,4.},{15.,4},{20.,4.}, {22.,2},
+{27.5,2.}, {28.,0}};
+B[t_] = Bspline[XY,t];
+BX[t_] = B[t][[1]];
+BY[t_] = B[t][[2]];          \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+curve=ParametricPlot[{BX[t],BY[t]},{t,0,1}, \
+Axes->False,AspectRatio->0.3] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+nodes=ListPlot[XY,Frame->False,Axes->False, \
+AspectRatio->0.3,PlotStyle->
+PointSize[.02],
+DisplayFunction->Identity]; 
+Show[curve,nodes, Graphics[Line[XY]], DisplayFunction->$DisplayFunction] 
+\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 115}, {Automatic, 34}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 99, 3, 35, "Header"],
+Cell[1811, 54, 475, 14, 149, "Header"],
+Cell[2289, 70, 446, 16, 233, "Input"],
+Cell[2738, 88, 138, 5, 46, "Input"],
+Cell[2879, 95, 633, 20, 141, "Header"],
+Cell[3515, 117, 397, 17, 250, "Input"],
+Cell[3915, 136, 164, 4, 28, "Header"],
+Cell[4082, 142, 239, 10, 131, "Input"],
+Cell[4324, 154, 382, 10, 199, "Input"],
+Cell[4709, 166, 298, 8, 77, "Header"],
+Cell[5010, 176, 237, 10, 131, "Input"],
+Cell[5250, 188, 381, 10, 199, "Input"],
+Cell[5634, 200, 189, 5, 29, "Header"],
+Cell[5826, 207, 255, 11, 29, "Header"],
+Cell[6084, 220, 273, 11, 148, "Input"],
+Cell[6360, 233, 143, 5, 46, "Input"],
+Cell[6506, 240, 243, 7, 97, "Input"],
+Cell[6752, 249, 222, 9, 28, "Header"],
+Cell[6977, 260, 262, 11, 148, "Input"],
+Cell[7242, 273, 116, 2, 46, "Input"],
+Cell[7361, 277, 243, 8, 97, "Input"],
+Cell[7607, 287, 252, 11, 29, "Header"],
+Cell[7862, 300, 246, 10, 131, "Input"],
+Cell[8111, 312, 143, 5, 46, "Input"],
+Cell[8257, 319, 261, 9, 131, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

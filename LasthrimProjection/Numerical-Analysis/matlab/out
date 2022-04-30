@@ -1,0 +1,83 @@
+CHP1:
+total 5
+   1 s1.m
+   1 s2.m
+   1 s3.m
+   1 sin_plot.m
+   1 sqrt_approx.m
+
+CHP10:
+total 2
+   1 p_inv1.m
+   1 p_inv2.m
+
+CHP14:
+total 4
+   1 min_val1.m
+   1 min_val2.m
+   1 q1.m
+   1 q2.m
+
+CHP15:
+total 8
+   1 fun1.m
+   1 fun2.m
+   1 fun3.m
+   1 fun4.m
+   1 lin_prog1.m
+   1 lin_prog2.m
+   1 lin_prog3.m
+   1 lin_prog4.m
+
+CHP3:
+total 6
+   1 Fun.m
+   1 G.m
+   1 fun_roots.m
+   1 gauss_newton.m
+   1 poly_roots1.m
+   1 poly_roots2.m
+
+CHP4:
+total 2
+   1 newtn_int_poly.m
+   1 runge_fun.m
+
+CHP5:
+total 6
+   1 f1.m
+   1 f2.m
+   1 f3.m
+   1 num_int1.m
+   1 num_int2.m
+   1 num_int3.m
+
+CHP6:
+total 4
+   1 gauss_elim1.m
+   1 gauss_elim2.m
+   1 lu_fact.m
+   1 sng_val_decomp.m
+
+CHP7:
+total 2
+   1 spline_plot.m
+   1 spline_sin_plot.m
+
+CHP8:
+total 6
+   1 euler.m
+   1 f.m
+   1 ode23file1.m
+   1 ode45file1.m
+   1 rk_ode23.m
+   1 rkf_ode45.m
+
+CHP9:
+total 6
+   1 ls_fit.m
+   1 np_ls_fit.m
+   1 ode23file2.m
+   1 ode45file2.m
+   1 rk2_ode23.m
+   1 rkf2_ode45.m

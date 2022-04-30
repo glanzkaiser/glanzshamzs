@@ -1,0 +1,41 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  svd_penrose
+#
+# In this code we look at an example of a matrix having a near-
+# deficiency in rank.  In the Maple program, certain singular
+# values are set equal to zero if they fail to meet a given
+# relative size criterion.  Also, as a check on the calculation,
+# we verify the four Penrose Properties for the pseudomatrix 'Aplus'.
+
+ with(linalg):
+ A := matrix([[-85,-55,-115],[-35,97,-167],[79,56,102],
+             [63,57,69],[45,-8,97.5]]);
+ S := evalf(Svd(A,U,V));
+ for k from 1 to 3
+     do if S[k]/S[1] < 0.001 then S[k] := 0.0 fi od;
+ DD := diag(S[1],S[2],S[3]);
+ Z := matrix(2,3,0);
+ DD2 := stack(DD,Z);
+ for k from 1 to 3
+   do if S[k]/S[1] < 0.001 then SR[k] := 0.0
+   else SR[k] := 1/S[k] fi od;
+ DD3 := diag(SR[1],SR[2],SR[3]);
+ Dplus := augment(DD3, transpose(Z));
+ Aplus := V &* Dplus &* transpose(U);
+ evalm(Aplus);
+ Penrose1 := evalm(A-(A &* Aplus &* A));
+ Penrose2 := evalm(Aplus-(Aplus &* A &* Aplus));
+ Penrose3 := evalm(transpose(A &* Aplus)-(A &* Aplus));
+ Penrose4 := evalm(transpose(Aplus &* A)-(Aplus &* A));
+
+
+
+
+
+
+

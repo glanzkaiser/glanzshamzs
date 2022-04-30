@@ -1,0 +1,25 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: five_terms
+#
+# Five terms in partial sums
+#
+# To run the program and create the plot file, use "maple < five_terms"
+# To print the plot, use "lpr -F1 p1" (postscript file)
+#
+f := x -> sin(x);
+g := x -> x;
+h := x -> g(x) -(x^3)/6;
+k := x -> h(x) + (x^5)/120;
+l := x -> k(x) - (x^7)/5040;
+m := x -> l(x) + (x^9)/362880;
+#plotsetup(x11)
+interface(plotdevice=postscript);
+interface(plotoutput=p2);
+plot( {f,g,h,k,l,m}, -Pi..Pi , title=`Approximations of sin x`) ;
+

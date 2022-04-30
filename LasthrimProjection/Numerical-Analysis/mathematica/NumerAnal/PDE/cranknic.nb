@@ -1,0 +1,361 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      9055,        286]*)
+(*NotebookOutlinePosition[      9907,        318]*)
+(*  CellTagsIndexPosition[      9863,        314]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Crank-Nicolson Method for Heat Eqn:"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[{
+  StyleBox[
+  "We use the finite difference method to solve  the heat equation  \n\t\t u",
+    
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["t",
+    FontSize->16,
+    FontSlant->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox["(x,t) =  u",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["xx",
+    FontSize->16,
+    FontSlant->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[
+  "(x,t)  , \n   \t\t u(x,0) = f(x),  for 0 <= x <= a ,   \n      \t\t u(0,t) \
+ = a(t),  u(1,t)  = b(t),   for  t =>0 , \n over  R = {(x,t): 0 <= x <= 1 , \
+t=>0}.  In the algorithm, we solve it\n for  (x_i,t_j) with x_i = i*h and t_j \
+= j *k.",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[CellGroupData[{Cell[TextData[
+"Off[General::spell1];\nClear[TriMat,aa,dd,cc,bb,n];\n\
+TridiagM[aa_,dd_,cc_,bb_,n_] :=\n  Module[{a0,b0,c0,d0,i,t},\n    a0=aa; \n   \
+ b0=bb;\n    c0=cc;\n    d0=dd;\n    Clear[x0];\n    x0 = Table[0,{n}];\n    \
+For[i=2,i<=n,i++,\n      Module[{},\n        t = a0[[i-1]]/d0[[i-1]];\n       \
+ d0[[i]] = d0[[i]] - t c0[[i-1]];\n        b0[[i]] = b0[[i]] - t b0[[i-1]] ]; \
+];\n    x0[[n]] =  b0[[n]]/d0[[n]];\n    For[i=n-1,1<=i,i--,\n       x0[[i]] \
+= (b0[[i]] - c0[[i]] x0[[i+1]])/\n                  d0[[i]] ];\n    \
+Return[x0] ]; "], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[
+"Clear[CrankNicolson,a,b,g, n, k, M,u]; \nCrankNicolson[a0_,b0_,g0_,n_,k_,M_] \
+:=\nModule[{a,b,g,h,s,i,j,,X,Aa,Bb,Cc,Dd},  \n  Set@@{a[t_],a0};\n  \
+Set@@{b[t_],b0};\n  Set@@{g[x_],g0}; \n  h = (1 / n)//N;\n  s = (k / h^2) \
+//N;\n Aa = Table[-s,{n-2}];    \n Cc = Table[-s,{n-2}];\n Dd = Table[2+2s, \
+{n-1} ]; \n Bb = Table[0,{n }];\nu = Table[0,{n+1},{M}];\n  For[i=1,i<=n+1 \
+,i++,\n      u[[i,1]] = g[(i-1)*h] //N ];\n  For[j=1,j<=M,j++,\n      \
+u[[1,j]] = a[j*k] //N ;   \n      u[[n+1,j]] = b[j*k] //N ];\n X = \
+Table[0,{n}];\n  For[j=2,j<=M,j++,\n       Bb[[1]]=a[(j-1)*k]; \n       \
+Bb[[n]]=b[(j-1)*k];\n    For[i=2,i<=n-1,i++,\n       Bb[[i]] = s*u[[i-1,j-1]] \
++ (2-2s)*u[[i,j-1]]+\n           s*u[[i+1,j-1]] //N ]; \n X = \
+TridiagM[Aa,Dd,Cc,Bb,n-1];\n  For[i=2,i<=n,i++,\n        u[[i,j]] = X[[i -1]] \
+//N]; ]; ];  \nOn[General::spell1]"], "Input",
+  AspectRatioFixed->False]}, Open]],
+
+Cell[TextData[{
+  StyleBox["Examle 1:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "   Boundary values: u(x,0) = 4x(1-x),  for 0 <= x <= 1, and \n u(0,t)  = \
+0,  u(1,t)  = 0.   ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[g,t,x]; \ng[x_]:= 4*x -4*x^2; \na[t_]:=0; \nb[t_]:=0;"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "First we solve it with h = 1/5 =0.2, and k =0.02, we solve it up to \n \
+M=20, that is, for t up to b=k*M=0.4.  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[" CrankNicolson[a[t],b[t],g[x], 5, 0.02, 20] ;  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ListPlot3D[u,  AxesLabel->{\"t\",\"x\",\"u\"},   \nViewPoint->{4,2,3}] "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "Next we solve the same system with h = 1/5 =0.2, and k =0.06 up to \n \
+M=15; this case is unstable for explicit method",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[" CrankNicolson[a[t],b[t],g[x], 5, 0.06, 15];   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ListPlot3D[u,  AxesLabel->{\"t\",\"x\",\"u\"},   \nViewPoint->{4,2,3}] "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "   Boundary values: u(x,0) = sin Pi x,  for 0 <= x <= 1, and \n u(0,t)  = \
+0,  u(1,t)  = 0.   ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[g,t,x];\ng[x_]:= Sin[Pi*x];\na[t_]:=0;\nb[t_]:=0;  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "First we solve it with h = 1/50 =0.02, and k =0.05, we solve it up\n to \
+M=20, that is, for t up to b=k*M= 1 . (note: s = 125).",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["CrankNicolson[a[t],b[t],g[x], 50, 0.05, 20]; "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ListPlot3D[u,  AxesLabel->{\"t\",\"x\",\"u\"},   \nViewPoint->{1,2,1}] "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["The exact solution is this case is known to be",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["uu[x_,t_]:=Exp[- Pi^2 t] * Sin[Pi *x];   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error = Max[Abs[ Table[u[[i,j]]-  \n  uu[0.02*(i-1),0.05*(j-1)] //N, \
+{i,1,51},{j,1,20}]]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"Compare with the fully implicit method, this method is better for\nthis \
+problem.   Recall that the convergence is in the order of O(h^2). \nThe \
+reason that we do not have better result lies in the magnitude of \nM ( the \
+error is bounded by Mh^2). We have",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["D[uu[x,t],{x,4}] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["D[uu[x,t],{t,2}] "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"The maximum of both functions on [0,1]x[0,1] are   Pi^4. We also\nhave s = \
+k/h^2 = 125. Hence, we have that M is propotional to",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["  Pi^4 / 12 + 125*Pi^4 /2 //N "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"The method is stable for all values of h and k. We solve the system\nagain \
+with h = 0.1, and k =0.1 up to M=10; here  b=k*M=1.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["CrankNicolson[a[t],b[t],g[x], 10, 0.1, 10];  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ListPlot3D[u,  AxesLabel->{\"t\",\"x\",\"u\"},   \nViewPoint->{1,2,1}] "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Error = Max[Abs[ Table[u[[i,j]]- \n    uu[0.1*(i-1),0.1*(j-1)] //N, \
+{i,1,11},{j,1,10}]]]"], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{260, Automatic}, {87, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 304, 10, 70, "Left Header"],
+Cell[2018, 63, 822, 26, 70, "Left Header"],
+
+Cell[CellGroupData[{
+Cell[2863, 91, 592, 9, 70, "Input"],
+Cell[3458, 102, 908, 13, 70, "Input"]
+}, Open  ]],
+Cell[4378, 117, 327, 12, 70, "Left Header"],
+Cell[4708, 131, 113, 2, 70, "Input"],
+Cell[4824, 135, 337, 12, 70, "Left Header"],
+Cell[5164, 149, 100, 1, 70, "Input"],
+Cell[5267, 152, 128, 3, 70, "Input"],
+Cell[5398, 157, 344, 12, 70, "Left Header"],
+Cell[5745, 171, 100, 1, 70, "Input"],
+Cell[5848, 174, 128, 3, 70, "Input"],
+Cell[5979, 179, 328, 12, 70, "Left Header"],
+Cell[6310, 193, 111, 2, 70, "Input"],
+Cell[6424, 197, 353, 12, 70, "Left Header"],
+Cell[6780, 211, 98, 1, 70, "Input"],
+Cell[6881, 214, 128, 3, 70, "Input"],
+Cell[7012, 219, 268, 10, 70, "Left Header"],
+Cell[7283, 231, 94, 1, 70, "Input"],
+Cell[7380, 234, 145, 3, 70, "Input"],
+Cell[7528, 239, 390, 8, 70, "Left Header"],
+Cell[7921, 249, 70, 1, 70, "Input"],
+Cell[7994, 252, 70, 1, 70, "Input"],
+Cell[8067, 255, 259, 6, 70, "Left Header"],
+Cell[8329, 263, 83, 1, 70, "Input"],
+Cell[8415, 266, 258, 6, 70, "Left Header"],
+Cell[8676, 274, 98, 1, 70, "Input"],
+Cell[8777, 277, 128, 3, 70, "Input"],
+Cell[8908, 282, 144, 3, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

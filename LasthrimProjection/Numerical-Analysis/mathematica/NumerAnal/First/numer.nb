@@ -1,0 +1,791 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[     18266,        649]*)
+(*NotebookOutlinePosition[     19120,        681]*)
+(*  CellTagsIndexPosition[     19076,        677]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData[{
+  "Introduction to ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->20,
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  StyleBox["The purpose of this lab is to introduce you to ",
+    FontSize->14],
+  StyleBox["Mathematica",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox[" .",
+    FontSize->14]
+}], "Text",
+  Evaluatable->False,
+  CellGroupingRules->"OutputGrouping",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["What you  are now reading  is part of a ",
+    FontSize->14],
+  StyleBox["Mathematica",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox[
+  "  notebook.  Notebooks are divided into cells. The square brackets on the \
+right side of the screen separate distinct cells. For example, the paragraph \
+above and the one you are reading are contained in separate ",
+    FontSize->14],
+  StyleBox["text ",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox[" cells. There are other kinds of cells:",
+    FontSize->14],
+  StyleBox[" input",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox["  and",
+    FontSize->14],
+  StyleBox[" output",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox[
+  ".  You can often identify an input cell by the boldface type--the five \
+small cells directly below this paragraph are input cells.  ",
+    FontSize->14],
+  StyleBox["Enter every input cell you encounter while doing a lab",
+    FontSize->14,
+    FontWeight->"Bold"],
+  StyleBox[". You do this by clicking inside the cell and then pressing ",
+    FontSize->14],
+  StyleBox["Enter  ",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox["(",
+    FontSize->14],
+  StyleBox["not",
+    FontSize->14,
+    FontColor->RGBColor[0, 0, 1]],
+  StyleBox["  ",
+    FontSize->14],
+  StyleBox["Return",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox[
+  "). Before continuing, enter the next few cells, then go back and change \
+the numbers; experiment. The best way to learn ",
+    FontSize->14],
+  StyleBox["Mathematica",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox["  is to play with it.",
+    FontSize->14]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["10-12"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["4*13"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["6/2"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["3^2"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"The notebook interface allows you to group a set of cells together.  You can \
+then manipulate the cells all at once.  In particular, you can HIDE a group \
+of cells by double clicking on the delimeter bar at the right which indicates \
+that  group.  This entire document is one group.  The introduction is a \
+subgroup.  To hide the introduction, double click on the the second bar from \
+the right.  To get the introduction back, double click on the bar again. \
+(There will be a small arrowhead at the bottom ofof the delimeter once the \
+group has been hidden).  Try it."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"Now we'll look at what Mathematica  can do.  Each section below has had its \
+text hidden, so you will have to double click on the bar at the right to open \
+it befor you can read it.  "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[CellGroupData[{Cell[TextData["Arithmetic"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->18,
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[
+"We have seen a few examples above. Here is another one. "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["4.12343/1.397+3.2689^3 - 1"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Notice that the answer to this calculation is only an estimate.  To get more \
+accuracy we specify the number of significant places we want, say 20, with \
+the following command.  Here % refers to the output of the previous \
+command."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["N[%,20]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"In general Mathematica  computes symbolically to give exact results.  If you \
+want to have a numerical approximation then you use the special command, N[]. \
+ You can also type //N at the end of a  command to give a numerical answer \
+rather  than a symbolic answer."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["N[Pi]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"If you're interested, here is p computed to 330 decimal places.  See how \
+many you can get!"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["N[Pi, 330]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Algebra"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->18,
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox[
+  "  does algebra.  We'll  do a few examples to get you started. Enter the \
+next few cells to see what the ",
+    FontSize->14],
+  StyleBox["Mathematica",
+    FontSize->14,
+    FontSlant->"Italic"],
+  StyleBox["  commands do, then change the numbers and see what happens. ",
+    FontSize->14]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Solve[x^2-4==0, x] ",
+  StyleBox["(*You need both equal signs.*)",
+    FontColor->RGBColor[0, 0, 1]]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "FindRoot[Cos[x]-x==0,{x,.5}] ",
+  StyleBox[
+  "(*Use FindRoot to find\n solutions to 'non-algebraic' equations.*)",
+    FontColor->RGBColor[0, 0, 1]]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Factor[x^2-4]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Expand[%] ",
+  StyleBox["(*The % sign represents the last ",
+    FontColor->RGBColor[0, 0, 1]],
+  StyleBox["Mathematica",
+    FontSlant->"Italic",
+    FontColor->RGBColor[0, 0, 1]],
+  StyleBox[" output.*)",
+    FontColor->RGBColor[0, 0, 1]]
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  knows many standard functions. Note that ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  functions always begin with capital letters and use square brackets \
+instead of parentheses."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["Cos[Pi/4]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Exp[10]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["N[%, 20]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Sqrt[1000]//N"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"You can define you own functions in Mathematica..  Here are examples."], 
+  "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[CellGroupData[{Cell[TextData[{
+  "F[x_] = 2x^3 - 4x^2 + 15 (*The dash after the x tells \n                   \
+     ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " that x is a variable.*)"
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+15 - 4*x^2 + 2*x^3\
+\>", "\<\
+        2      3
+15 - 4 x  + 2 x\
+\>"], "Output",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]],
+
+Cell[TextData["G[x_, y_] = (x^3 + 1)/(y^3 - 1)"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["F[-12]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["G[131, -128]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"When defining functions, you can use either F[x_] = ...    or F[x_] := ...   \
+.  The definition F[x_]=.... is expanded immediately  but F[x_]:= is only \
+expanded when it is needed. "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"Functions can also be defined recursively, for example:"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["H[0]=0; H[n_]:=n+H[n-1]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["H[10]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Notice in this example that the non-colon type of definition, \
+H[n_]=n+H[n-1], would not work."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Calculus"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->18,
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[
+"You can use Mathematica  to do calculus. Here's a derivative."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[CellGroupData[{Cell[TextData["D[2^x, x]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[OutputFormData["\<\
+2^x*Log[2]\
+\>", "\<\
+ x
+2  Log[2]\
+\>"], "Output",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]],
+
+Cell[TextData["Here's an integral."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["Integrate[x/(x^3-1), x]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Now let's try differentiating back again."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["D[%, x]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"This gives the expression in a different algebraic form. We can get back our \
+original form using  Simplify."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["Simplify[%]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  "Here's another way to make ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  differentiate. "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[{
+  "Clear[f]  ",
+  StyleBox[" ",
+    FontWeight->"Plain"],
+  "(*We're clearing any previous assignment yo x*)"
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["f[x_]:= x^3 "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["f'[x]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Many integrals do not have a \"closed form solution\".  If you give \
+Mathematica  such a definite integral it will be returned unevaluated. You \
+can still use N to get a numerical answer."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["Integrate[Sin [Sin[x]], {x, 0, Pi}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["N[ % ]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Mathematica  can also solve differential equations. Here is an easy \
+differential equation solved first in general and then with initial \
+conditions."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["DSolve[y''[t] == -y[t], y, t]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"DSolve[{y''[t] == -y[t], y[0] == 5, y'[0] == 1}, y, t]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"It is a mathematical fact that most differential equations do not have an \
+explicit symbolic solution.  In these cases you can get a numerical \
+approximation to the solution using NDSolve.  The interested reader should \
+see page 7 of Wolfram's Mathematica  reference or refer to the example \
+below:"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[
+"NDSolve[{y''[x] + Sin[x]^2 y'[x] + y[x] == Cos[x]^2,\n     y[0] == 1, y'[0] \
+== 0}, y, {x, 0, 20}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[ Evaluate[ y[x] /. %], {x, 0, 20} ]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Plotting"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->18,
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  plots the graphs of functions.  "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["Plot[x^2-4, {x,-5,5}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"You should verify that the x-intercepts correspond to the solutions you \
+found above. "], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  knows many standard functions. Note that ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  functions always begin with capital letters and use square brackets \
+instead of parentheses."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[{
+  "Plot[{Sin[x], Log[x], Exp[x], Sqrt[x]},{x,0.01,4}]\n(*",
+  StyleBox["Exp[x]=e",
+    FontColor->RGBColor[0, 0, 1]],
+  StyleBox["x",
+    FontColor->RGBColor[0, 0, 1],
+    FontVariations->{"CompatibilityType"->"Superscript"}],
+  StyleBox["; Log[x]=ln(x); Sqrt[x]=",
+    FontColor->RGBColor[0, 0, 1]],
+  StyleBox["\[CapitalUDoubleDot]x",
+    FontFamily->"Times",
+    FontColor->RGBColor[0, 0, 1]],
+  "*)"
+}], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot[Sin[x], {x, 0, 2Pi}]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["Plot3D[x^4 - Sin[5 x] y^4 , {x, -1, 1}, {y, -5, 5}]"], "Input",
+  AspectRatioFixed->True]}, Open]],
+
+Cell[CellGroupData[{Cell[TextData["Useful Tips"], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->18,
+  FontColor->RGBColor[0, 0, 1]],
+
+Cell[TextData[{
+  "1. If you forget how a particular ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  function works, ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  has on-line help. Type ? followed by the command. "
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData["?Plot"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"2. You can create your own input cells. For example,  use the mouse to \
+position the pointer just below this text cell and above the next one (the \
+pointer should become a horizontal bar). Click the mouse. You should get a \
+horizontal line across the screen. Now type in 5+10 and hit enter."], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[{
+  "3. If you don't remember the syntax for a particular command, ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  "  can still help. Type the command. Press and hold down the apple key,  \
+then, while still holding down the apple key, press the \"i\" key . You will \
+get a template. As an example, create an input cell just below this one (as \
+described above). Type Plot. Then press the apple key followed by the \"i\" \
+key."
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->14],
+
+Cell[TextData[{
+  StyleBox["4. The ",
+    FontSize->14],
+  StyleBox["Function Browser",
+    FontSize->14,
+    FontWeight->"Bold"],
+  StyleBox[
+  " is very nice. Here's how you get to it.\nFind the menu at the top of your \
+screen; it starts with ",
+    FontSize->14],
+  StyleBox["File",
+    FontSize->14,
+    FontWeight->"Bold"],
+  StyleBox[" and continues across the top of the screen. Click and hold on ",
+    FontSize->14],
+  StyleBox["Help",
+    FontSize->14,
+    FontWeight->"Bold"],
+  StyleBox[". A vertical submenu will appear. Drag the pointer to ",
+    FontSize->14],
+  StyleBox["Open Function Browser..",
+    FontSize->14,
+    FontWeight->"Bold"],
+  StyleBox[".and release",
+    FontSize->14],
+  StyleBox[".",
+    FontSize->14,
+    FontWeight->"Bold"],
+  StyleBox[
+  " Inside  the Function Browser you will see a vertical menu on the left \
+side. Click on Algebraic Computation. A new menu will appear to the right. \
+Click on Equation Solving. Another menu will appear to the right. Click on \
+Solve. \nThat's how the Function Browser works: You move from left to right, \
+clicking as you go.",
+    FontSize->14]
+}], "Text",
+  Evaluatable->False,
+  AspectRatioFixed->True]}, Open]]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Manual,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 250}, {Automatic, 7}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 219, 9, 70, "Text"],
+Cell[1933, 62, 300, 11, 70, "Text",
+  CellGroupingRules->"OutputGrouping"],
+Cell[2236, 75, 1709, 57, 70, "Text"],
+Cell[3948, 134, 58, 1, 70, "Input"],
+Cell[4009, 137, 57, 1, 70, "Input"],
+Cell[4069, 140, 56, 1, 70, "Input"],
+Cell[4128, 143, 56, 1, 70, "Input"],
+Cell[4187, 146, 688, 12, 70, "Text"],
+Cell[4878, 160, 299, 7, 70, "Text"],
+
+Cell[CellGroupData[{
+Cell[5200, 169, 155, 5, 70, "Text"],
+Cell[5358, 176, 170, 5, 70, "Text"],
+Cell[5531, 183, 79, 1, 70, "Input"],
+Cell[5613, 186, 348, 8, 70, "Text"],
+Cell[5964, 196, 60, 1, 70, "Input"],
+Cell[6027, 199, 381, 8, 70, "Text"],
+Cell[6411, 209, 58, 1, 70, "Input"],
+Cell[6472, 212, 206, 6, 70, "Text"],
+Cell[6681, 220, 63, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[6776, 223, 152, 5, 70, "Text"],
+Cell[6931, 230, 451, 15, 70, "Text"],
+Cell[7385, 247, 158, 5, 70, "Input"],
+Cell[7546, 254, 207, 6, 70, "Input"],
+Cell[7756, 262, 66, 1, 70, "Input"],
+Cell[7825, 265, 298, 10, 70, "Input"],
+Cell[8126, 277, 367, 12, 70, "Text"],
+Cell[8496, 291, 62, 1, 70, "Input"],
+Cell[8561, 294, 60, 1, 70, "Input"],
+Cell[8624, 297, 61, 1, 70, "Input"],
+Cell[8688, 300, 66, 1, 70, "Input"],
+Cell[8757, 303, 186, 6, 70, "Text"],
+
+Cell[CellGroupData[{
+Cell[8966, 311, 223, 7, 70, "Input"],
+Cell[9192, 320, 152, 7, 70, "Output"]
+}, Closed]],
+Cell[9356, 329, 84, 1, 70, "Input"],
+Cell[9443, 332, 59, 1, 70, "Input"],
+Cell[9505, 335, 65, 1, 70, "Input"],
+Cell[9573, 338, 297, 7, 70, "Text"],
+Cell[9873, 347, 169, 5, 70, "Text"],
+Cell[10045, 354, 76, 1, 70, "Input"],
+Cell[10124, 357, 58, 1, 70, "Input"],
+Cell[10185, 360, 209, 6, 70, "Text"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[10426, 368, 153, 5, 70, "Text"],
+Cell[10582, 375, 175, 5, 70, "Text"],
+
+Cell[CellGroupData[{
+Cell[10780, 382, 62, 1, 70, "Input"],
+Cell[10845, 385, 124, 7, 70, "Output"]
+}, Open  ]],
+Cell[10981, 394, 132, 4, 70, "Text"],
+Cell[11116, 400, 76, 1, 70, "Input"],
+Cell[11195, 403, 154, 4, 70, "Text"],
+Cell[11352, 409, 60, 1, 70, "Input"],
+Cell[11415, 412, 223, 6, 70, "Text"],
+Cell[11641, 420, 64, 1, 70, "Input"],
+Cell[11708, 423, 221, 9, 70, "Text"],
+Cell[11932, 434, 164, 6, 70, "Input"],
+Cell[12099, 442, 65, 1, 70, "Input"],
+Cell[12167, 445, 58, 1, 70, "Input"],
+Cell[12228, 448, 303, 7, 70, "Text"],
+Cell[12534, 457, 88, 1, 70, "Input"],
+Cell[12625, 460, 59, 1, 70, "Input"],
+Cell[12687, 463, 265, 7, 70, "Text"],
+Cell[12955, 472, 82, 1, 70, "Input"],
+Cell[13040, 475, 108, 2, 70, "Input"],
+Cell[13151, 479, 416, 9, 70, "Text"],
+Cell[13570, 490, 153, 3, 70, "Input"],
+Cell[13726, 495, 93, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[13851, 498, 153, 5, 70, "Text"],
+Cell[14007, 505, 205, 8, 70, "Text"],
+Cell[14215, 515, 74, 1, 70, "Input"],
+Cell[14292, 518, 201, 6, 70, "Text"],
+Cell[14496, 526, 367, 12, 70, "Text"],
+Cell[14866, 540, 458, 14, 70, "Input"],
+Cell[15327, 556, 78, 1, 70, "Input"],
+Cell[15408, 559, 104, 1, 70, "Input"]
+}, Closed]],
+
+Cell[CellGroupData[{
+Cell[15544, 562, 156, 5, 70, "Text"],
+Cell[15703, 569, 339, 12, 70, "Text"],
+Cell[16045, 583, 58, 1, 70, "Input"],
+Cell[16106, 586, 407, 8, 70, "Text"],
+Cell[16516, 596, 552, 13, 70, "Text"],
+Cell[17071, 611, 1183, 37, 70, "Text"]
+}, Closed]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

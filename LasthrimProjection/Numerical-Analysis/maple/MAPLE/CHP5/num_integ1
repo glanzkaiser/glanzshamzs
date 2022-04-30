@@ -1,0 +1,13 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  num_integ1
+#
+# Numerical approximation for the integral of f(x)=exp(-x*x)
+# on the interval [0, 1]:
+
+ int(exp(-x*x), x=0..1);
+ evalf(");

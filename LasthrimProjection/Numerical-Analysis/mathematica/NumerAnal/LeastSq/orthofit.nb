@@ -1,0 +1,264 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5335,        208]*)
+(*NotebookOutlinePosition[      6191,        238]*)
+(*  CellTagsIndexPosition[      6147,        234]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Least Square Fit using Orthogonal Polynomials", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[StyleBox[
+"The following generates the least square fit using orthogonal \npolynomials. \
+ Once BestFit[X, p] is run, where XY is the \ndata and p is the degree of \
+least fit, the output is : Orthogonal \npolynomials P[n,x], and least square \
+polynomial BestFit[x,p]. ",
+  FontSize->19,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Off[General::spell1];
+Clear[BestFit, BestPoly,XY0,p];
+BestFit[XY0_,p0_] := 
+Block[{XY},
+  XY = XY0;
+  p = p0;
+m=Length[XY];
+Clear[a,b,ips,P];
+ips[f_,g_] := Sum[ f g /. 
+        x-> XY[[i,1]] ,{i,m}];
+a[n_] := a[n] = ips[ x P[n-1,x] ,
+ P[n-1,x]]/ ips[ P[n-1,x],P[n-1,x] ]; 
+b[n_] := b[n] = ips[ x P[n-1,x] , 
+ P[n-2,x]]/ ips[ P[n-2,x],P[n-2,x] ];
+P[0,x_] = 1;
+P[1,x_] = x - a[1];
+P[n_,x_] := P[n,x] =(x-a[n])P[n-1,x]-
+   b[n] P[n-2,x];
+For[i=1,i <= m,i++,
+   xy[XY[[i,1]]] = XY[[i,2]] ];
+BestPoly[x_,p] = 
+  Sum[ (ips[ xy[x] , P[k,x] ] /
+    ips[ P[k,x], P[k,x] ]) P[k,x] ,
+    {k,0,p} ]; ];
+On[General::spell1];     \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->19,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[".",
+    FontSize->19,
+    FontSlant->"Plain"],
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["We use a polynomial of degree 6 to fit the following data:",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY];
+XY={{0.24, 0.23}, {0.65, -0.26}, 
+{0.95, -1.10},{1.24, -0.45}, 
+{1.73,0.27}, {2.01, 0.10}, 
+{2.23,-0.19}, {2.52, 0.24}, 
+{2.77,0.56}, {2.99, 1.00}};  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["BestFit[XY,6]    ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+For[j=0, j<=6, j++,
+Print[\"P\",j,\"(x)=\" Simplify[P[j,x]]] ]  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Simplify[BestPoly[x,6]]  
+\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[nodes,fcn]
+nodes=ListPlot[XY,
+  PlotStyle->PointSize[.02], 
+  DisplayFunction->Identity]; 
+fcn=Plot[ BestPoly[x,6],{x,0.2,3.2},
+  DisplayFunction->Identity];
+Show[nodes,fcn,DisplayFunction->
+  $DisplayFunction]          \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->19,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". We use a polynomial of degree 6 to fit the \nfollowing data:",
+    FontSize->19,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY, n]; 
+f[x_]:=1 + Sin[10 x]; 
+pt[x_]:= 10+ (x-1)/14; 
+n=15;
+XY=N[Table[{pt[i], f[pt[i]]}, 
+  {i, 1,n}],10]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+BestFit[XY,6]; 
+ Simplify[BestPoly[x,6]]   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[nodes,fcn]
+nodes=ListPlot[XY,
+   PlotStyle->PointSize[.02],  
+   DisplayFunction->Identity];  
+fcn=Plot[ BestPoly[x,6],{x,10,11},
+   DisplayFunction->Identity];
+Show[nodes,fcn,DisplayFunction->
+   $DisplayFunction]          \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"One should compare the result with the result of solving \nnormal equation \
+directly. See notebook \"normeq.ma\".",
+  FontSize->19,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 139}, {Automatic, -5}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 132, 3, 70, "Left Header"],
+Cell[1844, 54, 400, 9, 93, "Header"],
+Cell[2247, 65, 683, 28, 437, "Input"],
+Cell[2933, 95, 399, 16, 51, "Header"],
+Cell[3335, 113, 228, 9, 114, "Input"],
+Cell[3566, 124, 76, 2, 29, "Input"],
+Cell[3645, 128, 131, 5, 46, "Input"],
+Cell[3779, 135, 93, 5, 46, "Input"],
+Cell[3875, 142, 293, 11, 148, "Input"],
+Cell[4171, 155, 303, 11, 49, "Header"],
+Cell[4477, 168, 183, 9, 114, "Input"],
+Cell[4663, 179, 110, 5, 46, "Input"],
+Cell[4776, 186, 297, 11, 148, "Input"],
+Cell[5076, 199, 255, 7, 49, "Header"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

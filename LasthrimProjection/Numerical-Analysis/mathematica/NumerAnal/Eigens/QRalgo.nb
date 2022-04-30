@@ -1,0 +1,327 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8809,        258]*)
+(*NotebookOutlinePosition[      9665,        290]*)
+(*  CellTagsIndexPosition[      9621,        286]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["QR method for Eigenvalues: "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[StyleBox[
+"First we reduce the matrix A to H -- the upper Hessenberg form, \nwhich is \
+unitarily similar to A.  The process is similar to that of \nQR \
+factorization, except that we end up with  A=UHU*.  \nThen we apply the QR \
+method to H. The matrix could be complex. \nWe again use \"digit\" to control \
+the accuracy.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Hessenberg matrix:  "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->18],
+
+Cell[TextData[
+"Off[General::spell1];\nClear[Hessenberg,a0];\nHessenberg[a0_] := \n\
+Module[{a, b,n,k,c,beta,y,v,vvt,u}, \n a = a0;\n n = Length[a];\n    norm[V_] \
+:=N[ Sqrt[V.Conjugate[V]/.List->Plus], digit];\n    b = Transpose[a];\n    \
+qmatrix = IdentityMatrix[n];\n Clear[k];\n For[k=1, k <= n-2, k++,\n   \
+c=Table[If[i>=k+1, b[[k,i]],0], {i,1,n}]; (*k-th column*)\n   beta= \
+If[b[[k,k]] == 0, 1,   \n   N[ -(b[[k,k]]/ Abs[b[[k,k]]]) norm[c],digit] ];\n \
+  y =  c - beta Table[If[i != k+1,0,1], {i,1,n}];\n   alpha = N[Sqrt[2] / \
+norm[y],digit];\n   v = alpha y;\n   vvt= Table[v[[i]] \
+Conjugate[v[[j]]],{i,n},{j,n}];\n   u = IdentityMatrix[n]-vvt;  \n   b = \
+Simplify[u.b.Transpose[u]];\n   qmatrix = u.qmatrix;    \n \
+(*Print[\"R\",k,\"=\" MatrixForm[Chop[Transpose[b]]]];*)\n   ]; \n\
+a=Transpose[b];\nReturn[a]; ];\nOn[General::spell1];       "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["digit = 8;   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": Here is a matrix of 4 by 4: ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A];\nA={{1,2,3,4},{4,5,6,7},{2,1,5,0},{4,2,1,0}}; \nMatrixForm[A]    \
+"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[H];\nH=Hessenberg[A];  \nMatrixForm[Chop[H]]   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"Here  is the  matrix U =Transpose[q], and A = U H U^*.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData["Clear[U];\nU=Transpose[qmatrix];  \nMatrixForm[U]   "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["MatrixForm[Chop[U.H.Transpose[U]]]    "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["QR Algorithm:  "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Here  is the simple QR-algorithm, in which the QR procedure is \napplied to  \
+the Hessenberg form of A:  ",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Off[General::spell1]; \nClear[QRmethod,a0,Steps0];\nQRmethod[a0_,Steps0_] := \
+\nModule[{a, n,k,R,Q,M,z}, \n a = a0;\n M = Steps0;\n   a = Hessenberg[a];\n  \
+ For[j=1, j<= M, j++,\n   R = QRfact[a];\n   Q = Transpose[q]; Clear[q];\n   \
+a = R.Q ;\n  (* Print[\"A\",k,\"=\" MatrixForm[Chop[a]]]; Print[\"    \"]; *)\
+\n   ];\n Return[a]; ];\nOn[General::spell1];     "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 1'",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ": Here is the matrix of 4 by 4 in Example 1, notice that\nthe convergence \
+is slow. ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Lambda= QRmethod[A,10];\nMatrixForm[N[Chop[Lambda],6]]  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["QR-Method with Shift:  "], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Here  is the QR-algorithm with shift, in which we reduce (\"deflate\")\nthe \
+size of the matrix when it is possible.  We put the output as the \nmatrix \
+which has remain A_k at the upper left corner, and eigenvalues\non the \
+diagonal of the lower right corner; if A has all real eigenvalues,\nthen the \
+out put is a diagonal matrix. We insert a line so that A_k\nin  the \
+intermediate steps are printed out. If A has complex eigenvalues, then we \
+will end up with a matrix  which has 2 by 2 matrics on its diagonal.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Off[General::spell1];\nClear[QRshhift,a0,M0];\nQRshift[a0_,M0_] := \n\
+Module[{a, b,n,m,k,R,Q,z},  \n a = a0;\n M = M0;\n n = Length[a];\n lambda = \
+Table[0, {i,1,n}];\n   b = Hessenberg[a];\n   For[k=1, k <= M, k++,\n     m = \
+Length[b]; \n     z= b[[m,m]];\n     b = b -z IdentityMatrix[m]; \n     R = \
+QRfact[b];\n     Q = Transpose[q];Clear[q];\n     b = R.Q + z \
+IdentityMatrix[m];\n   If[Abs[b[[m,m-1]]] <= 10^(-digit), \n     lambda[[m]] \
+= b[[m,m]]; \n     b = Table[b[[i,j]], {i,1,m-1},{j,1,m-1}], \n     b = b];\n \
+  (Print[\"A\",k,\"=\" MatrixForm[N[Chop[b],4]]]; \n        Print[\"    \"];)\
+\n     ];  \n    a=Table[ If[i<= Length[b]&& j <= Length[b], b[[i,j]],\n      \
+ If[i ==j, lambda[[i]], 0]] , {i,1,n},{j,1,n}  ] ; \n    Return[a]; ];\n\
+On[General::spell1];     \n"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 1 (revisited)",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ": Here is the matrix of 4 by 4 in Example 1 again. \nNotice that the \
+convergence is much faster in compare with the simple\nQR.  ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[Lambda];  \nLambda= QRshift[A,10];\nMatrixForm[N[Chop[Lambda],6]]  "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[": Here is the matrix of 4 by 4 which has 2 complex roots. ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[A];\nA={{190,66,-84,30},{66,303,42,-36},{336,-168,147,-112},\n  \
+{30,-36,28,291}};  \nMatrixForm[A]    "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[StyleBox[
+"After a few iterations we end up with a 2 by 2 matrix, which we\ncan find \
+its eigenvalues easily.",
+  FontSize->16,
+  FontSlant->"Plain"]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[Lambda];  \nLambda= QRshift[A,10];\nMatrixForm[N[Chop[Lambda],6]]  "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"remain=Table[Lambda[[i,j]], {i,1,2},{j,1,2}]; \nEigenvalues[remain] "], 
+  "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{238, Automatic}, {112, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 296, 10, 70, "Left Header"],
+Cell[2010, 63, 443, 9, 70, "Left Header"],
+Cell[2456, 74, 140, 4, 70, "Left Header"],
+Cell[2599, 80, 899, 13, 70, "Input"],
+Cell[3501, 95, 66, 1, 70, "Input"],
+Cell[3570, 98, 259, 10, 70, "Left Header"],
+Cell[3832, 110, 131, 3, 70, "Input"],
+Cell[3966, 115, 107, 2, 70, "Input"],
+Cell[4076, 119, 184, 5, 70, "Left Header"],
+Cell[4263, 126, 105, 1, 70, "Input"],
+Cell[4371, 129, 91, 1, 70, "Input"],
+Cell[4465, 132, 135, 4, 70, "Left Header"],
+Cell[4603, 138, 236, 6, 70, "Left Header"],
+Cell[4842, 146, 421, 6, 70, "Input"],
+Cell[5266, 154, 318, 12, 70, "Left Header"],
+Cell[5587, 168, 110, 2, 70, "Input"],
+Cell[5700, 172, 143, 4, 70, "Left Header"],
+Cell[5846, 178, 651, 11, 70, "Left Header"],
+Cell[6500, 191, 845, 12, 70, "Input"],
+Cell[7348, 205, 375, 12, 70, "Left Header"],
+Cell[7726, 219, 130, 3, 70, "Input"],
+Cell[7859, 224, 287, 10, 70, "Left Header"],
+Cell[8149, 236, 164, 3, 70, "Input"],
+Cell[8316, 241, 229, 6, 70, "Left Header"],
+Cell[8548, 249, 130, 3, 70, "Input"],
+Cell[8681, 254, 125, 3, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

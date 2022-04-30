@@ -1,0 +1,18 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  adams_mlt_coef
+#
+# Using Maple linear algebra package to compute
+# the coefficients of a quadrature rule which will
+# lead to Adams-Moulton formulas:
+
+ with(linalg);
+ f := proc(x,y) if x=0 and y=0 then 1 else x**y fi end;
+ n := 4;
+ A := matrix(n,n,(i,j)->f(1-j,i-1));
+ b := vector(n, i->1/i);
+ linsolve(A,b);

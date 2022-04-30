@@ -1,0 +1,270 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5498,        213]*)
+(*NotebookOutlinePosition[      6354,        243]*)
+(*  CellTagsIndexPosition[      6310,        239]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Richardson Extropolation:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->29,
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+
+Cell["\<\
+We apply one Richardson extropolation the symmetric difference.
+The algorithm stops when  \"|ratio - old| < tau\"\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  "Symmtric Difference: ",
+  StyleBox["f'(x)~(f(x+h) - f(x-h)) / h ",
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24],
+
+Cell["\<\
+Off[General::spell1]; 
+Clear[FirstRich,f0,x0, M,tau];
+FirstRich[f0_,x0_,M_,tau_] :=
+Module[{f,j,h,a,b,r1,r2,
+         diff,ratio,oldratio,Cond},
+  Set@@{f[x_],f0};
+  h=0.5; k =0;
+  Cond = 0; oldratio = 0; 
+  r2 = N[f[x0+h]-f[x0-h],digit];
+  While[Cond ==0 && k <=M,
+    diff = N[f[x0+h]-f[x0-h],digit];
+    r1 = N[0.5 * diff /h,digit];
+    ratio = r1 + (r1-r2) /3; 
+   Print[\"k =\", k, \"\\t    
+      f'[\",x0,\"] ~ \",N[ratio,16]];
+   If[Abs[ratio - oldratio] <= tau,   
+       Cond=1]; 
+   h = N[h/2,digit];  
+   r2 = r1; 
+   oldratio = ratio;
+   k = k +1 ]; ];
+On[General::spell1];   \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Derivative of ArcTan[x] at point Sqrt[2] (=1/3): ",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[digit]; 
+digit=16;   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f];
+f[x_] = ArcTan[x];    \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["FirstRich[f[x],Sqrt[2], 20, 10^(-12)]     ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  " ",
+  StyleBox["Note",
+    FontWeight->"Bold"],
+  ": if we take the accuracy \"tau\" too small, the result may \n be bad due \
+to the substraction cancellation. For example, \n computation with digit = 16 \
+may not yield result sharp enough \n for tau = 10^(-14):"
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["FirstRich[f[x],Sqrt[2], 20, 10^(-14)]    ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  "Second Order Difference:\n      ",
+  StyleBox["f''(x) ~ [f(x+h) -2 f(x)+f(x-h)] / h^2",
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->24],
+
+Cell["\<\
+Off[General::spell1]; 
+Clear[SecondRich,f0,x0, M,tau]; 
+SecondRich[f0_,x0_, M_,tau_] :=
+Module[{f,j,h,a,b,r1,r2,
+         diff,ratio,oldratio,Cond},
+  Set@@{f[x_],f0};
+  h=1; k =0;
+  Cond = 0;  oldratio=0;
+  r2 = N[f[x0+h]-2f[x0]+f[x0-h],digit];
+  While[Cond ==0 && k <=M,
+    diff = N[f[x0+h]-2f[x0]+
+       f[x0-h],digit];
+    r1 = N[diff /h^2,digit];
+    ratio = r1 + (r1-r2) /3; 
+   Print[\"k =\", k, \"\\t   
+     f''[\",x0,\"] ~ \",N[ratio,16]];
+   If[Abs[ratio - oldratio] <= tau,
+      Cond=1]; 
+   h = N[h/2,digit];  
+   r2 = r1; 
+   oldratio = ratio;
+   k = k +1 ]; ];
+ On[General::spell1];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ". Second derivative of ArcTan[x] at point Sqrt[2]  \n (answer: - ",
+    FontSize->18,
+    FontSlant->"Plain"],
+  "0.3142696805273544",
+  StyleBox["). ",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f];
+f[x_] = ArcTan[x];   \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["SecondRich[f[x],Sqrt[2], 20, 10^(-10)]    ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 164}, {Automatic, -7}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 157, 5, 39, "Left Header"],
+Cell[1869, 56, 208, 6, 46, "Left Header"],
+Cell[2080, 64, 192, 7, 35, "Left Header"],
+Cell[2275, 73, 657, 25, 386, "Input"],
+Cell[2935, 100, 292, 11, 24, "Header"],
+Cell[3230, 113, 94, 5, 46, "Input"],
+Cell[3327, 120, 99, 5, 46, "Input"],
+Cell[3429, 127, 102, 2, 46, "Input"],
+Cell[3534, 131, 366, 10, 84, "Left Header"],
+Cell[3903, 143, 101, 2, 46, "Input"],
+Cell[4007, 147, 213, 7, 62, "Left Header"],
+Cell[4223, 156, 668, 26, 403, "Input"],
+Cell[4894, 184, 394, 16, 47, "Header"],
+Cell[5291, 202, 98, 5, 46, "Input"],
+Cell[5392, 209, 102, 2, 46, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

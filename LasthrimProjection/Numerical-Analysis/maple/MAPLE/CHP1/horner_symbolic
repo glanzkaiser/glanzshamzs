@@ -1,0 +1,23 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  horner_symbolic
+#
+# Maple symbolic manipulation of nested or
+# Horner polynomial:
+ 
+ poly := a*x^3 + b*x^2 + c*x + d;
+ convert(poly, horner, x);
+
+# This can also be done with the package
+# 'numapprox' within Maple for the numerical
+# approximation of functions:
+
+ with(numapprox):
+ f :=x -> a*x^3 + b*x^2 + c*x + d;
+ hornerform(f);
+ 
+

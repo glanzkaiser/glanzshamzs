@@ -1,0 +1,15 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  num_integ2
+#
+# Numerical approximation for the integral of
+# the function f(x) = cos(2x)/exp(x) over the 
+# interval [0, 2pi]:
+
+ Digits := 20;
+ int(cos(2*x)/exp(x), x = 0..2*Pi);
+ evalf(");

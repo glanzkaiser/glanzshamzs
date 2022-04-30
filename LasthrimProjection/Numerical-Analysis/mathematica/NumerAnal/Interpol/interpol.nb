@@ -1,0 +1,254 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5038,        198]*)
+(*NotebookOutlinePosition[      5894,        228]*)
+(*  CellTagsIndexPosition[      5850,        224]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Polynomial Interpolation with Mathematica", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ". Construct a Lagrange interpolating polynomial for the\ngiven data.",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[data];
+data={{0,1}, {0.5, 2}, {1,0}, {1.5, -1}, {2, 1}}\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[g,Q];
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle->  
+  {PointSize[0.02]},
+   DisplayFunction->Identity];
+g1=Plot[g[x], {x, -0.5,2.5},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-0.5,2.5},
+ {-4,4}},
+PlotLabel->\"data and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ". Construct a Lagrange interpolating polynomial for the\ngiven data.",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[data];
+data={{0,1}, {0.25,0.5},{0.5, -2},
+{0.75,1},{1,3},{1.25, 3},{1.5, 2}, 
+{1.75,0},{2, -1}}\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[g,Q];
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle->
+  {PointSize[0.02]}, 
+   DisplayFunction->Identity];
+g1=Plot[g[x], {x, -0.1,2.1},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-0.1,2.1},
+ {-4,4}},
+PlotLabel->\"data and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 3.",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[" ",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox[
+  "Construct a Lagrange interpolating polynomial \nof the function f(x)= 1/ \
+(1+25x), using equally spaced\npoints.",
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f];
+f[x_] = 1 /(1+25x)\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[data];
+data= Table[{0.2 i, 1 / (1+ 5i)},{i, 0, 5}] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[g, Q];
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle-> 
+  {PointSize[0.02]},
+   DisplayFunction->Identity];
+g1=Plot[g[x], {x,0.0,1.1},
+DisplayFunction->Identity];
+g2=Plot[ f[x] , {x, 0.0,1.1},
+PlotStyle -> Thickness[0.01],
+DisplayFunction->Identity];
+Show[g1,g2,dots,PlotRange->{{-0.1,1.1},{-0.2,1.1}},
+PlotLabel->\"f(x) and the Newton polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];
+\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 214}, {78, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 128, 3, 70, "Left Header"],
+Cell[1840, 54, 312, 12, 43, "Header"],
+Cell[2155, 68, 128, 5, 63, "Input"],
+Cell[2286, 75, 139, 6, 63, "Input"],
+Cell[2428, 83, 373, 12, 199, "Input"],
+Cell[2804, 97, 312, 12, 43, "Header"],
+Cell[3119, 111, 168, 7, 80, "Input"],
+Cell[3290, 120, 139, 6, 63, "Input"],
+Cell[3432, 128, 372, 12, 199, "Input"],
+Cell[3807, 142, 399, 15, 74, "Header"],
+Cell[4209, 159, 95, 5, 46, "Input"],
+Cell[4307, 166, 124, 5, 63, "Input"],
+Cell[4434, 173, 140, 6, 80, "Input"],
+Cell[4577, 181, 457, 15, 267, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

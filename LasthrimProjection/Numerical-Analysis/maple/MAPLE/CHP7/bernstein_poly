@@ -1,0 +1,16 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  bernstein_poly
+#
+# Producing the graph of few Bernstein polynomials,
+# here n = 7 and i = 0,1,5:
+
+ phi := (n,i,t) -> binomial(n,i)*(t**i)*((1-t)**(n-i));
+ p1 := phi(7,0,x);
+ p2 := phi(7,1,x);
+ p3 := phi(7,5,x);
+ plot([p1(x), p2(x),p3(x)], x=0..1);

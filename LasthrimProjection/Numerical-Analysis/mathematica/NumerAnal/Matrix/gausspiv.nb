@@ -1,0 +1,289 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5538,        239]*)
+(*NotebookOutlinePosition[      6177,        262]*)
+(*  CellTagsIndexPosition[      6133,        258]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Gaussian Elimination with Partial Pivoting", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Here is the Gaussian elimination with partial
+pivoting. Following the book, we do the eliminatin
+of the matrix A first.\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Off[General::spell1];
+Clear[Pivot,a0,p,s];
+Pivot[a0_] :=
+Module[{a,i,j,k,n, x,
+    smax, rmax, xmult, sum}, 
+  a = a0;
+  n = Length[a];
+  x=Table[a[[i,j]],{i,1,n},{j,1,n}];
+Clear[i,j];
+For[i=1, i <= n, i++,
+   p[i]=i; smax =0;
+  For[j=1, j <= n, j++,
+   smax = Max[ smax, Abs[a[[i,j]]] ];  
+  ];
+  s[i] = smax;
+];    
+For[k=1,k<=n-1,k++,
+   rmax =Abs[x[[p[k],k]]]/s[p[k]]; 
+   Block[{i,j,l}, 
+    For[j=k+1,j<=n,j++,
+     r = N[ Abs[ x[[ p[j],k ]]/
+        s[ p[j] ] ] , digit];
+     If[r > rmax,   
+      t=p[k]; p[k]=p[j]; p[j]=t ];           
+    ]; 
+    For[i=k+1, i <=n, i++,
+        xmult= N[x[[p[i],k]]/
+             x[[p[k],k]], digit];
+      x[[ p[i],k]] = xmult;
+      For[l=k+1, l <=n, l++,  
+       x[[ p[i],l]]= N[x[[ p[i],l]]-
+         xmult * x[[ p[k],l]], digit];
+      ];
+    ];
+ ];]; 
+ Clear[P];
+ P = Table[p[i], {i,1,n}];
+Return[x]; ]; 
+ On[General::spell1];       \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Now we do the right hand side b and the back
+substitution, which yields the solution. \
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Off[General::spell1];
+Clear[GaussPivot,a0,b0];
+GaussPivot[a0_,b0_] :=
+Module[{a,b,k,n,x}, 
+  a = a0;
+  b = b0;  
+  n = Length[b];
+  x = Table[0,{i, n}];
+Clear[i,k];
+For[k=1,k<=n-1,k++,
+   For[i=k+1,i<=n,i++,
+    b[[ p[i] ]] =N[ b[[ p[i] ]] -
+      a[[ p[i],k]]*b[[ p[k]]],digit] 
+   ];
+];   
+x[[n]] = N[b[[ p[n] ]]/a[[ p[n],n]],
+ \t\t\t\t\t\t\t digit]; Clear[i,j,k];
+For[i=n-1,1<=i,i--,
+    sum = b[[ p[i] ]];
+    For[j=i+1,j<=n,j++,
+      sum  = N[sum - 
+          a[[ p[i],j]]*x[[j]],digit] 
+    ]; 
+    x[[i]] = N[sum/a[[p[i],i]],digit];   
+];
+Return[x]; ];  
+On[General::spell1];\
+\>", "Input",
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->20],
+  StyleBox[": Here is a systems of 4 by 4,  ",
+    FontSize->20,
+    FontWeight->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18,
+  FontWeight->"Bold"],
+
+Cell["\<\
+Clear[digit];
+digit = 10;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A,B]; 
+A = {{2,4,-4,0},{1,5,-5,-3},{2,3,1,3},{1,4,-2,2}};
+B = {12,18,8,8};
+MatrixForm[A] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Pivot[A];
+N[ GaussPivot[Pivot[A],B], 7]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2",
+    FontSize->20],
+  StyleBox[
+  ": Here is a systems of 3 by 3, which can't be \nsolved by naive Gaussian,",
+    
+    FontSize->20,
+    FontWeight->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18,
+  FontWeight->"Bold"],
+
+Cell["\<\
+Clear[A,B]; 
+A = {{1,2,-4},{2,4,-5},{2,3,1}};
+B = {12,18,8 };
+MatrixForm[A]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Pivot[A];
+N[ GaussPivot[Pivot[A],B], 7]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 3",
+    FontSize->20],
+  StyleBox[": Here is another systems of 4 by 4, ",
+    FontSize->20,
+    FontWeight->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18,
+  FontWeight->"Bold"],
+
+Cell["\<\
+Clear[A,B]; 
+A = {{2,3,-4,1},{1,-1,0,-2},{3,3,4,3},{4,1,0,4}};
+B = {9,3,-8,0};
+MatrixForm[A] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Pivot[A];
+N[ GaussPivot[Pivot[A],B], 7]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 165}, {Automatic, 21}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 129, 3, 70, "Left Header"],
+Cell[1841, 54, 214, 7, 80, "Left Header"],
+Cell[2058, 63, 951, 42, 675, "Input"],
+Cell[3012, 107, 181, 6, 56, "Left Header"],
+Cell[3196, 115, 624, 29, 488, "Input"],
+Cell[3823, 146, 252, 10, 31, "Left Header"],
+Cell[4078, 158, 92, 5, 46, "Input"],
+Cell[4173, 165, 162, 7, 97, "Input"],
+Cell[4338, 174, 106, 5, 46, "Input"],
+Cell[4447, 181, 301, 12, 54, "Left Header"],
+Cell[4751, 195, 142, 7, 80, "Input"],
+Cell[4896, 204, 106, 5, 46, "Input"],
+Cell[5005, 211, 257, 10, 31, "Left Header"],
+Cell[5265, 223, 160, 7, 97, "Input"],
+Cell[5428, 232, 106, 5, 46, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

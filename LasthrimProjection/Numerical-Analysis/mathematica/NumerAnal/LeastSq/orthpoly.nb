@@ -1,0 +1,240 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4770,        184]*)
+(*NotebookOutlinePosition[      5626,        214]*)
+(*  CellTagsIndexPosition[      5582,        210]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["\<\
+Legendre Orthogonal Polynomials and Least  Square \
+Approximation\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[StyleBox[
+"The following generatea sequence of orthogonal polynomials\nwith respect to \
+the inner product induced by  dx on [-1,1]: ",
+  FontSize->19,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[ips,P,a,b];
+ips[f_,g_] := Integrate[f g, {x,-1,1}];
+a[n_] := ips[ x P[n-1,x],P[n-1,x] ] /
+ ips[ P[n-1,x], P[n-1,x] ]; 
+b[n_] := ips[ x P[n-1,x],P[n-2,x] ] /
+ ips[ P[n-2,x], P[n-2,x] ];
+P[0,x_] = 1; 
+P[1,x_] = x - a[1];
+P[n_,x_] := P[n,x] =
+   (x-a[n]) P[n-1,x]- b[n] P[n-2,x];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+For[j=0, j<=5, j++,
+Print[\"P\",j,\"(x)=\" Simplify[P[j,x]]] ]    \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Mathematica",
+    FontSize->18],
+  StyleBox[" has built Legendre polynomials in its package: ",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+For[j=0, j<=5, j++,
+Print[\"P\",j,\"(x)=\", LegendreP[j,x]] ]    \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Here is  the least square approximation to a function f :",
+  FontSize->19,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+BestPoly[f_,p_] := Simplify[
+    Sum[ (ips[ f[x] , P[k,x] ] /
+      ips[ P[k,x], P[k,x] ]) P[k,x]  ,{k,0,p} ] ]     \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->19,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[".  f(x) = e^x; least square polynomial of degree 2:",
+    FontSize->19,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,g];
+f[x_] = Exp[x];
+g[x_]=BestPoly[f,2] //N  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[func,approx];
+func=Plot[f[x],{x,-1,1}, DisplayFunction->Identity]; 
+approx=Plot[g[x],{x,-1,1}, DisplayFunction->Identity];
+Show[func,approx,DisplayFunction->
+    $DisplayFunction]           \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->19,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[".  f(x) = cos(4x); least square polynomial of \ndegree 4:",
+    FontSize->19,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[f,g];
+f[x_] = Cos[4 x]; 
+g[x_]=BestPoly[f,4] //N \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[func,approx];
+func=Plot[f[x],{x,-1,1}, DisplayFunction->Identity];
+approx=Plot[g[x],{x,-1,1}, DisplayFunction->Identity];
+Show[func,approx,DisplayFunction->
+   $DisplayFunction]            \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 145}, {Automatic, -6}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 160, 6, 70, "Left Header"],
+Cell[1872, 57, 263, 7, 49, "Header"],
+Cell[2138, 66, 349, 13, 182, "Input"],
+Cell[2490, 81, 133, 5, 63, "Input"],
+Cell[2626, 88, 243, 9, 24, "Header"],
+Cell[2872, 99, 132, 5, 63, "Input"],
+Cell[3007, 106, 198, 6, 27, "Header"],
+Cell[3208, 114, 183, 6, 80, "Input"],
+Cell[3394, 122, 292, 11, 27, "Header"],
+Cell[3689, 135, 120, 6, 63, "Input"],
+Cell[3812, 143, 263, 8, 131, "Input"],
+Cell[4078, 153, 298, 11, 49, "Header"],
+Cell[4379, 166, 122, 6, 63, "Input"],
+Cell[4504, 174, 262, 8, 131, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

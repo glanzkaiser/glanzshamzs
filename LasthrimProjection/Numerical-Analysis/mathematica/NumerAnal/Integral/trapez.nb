@@ -1,0 +1,272 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5255,        209]*)
+(*NotebookOutlinePosition[      6111,        239]*)
+(*  CellTagsIndexPosition[      6067,        235]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[StyleBox["Composite Trapezoidal Rule: ",
+  FontSize->30]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->29],
+
+Cell["\<\
+It is used to approximate the integral  Integral[f(x), {x, a,b}]
+by using the value of f(x) at n+1 eaully space points 
+x_k = a+ h k, k =0, 1, ..., n. \
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->19],
+
+Cell["\<\
+Off[General::spell1];
+Clear[TrapezRule,f0,a,b,n];
+TrapezRule[f0_,a_,b_,n_] :=
+Module[{f,k},
+  Set@@{f[x_],f0};
+  h = N[(b - a)/n,digit];
+  x0 = N[a,digit];
+  s = 0;
+  For[k=1,k<=n-1,k++,
+    Module[{},
+      xk = x0 + h k;
+      s = N[s + f[xk],digit]; ]];
+  s = N[h ( f[a] + f[b] )/2 + h s,
+    digit];
+  Trule = s;
+  Print[\" \"];
+  Print[\"n=\",n,\"    T[n]=\", N[Trule,digit]]; ];
+On[General::spell1];\
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"The following line defines \"digit =16\", so that each step is \ncomputed up \
+to 10 decimal points.",
+  FontSize->19]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[digit];
+digit = 16; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->19,
+    FontWeight->"Bold"],
+  StyleBox[": Integrate   f(x) = e^{- x^2} over [0, 1].",
+    FontSize->19]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f,x];
+f[x_] = Exp[-x^2]; \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+For[n = 10, n <= 20, n++, 
+TrapezRule[f[x],0,1, n] ]  \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"For this function we know that the maximum of |f''| is at x=0, \nwhich takes \
+the value 2: ",
+  FontSize->19]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["norm[f'']=Abs[f''[0]]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"Here is an upper bound for the error of the composite \ntrapezoidal rule \
+from  f''(xi) (b-1) h^2/12: ",
+  FontSize->19]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[n];
+Error[n_] = N[ 1 /(6 n^2),digit] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Error[20] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Use Mathematica NIntegrate we have that ",
+  FontSize->19]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["NIntegrate[f[x],{x,0,1}] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontSize->20,
+    FontWeight->"Bold"],
+  StyleBox[" Integrate   f(x) = Sin \\sqrt[x] over [0, 1]. ",
+    FontSize->20]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f,x];
+f[x_] = Sin[ Sqrt[x] ];  \
+\>", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell[TextData[StyleBox[
+"For this function, it's derivative is unbounded on [0,1], \nthe convergence \
+of the trapezoid rule is rather slow. ",
+  FontSize->20]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Simplify[f''[x] ]   ", "Input",
+  AspectRatioFixed->False,
+  FontSize->18],
+
+Cell["\<\
+For[n = 30, n <= 40, n++,
+TrapezRule[f[x],0,1, n] ] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[NIntegrate[f[x],{x,0,1}], digit] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 136}, {Automatic, 22}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 151, 4, 40, "Left Header"],
+Cell[1863, 55, 246, 7, 74, "Left Header"],
+Cell[2112, 64, 473, 21, 335, "Input"],
+Cell[2588, 87, 224, 6, 52, "Left Header"],
+Cell[2815, 95, 93, 5, 46, "Input"],
+Cell[2911, 102, 240, 9, 30, "Left Header"],
+Cell[3154, 113, 99, 5, 46, "Input"],
+Cell[3256, 120, 122, 5, 46, "Input"],
+Cell[3381, 127, 216, 6, 52, "Left Header"],
+Cell[3600, 135, 82, 2, 29, "Input"],
+Cell[3685, 139, 227, 6, 52, "Left Header"],
+Cell[3915, 147, 110, 5, 46, "Input"],
+Cell[4028, 154, 69, 2, 29, "Input"],
+Cell[4100, 158, 163, 4, 30, "Left Header"],
+Cell[4266, 164, 84, 2, 29, "Input"],
+Cell[4353, 168, 245, 9, 31, "Left Header"],
+Cell[4601, 179, 105, 5, 46, "Input"],
+Cell[4709, 186, 240, 6, 54, "Left Header"],
+Cell[4952, 194, 80, 2, 29, "Input"],
+Cell[5035, 198, 119, 5, 46, "Input"],
+Cell[5157, 205, 94, 2, 29, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

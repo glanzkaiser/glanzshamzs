@@ -1,0 +1,20 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: bvp1
+#
+# Solving a BVP
+#
+ode  := (D@@2)(x)(t) = -x(t);
+soln :=dsolve(ode, x(t));
+subs(t=0, ");
+evalf(");
+subs(x(0)=1,");
+subs(t=Pi/2, soln);
+evalf(");
+subs(x(Pi/2)=-3,");
+evalf(soln);

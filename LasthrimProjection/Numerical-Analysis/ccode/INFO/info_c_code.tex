@@ -1,0 +1,134 @@
+%22 Jan 94
+\documentstyle{article}
+\begin{document}
+
+Software associated with the textbook 
+{\em Numerical Mathematics and Computing, Third Edition},
+Ward Cheney \& David Kincaid, Brooks/Cole Publishing Co.,
+1994, ISBN 0--534--20112--1, is available from several sources:
+
+\begin{itemize}
+\item
+by using anonymous ftp from math.utexas.edu as follows:
+
+\begin{verse}
+ftp math.utexas.edu\\
+Name: anonymous\\
+Password: user ID\\
+ftp$>$ cd pub/papers/CNA/cheney-kincaid\\
+ftp$>$ get README 
+\end{verse}
+
+\item
+ by sending email to netlib@ornl.gov
+with the message {\em send index from cheney-kincaid}.
+\end{itemize}
+
+Files are available for the pseudocode in the textbook
+written in either Fortran 77, Fortran 90, or C.
+Also, files containing Maple and Matlab programs are available.
+
+The table on the following pages lists C
+files containing sample programs 
+based on the pseudocode given in the book.
+They are intended  primarily as a learning and teaching aid 
+for use with this book.
+We believe that these computer routines are coded in a clear and
+easy-to-understand style but we
+have intentionally excluded comment statements 
+so that students will read the code and study the algorithms---they
+can add comments as they decipher them.
+These programs are usable on computer systems with appropriate 
+compilers, from
+small personal computers to large scientific computing machines.
+However, they do not contain all of the ``bells-and-whistles'' of
+robust state-of-the-art software such as may be found in general-purpose
+scientific libraries.
+Nevertheless, they are adequate for many small nonpathological
+problems.
+
+\begin{center}
+\begin{tabular}{l@{\quad}r@{\qquad}l}
+{\bf File Name} & {\bf Pages} 
+&{\bf Description of C Code} \\[0.1in]
+CHP1/\\
+\quad pi.c&7&Simple code to illustrate double precision\cr
+\quad first.c&10--11&First programming experiment\cr
+\quad double_first.c&10--11&First programming experiment (double precision)\cr
+CHP2/\\
+\quad xsinx.c&71&Example of programming $f(x) = x - \sin x$ carefully\\
+CHP3/\\
+\quad bisection.c&85&Bisection method\\
+%\quad bisection2.c&85&Second version of bisection method\\
+\quad rec\_bisection.c&86&Recursive version of bisection method\\
+\quad newton.c&95&Sample Newton method\cr
+\quad secant.c&110&Secant method\cr
+CHP4/\\
+\quad coef.c&132&Newton interpolation polynomial at equidistant pts\\
+\quad deriv.c&156&Derivative by center diff./Richardson extrapolation\\
+CHP5/\\
+\quad sums.c&171&Upper/lower sums experiment for an integral\cr
+\quad trapezoid.c&176&Trapezoid rule experiment for an integral\cr
+\quad romberg.c&190&Romberg arrays for three separate functions\\
+\quad rec\_simpson.c&204&Adaptive scheme for Simpson's rule\\
+CHP6/\\
+\quad ngauss.c&224&Naive Gaussian elimination to solve linear systems\\
+\quad gauss.c&236/239&Gaussian elimination with scaled partial pivoting\\
+\quad tri.c&251&Solves tridiagonal systems\\
+\quad penta.c&253&Solves pentadiagonal linear systems\\
+CHP7/\\
+\quad spline1.c&281&Interpolates table using a first-degree spline function\\
+\quad spline3.c&297&Natural cubic spline function at equidistant points\\
+\quad bspline.c&319&Interpolates table using a quadratic B-spline function\\
+\quad sch.c&322&Interpolates table using Schoenberg's process\\
+CHP8/\\
+\quad euler.c&328&Euler's method for solving an ODE\cr
+\quad taylor.c&319&Taylor series method (order 4) for solving an ODE\cr
+\quad rk4.c&339&Runge-Kutta method (order 4) for solving an IVP\\
+\quad rk45.c&351&Runge-Kutta-Fehlberg method for solving an IVP\\
+\quad rk45ad.c&352&Adaptive Runge-Kutta-Fehlberg method\\
+CHP9/\\
+\quad taylorsys1.c&362&Taylor series method (order 4) for systems of ODEs\cr
+\quad taylorsys2.c&364&Taylor series method (order 4) for systems of ODEs\cr
+\quad rk4sys.c&365&Runge-Kutta method (order 4) for systems of ODEs\\
+\quad amrk.c&377--378&Adams-Moulton method for systems of ODEs\\
+\quad amrkad.c&408--409&Adaptive Adams-Moulton method for systems of ODE's\\
+\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{center}
+\begin{tabular}{l@{\quad}r@{\qquad}l}
+{\bf File Name} & {\bf Pages} 
+&{\bf Description of C Code} \\[0.1in]
+CHP11/\\
+\quad test\_random.c&413/414&Example to compute, store, and print random numbers\\
+\quad coarse\_check.c&414&Coarse check on the random-number generator\\
+%ellipse.f&416&\cr
+%ellipse-erroneous.f&417&\cr
+%circle-erroneous.f&418&\cr
+\quad double\_integral.c&424&Volume of a complicated 3D region by Monte Carlo\\
+\quad volume\_region.c&345--346&Numerical value of integral over a 2D disk by Monte Carlo\\
+\quad cone.c&426&Ice cream cone example\\
+\quad loaded\_die.c&430&Loaded die problem simulation\\
+\quad birthday.c&432&Birthday problem simulation\\
+\quad needle.c&433&Buffon's needle problem simulation\\
+\quad two\_die.c&434&Two dice problem simulation\\
+\quad shielding.c&435&Neutron shielding problem simulation\\
+CHP12/\\
+\quad bvp1.c&450&Boundary value problem solved by discretization technique\\
+\quad bvp2.c&453&Boundary value problem solved by shooting method\\
+CHP13/\\
+\quad parabolic1.c&462&Parabolic partial differential equation problem\cr
+\quad parabolic2.c&464&Parabolic PDE problem solved by Crank-Nicolson method\\
+\quad hyperbolic.c&472&Hyperbolic PDE problem solved by discretization\\
+\quad seidel.c&480&Elliptic PDE solved by discretization/ Gauss-Seidel 
+method\\
+INFO/\\
+\quad info\_c\_code.tex&&\LaTeX\  file containing information on c codes\cr
+\quad info\_c\_code.tty&&ASCII file containing information on c codes
+\end{tabular}
+\end{center}
+
+\end{document}

@@ -1,0 +1,36 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  bvp
+#
+# Solving two boudary-value problems:
+# 1. x"(t)=exp(t)-3sin(t)+x'(t)-x(t)
+#    with the boundary conditions  x(1)=1.09737491 and x'(1)=0
+# 2. y"(t)=exp(t)-3sin(t)+y'(t)-y(t)
+#    with the boundary conditions  y(1)=1.09737491 and y'(1)=1
+# The solution is also evaluated at t = 1, 1.5, and 2.
+# Be patient, Maple does not produce the solution instantaneously,
+# (takes 20-30 minutes.)
+
+ ode1 := (D@@2)(x)(t)=exp(t)-3*sin(t)+D(x)(t)-x(t);
+ init1 := x(1)=1.09737491,D(x)(1)=0;
+ xsol := dsolve({ode1,init1},x(t));
+ x2 := rhs(evalf(subs(t=2,xsol)));
+ ode2 := (D@@2)(y)(t)=exp(t)-3*sin(t)+D(y)(t)-y(t);
+ init2 := y(1)=1.09737491,D(y)(1)=1;
+ ysol := dsolve({ode2, init2}, y(t));
+ y2 := rhs(evalf(subs(t=2,ysol)));
+ p := (8.63749661-y2)/(x2-y2);
+ sol := p*xsol+(1-p)*ysol;
+ evalf(subs(t=1,sol));
+ evalf(subs(t=2,sol));
+ evalf(subs(t=1.5,sol));
+
+# Maple is also able to solve this boundary value problem directly:
+
+ ode := (D@@2)(x)(t)=exp(t)-3*sin(t)+D(x)(t)-x(t);
+ cond := x(1)=1.09737491, x(2)=8.63749661;
+ xsol := dsolve({ode, cond},x(t));

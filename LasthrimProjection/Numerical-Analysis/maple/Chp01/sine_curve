@@ -1,0 +1,31 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: sine_curve
+#
+#Plot sin x and partial sums
+#
+# This is a file to create in Maple a plot of sin x and three partial
+# sums of its Taylor series on the interval [-Pi, Pi].
+# To run the program and create the plot file, use "maple < sine_curve"
+# To print the plot, use the command "lpr -Fl p1". 
+# Note that "p1" is the name assigned IN THE PROGRAM to the plot file. 
+# (See line 6.) It is a postscript file.
+
+f:=x->sin(x);
+g:=x->x;
+h:=x->g(x)-(x^3)/6;
+k:=x->h(x)+(x^5)/120;
+plot(f, -Pi..Pi, title=`sin`);
+plot(g, -Pi..Pi, title=`x`);
+plot(h, -Pi..Pi, title=`two terms`);
+plot(k, -Pi..Pi, title=`three terms`);
+interface (plotdevice=postscript);
+interface (plotoutput=sin.ps);
+plot ({f,h,k},-Pi..Pi,numpoints=601,title=`Figure 1.1 Sin x and partial sums`);
+
+

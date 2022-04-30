@@ -1,0 +1,14 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  rand_num
+#
+# Generating ten uniformly distributed random numbers on [0,1]:
+
+ with(stats):
+ x := uniform(0..1):
+ seq(x(), i=1..10);
+

@@ -1,0 +1,15 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  ode1
+#
+# Numerical solution to the initial-value problem:
+# [5370 - 981 - v^(3/2)]/ln(2+v) = (321 - 24t)v'
+# for initial condition v = 0 at t = 0:
+
+ alias(v = v(t), v0=v(0));
+ V := dsolve({diff(v,t)=(4389-v^(1.5)/ln(2+v))/(321-24*t), v0=0},v,'numeric');
+ V10 := evalf(V(10));

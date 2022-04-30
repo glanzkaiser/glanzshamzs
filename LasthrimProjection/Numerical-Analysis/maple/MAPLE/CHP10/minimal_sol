@@ -1,0 +1,35 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  minimal_sol
+#
+# This Maple code first exhibits a random input matrix A, and vector
+# b. The three singular values of matrix A are displayed in the
+# vector S. Then the diagonal matrix D is displayed in DD2. A check
+# on the numerical work is made by computing U*D*(Vtranspose), which
+# should equal A.  Then the pseudoinverse of D and A are computed.
+# The minimal solution x, the residual R are computed, and finally
+# the orthogonality condition '(transpose of A)*R = 0' is checked.
+
+ with(linalg):
+ A := randmatrix(20,3);
+ b := randmatrix(20,1);
+ S := evalf(Svd(A,U,V));
+ DD := diag(S[1],S[2],S[3]);
+ Z := matrix(17,3,0):
+ DD1 := stack(DD,Z):
+ evalm(U &* DD1 &* transpose(V));
+ DD3 := diag(1/S[1], 1/S[2], 1/S[3]):
+ Dplus := augment(DD3, transpose(Z)):
+ evalm(Dplus);
+ Aplus := V &* Dplus &* transpose(U):
+ evalm(Aplus):
+ x := Aplus &* b:
+ evalm(x);
+ R := A &* x - b:
+ evalm(R);
+ evalm(transpose(A) &* R);
+

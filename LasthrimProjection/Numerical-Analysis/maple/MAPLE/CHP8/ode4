@@ -1,0 +1,17 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  ode4
+#
+# Numerical solution for the initial value problem:
+# x'(t) = 2 + (x(t) -t -1)^2, with the initial condition x(1) = 2:
+
+ ode := D(x)(t) = 2 + (x(t) - t -1)^2;
+ f := dsolve({ode, x(1) =2}, x(t), numeric);
+ f(1);
+ f(1.5625);
+ with(plots):
+ odeplot(f, [t,x(t)], 1..1.5625);

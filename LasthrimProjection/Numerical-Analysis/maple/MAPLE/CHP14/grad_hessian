@@ -1,0 +1,20 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  grad_hessian
+#
+# Calculate the gradient vector and the Hessian matrix for the multivariable
+# function  F(x,y) = cos(pi*x)+sin(pi*y)+exp(x*y).
+# Next evaluate the function, gradient and the Hessian at (x,y)=(1,1).
+
+ with(linalg):
+ F := cos(Pi*x) + sin(Pi*y) +exp(x*y);
+ G := grad(F, [x,y]);
+ H := hessian(F, [x,y]);
+ x := 1; y:=1;
+ map(eval, F);
+ map(eval, G);
+ map(eval, H);

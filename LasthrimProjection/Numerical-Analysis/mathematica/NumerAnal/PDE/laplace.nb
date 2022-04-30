@@ -1,0 +1,251 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      6082,        193]*)
+(*NotebookOutlinePosition[      6937,        225]*)
+(*  CellTagsIndexPosition[      6893,        221]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+
+Cell[TextData["Finite Difference Method for Laplace Eqn:"], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontFamily->"Times",
+  FontSize->23,
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontTracking->"Plain",
+  FontVariations->{"Underline"->False,
+  "Outline"->False,
+  "Shadow"->False}],
+
+Cell[TextData[{
+  StyleBox[
+  "We use the finite difference method to solve  the Laplace equation  \n\t\t \
+u",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["xx",
+    FontSize->16,
+    FontSlant->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[" + u",
+    FontSize->16,
+    FontSlant->"Plain"],
+  StyleBox["yy",
+    FontSize->16,
+    FontSlant->"Plain",
+    FontVariations->{"CompatibilityType"->"Subscript"}],
+  StyleBox[
+  " = 0\n   \t\t u(x,0) = a0(x),  u(x,1) =a1(x)   for 0 <= x <=1 ,   \n      \
+\t\t u(0,y) = b0(y),  u(1,y) = b1(y),  for 0 <= y <=1, \nover  R = {(x,y): 0 \
+<= x <= 1 , 0<=y<=1}.  In the algorithm, we use\nthe Gauss-Seidel method to \
+solve the linear system equations. The \nresult gives the approximate value \
+of  u(x,y) at (x_i,y_j) =( i*h, j*h).",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Off[General::spell1];\nClear[Dirichlet,a00,a10,b00,b10,n,M];\n\
+Dirichlet[a00_,a10_,b00_,b10_,n_,M_] :=\nModule[{h,i,j,k,a0,a1,b0,b1},  \n  \
+Set@@{a0[x_],a00};\n  Set@@{a1[x_],a10}; \n  Set@@{b0[y_],b00};\n  \
+Set@@{b1[y_],b10};\nh = (1 / n)//N;\nu = Table[0,{n+1},{n+1}];\n  \
+For[i=1,i<=n ,i++,\n      u[[i,1]] = a0[(i-1)*h] //N;\n      u[[i,n+1 ]] = \
+a1[(i-1)*h] //N;\n      u[[1,i]] = b0[(i-1)*h] //N ;\n      u[[n+1,i]] = \
+b1[(i-1)*h] //N ];\n  Clear[i,j,k];\n  For[k=1, k<=M, k++,       \n     \
+For[j=2,j<=n,j++, \n        For[i=2,i<=n ,i++,\n           u[[i,j]] = \
+(u[[i-1,j]] + u[[i+1,j]] + \n                u[[i,j-1]] + u[[i,j+1]])/4 //N] \
+] ];\nReturn[u]; ]; \nOn[General::spell1];"], "Input",
+  AspectRatioFixed->False],
+
+Cell[TextData[{
+  StyleBox["Examle 1:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "   Boundary values is determined by g(x,y)=4xy(x-y)(x+y),\nwhich is \
+harmonic. ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[g,a0,a1,b0,b1];\ng[x_,y_]:= 4x*y*(x-y)*(x+y);\na0[x_]:= g[x,0]; \
+a1[x_]:= g[x,1]; \nb0[y_]:= g[0,y]; b1[y_]:= g[1,y];  "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["u=Dirichlet[a0[x],a1[x],b0[y],b1[y],10,20]; "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ListPlot3D[u,  AxesLabel->{\"t\",\"x\",\"u\"},   \nViewPoint->{3,2,1}]"], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["The exact solution is this case is  g(x,y)",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"n=10; \nError = Max[Abs[Table[ u[[i,j]]-g[(i-1)/n,(j-1)/n] //N, \n           \
+       {i,1,n+1},{j,1,n+1}]]]"], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox["Examle 2:",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  "   Boundary values is determined by \n          g(x,y)= 10^{-4} Sinh(3\\pi \
+x) Sin(3 \\pi y)\nwhich is harmonic. ",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"Clear[g,a0,a1,b0,b1]; \ng[x_,y_]:= 10^(-4) Sinh[3*Pi*x]*Sin[3*Pi*y];\n\
+a0[x_]:= g[x,0]; a1[x_]:= g[x,1]; \nb0[y_]:= g[0,y]; b1[y_]:= g[1,y]; "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData["u=Dirichlet[a0[x],a1[x],b0[y],b1[y],15,20]; "], "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"ListPlot3D[u,  AxesLabel->{\"t\",\"x\",\"u\"},  \nViewPoint->{1,-2,1}] "], 
+  "Input",
+  AspectRatioFixed->True],
+
+Cell[TextData[{
+  StyleBox[" ",
+    FontSize->16,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox["The exact solution is this case is  g(x,y)",
+    FontSize->16,
+    FontSlant->"Plain"]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True],
+
+Cell[TextData[
+"n=15; \nError = Max[Abs[Table[ u[[i,j]]-g[(i-1)/n,(j-1)/n] //N, \n           \
+       {i,1,n+1},{j,1,n+1}]]]"], "Input",
+  AspectRatioFixed->True]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1152}, {0, 864}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 240}, {Automatic, 77}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1711, 51, 310, 10, 70, "Left Header"],
+Cell[2024, 63, 923, 27, 70, "Left Header"],
+Cell[2950, 92, 753, 11, 70, "Input"],
+Cell[3706, 105, 313, 12, 70, "Left Header"],
+Cell[4022, 119, 180, 3, 70, "Input"],
+Cell[4205, 124, 97, 1, 70, "Input"],
+Cell[4305, 127, 127, 3, 70, "Input"],
+Cell[4435, 132, 264, 10, 70, "Left Header"],
+Cell[4702, 144, 162, 3, 70, "Input"],
+Cell[4867, 149, 347, 12, 70, "Left Header"],
+Cell[5217, 163, 199, 4, 70, "Input"],
+Cell[5419, 169, 97, 1, 70, "Input"],
+Cell[5519, 172, 128, 3, 70, "Input"],
+Cell[5650, 177, 264, 10, 70, "Left Header"],
+Cell[5917, 189, 162, 3, 70, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)

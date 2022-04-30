@@ -1,0 +1,15 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: simplex_dual
+#
+# Dual LP problem
+#
+with(simplex):
+obj := 15*x + 18*y;
+consts := {5*x + 3*y >= 2, 3*x + 6*y >= 3};
+minimize(obj, consts, NONNEGATIVE);

@@ -1,0 +1,70 @@
+FILE NAME                   Description of MAPLE code
+
+CHP1/
+  sin_plot                  Graph of Taylor series partial sums sin(x)
+  taylor_series             Taylor series expansion of functions
+  horner_symbolic           Manipulation of Horner polynomial
+  sqrt_approx               Taylor series expansion of square roots
+
+CHP2/
+  loss_of_significance     Loss of significance in subtraction
+   
+
+CHP3/
+  fun_roots                Roots of functions
+  poly_roots1              Newton's method solving roots of polynomials
+  poly_roots2              Roots of a cubic polynomial 
+
+CHP4/
+  newton_interp            Newton interpolation polnomial
+  runge_fun                Polynomial interpolation for Runge function
+  derivative               Symbolic and numerical derivative
+
+CHP5/
+  num_integ1               Numerical integration of exp(-x*x)
+  num_integ2               Numerical integration of cos(2*x)/exp(x)
+  trapezoid_rule           Trapezoid rule for an integral
+
+CHP6/
+  gauss_elim               Gaussian elimination
+  sng_val_decomp           Singular value decomposition of a matrix
+
+CHP7/
+  bernstein_poly           Graph of few Bernstein polynomials
+  ctrl_pt_curve            Generating curves using control points
+  cubic_spline1            Plot of natural cubic spline curve
+  cubic_spline2            Generate and plot cubic spline curve
+
+CHP8/
+  adams_mlt_coef           Adams-Moulton formulas
+  euler                    Euler's method for solving an ODE
+  ode1                     Numerical solution to an IVP
+  ode2                     Numerical solution to an IVP
+  ode3                     Taylor series method (order 4) solving ODE
+  ode4                     Numerical solution to an IVP
+
+CHP9/
+  ode-2nd_order            Second order IVP
+  ode_sys1                 Analytic/numerical solution systems of ODE 
+  ode_sys2                 Analytic/numerical solution systems of ODE
+        
+CHP10/
+  minimal_sol              Minimal solution random matrix A/vector b
+  svd_Penrose              Penrose properties for pseudomatrix
+
+CHP11/
+  rand_num                 Generating random numbers
+
+CHP12/
+  bvp                      Solving broundary value problems
+
+CHP14/
+  grad_hessian             Calculat gradient vector and Hessian matrix
+
+CHP15/
+  lin_prog1                Maximize subject to inequality constraints
+  lin_prog2                Minimize subject to inequality constraints
+  lin_prog3                Minimize subject to equality constraints
+  lin_prog4                Minimize subject to inequality constraints
+
+

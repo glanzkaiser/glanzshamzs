@@ -1,0 +1,27 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  euler
+
+f := (t,x)->x;
+h := 0.2;
+n := 20;
+tt := 0.0;
+xx := 1.0;
+points := array(0..n);
+points[0] := [tt,xx];
+
+for i  from 1 to n
+   do
+   xx := evalf(xx+h*f(tt,xx));
+   tt := evalf(tt+h);
+   points[i] := [tt,xx];
+   od;
+
+plotpoints := [seq(points[i],i=0..n)];
+plot1:= plot(plotpoints, style=POINT);
+plot2 := plot(exp(t),t=0..4);
+plots [display] ([plot1, plot2]);

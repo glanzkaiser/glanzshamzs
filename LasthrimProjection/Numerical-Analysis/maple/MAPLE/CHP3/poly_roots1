@@ -1,0 +1,20 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  poly_roots1
+#
+# Computing ten iteration of Newton's method for locating
+# roots of the polynomial f(x) = x^3 - 2x^2 + x -3, with 
+# starting point x = 4.0:
+
+Digits := 100;
+x := 4.0;
+f := ((x - 2.0)*x + 1.0)*x - 3.0;
+for n from 1 by 1 to 10 do
+    x := x - f/((3.0*x - 4.0)*x + 1.0);
+    f := ((x - 2.0)*x + 1.0)*x - 3.0;
+    e := evalf(f,2);
+od;

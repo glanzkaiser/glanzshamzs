@@ -1,0 +1,17 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: ell_one
+#
+# ell-one problem
+#
+with(simplex):
+obj := u1 + v1 + u2 + v2 + u3 + v3;
+consts := {2*y1 + 3*y2 - 5*y3 - u1 + v1 = 4,
+           y1 - y2 - u2 + v2 = 2,
+           y1 + 2*y2 - 3*y3 - u3 + v3 = 7};			
+minimize(obj, consts, NONNEGATIVE);

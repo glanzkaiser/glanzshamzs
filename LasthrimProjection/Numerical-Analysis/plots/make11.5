@@ -1,0 +1,24 @@
+set term postscript         # redirect output to postscript
+set output 'fig11-5.out' # name postscript output file
+
+set xlabel "X  SCALE"
+set ylabel "Y  SCALE"
+set xrange [-1.0:1.0]
+set yrange [-1.0:1.0]
+
+set parametric
+set dummy t
+set trange [0.0:2.*pi]
+
+set size .8125,1.          # adjust plot area 
+
+set noxzeroaxis 
+set noyzeroaxis 
+
+set nokey                  # use no title (usually written upp right corner)
+
+
+plot cos(t), sin(t) with lines 2 1,  "fig11-5.dat" with points 1 1 
+
+clear                      # clear current definitions (optional)
+

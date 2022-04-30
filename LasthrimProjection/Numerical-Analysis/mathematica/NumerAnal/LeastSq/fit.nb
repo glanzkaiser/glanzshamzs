@@ -1,0 +1,283 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5549,        224]*)
+(*NotebookOutlinePosition[      6405,        254]*)
+(*  CellTagsIndexPosition[      6361,        250]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Least Square Fit:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["We use the Mathematica function Fit. ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 1",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Linear polynomial:",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY,f];
+XY={{1, 3.7}, {2, 4.1}, {2.5, 4.3}, 
+{3, 5}};
+f[x_]=Fit[XY, {1,x}, x]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots, least];
+dots = ListPlot[XY,PlotStyle->
+{PointSize[0.02]}, 
+   DisplayFunction->  Identity];
+least= Plot[f[x],{x,1,3.2},
+   DisplayFunction->Identity];
+Show[least, dots, DisplayFunction->
+$DisplayFunction, PlotLabel->txt,
+AxesLabel->{\"x\",\"y    \"}]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 2",
+    FontSize->19,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[". Least square method using polynomial:",
+    FontSize->19,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[XY,f];
+XY={{0.24, 0.23}, {0.65, -0.26}, 
+{0.95, -1.10},{1.24, -0.45}, 
+{1.73,0.27},  {2.01, 0.10}, 
+{2.23, -0.19},{2.52, 0.24}, 
+{2.77,0.56},  {2.99, 1.00}};\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Polynomial of degree 2:",
+  FontSize->19]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["f[x_]=Fit[XY, {1,x,x^2}, x]", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots, least];
+dots = ListPlot[XY,PlotStyle->
+{PointSize[0.02]}, 
+   DisplayFunction->Identity];
+least= Plot[f[x],{x,0,3.2},
+   DisplayFunction->Identity];
+Show[least, dots,DisplayFunction->
+$DisplayFunction, PlotLabel->txt,
+AxesLabel->{\"x\",\"y    \"}]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Polynomial of degree 6:",
+  FontSize->19]], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f];
+f[x_]=Fit[XY, {1,x,x^2, x^3, x^4, x^5,
+   x^6}, x]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots, least];
+dots = ListPlot[XY,PlotStyle->{PointSize[0.02]},
+   DisplayFunction->Identity];
+least= Plot[f[x],{x,0.2,3.05}, 
+   DisplayFunction->Identity];
+Show[least, dots, DisplayFunction->$DisplayFunction,PlotLabel->txt,
+AxesLabel->{\"x\",\"y    \"}]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[{
+  StyleBox["Example 3",
+    FontSize->18,
+    FontWeight->"Bold",
+    FontSlant->"Plain"],
+  StyleBox[
+  ". Least square method using polynomial of degree 6,\nwhich shows that the \
+",
+    FontSize->18,
+    FontSlant->"Plain"],
+  StyleBox["mathematica",
+    FontSize->18],
+  StyleBox[
+  " didn't do it correctly! We \ncompare it with the orthogonal fit: \
+notebooks \"normeqn.ma\" .",
+    FontSize->18,
+    FontSlant->"Plain"]
+}], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->23],
+
+Cell["\<\
+Clear[XY, n]; 
+f[x_]:=1 + Sin[10 x]; 
+pt[x_]:= 10+ (x-1)/14;  
+n=15;
+XY=N[Table[{pt[i], f[pt[i]]},  
+  {i, 1,n}],10];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[f];
+f[x_]=Fit[XY, {1,x,x^2, x^3, x^4, x^5,
+x^6}, x] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[dots, least];
+dots = ListPlot[XY,PlotStyle->
+{PointSize[0.02]},
+  DisplayFunction->Identity];
+least= Plot[f[x],{x,10,11}, 
+  DisplayFunction->Identity];
+Show[least, dots, DisplayFunction->
+$DisplayFunction,PlotLabel->txt,
+AxesLabel->{\"x\",\"y    \"}]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 161}, {Automatic, 38}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 104, 3, 39, "Left Header"],
+Cell[1816, 54, 124, 3, 27, "Left Header"],
+Cell[1943, 59, 261, 11, 24, "Header"],
+Cell[2207, 72, 149, 7, 80, "Input"],
+Cell[2359, 81, 329, 12, 165, "Input"],
+Cell[2691, 95, 280, 11, 27, "Header"],
+Cell[2974, 108, 230, 9, 114, "Input"],
+Cell[3207, 119, 146, 4, 30, "Left Header"],
+Cell[3356, 125, 86, 2, 29, "Input"],
+Cell[3445, 129, 326, 12, 165, "Input"],
+Cell[3774, 143, 146, 4, 30, "Left Header"],
+Cell[3923, 149, 127, 6, 63, "Input"],
+Cell[4053, 157, 327, 10, 165, "Input"],
+Cell[4383, 169, 520, 20, 62, "Header"],
+Cell[4906, 191, 184, 9, 114, "Input"],
+Cell[5093, 202, 125, 6, 63, "Input"],
+Cell[5221, 210, 324, 12, 165, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

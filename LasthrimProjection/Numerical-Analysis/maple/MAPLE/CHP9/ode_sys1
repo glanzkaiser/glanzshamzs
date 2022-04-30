@@ -1,0 +1,26 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  ode_sys1
+#
+# Solving system of ODE:
+# x'(t) = x(t) - y(t) + 2t - t^2 - t^3
+# y'(t) = x(t) + y(t) - 4t^2 + t^3
+# with initial conditions:  x(0)=1, y(0)=0
+
+# For analytic solution:
+
+ sysode := {D(x)(t) = x(t) - y(t) +2*t -t^2 - t^3,
+            D(y)(t) = x(t) + y(t) -4*t^2 + t^3};
+ fcns := {x(t), y(t)};
+ ic := {x(0) = 1, y(0) = 0};
+ f  := dsolve(sysode union ic, fcns);
+
+# Alternative numerical solution:
+
+ f := dsolve( sysode union ic, fcns, numeric);
+ f(0);
+ f(1);

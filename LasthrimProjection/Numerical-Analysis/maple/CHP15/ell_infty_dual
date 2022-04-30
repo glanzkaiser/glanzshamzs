@@ -1,0 +1,22 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: ell-infty_dual
+#
+# ell-infinity dual problem
+#
+with(simplex):
+obj := 4*u1 + 2*u2 + 7*u3 - 4*u4 - 2*u5 - 7*u6;
+consts := { -2*u1 - u2 - u3 + 2*u4 + u5 + u6 <= 0,
+            -3*u1 + u2 - 2*u3 + 3*u4 - u5 + 2*u6 <= 0,
+             5*u1 + 3*u3 - 5*u4 - 3*u6 <= 0,
+               u1 + u2 + u3 + u4 + u5 + u6 <= 1};
+maximize(obj, consts, NONNEGATIVE);
+# union {u1>=0, u2>=0, u3>=0, u4>=0, u5>=0, u6>=0});
+
+
+

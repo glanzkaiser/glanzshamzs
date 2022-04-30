@@ -1,0 +1,130 @@
+
+   Software associated with the textbook Numerical Mathematics and Com-
+puting, Third Edition, Ward Cheney & David Kincaid, Brooks/Cole Publishing
+Co., 1994, ISBN 0-534-20112-1, is available from several sources:
+
+
+   - by using anonymous ftp from math.utexas.edu as follows:
+
+
+         ftp math.utexas.edu
+         Name:  anonymous
+         Password:  user ID
+         ftp> cd pub/papers/CNA/cheney-kincaid
+         ftp> get README
+
+
+   - by using anonymous ftp from brookscole.com
+
+   - by sending email to netlib@ornl.gov with the message
+
+     send index from cheney-kincaid.
+
+
+   Files are available for the pseudocode in the textbook written in either For-
+tran 77, Fortran 90, or C. Also, files containing Maple and Matlab programs
+are available.
+
+   The table on the following pages lists C files containing sample programs
+based on the pseudocode given in the book. They are intended primarily as a
+learning and teaching aid for use with this book. We believe that these 
+computer routines are coded in a clear and easy-to-understand style but we 
+have intentionally excluded comment statements so that students will read the 
+code and study the algorithms---they can add comments as they decipher them. 
+These programs are usable on computer systems with appropriate compilers, from
+small personal computers to large scientific computing machines. However, they 
+do not contain all of the "bells-and-whistles" of robust state-of-the-art 
+software such as may be found in general-purpose scientific libraries. 
+Nevertheless, they are adequate for many small nonpathological problems.
+
+
+
+                                 1
+
+
+
+
+File Name        Pages     Description of C Code
+
+CHP1/
+  pi.c                7    Simple code to illustrate double precision
+  first.c         10-11    First programming experiment
+  double_first.c  10-11    First programming experiment (double precision)
+CHP2/
+  xsinx.c            71    Example of programming f(x) = x  sinx carefully
+CHP3/
+  bisection.c        85    Bisection method
+  rec_bisection.c    86    Recursive version of bisection method
+  newton.c           95    Sample Newton method
+  secant.c          110    Secant method
+CHP4/
+  coef.c            132    Newton interpolation polynomial at equidistant pts
+  deriv.c           156    Derivative by center diff./Richardson extrapolation
+CHP5/
+  sums.c            171    Upper/lower sums experiment for an integral
+  trapezoid.c       176    Trapezoid rule experiment for an integral
+  romberg.c         190    Romberg arrays for three separate functions
+  rec_simpson.c     204    Adaptive scheme for Simpson's rule
+CHP6/
+  ngauss.c          224    Naive Gaussian elimination to solve linear systems
+  gauss.c       236/239    Gaussian elimination with scaled partial pivoting
+  tri.c             251    Solves tridiagonal systems
+  penta.c           253    Solves pentadiagonal linear systems
+CHP7/
+  spline1.c         281    Interpolates table using a first-degree spline funct*
+ *ion
+  spline3.c         297    Natural cubic spline function at equidistant points
+  bspline2.c        319    Interpolates table using a quadratic B-spline functi*
+ *on
+  sch.c             322    Interpolates table using Schoenberg's process
+CHP8/
+  euler.c           328    Euler's method for solving an ODE
+  taylor.c          319    Taylor series method (order 4) for solving an ODE
+  rk4.c             339    Runge-Kutta method (order 4) for solving an IVP
+  rk45.c            351    Runge-Kutta-Fehlberg method for solving an IVP
+  rk45ad.c          352    Adaptive Runge-Kutta-Fehlberg method
+CHP9/
+  taylorsys.c       362    Taylor series method (order 4) for systems of ODEs
+  rk4sys.c          365    Runge-Kutta method (order 4) for systems of ODEs
+  amrk.c        377-378    Adams-Moulton method for systems of ODEs
+  amrkad.c      408-409    Adaptive Adams-Moulton method for systems of ODE's
+
+
+
+                                2
+
+
+
+
+File Name          Pages     Description of C Code
+
+CHP11/
+  test_random.c   413/414    Example to compute, store, and print random numbers
+  coarse_check.c      414    Coarse check on the random-number generator
+  double_integral.c   424    Volume of a complicated 3D region by Monte Carlo
+  volume_region.c 345-346    Numerical value of integral over a 2D disk by Mont*
+ *e Carlo
+  cone.c              426    Ice cream cone example
+  loaded_die.c        430    Loaded die problem simulation
+  birthday.c          432    Birthday problem simulation
+  needle.c            433    Buffon's needle problem simulation
+  two_die.c           434    Two dice problem simulation
+  shielding.c         435    Neutron shielding problem simulation
+CHP12/
+  bvp1.c              450    Boundary value problem solved by discretization te*
+ *chnique
+  bvp2.c              453    Boundary value problem solved by shooting method
+CHP13/
+  parabolic1.c        462    Parabolic partial differential equation problem
+  parabolic2.c        464    Parabolic PDE problem solved by Crank-Nicolson met*
+ *hod
+  hyperbolic.c        472    Hyperbolic PDE problem solved by discretization
+  seidel.c            480    Elliptic PDE solved by discretization/ Gauss-Seide*
+ *l method
+INFO/
+  info_c_code.tex            LaTEX file containing information on c codes
+  info_c_code.tty            ASCII file containing information on c codes
+
+
+
+                                3

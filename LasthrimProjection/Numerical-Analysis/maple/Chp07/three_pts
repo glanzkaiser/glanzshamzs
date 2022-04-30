@@ -1,0 +1,16 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: three_pts
+#
+# Natural cubic spline plot
+#
+readlib(spline):
+spline([-1, 0, 1], [1, 2, -1], x, cubic);
+S := `spline/makeproc`(", x);
+interface(plotdevice=postscript,plotoutput=myfile1);
+plot(S, -1..1);

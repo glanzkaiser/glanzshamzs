@@ -1,0 +1,114 @@
+                 Instructions for making plots
+                 -----------------------------
+
+I.   Introduction
+
+    The maing of the plots involves three steps:
+
+  (a) compile and run the corresponding Fortran program to produce a file
+      containing the data to be plotted. The data represent (X,Y) coordinates
+      of the function at sample points.
+
+  (b) run a plotting program which takes the data file as input and produces
+      a plot file in postscript. I used gnuplot on the math machines. For each
+      figure, I wrote a script file containing the set of gnuplot instructions 
+      required to produce the plot file. All that is needed is to invoke the 
+      gnuplot command in the directory containing the files. Then at the gnuplot
+      prompt type load "myscript" (including the double quotes).
+
+   (c) print the postscript file using the laser printer. Note that the 
+       postscript file can be edited to improve the plot (resizing, margins,
+       resizing symbols,etc).
+
+    These three steps are illustrated for the figure fig11-2 in the following
+    section II.
+
+
+II.  Illustration: How to produce fig11-2
+
+  (a) Compile fig11-2.f90.
+      Run the executable file and  redirect the output to fig11-2.dat
+
+  (b) start gnuplot
+      type load "make11.2" (include the double quotes) at the gnuplot prompt
+      this will produce a postscript file fig11-2.out containing the fig11-2. 
+      the figure can be previewed by using the unix command
+       gs fig11-2.out 
+      (in usual unix environment), after exiting from gnuplot.
+
+    (c) print the plotfile by using any postscript printer.
+
+
+    Remarks
+    -------
+
+    (a) the postscript file fig11-2.out can be edited. in particular to change
+        the size of the symbols plotted, one can modify the definitions of the
+        /vpt and /hpt (at lines 14 and 15 of fig11-2.out). For instance a
+        modification from
+
+        /hpt 31.5 def
+        /vpt 31.5 def
+
+        to
+
+        /hpt 12. def
+        /vpt 12. def
+
+        will produce smaller nicer symbols.
+
+    (b)
+        Each line of the script plotting instruction file make11.2 can be typed
+        directly interactively at the gnuplot promt. It is more convenient to
+        put the instructions in a script file and load the script file instead.
+
+    (c) more than one plot can be produced during a single gnuplot session. In 
+        this case it may be desirable to clear gnuplot definitions between plot
+        by using the "clear" command (incorporated into the make11.2 file)
+
+    (d) in order to direct the plot onto the terminal screen (from the gnuplot
+        program) instead of creating the postscript plotfile, delete the first 
+        two lines from the file make11.2 before loading it. You may then need
+        to set the unix display variable, and create the postscript file using
+        the psfix command from unix.
+
+
+ III. Creating the other plots
+
+   (a)  All of the above informations apply equally to the other figures.
+
+     The only exeption is fig7-7, which requires two programs, each of
+     which producing the data points for one part of the curve.
+     both of fig7-7a.f90 and fig7-7b.f90 should be run first,
+     their respective output redirected to fig-7-7a.dat and fig7-7b.dat,
+     before using gnuplot (load "make7.7") to produce fig7-7.out
+     make7.7 inputs both data files and output the combined plotfile 
+     fig7-7.out.
+
+     Note also that each program for the figire in Chapter 7 produces a 
+     (knot) file containing the function values at the knot points. These
+     can be printed or incorporated into the text.
+
+    (b) correspondance list for the plots
+
+
+     fortran program     output to    script file      postscript plotfile
+     ---------------     ---------    -----------      -------------------
+
+      fig11-2.f90       fig11-2.dat    make11.2          fig11-2.out
+
+      fig11-3.f90       fig11-5.dat    make11.3          fig11-3.out
+
+      fig11-5.f90       fig11-3.dat    make11.5          fig11-5.out
+
+      fig7-6.f90        fig7-6.dat     make7.6           fig7-6.out
+
+      fig7-7a.f90       fig7-7a.dat |  make7.7           fig7-7.out
+      fig7-7b.f90       fig7-7b.dat |  
+
+      fig7-8.f90        fig7-8.dat     make7.8           fig7-8.out
+
+      fig7-13.f90       fig7-13.dat    make7.13          fig7-13.out
+
+
+

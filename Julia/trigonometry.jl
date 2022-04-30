@@ -5,7 +5,7 @@ zs = zeros(0, 40)
 n = 100
 
 @gif for i in range(0, stop = 2π, length = n)
-    f(x, y) = sin(x + 10sin(i)) + cos(y)
+    f(x, y) = sin(x^2 + 108sin(i)) + cos(y/2)
 
     # create a plot with 3 subplots and a custom layout
     l = @layout [a{0.7w} b; c{0.2h}]

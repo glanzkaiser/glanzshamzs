@@ -1,0 +1,185 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3840,        133]*)
+(*NotebookOutlinePosition[      4695,        163]*)
+(*  CellTagsIndexPosition[      4651,        159]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Chebyshev Polynomials ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Print[\"T0(x)=\"ChebyshevT[0,x]];
+Print[\"T1(x)=\"ChebyshevT[1,x]]
+Print[\"T2(x)=\"ChebyshevT[2,x]];
+Print[\"T3(x)=\"ChebyshevT[3,x]]
+Print[\"T4(x)=\"ChebyshevT[4,x]];
+Print[\"T5(x)=\"ChebyshevT[5,x]]
+\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Print[\"       The function is T5[x] \"];
+T5zero = Table[{N[Cos[(2i+1) Pi / 10]], 0}, {i, 0, 4}];
+T5dots = ListPlot[T5zero,PlotStyle->{PointSize[0.02]},
+                DisplayFunction->Identity];
+T5=Plot[ChebyshevT[5,x], {x,-1,1},
+DisplayFunction->Identity];
+Show[T5,T5dots,DisplayFunction->$DisplayFunction]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Print[\"       The function is T10[x] \"];
+T10zero = Table[{N[Cos[(2i+1) Pi / 20]], 0}, {i, 0, 9}];
+T10dots = ListPlot[T10zero,PlotStyle->{PointSize[0.02]},
+                DisplayFunction->Identity];
+T10=Plot[ChebyshevT[10,x], {x,-1,1},
+DisplayFunction->Identity];
+Show[T10,T10dots,DisplayFunction->$DisplayFunction]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Runge's Example with Chebyshev Nodes ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Clear[f];
+f[x_] = 1 /(1+ 25x^2)\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Plot[f[x], {x, -1, 1}]", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[data];
+data= Table[{Cos[(2i+1) Pi /20]//N, 
+f[Cos[(2i+1) Pi /20]//N]},{i, 0, 9}] ;\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle->{PointSize[0.02]},
+                DisplayFunction->Identity];
+g1=Plot[{f[x], g[x]}, {x, -1,1},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-1,1},{0,1}},
+PlotLabel->\"f(x) and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 74}, {Automatic, 32}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 109, 3, 39, "Left Header"],
+Cell[1821, 54, 268, 10, 131, "Input"],
+Cell[2092, 66, 376, 10, 199, "Input"],
+Cell[2471, 78, 384, 10, 199, "Input"],
+Cell[2858, 90, 124, 3, 39, "Left Header"],
+Cell[2985, 95, 98, 5, 46, "Input"],
+Cell[3086, 102, 81, 2, 29, "Input"],
+Cell[3170, 106, 155, 6, 63, "Input"],
+Cell[3328, 114, 127, 5, 46, "Input"],
+Cell[3458, 121, 378, 10, 199, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

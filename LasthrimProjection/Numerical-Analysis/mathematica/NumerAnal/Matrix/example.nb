@@ -1,0 +1,401 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8120,        323]*)
+(*NotebookOutlinePosition[      8976,        353]*)
+(*  CellTagsIndexPosition[      8932,        349]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Gaussian Elimination with and  without pivoting:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell[TextData[{
+  StyleBox["Examle 1",
+    FontSize->22,
+    FontWeight->"Bold"],
+  StyleBox[
+  ": Here is an example that comparing \nGaussian elimination with and \
+without pivoting:",
+    FontSize->22]
+}], "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[A,B];
+A={ {0.00000001,2}, {10000000,1}};
+B={2,10000001};       \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+You need to open the notebook \"LUdeco.ma\" for the 
+following line:\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Clear[LU,X];
+LU=LUdeco[A];
+X=SolveLU[LU,B] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+In the above, we computer the solution upto 10 decimal points. Let \
+us check the solution:\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["N[A.X - B,10]   ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Here is the solution with pivoting:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Clear[LU,X];
+LU=GaussLU[A];
+X=N[GaussSol[LU,B],10]    \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["N[A.X - B,10]  ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Note: the two solutions are apparently very close, 
+but the residual vector differs a great deal. It should that the residual \
+vector may not be useful in judging
+wether the solution is good. This example also 
+explains the error in Theorem 3, page 205.  Here is
+the conditional number for the ell-2 norm of A:\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Max[(Abs[Eigenvalues[ A . Transpose[A]]])^(1/2)] * \
+Max[(Abs[Eigenvalues[ Inverse[A].Inverse[Transpose[A]]]])^(1/2)]\
+\>", "Input",\
+
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["System with ill-conditioned matrix:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+The matrix in the following example is Hilbert 
+matrix, we choose the right hand so that the solution
+is given by (1,1,...1). We use the notebook 
+\"Gauss.ma\" with \"digit = 10\". \
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Clear[H,n]; 
+H[n_]:=Table[1/(i+j+1), {i,0,n},\t\t\t\t{j,0,n}];
+RHS[n_]:=Table[Sum[ 1/(i+1), {i,k,k+n}],\t\t{k,0,n}];
+X0 := Table[1, {i,0,n}]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+n=10; 
+StringForm[\"H[n]= `` RHS[n]=``\", MatrixForm[H[n]],  
+  MatrixForm[RHS[n]]]; \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[LU,X];
+LU=GaussLU[H[n]];   
+X=GaussSol[LU,RHS[n]] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["Here is the residue vector:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell[" Max[Abs[H[n].X - RHS[n] ]]", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Here is the error of X-X0, where X0 is the exact
+solution.\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["Max[Abs[X-X0]] ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+The problem is really with the ill-condtion of the 
+matrix, not the accuracy of our method. We can try
+the above with \"digit =16\", the result will be more or
+less the same. We ntoe the machine accuracy is 16:\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["$MachinePrecision", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+This example shows that the residue vector may not
+be a good measure for the accuracy of the solution. 
+Indeed, in the above example, the residue vector is as 
+small as 10^{-16}, but the solution has only 10^{-2} 
+accuracy. In this example, our matrix H[n] is the Hilbert matrix.\
+\>", 
+  "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["Iteration method for matrix with \\rho close to 1:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+Here is the example of Problem 2,  Page. 247. Solve 
+the system  in which \
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+ Clear[A,B,X,n];
+  A={{0.96326,0.81321},{0.81321,0.68654}};
+  B={0.88824,0.74988};
+ StringForm[\"A= ``    B = ``\", MatrixForm[A], MatrixForm[B]]  \
+\>", "Input",\
+
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+ We use Gauss-Seidel method with 
+    X0=(0.33116, 0.7): \
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+x = {0.33116,0.700000};
+  Clear[i,k]; 
+  n=2; M=10;
+  For[k=1,k<=M,k++,
+    For[i=1, i<=n, i++,
+       x[[i]] = (B[[i]] - Sum[A[[i,j]] \t\t\t x[[j]], {j,1,i-1}]
+         - Sum[A[[i,j]] x[[j]],
+          {j,i+1,n}])/A[[i,i]]    ];
+    Print[x//N];  ];  \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[" If we use Gauss-Seidel method with X0=0: ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["N[GaussSeidel[A,B,10],10]    ", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Which one is the real solution?   Note that in the 
+above computation,  the difference X^k - X^{k-1}
+is very small. Can we use the error formula
+       ||X-X^k|| <= (rho /(1-rho) ) ||X^k - X^{k-1}|| ?\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["Let us find the solution using the Gauss-elimination:", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Clear[LU,X];
+LU=GaussLU[A];   
+X=GaussSol[LU,B] \
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+we can tell that it will take a long time before we get 
+to the solution by Gauss-Seidel iteration. The  reason
+is that the spectral radius is close to 1.\
+\>", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->22],
+
+Cell["\<\
+Clear[n,Q];  
+n=Length[A]; 
+Q=Table[If[i >= j, A [[i,j]], 0],  \t\t\t\t\t\t\t\t{i,n},{j,n}];  
+Max[N[ Abs[Eigenvalues[
+ IdentityMatrix[n]-Inverse[Q].A]], 10]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 140}, {93, Automatic}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 135, 3, 70, "Left Header"],
+Cell[1847, 54, 287, 11, 56, "Left Header"],
+Cell[2137, 67, 136, 6, 63, "Input"],
+Cell[2276, 75, 163, 6, 56, "Left Header"],
+Cell[2442, 83, 110, 6, 63, "Input"],
+Cell[2555, 91, 186, 6, 56, "Left Header"],
+Cell[2744, 99, 75, 2, 29, "Input"],
+Cell[2822, 103, 122, 3, 32, "Left Header"],
+Cell[2947, 108, 121, 6, 63, "Input"],
+Cell[3071, 116, 74, 2, 29, "Input"],
+Cell[3148, 120, 406, 10, 152, "Left Header"],
+Cell[3557, 132, 186, 6, 80, "Input"],
+Cell[3746, 140, 122, 3, 39, "Left Header"],
+Cell[3871, 145, 276, 8, 104, "Left Header"],
+Cell[4150, 155, 209, 7, 114, "Input"],
+Cell[4362, 164, 152, 6, 80, "Input"],
+Cell[4517, 172, 123, 6, 63, "Input"],
+Cell[4643, 180, 114, 3, 32, "Left Header"],
+Cell[4760, 185, 86, 2, 29, "Input"],
+Cell[4849, 189, 153, 6, 56, "Left Header"],
+Cell[5005, 197, 74, 2, 29, "Input"],
+Cell[5082, 201, 305, 8, 104, "Left Header"],
+Cell[5390, 211, 76, 2, 29, "Input"],
+Cell[5469, 215, 377, 10, 152, "Left Header"],
+Cell[5849, 227, 137, 3, 70, "Left Header"],
+Cell[5989, 232, 169, 6, 56, "Left Header"],
+Cell[6161, 240, 216, 8, 114, "Input"],
+Cell[6380, 250, 152, 6, 56, "Left Header"],
+Cell[6535, 258, 319, 12, 182, "Input"],
+Cell[6857, 272, 129, 3, 32, "Left Header"],
+Cell[6989, 277, 88, 2, 29, "Input"],
+Cell[7080, 281, 295, 8, 104, "Left Header"],
+Cell[7378, 291, 140, 3, 32, "Left Header"],
+Cell[7521, 296, 115, 6, 63, "Input"],
+Cell[7639, 304, 249, 7, 80, "Left Header"],
+Cell[7891, 313, 225, 8, 114, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

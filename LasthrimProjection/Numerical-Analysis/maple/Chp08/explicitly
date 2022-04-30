@@ -1,0 +1,13 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: explicitly
+#
+# Solving an ODE explicitly
+#
+ode := diff(x(t), t) = 3*t^2 -4/t + 1/(1 + t^2);
+dsolve( {ode, x(5)=17}, x(t));

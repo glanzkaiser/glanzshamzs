@@ -1,0 +1,14 @@
+The syntax for compiling a Java program is:
+
+javac anyfile.java
+
+The compiler will produce a Bytecode with the same name: for example,
+in this case:    anyfile.class
+
+The syntax for running a program (only programs with MAIN in them)
+
+java anyfile
+
+
+You need to import the class matrix to do the decomposition.
+The matrix class will do the LUFactorization and return the results.

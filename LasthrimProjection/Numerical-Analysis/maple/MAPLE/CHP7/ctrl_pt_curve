@@ -1,0 +1,26 @@
+# Numerical Mathematics and Computing, Fourth Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1999
+# ISBN/ISSN:  0-534-35184-0
+#
+# file:  ctrl_pt_curve
+#
+# Generating a curve using 7 control points
+
+ n := 6;
+ phi := (n,i,t) -> binomial(n,i)*(t**i)*((1-t)**(n-i));
+ P := matrix([[1,2,4,3,5,4,1], [1,4,5,3,2,1,1]]);
+ f := proc(n::integer, k::integer,t) local i, x, f;
+ x := 0.0;
+ for i from 0 to n do 
+     x := x + P[k,i+1]*phi(n,i,t);
+ od;
+ f := x
+ end;
+ plot1 := plot([f(n,1,t),f(n,2,t), t = 0..1], scaling=constrained);
+ pts := [[1,1],[2,4],[4,5],[3,3],[5,2],[4,1],[1,1]];
+ plot2 := plot(pts, style=point, symbol=diamond);
+ plots[display]({plot1,plot2});
+
+

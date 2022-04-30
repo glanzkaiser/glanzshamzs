@@ -1,0 +1,207 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4488,        156]*)
+(*NotebookOutlinePosition[      5342,        186]*)
+(*  CellTagsIndexPosition[      5298,        182]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell["Polynomial Interpolation of |x| ", "Left Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->28],
+
+Cell["\<\
+f[x_] = Abs[x];
+Plot[f[x], {x, -1, 1}]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Equally-spaced points:",
+  FontSize->18,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[data];
+data= Table[{0.2 i,f[0.2 i]},{i,-5, 5}];
+Clear[g,Q];
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]]\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+dots = ListPlot[data,PlotStyle->
+   {PointSize[0.02]},
+    DisplayFunction->Identity];
+g1=Plot[{f[x], g[x]}, {x, -1.1,1.1},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-1.1,1.1},
+ {-0.2,1.5}},
+PlotLabel->\"n=10: |x| and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[data];
+data= Table[{0.1 i, f[0.1 i]},{i, -10, 10}] ;
+Clear[g,Q];
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]];
+dots = ListPlot[data,PlotStyle->
+  {PointSize[0.02]},
+   DisplayFunction->Identity];
+g1=Plot[{f[x], g[x]}, {x, -1.1,1.1},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-1.01,1.01},
+ {-1.1,2}},
+PlotLabel->\"n=20: |x| and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell[TextData[StyleBox["Chebyshev  points:",
+  FontSize->18,
+  FontSlant->"Plain"]], "Header",
+  Evaluatable->False,
+  AspectRatioFixed->True,
+  FontSize->20],
+
+Cell["\<\
+Clear[data];
+data= Table[{Cos[(2i+1) Pi /20]//N, 
+f[Cos[(2i+1) Pi /20]//N]},{i, 0, 9}];
+Clear[g,Q];
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]];
+dots = ListPlot[data,PlotStyle->
+   {PointSize[0.02]},
+    DisplayFunction->Identity];
+g1=Plot[{f[x], g[x]}, {x, -1.1,1.1},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-1.1,1.1},{-0.05,1.05}},
+PlotLabel->\"n=10: |x| and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18],
+
+Cell["\<\
+Clear[data];
+data= Table[{Cos[(2i+1) Pi /40]//N, 
+f[Cos[(2i+1) Pi /40]//N]},{i, 0, 19}];
+Clear[g,Q];
+g[x_]= InterpolatingPolynomial[data, x];
+Q[x] = Expand[g[x]];
+dots = ListPlot[data,PlotStyle->
+  {PointSize[0.02]},
+   DisplayFunction->Identity];
+g1=Plot[{f[x], g[x]}, {x, -1.1,1.1},
+DisplayFunction->Identity];
+Show[g1,dots,PlotRange->{{-1.1,1.1},{-0.05,1.05}},
+PlotLabel->\"n=20: |x| and the interpolating polynomial.\",
+AxesLabel->{\"x\",\"y\"},DisplayFunction->$DisplayFunction];\
+\>", "Input",
+  AspectRatioFixed->True,
+  FontSize->18]
+},
+FrontEndVersion->"NeXT 3.0",
+ScreenRectangle->{{0, 1053}, {0, 832}},
+WindowToolbars->{},
+CellGrouping->Automatic,
+WindowSize->{520, 600},
+WindowMargins->{{Automatic, 52}, {Automatic, 7}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, 128}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 119, 3, 39, "Left Header"],
+Cell[1831, 54, 105, 5, 46, "Input"],
+Cell[1939, 61, 162, 5, 24, "Header"],
+Cell[2104, 68, 193, 8, 97, "Input"],
+Cell[2300, 78, 390, 12, 199, "Input"],
+Cell[2693, 92, 521, 17, 301, "Input"],
+Cell[3217, 111, 158, 5, 24, "Header"],
+Cell[3378, 118, 552, 17, 301, "Input"],
+Cell[3933, 137, 551, 17, 301, "Input"]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

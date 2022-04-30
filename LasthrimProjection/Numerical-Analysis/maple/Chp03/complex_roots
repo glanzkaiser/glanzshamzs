@@ -1,0 +1,13 @@
+#
+# Numerical Mathematics and Computing, Third Edition
+# Ward Cheney & David Kincaid
+# Brooks/Cole Publ. Co.
+# (c) 1994
+# ISBN 0-534-20112-1
+#
+# file: complex_roots
+#
+# Finding real and complex roots
+#
+fsolve(x^5 + x^3 + 3, x, complex);
+
