@@ -1,0 +1,103 @@
+Files: *
+Copyright: 2017 Marco Musy <marco.musy@embl.es>
+License: MIT
+
+Files: bricks.jpg
+Source: https://pxhere.com/en/photo/1257585
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: gold.jpg
+Source: https://pxhere.com/en/photo/670741
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: grass.jpg
+Source: https://pxhere.com/en/photo/1153308
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: leather.jpg
+Source: https://pxhere.com/en/photo/771255
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: marble.jpg
+Source: https://pxhere.com/en/photo/1294720
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: paper1.jpg
+Source: https://pxhere.com/en/photo/1326585
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: paper2.jpg
+Source: https://pxhere.com/en/photo/554100
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: paper3.jpg
+Source: https://pxhere.com/en/photo/1412534
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: paper4.jpg
+Source: https://pxhere.com/en/photo/1412534
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: water.jpg
+Source: https://pxhere.com/en/photo/726313
+Copyright: 2017, pxhere
+License: cc0-universal
+
+Files: white.jpg
+Source: https://pxhere.com/en/photo/1153705
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: wood1.jpg
+Source: https://pxhere.com/en/photo/764955
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: wood2.jpg
+Source: https://pxhere.com/en/photo/99133
+Copyright: 2016 pxhere
+License: cc0-universal
+
+Files: wood3.jpg
+Source: https://pxhere.com/en/photo/841363
+Copyright: 2017 pxhere
+License: cc0-universal
+
+Files: earth1.jpg
+ earth0.jpg
+Source: http://planetpixelemporium.com/earth.html
+Copyright: 2006 james hastings-trew <jimht@shaw.ca>
+License: public-domain
+ I have gathered together all of the public domain data to create this
+ synthesis of images. 1K versions of these images are free.
+
+
+------------------------------------------------------------------------------
+License: public-domain
+ Files in the public domain have no restrictions on use and may be
+ used, modified and redistributed freely.
+
+------------------------------------------------------------------------------
+License: cc0-universal
+ Creative Commons Public Domain Dedication (CC0 1.0)
+ .
+ This is a human-readable summary of (and not a substitute for) the
+ license. The full text is found at
+ https://creativecommons.org/publicdomain/zero/1.0/
+ .
+ The person who associated a work with this deed has dedicated the work
+ to the public domain by waiving all of his or her rights to the work
+ worldwide under copyright law, including all related and neighboring rights,
+ to the extent allowed by law.
+ .
+ You can copy, modify, distribute and perform the work,
+ even for commercial purposes, all without asking permission.
