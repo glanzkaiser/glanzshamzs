@@ -14,7 +14,9 @@ When we created GFreya OS, we have a plan on our mind to create a software like 
 9. GlanzDog -> for understanding dog / man's best friend more and how to handle difficulty like when they get Parvo or Poisoned
 10. Caldraz n Tetsugaku -> for Philosophy
 
-We think to create a software like MATLAB will takes time and needs foundation. That is why we will create the books, one by one. Starting with Hamzstlab and Lasthrim Projection, then move on to other till they all will be finished one day.
+We think to create a software like MATLAB will takes time and needs foundation. That is why we will create the books then the software just like how VTK was made, one by one. Books last forever. Knowledge never dies. 
+
+Starting with Hamzstlab and Lasthrim Projection, then move on to other till they all will be finished one day.
 
 We will take the base knowledge level from undergraduate level till PhD if possible. 
 
