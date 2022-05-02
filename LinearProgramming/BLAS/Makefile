@@ -10,9 +10,7 @@ TARGET = example
 
 .PHONY: all clean
 
-all: $(PROGRAM)
-
-$(PROGRAM): $(OBJECTS)
+all: 
 	$(FC) $(FFLAGS) $(TARGET) $(SRC) $(LDLIBS)
 
 clean:
