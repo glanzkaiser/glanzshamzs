@@ -5,11 +5,11 @@ To link your Fortran application against BLAS at the end type: -lblas
 # To Compile
 There is an example of vector multiplication with scalar, to test it type this in your console:
 
-gfortran -o example example.f90 -lblas
+gfortran -o example vectorscalarmultiplication.f90 -lblas
 (for using shared libraries)
 or
 
-gfortran -o example example.f90 /opt/hamzstlib/lib/libblas.a
+gfortran -o example vectorscalarmultiplication.f90 /opt/hamzstlib/lib/libblas.a
 (for using static libraries)
 
 The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the book or create your own OS the path needs to be adjusted due to your installation path for LAPACK and BLAS.
