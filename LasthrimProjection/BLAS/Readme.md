@@ -26,9 +26,9 @@ The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the 
 # Routine Naming Conventions
 BLAS routine names have the following structure:       
 
-<character> <name> <mod> 
+{character} {name} {mod} 
 
-#### The <character> field indicates the data type:
+#### The {character} field indicates the data type:
 
 | Character  | Data type |
 | ------------- | ------------- | 
@@ -37,7 +37,7 @@ BLAS routine names have the following structure:
 | d | real, double precision
 | z | complex, double precision
 
-#### In BLAS level 2 and 3, <name> reflects the matrix argument type:  
+#### In BLAS level 2 and 3, {name} reflects the matrix argument type:  
 
 | Name  | Matrix argument type |
 | ------------- | ------------- | 
@@ -53,6 +53,36 @@ BLAS routine names have the following structure:
 | tp | triangular matrix (packed storage)
 | tb | triangular band matrix.
   
+#### The {mod} field, if present, provides additional details of the operation. BLAS level 1 names can have the following characters in the {mod} field:  
+| Mod  | Characters |
+| ------------- | ------------- | 
+| c | conjugated vector
+| u | unconjugated vector
+| g | Givens rotation.
+
+#### BLAS level 2 names can have the following characters in the {mod} field:
+| Mod  | Characters |
+| ------------- | ------------- | 
+| mv | matrix-vector product
+| sv | solving a system of linear equations with matrix-vector operations
+| r  | rank-1 update of a matrix
+| r2 | rank-2 update of a matrix.
+
+#### BLAS level 3 names can have the following characters in the {mod} field:
+| Mod  | Characters |
+| ------------- | ------------- | 
+| mm | matrix-matrix product
+| sm | solving a system of linear equations with matrix-matrix operations
+| rk | rank-k update of a matrix
+| r2k| rank-2k update of a matrix.
+
+Examples:
+cdotcc = complex vector-vector dot product, conjugated
+scasum = sum of magnitudes of vector elements, single precision real output and single precision complex input
+sgemv = matrix-vector product, general matrix, single precision
+ztrmm = matrix-matrix product, triangular matrix, double-precision complex.
+
+
 # To Do Lists
 ## BLAS' Level 1
 :sunflower: = Done
