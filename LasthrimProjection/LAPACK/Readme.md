@@ -19,6 +19,9 @@ The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the 
 
 # To Do Lists
 LAPACK' Linear Equation Routines
+:sunflower: = Done
+:writing_hand: = On Progress
+
 | Status  | Routine |Description |
 | ------------- | ------------- | -------------|
 |:sunflower:| geqrf | Computes the QR factorization of a general m-by-n matrix. |
