@@ -23,6 +23,36 @@ or you can type:
 
 The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the book or create your own OS the path needs to be adjusted due to your installation path for LAPACK and BLAS.
 
+# Routine Naming Conventions
+BLAS routine names have the following structure:       
+
+<character> <name> <mod> 
+
+#### The <character> field indicates the data type:
+
+| Character  | Data type |
+| ------------- | ------------- | 
+| s | real, single precision
+| c | complex, single precision
+| d | real, double precision
+| z | complex, double precision
+
+#### In BLAS level 2 and 3, <name> reflects the matrix argument type:  
+
+| Name  | Matrix argument type |
+| ------------- | ------------- | 
+| ge | general matrix
+| gb | general band matrix
+| sy | symmetric matrix
+| sp | symmetric matrix (packed storage)
+| sb | symmetric band matrix
+| he | Hermitian matrix
+| hp | Hermitian matrix (packed storage)
+| hb | Hermitian band matrix
+| tr | triangular matrix
+| tp | triangular matrix (packed storage)
+| tb | triangular band matrix.
+  
 # To Do Lists
 ## BLAS' Level 1
 :sunflower: = Done
@@ -31,7 +61,7 @@ The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the 
 | Status  | Routine |Description |
 | ------------- | ------------- | -------------|
 |:writing_hand:|  asum   |	Sum of vector magnitudes
-|:sunflower:   |  axpy   |	Scalar-vector product
+|:writing_hand:|  axpy   |	Scalar-vector product
 |:writing_hand:| 	copy   |	Copy vector
 |:writing_hand:|	dot    |	Dot product
 |:writing_hand:|	sdsdot |	Dot product with double precision
@@ -42,7 +72,7 @@ The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the 
 |:writing_hand:|	rotg   |	Generate Givens rotation of points
 |:writing_hand:| 	rotm   |	Modified Givens plane rotation of points
 |:writing_hand:| 	rotmg  |	Generate modified Givens plane rotation of points
-|:writing_hand:|	scal   |	Vector-scalar product
+|:sunflower:   |	scal   |	Vector-scalar product
 |:writing_hand:| 	swap   |	Vector-vector swap
 |:writing_hand:| 	iamax  |	Index of the maximum absolute value element of a vector
 |:writing_hand:| 	iamin  |	Index of the minimum absolute value element of a vector
