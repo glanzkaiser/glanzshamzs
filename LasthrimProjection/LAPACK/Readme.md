@@ -10,10 +10,13 @@ To link your Fortran application against LAPACK at the end type: -llapack -lblas
 There is an example of solving simple linear equations type this in your console:
 
 gfortran -o solution solvinglinearequations.f90 -llapack -lblas
+
 (for using shared libraries)
+
 or
 
 gfortran -o solution solvinglinearequations.f90 /opt/hamzstlib/lib/liblapack.a /opt/hamzstlib/lib/libblas.a
+
 (for using static libraries)
 
 The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the book or create your own OS the path needs to be adjusted due to your installation path for LAPACK and BLAS.
