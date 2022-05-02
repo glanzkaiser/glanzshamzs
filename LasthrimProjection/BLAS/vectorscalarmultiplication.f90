@@ -7,7 +7,7 @@ program main
     real :: x(N) = [ 1., 8., 8., 2., 5., 6., 7. ]
     real :: a    = 5.
 
-    print '("a = ", f0.1)' a
+    print '("a = ", f0.1)', a
     print '("X = [ ", 7(f0.1, " "), "]")', x
 
     call sscal(N, a, x, 1)
