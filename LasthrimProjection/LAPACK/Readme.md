@@ -9,13 +9,13 @@ To link your Fortran application against LAPACK at the end type: -llapack -lblas
 # To Compile
 There is an example of solving simple linear equations type this in your console:
 
-gfortran -o solution solvinglinearequations.f90 -llapack -lblas
+#### gfortran -o solution solvinglinearequations.f90 -llapack -lblas
 
 (for using shared libraries)
 
 or
 
-gfortran -o solution solvinglinearequations.f90 /opt/hamzstlib/lib/liblapack.a /opt/hamzstlib/lib/libblas.a
+#### gfortran -o solution solvinglinearequations.f90 /opt/hamzstlib/lib/liblapack.a /opt/hamzstlib/lib/libblas.a
 
 (for using static libraries)
 
