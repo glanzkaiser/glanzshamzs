@@ -9,7 +9,7 @@ TARGET  = example
 .PHONY: all clean
 
 all:
-	$(FC) $(FFLAGS) $(LDFLAGS) -o $(TARGET) example.f90 $(LDLIBS)
+	$(FC) $(FFLAGS) $(LDFLAGS) -o $(TARGET) vectorscalarmultiplication.f90 $(LDLIBS)
 
 clean:
 	rm $(TARGET)
