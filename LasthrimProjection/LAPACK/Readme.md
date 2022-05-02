@@ -21,26 +21,15 @@ The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the 
 LAPACK' Linear Equation Routines
 | Status  | Routine |Description |
 | ------------- | ------------- | -------------|
-| :sunflower: | geqrf | Computes the QR factorization of a general m-by-n matrix. |
-| :sunflower: | gerqf | Computes the RQ factorization of a general m-by-n matrix. |
-| Content Cell  | getrf | Computes the LU factorization of a general m-by-n matrix. |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
+|:sunflower:| geqrf | Computes the QR factorization of a general m-by-n matrix. |
+|:sunflower:| gerqf | Computes the RQ factorization of a general m-by-n matrix. |
+|:writing_hand:| getrf | Computes the LU factorization of a general m-by-n matrix. |
 |:writing_hand:|	getri  |	Computes the inverse of an LU-factored general matrix.
 |:writing_hand:|	getrs  |	Solves a system of linear equations with an LU-factored square coefficient matrix, with multiple right-hand sides.
 |:writing_hand:|	hetrf  |	Computes the Bunch-Kaufman factorization of a complex Hermitian matrix.
 |:writing_hand:|	orgqr  |	Generates the real orthogonal matrix Q of the QR factorization formed by geqrf.
 |:writing_hand:|	ormqr  |	Multiplies a real matrix by the orthogonal matrix Q of the QR factorization formed by geqrf.
-|:writing_hand:|	ormrq 	 |Multiplies a real matrix by the orthogonal matrix Q of the RQ factorization formed by gerqf.
+|:writing_hand:|	ormrq  |  Multiplies a real matrix by the orthogonal matrix Q of the RQ factorization formed by gerqf.
 |:writing_hand:| 	potrf  |	Computes the Cholesky factorization of a symmetric (Hermitian) positive-definite matrix.
 |:writing_hand:| 	potri  |	Computes the inverse of a Cholesky-factored symmetric (Hermitian) positive-definite matrix.
 |:writing_hand:|	potrs  |	Solves a system of linear equations with a Cholesky-factored symmetric (Hermitian) positive-definite coefficient matrix, with multiple right-hand sides.
@@ -48,4 +37,4 @@ LAPACK' Linear Equation Routines
 |:writing_hand:|	trtrs  |	Solves a system of linear equations with a triangular coefficient matrix, with multiple right-hand sides.
 |:writing_hand:|	ungqr  |	Generates the complex unitary matrix Q of the QR factorization formed by geqrf.
 |:writing_hand:|	unmqr  |	Multiplies a complex matrix by the unitary matrix Q of the QR factorization formed by geqrf.
-|:writing_hand:|	unmrq 	 |Multiplies a complex matrix by the unitary matrix Q of the RQ factorization formed by gerqf.
+|:writing_hand:|	unmrq  | Multiplies a complex matrix by the unitary matrix Q of the RQ factorization formed by gerqf.
