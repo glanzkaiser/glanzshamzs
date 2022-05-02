@@ -18,7 +18,7 @@ gfortran -o solution solvinglinearequations.f90 /opt/hamzstlib/lib/liblapack.a /
 The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the book or create your own OS the path needs to be adjusted due to your installation path for LAPACK and BLAS.
 
 # To Do Lists
-LAPACK' Linear Equation Routines
+## LAPACK' Linear Equation Routines
 :sunflower: = Done
 :writing_hand: = On Progress
 
@@ -41,3 +41,21 @@ LAPACK' Linear Equation Routines
 |:writing_hand:|	ungqr  |	Generates the complex unitary matrix Q of the QR factorization formed by geqrf.
 |:writing_hand:|	unmqr  |	Multiplies a complex matrix by the unitary matrix Q of the QR factorization formed by geqrf.
 |:writing_hand:|	unmrq  | Multiplies a complex matrix by the unitary matrix Q of the RQ factorization formed by gerqf.
+
+## LAPACK' Singular Value and Eigenvalue Problem Routines
+| Status  | Routine |Description |
+| ------------- | ------------- | -------------|
+|:writing_hand:| 	gebrd |	Reduces a general matrix to bidiagonal form.
+|:writing_hand:| 	gesvd |	Computes the singular value decomposition of a general rectangular matrix.
+|:writing_hand:| 	heevd |	Computes all eigenvalues and, optionally, all eigenvectors of a complex Hermitian matrix using divide and conquer algorithm.
+|:writing_hand:| 	hegvd |	Computes all eigenvalues and, optionally, all eigenvectors of a complex generalized Hermitian definite eigenproblem using divide and conquer algorithm.
+|:writing_hand:|	hetrd |	Reduces a complex Hermitian matrix to tridiagonal form.
+|:writing_hand:|	orgbr |	Generates the real orthogonal matrix Q or PT determined by gebrd.
+|:writing_hand:|	orgtr |	Generates the real orthogonal matrix Q determined by sytrd.
+|:writing_hand:|	ormtr |	Multiplies a real matrix by the orthogonal matrix Q determined by sytrd.
+|:writing_hand:|	syevd |	Computes all eigenvalues and, optionally, all eigenvectors of a real symmetric matrix using divide and conquer algorithm.
+|:writing_hand:|	sygvd |	Computes all eigenvalues and, optionally, all eigenvectors of a real generalized symmetric definite eigenproblem using divide and conquer algorithm.
+|:writing_hand:|	sytrd |	Reduces a real symmetric matrix to tridiagonal form.
+|:writing_hand:|	ungbr |	Generates the complex unitary matrix Q or PT determined by gebrd.
+|:writing_hand:|	ungtr |	Generates the complex unitary matrix Q determined by hetrd.
+|:writing_hand:|	unmtr |	Multiplies a complex matrix by the unitary matrix Q determined by hetrd.
