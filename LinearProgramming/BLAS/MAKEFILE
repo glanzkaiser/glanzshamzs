@@ -1,15 +1,19 @@
 .POSIX:
 
 FC      = gfortran
-FFLAGS  = -std=f2018
-LDFLAGS =
+FFLAGS  = -o
+SRC = example.f90
+PROGRAM = dot product
 LDLIBS  = -lblas
-TARGET  = blassolution
+OBJECTS = $(SRCS:.f90=.o)
+TARGET = example
 
 .PHONY: all clean
 
-all:
-	$(FC) $(FFLAGS) $(LDFLAGS) -o $(TARGET) example.f90 $(LDLIBS)
+all: $(PROGRAM)
+
+$(PROGRAM): $(OBJECTS)
+	$(FC) $(FFLAGS) $(TARGET) $(SRC) $(LDLIBS)
 
 clean:
 	rm $(TARGET)
