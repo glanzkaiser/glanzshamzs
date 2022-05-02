@@ -1,6 +1,6 @@
 .POSIX:
 
-FC      = gfortran11
+FC      = gfortran
 FFLAGS  = -std=f2018
 LDFLAGS =
 LDLIBS  = -lblas
