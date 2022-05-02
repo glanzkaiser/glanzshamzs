@@ -1,4 +1,4 @@
-LAPACK (Linear Algebra PACKage) is a BSD-licenced FORTRAN 77 library that provides routines for solving the most commonly occurring problems in numerical linear algebra, such as:
+LAPACK(Linear Algebra PACKage) is a library of Fortran subroutines for solving the most commonly occurring problems in numerical linear algebra.LAPACK is a BSD-licenced FORTRAN 77 library that provides routines for solving the most commonly occurring problems in numerical linear algebra, such as:
 1. linear equations
 2. least squares solutions of linear systems of equations
 3. eigenvalue problems
@@ -15,6 +15,7 @@ or
 
 gfortran -o solution solvinglinearequations.f90 /opt/hamzstlib/lib/liblapack.a /opt/hamzstlib/lib/libblas.a
 (for using static libraries)
+
 The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the book or create your own OS the path needs to be adjusted due to your installation path for LAPACK and BLAS.
 
 # To Do Lists
