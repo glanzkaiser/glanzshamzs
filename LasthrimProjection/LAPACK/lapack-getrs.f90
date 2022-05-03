@@ -9,9 +9,9 @@ integer ip(maxn)
 n=maxn
 call inita(a,k,n)
 do i=1,n
-do j=1,n
-aa(j,i)=a(j,i)
-end do
+  do j=1,n
+    aa(j,i)=a(j,i)
+  end do
 end do
 ! ===========================================================
 ! LU decomposition
@@ -21,10 +21,9 @@ call dgetrf(n,n,a,k,ip,info)
 ! Define the vectors
 ! ===========================================================
 do jm=1,m
-do jn=1,n
-10
-x(jn,jm)=jn+jm
-end do
+  do jn=1,n
+    x(jn,jm)=jn+jm
+  end do
 end do
 call dgemm('N','N',n,m,n,one,aa,k,x,k,zero,b,k)
 ! ===========================================================
@@ -32,8 +31,8 @@ call dgemm('N','N',n,m,n,one,aa,k,x,k,zero,b,k)
 ! ===========================================================
 call dgetrs('N',n,m,a,k,ip,b,k,info)
 if(info.ne.0) then
-write(6,*) 'error in dgetrs info = ',info
-stop
+  write(6,*) 'error in dgetrs info = ',info
+  stop
 end if
 ! ===========================================================
 ! Check result
