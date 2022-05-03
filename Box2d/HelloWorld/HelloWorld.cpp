@@ -16,7 +16,7 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <box/box2d.h>
+#include <box2d/box2d.h>
 
 #include <stdio.h>
 
