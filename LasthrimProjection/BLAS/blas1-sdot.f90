@@ -3,7 +3,7 @@ program dot_main
   integer n, incx, incy, i
   external sdot
    n = 5
-   incx = 2
+   incx = 1
    incy = 1
     do i = 1, 10
     x(i) = 2.0e0
