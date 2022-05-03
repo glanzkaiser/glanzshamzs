@@ -1,10 +1,10 @@
 program copy_main
-  real x(10), y(10)
+  real x(100), y(100)
   integer n, incx, incy, i
-  n = 3
-  incx = 3
+  n = 5
+  incx = 1
   incy = 1
-	do i = 1, 10
+	do i = 1, 100
 	  x(i) = i
 	end do
   print*, 'X = ', (x(i), i = 1, n)
