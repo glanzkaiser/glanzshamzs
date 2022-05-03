@@ -1,3 +1,5 @@
+! This routine performs a vector-vector operation of copying a single-precision real vector x to a vector y
+
 program copy_main
   real x(100), y(100)
   integer n, incx, incy, i
