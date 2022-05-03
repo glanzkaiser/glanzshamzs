@@ -7,7 +7,7 @@ program copy_main
 	do i = 1, 10
 	  x(i) = i
 	end do
-  print*, `X = `, (x(i), i = 1, n)
+  print*, 'X = ', (x(i), i = 1, n)
   call scopy (n, x, incx, y, incy)
-  print*, `Y = `, (y(i), i = 1, n)
+  print*, 'Y = ', (y(i), i = 1, n)
 end
