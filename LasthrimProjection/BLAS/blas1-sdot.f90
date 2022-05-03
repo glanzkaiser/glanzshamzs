@@ -9,6 +9,8 @@ program dot_main
     x(i) = 2.0e0
     y(i) = 1.0e0
     end do
+  print*, 'x = ', x
+  print*, 'y = ', y
   res = sdot (n, x, incx, y, incy)
   print*, 'SDOT = ', res
 end
