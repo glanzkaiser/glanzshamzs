@@ -1,8 +1,9 @@
-implicit real*8 (a-h,o-z)
-parameter(maxn=200,m=80,k=maxn+1)
-parameter(zero=0.0d0,one=1.0d0)
-real*8 a(k,maxn),aa(k,maxn),x(k,m),b(k,m)
-integer ip(maxn)
+program main
+  implicit real*8 (a-h,o-z)
+  parameter(maxn=200,m=80,k=maxn+1)
+  parameter(zero=0.0d0,one=1.0d0)
+  real*8 a(k,maxn),aa(k,maxn),x(k,m),b(k,m)
+  integer ip(maxn)
 ! ===========================================================
 ! Define the matrix
 ! ===========================================================
@@ -38,4 +39,4 @@ end if
 ! Check result
 ! ===========================================================
 call check(a,b,k,n,m)
-end
+end program main
