@@ -48,4 +48,4 @@ program pythagoras
 
   end do interactive_loop
 
-end program cylinder
+end program pythagoras
