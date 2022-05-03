@@ -14,8 +14,7 @@
 
       print *, 'Sum of all elements in c = ' , csum
       print *, 'Sum of Positive elements in c = ', cpsum
-      print *, 'Sum of elements in c when corresponding elements in b>0'
-     # ,' =',cbpsum
+      print *, 'Sum of elements in c when corresponding elements in b>0 =', cbpsum
 
       stop
       end
