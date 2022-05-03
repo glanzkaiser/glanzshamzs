@@ -93,7 +93,7 @@ int main(int argc, char** argv)
 
 		// Now print the position and angle of the body.
 		b2Vec2 position = body->GetPosition();
-		float32 angle = body->GetAngle();
+		float angle = body->GetAngle();
 
 		printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 	}
