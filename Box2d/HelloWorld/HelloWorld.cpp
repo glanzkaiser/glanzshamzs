@@ -80,7 +80,7 @@ int main(int argc, char** argv)
 	// Prepare for simulation. Typically we use a time step of 1/60 of a
 	// second (60Hz) and 10 iterations. This provides a high quality simulation
 	// in most game scenarios.
-	float32 timeStep = 1.0f / 60.0f;
+	float timeStep = 1.0f / 60.0f;
 	int32 velocityIterations = 6;
 	int32 positionIterations = 2;
 
