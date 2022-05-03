@@ -17,7 +17,7 @@ do i = 1, m
   end do
 end do
 call sger (m, n, alpha, x, incx, y, incy, a, lda)
-print*, `Matrix A: `
+print*, 'Matrix A: '
 do i = 1, m
   print*, (a(i,j), j = 1, n)
 end do
