@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/boing.dir/boing.c.o -o boing  -Wl,-rpath,/sources/Hamzstlab/glfw/build/src ../src/libglfw.so.3.4 -lm 

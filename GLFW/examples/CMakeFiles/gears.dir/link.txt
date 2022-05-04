@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/gears.dir/gears.c.o -o gears  -Wl,-rpath,/sources/Hamzstlab/glfw/build/src ../src/libglfw.so.3.4 -lm 

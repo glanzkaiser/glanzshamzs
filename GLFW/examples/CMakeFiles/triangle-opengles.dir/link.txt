@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/triangle-opengles.dir/triangle-opengles.c.o -o triangle-opengles  -Wl,-rpath,/sources/Hamzstlab/glfw/build/src ../src/libglfw.so.3.4 -lm 

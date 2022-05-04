@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/sharing.dir/sharing.c.o -o sharing  -Wl,-rpath,/sources/Hamzstlab/glfw/build/src ../src/libglfw.so.3.4 -lm 

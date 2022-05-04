@@ -1,0 +1,3 @@
+/opt/hamzstlib/glanzshamzs/glanzshamzs/Box2d/HelloWorld/CMakeFiles/HelloWorld.dir
+/opt/hamzstlib/glanzshamzs/glanzshamzs/Box2d/HelloWorld/CMakeFiles/edit_cache.dir
+/opt/hamzstlib/glanzshamzs/glanzshamzs/Box2d/HelloWorld/CMakeFiles/rebuild_cache.dir

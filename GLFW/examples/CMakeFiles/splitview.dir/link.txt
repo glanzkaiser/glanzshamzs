@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/splitview.dir/splitview.c.o -o splitview  -Wl,-rpath,/sources/Hamzstlab/glfw/build/src ../src/libglfw.so.3.4 -lm 
