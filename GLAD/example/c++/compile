@@ -1,0 +1,1 @@
+g++ sdl.cpp -lbuild/include /opt/hamzstlib/glanzshamzs/glanzshamzs/GLAD/build/src/glad.c -lglfw -ldl
