@@ -1,0 +1,7 @@
+/opt/hamzstlib/lib/libglad.a
+/opt/hamzstlib/include/glad/glad.h
+/opt/hamzstlib/include/KHR/khrplatform.h
+/opt/hamzstlib/lib/cmake/glad/gladConfig.cmake
+/opt/hamzstlib/lib/cmake/glad/gladConfigVersion.cmake
+/opt/hamzstlib/lib/cmake/glad/gladTargets.cmake
+/opt/hamzstlib/lib/cmake/glad/gladTargets-noconfig.cmake

@@ -1,0 +1,8 @@
+/sources/Hamzstlab/glad/build/CMakeFiles/glad-generate-files.dir
+/sources/Hamzstlab/glad/build/CMakeFiles/glad.dir
+/sources/Hamzstlab/glad/build/CMakeFiles/edit_cache.dir
+/sources/Hamzstlab/glad/build/CMakeFiles/rebuild_cache.dir
+/sources/Hamzstlab/glad/build/CMakeFiles/list_install_components.dir
+/sources/Hamzstlab/glad/build/CMakeFiles/install.dir
+/sources/Hamzstlab/glad/build/CMakeFiles/install/local.dir
+/sources/Hamzstlab/glad/build/CMakeFiles/install/strip.dir

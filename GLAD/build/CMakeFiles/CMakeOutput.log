@@ -1,0 +1,257 @@
+The system is: Linux - 5.13.12 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/sources/Hamzstlab/glad/build/CMakeFiles/3.22.2/CompilerIdC/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /sources/Hamzstlab/glad/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c11be/fast && /usr/bin/make  -f CMakeFiles/cmTC_c11be.dir/build.make CMakeFiles/cmTC_c11be.dir/build
+make[1]: Entering directory '/sources/Hamzstlab/glad/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+Target: x86_64-pc-linux-gnu
+Configured with: ../configure --prefix=/usr --disable-multilib --with-system-zlib --enable-languages=c,c++,d,fortran,go,objc,obj-c++
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c11be.dir/'
+ /usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/cc1 -quiet -v /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_c11be.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccYkWjVt.s
+GNU C17 (GCC) version 11.2.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 11.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version none
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/fuse3"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/include"
+ignoring duplicate directory "/usr/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include
+ //opt/hamzstlib/include/eigen3/Eigen
+ /usr/include/SDL2
+ /opt/hamzstlib/include
+ /opt/hamzstlib/include/opencv4
+ /opt/hamzstlib/grass80/include/grass
+ /opt/caldrazgames/include
+ /opt/hamzstlib/Kitware/install/paraview510/include
+ /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include
+ /usr/local/include
+ /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include-fixed
+End of search list.
+GNU C17 (GCC) version 11.2.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 11.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version none
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 3b1038acea5c8dc81e72571268020c0b
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c11be.dir/'
+ as -v --64 -o CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o /tmp/ccYkWjVt.s
+GNU assembler version 2.37 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.37
+COMPILER_PATH=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/libexec/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/usr/lib/../lib/:/usr/local/lib/../lib/:/opt/hamzstlib/lib/../lib/:/opt/hamzstlib/Kitware/install/VTK/lib/../lib/:/opt/hamzstlib/grass80/lib/../lib/:/opt/hamzstlib/Kitware/install/paraview510/lib/../lib/:/opt/caldrazgames/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/:/usr/local/lib/:/opt/hamzstlib/lib/:/opt/hamzstlib/lib/openmpi/:/opt/hamzstlib/Kitware/install/VTK/lib/:/opt/hamzstlib/grass80/lib/:/opt/hamzstlib/Kitware/install/paraview510/lib/:/opt/hamzstlib/include/opencv4/:/opt/caldrazgames/lib/:/opt/caldrazgames/lib/OGRE/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_c11be
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c11be.dir/link.txt --verbose=1
+/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o -o cmTC_c11be 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../configure --prefix=/usr --disable-multilib --with-system-zlib --enable-languages=c,c++,d,fortran,go,objc,obj-c++
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (GCC) 
+COMPILER_PATH=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/libexec/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/usr/lib/../lib/:/usr/local/lib/../lib/:/opt/hamzstlib/lib/../lib/:/opt/hamzstlib/Kitware/install/VTK/lib/../lib/:/opt/hamzstlib/grass80/lib/../lib/:/opt/hamzstlib/Kitware/install/paraview510/lib/../lib/:/opt/caldrazgames/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/:/usr/local/lib/:/opt/hamzstlib/lib/:/opt/hamzstlib/lib/openmpi/:/opt/hamzstlib/Kitware/install/VTK/lib/:/opt/hamzstlib/grass80/lib/:/opt/hamzstlib/Kitware/install/paraview510/lib/:/opt/hamzstlib/include/opencv4/:/opt/caldrazgames/lib/:/opt/caldrazgames/lib/OGRE/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c11be' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_c11be.'
+ /usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/collect2 -plugin /usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAh606G.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c11be /usr/lib/../lib/crt1.o /usr/lib/../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtbegin.o -L/usr/lib/../lib -L/usr/local/lib/../lib -L/opt/hamzstlib/lib/../lib -L/opt/hamzstlib/Kitware/install/VTK/lib/../lib -L/opt/hamzstlib/grass80/lib/../lib -L/opt/hamzstlib/Kitware/install/paraview510/lib/../lib -L/opt/caldrazgames/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0 -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/local/lib -L/opt/hamzstlib/lib -L/opt/hamzstlib/lib/openmpi -L/opt/hamzstlib/Kitware/install/VTK/lib -L/opt/hamzstlib/grass80/lib -L/opt/hamzstlib/Kitware/install/paraview510/lib -L/opt/hamzstlib/include/opencv4 -L/opt/caldrazgames/lib -L/opt/caldrazgames/lib/OGRE -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../.. CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtend.o /usr/lib/../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c11be' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_c11be.'
+make[1]: Leaving directory '/sources/Hamzstlab/glad/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/include]
+    add: [//opt/hamzstlib/include/eigen3/Eigen]
+    add: [/usr/include/SDL2]
+    add: [/opt/hamzstlib/include]
+    add: [/opt/hamzstlib/include/opencv4]
+    add: [/opt/hamzstlib/grass80/include/grass]
+    add: [/opt/caldrazgames/include]
+    add: [/opt/hamzstlib/Kitware/install/paraview510/include]
+    add: [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include]
+    add: [/usr/local/include]
+    add: [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include-fixed]
+  end of search list found
+  collapse include dir [/usr/include] ==> [/usr/include]
+  collapse include dir [//opt/hamzstlib/include/eigen3/Eigen] ==> [//opt/hamzstlib/include/eigen3/Eigen]
+  collapse include dir [/usr/include/SDL2] ==> [/usr/include/SDL2]
+  collapse include dir [/opt/hamzstlib/include] ==> [/opt/hamzstlib/include]
+  collapse include dir [/opt/hamzstlib/include/opencv4] ==> [/opt/hamzstlib/include/opencv4]
+  collapse include dir [/opt/hamzstlib/grass80/include/grass] ==> [/opt/hamzstlib/grass80/include/grass]
+  collapse include dir [/opt/caldrazgames/include] ==> [/opt/caldrazgames/include]
+  collapse include dir [/opt/hamzstlib/Kitware/install/paraview510/include] ==> [/opt/hamzstlib/Kitware/install/paraview510/include]
+  collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include-fixed] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include-fixed]
+  implicit include dirs: [/usr/include;//opt/hamzstlib/include/eigen3/Eigen;/usr/include/SDL2;/opt/hamzstlib/include;/opt/hamzstlib/include/opencv4;/opt/hamzstlib/grass80/include/grass;/opt/caldrazgames/include;/opt/hamzstlib/Kitware/install/paraview510/include;/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include;/usr/local/include;/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include-fixed]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /sources/Hamzstlab/glad/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make -f Makefile cmTC_c11be/fast && /usr/bin/make  -f CMakeFiles/cmTC_c11be.dir/build.make CMakeFiles/cmTC_c11be.dir/build]
+  ignore line: [make[1]: Entering directory '/sources/Hamzstlab/glad/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../configure --prefix=/usr --disable-multilib --with-system-zlib --enable-languages=c c++ d fortran go objc obj-c++]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.2.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c11be.dir/']
+  ignore line: [ /usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/cc1 -quiet -v /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_c11be.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccYkWjVt.s]
+  ignore line: [GNU C17 (GCC) version 11.2.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version none]
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/fuse3"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [ignoring duplicate directory "/usr/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/include]
+  ignore line: [ //opt/hamzstlib/include/eigen3/Eigen]
+  ignore line: [ /usr/include/SDL2]
+  ignore line: [ /opt/hamzstlib/include]
+  ignore line: [ /opt/hamzstlib/include/opencv4]
+  ignore line: [ /opt/hamzstlib/grass80/include/grass]
+  ignore line: [ /opt/caldrazgames/include]
+  ignore line: [ /opt/hamzstlib/Kitware/install/paraview510/include]
+  ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/include-fixed]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (GCC) version 11.2.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version none]
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 3b1038acea5c8dc81e72571268020c0b]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c11be.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o /tmp/ccYkWjVt.s]
+  ignore line: [GNU assembler version 2.37 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.37]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/libexec/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/../lib/:/usr/local/lib/../lib/:/opt/hamzstlib/lib/../lib/:/opt/hamzstlib/Kitware/install/VTK/lib/../lib/:/opt/hamzstlib/grass80/lib/../lib/:/opt/hamzstlib/Kitware/install/paraview510/lib/../lib/:/opt/caldrazgames/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/:/usr/local/lib/:/opt/hamzstlib/lib/:/opt/hamzstlib/lib/openmpi/:/opt/hamzstlib/Kitware/install/VTK/lib/:/opt/hamzstlib/grass80/lib/:/opt/hamzstlib/Kitware/install/paraview510/lib/:/opt/hamzstlib/include/opencv4/:/opt/caldrazgames/lib/:/opt/caldrazgames/lib/OGRE/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.']
+  ignore line: [Linking C executable cmTC_c11be]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c11be.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o -o cmTC_c11be ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../configure --prefix=/usr --disable-multilib --with-system-zlib --enable-languages=c c++ d fortran go objc obj-c++]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/libexec/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/../lib/:/usr/local/lib/../lib/:/opt/hamzstlib/lib/../lib/:/opt/hamzstlib/Kitware/install/VTK/lib/../lib/:/opt/hamzstlib/grass80/lib/../lib/:/opt/hamzstlib/Kitware/install/paraview510/lib/../lib/:/opt/caldrazgames/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/:/usr/local/lib/:/opt/hamzstlib/lib/:/opt/hamzstlib/lib/openmpi/:/opt/hamzstlib/Kitware/install/VTK/lib/:/opt/hamzstlib/grass80/lib/:/opt/hamzstlib/Kitware/install/paraview510/lib/:/opt/hamzstlib/include/opencv4/:/opt/caldrazgames/lib/:/opt/caldrazgames/lib/OGRE/:/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c11be' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_c11be.']
+  link line: [ /usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/collect2 -plugin /usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAh606G.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_c11be /usr/lib/../lib/crt1.o /usr/lib/../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtbegin.o -L/usr/lib/../lib -L/usr/local/lib/../lib -L/opt/hamzstlib/lib/../lib -L/opt/hamzstlib/Kitware/install/VTK/lib/../lib -L/opt/hamzstlib/grass80/lib/../lib -L/opt/hamzstlib/Kitware/install/paraview510/lib/../lib -L/opt/caldrazgames/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0 -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/local/lib -L/opt/hamzstlib/lib -L/opt/hamzstlib/lib/openmpi -L/opt/hamzstlib/Kitware/install/VTK/lib -L/opt/hamzstlib/grass80/lib -L/opt/hamzstlib/Kitware/install/paraview510/lib -L/opt/hamzstlib/include/opencv4 -L/opt/caldrazgames/lib -L/opt/caldrazgames/lib/OGRE -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../.. CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtend.o /usr/lib/../lib/crtn.o]
+    arg [/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/libexec/gcc/x86_64-pc-linux-gnu/11.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccAh606G.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_c11be] ==> ignore
+    arg [/usr/lib/../lib/crt1.o] ==> obj [/usr/lib/../lib/crt1.o]
+    arg [/usr/lib/../lib/crti.o] ==> obj [/usr/lib/../lib/crti.o]
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtbegin.o]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/local/lib/../lib] ==> dir [/usr/local/lib/../lib]
+    arg [-L/opt/hamzstlib/lib/../lib] ==> dir [/opt/hamzstlib/lib/../lib]
+    arg [-L/opt/hamzstlib/Kitware/install/VTK/lib/../lib] ==> dir [/opt/hamzstlib/Kitware/install/VTK/lib/../lib]
+    arg [-L/opt/hamzstlib/grass80/lib/../lib] ==> dir [/opt/hamzstlib/grass80/lib/../lib]
+    arg [-L/opt/hamzstlib/Kitware/install/paraview510/lib/../lib] ==> dir [/opt/hamzstlib/Kitware/install/paraview510/lib/../lib]
+    arg [-L/opt/caldrazgames/lib/../lib] ==> dir [/opt/caldrazgames/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
+    arg [-L/opt/hamzstlib/lib] ==> dir [/opt/hamzstlib/lib]
+    arg [-L/opt/hamzstlib/lib/openmpi] ==> dir [/opt/hamzstlib/lib/openmpi]
+    arg [-L/opt/hamzstlib/Kitware/install/VTK/lib] ==> dir [/opt/hamzstlib/Kitware/install/VTK/lib]
+    arg [-L/opt/hamzstlib/grass80/lib] ==> dir [/opt/hamzstlib/grass80/lib]
+    arg [-L/opt/hamzstlib/Kitware/install/paraview510/lib] ==> dir [/opt/hamzstlib/Kitware/install/paraview510/lib]
+    arg [-L/opt/hamzstlib/include/opencv4] ==> dir [/opt/hamzstlib/include/opencv4]
+    arg [-L/opt/caldrazgames/lib] ==> dir [/opt/caldrazgames/lib]
+    arg [-L/opt/caldrazgames/lib/OGRE] ==> dir [/opt/caldrazgames/lib/OGRE]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../..]
+    arg [CMakeFiles/cmTC_c11be.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtend.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtend.o]
+    arg [/usr/lib/../lib/crtn.o] ==> obj [/usr/lib/../lib/crtn.o]
+  collapse obj [/usr/lib/../lib/crt1.o] ==> [/usr/lib/crt1.o]
+  collapse obj [/usr/lib/../lib/crti.o] ==> [/usr/lib/crti.o]
+  collapse obj [/usr/lib/../lib/crtn.o] ==> [/usr/lib/crtn.o]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib/../lib] ==> [/usr/local/lib]
+  collapse library dir [/opt/hamzstlib/lib/../lib] ==> [/opt/hamzstlib/lib]
+  collapse library dir [/opt/hamzstlib/Kitware/install/VTK/lib/../lib] ==> [/opt/hamzstlib/Kitware/install/VTK/lib]
+  collapse library dir [/opt/hamzstlib/grass80/lib/../lib] ==> [/opt/hamzstlib/grass80/lib]
+  collapse library dir [/opt/hamzstlib/Kitware/install/paraview510/lib/../lib] ==> [/opt/hamzstlib/Kitware/install/paraview510/lib]
+  collapse library dir [/opt/caldrazgames/lib/../lib] ==> [/opt/caldrazgames/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse library dir [/opt/hamzstlib/lib] ==> [/opt/hamzstlib/lib]
+  collapse library dir [/opt/hamzstlib/lib/openmpi] ==> [/opt/hamzstlib/lib/openmpi]
+  collapse library dir [/opt/hamzstlib/Kitware/install/VTK/lib] ==> [/opt/hamzstlib/Kitware/install/VTK/lib]
+  collapse library dir [/opt/hamzstlib/grass80/lib] ==> [/opt/hamzstlib/grass80/lib]
+  collapse library dir [/opt/hamzstlib/Kitware/install/paraview510/lib] ==> [/opt/hamzstlib/Kitware/install/paraview510/lib]
+  collapse library dir [/opt/hamzstlib/include/opencv4] ==> [/opt/hamzstlib/include/opencv4]
+  collapse library dir [/opt/caldrazgames/lib] ==> [/opt/caldrazgames/lib]
+  collapse library dir [/opt/caldrazgames/lib/OGRE] ==> [/opt/caldrazgames/lib/OGRE]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/usr/lib/crt1.o;/usr/lib/crti.o;/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtbegin.o;/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0/crtend.o;/usr/lib/crtn.o]
+  implicit dirs: [/usr/lib;/usr/local/lib;/opt/hamzstlib/lib;/opt/hamzstlib/Kitware/install/VTK/lib;/opt/hamzstlib/grass80/lib;/opt/hamzstlib/Kitware/install/paraview510/lib;/opt/caldrazgames/lib;/usr/lib/gcc/x86_64-pc-linux-gnu/11.2.0;/lib;/opt/hamzstlib/lib/openmpi;/opt/hamzstlib/include/opencv4;/opt/caldrazgames/lib/OGRE]
+  implicit fwks: []
+
+
