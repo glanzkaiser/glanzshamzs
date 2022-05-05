@@ -23,7 +23,7 @@ We will take the base knowledge level from undergraduate level till PhD if possi
 # Background Story
 Glanz has new hobby since she first came to Papua she learned that cutting grasses is fun, thus she keeps doing it everyday till now (May 1st 2022),
 Then she thought "hey, this grasses piling up, someone will be questioning and I have to be responsible, I will turn this pile into energy one day, how?"
-She asked nature, trees and all universe to guide her. Well, that is why she has to learn a lot all the branches of science then engineering, because the solution to human problems, needs a feasible solution, that can be used at your local place.
+She asked nature, trees and all universe to guide her. Well, that is why she has to learn all the branches of science then engineering, because the solution to human problems, needs a feasible solution, that can be used at your local place, in order to create the solution one must have the basic knowledge, if we are given a talent, will we let it be? bury it? or multiply it till become hundreds times to infinity? Your life, your time, your choice.
 
 Another problem is burning trashes, unhealthy for human, but they do not know (especially in poor countries) how to treat trashes correctly.
 
