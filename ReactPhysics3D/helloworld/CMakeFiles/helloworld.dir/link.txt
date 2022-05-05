@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/helloworld.dir/Main.cpp.o -o helloworld  /opt/hamzstlib/lib/libreactphysics3d.a 
