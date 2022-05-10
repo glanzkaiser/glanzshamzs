@@ -9,6 +9,7 @@ A nice open source software on CFD, we can solve a lot of real world problems by
 
 
 Freya has uploaded OpenFOAM tutorials on her Youtube channel, you may see it, it contains the step to simulate OpenFOAM with Paraview 5.10.0 instead of 5.6.3
+
 https://www.youtube.com/watch?v=78rN0WNYC3M&list=PLjKBQAK4kvphNYh4ufnKatizAvdCxRPmt
 
 The Operating System in use: GFreya OS (From Linux From Scratch to BLFS and then Glanz keeps adding packages with focus on Science and Engineering)
