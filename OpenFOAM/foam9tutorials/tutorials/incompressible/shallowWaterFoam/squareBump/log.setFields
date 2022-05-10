@@ -1,0 +1,40 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : setFields
+Date   : May 07 2022
+Time   : 00:26:07
+Host   : "GFreya"
+PID    : 15677
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/tutorials/incompressible/shallowWaterFoam/squareBump
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading "setFieldsDict"
+
+Setting field default values
+    Setting internal values of volScalarField h0
+    Setting internal values of volScalarField h
+    Setting internal values of volVectorField hU
+
+Setting field region values
+    Adding cells with center within boxes 1((0.45 0.45 0) (0.55 0.55 0.1))
+    Setting internal values of volScalarField h0
+    Setting internal values of volScalarField h
+    Setting internal values of volVectorField hU
+
+End
+

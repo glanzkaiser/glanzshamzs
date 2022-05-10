@@ -1,0 +1,47 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : setSet -batch system/panel.setSet
+Date   : May 10 2022
+Time   : 12:50:34
+Host   : "GFreya"
+PID    : 8798
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/CFD/rackStorage
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Time:0  cells:4312  faces:13748  points:5175  patches:5  bb:(-2.1 0 -2.1) (2.1 6.6 2.1)
+faceSets:
+	burner	size:0
+
+Time = 0
+    mesh not changed.
+Reading commands from file "system/panel.setSet"
+Please type 'help', 'quit' or a set command after prompt.
+Doing:"faceSet panel new patchToFace panel"
+    Set:panel  Size:0  Action:new
+    Adding all faces of patch panel ...
+    Found matching patch panel with 0 faces.
+    Writing panel (size 0) to "constant/polyMesh/sets/panel" and to vtk file "VTK/panel/panel_0.vtk"
+
+Doing:"faceZoneSet panel new setToFaceZone panel"
+    Set:panel  Size:0  Action:new
+    Adding all faces from faceSet panel ...
+    Writing panel (size 0) to "constant/polyMesh/sets/panel" and to vtk file "VTK/panel/panel_0.vtk"
+
+End of batch file
+End
+

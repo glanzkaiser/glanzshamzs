@@ -1,0 +1,39 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      fvModels;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*
+fixedTemperature
+{
+    type            fixedTemperatureConstraint;
+    selectionMode   all;
+
+    mode            uniform;
+
+    temperature     constant 300; // Set temperature (K)
+}
+*/
+
+/*
+fixedPower
+{
+    type            heatSource;
+    selectionMode   all;
+
+    Q               100;          // Set power (W)
+}
+*/
+
+
+//************************************************************************** //

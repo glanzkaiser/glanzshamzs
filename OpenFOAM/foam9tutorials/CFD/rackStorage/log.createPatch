@@ -1,0 +1,57 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : createPatch -overwrite
+Date   : May 10 2022
+Time   : 12:50:34
+Host   : "GFreya"
+PID    : 8797
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/CFD/rackStorage
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Reading "createPatchDict"
+
+Adding new patch panel as patch 3 from 
+{
+    type            patch;
+}
+
+Adding new patch burner as patch 4 from 
+{
+    type            patch;
+}
+
+
+--> FOAM Warning : 
+    From function Foam::labelHashSet Foam::polyBoundaryMesh::patchSet(const Foam::UList<Foam::wordRe>&, bool, bool) const
+    in file meshes/polyMesh/polyBoundaryMesh/polyBoundaryMesh.C at line 804
+    Cannot find any patch or group names matching "(box.*)"
+Read 0 faces from faceSet burner
+
+Doing topology modification to order faces.
+
+Synchronising points.
+
+Points changed by average:0 max:0
+
+Removing patches with no faces in them.
+
+No patches removed.
+Writing repatched mesh to 0
+
+End
+

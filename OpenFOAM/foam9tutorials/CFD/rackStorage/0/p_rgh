@@ -1,0 +1,69 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           volScalarField;
+    object          p;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 101325;
+
+boundaryField
+{
+    outlet          
+    {
+        type            buoyantPressure;
+        value           $internalField;
+    }
+
+    ground           
+    {
+        type            buoyantPressure;
+        value           $internalField;
+    }
+
+    side          
+    {
+        type            totalPressure;
+        U               U;
+        phi             phi;
+        rho             rho;
+        psi             none;
+        gamma           0.0;
+        p0              $internalField;
+        value           $internalField;
+    }
+
+    burner          
+    {
+        type            buoyantPressure;
+        value           $internalField;
+    }
+
+    region0_to_panelRegion_panel
+    {
+        type            buoyantPressure;
+        value           $internalField;
+    }
+}
+
+// ************************************************************************* //

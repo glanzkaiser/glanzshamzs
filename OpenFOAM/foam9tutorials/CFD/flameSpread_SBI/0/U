@@ -1,0 +1,62 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.2                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    hood
+    {
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
+    }
+
+    walls
+    {
+        type            fixedValue;
+        value           $internalField;
+    }
+
+    open
+    {
+        type            pressureInletOutletVelocity;
+        phi             phi;
+        value           $internalField;
+    }
+
+    burner
+    {
+        type            flowRateInletVelocity;
+        massFlowRate    constant 0.0006459;    //kg/s - 30kW - C3H8 (DHc_C3H8=46447.9 kJ/kg)
+        value           uniform (0 0 0);
+    }
+
+    "(region0_to.*)" 
+    {
+        type            flowRateInletVelocityPyrolysisCoupled;
+        phi             phi;
+        nbrPhi          phiGas;
+        rho             rho;     
+        hocSolid        14.35e6; //Hoc for virgin MDF in J/kg
+        value           uniform (0 0 0);
+    }
+}
+
+// ************************************************************************* //

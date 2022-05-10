@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Create base mesh of 6 cm
+runApplication blockMesh 
+
+# Grid refinement up to 1.5 cm
+runApplication snappyHexMesh -overwrite 
+
+exit
+
+# ----------------------------------------------------------------- end-of-file

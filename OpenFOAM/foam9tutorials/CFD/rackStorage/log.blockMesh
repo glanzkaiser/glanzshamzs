@@ -1,0 +1,79 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : blockMesh
+Date   : May 10 2022
+Time   : 12:50:33
+Host   : "GFreya"
+PID    : 8793
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/CFD/rackStorage
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Reading "blockMeshDict"
+
+Creating block mesh from
+    "system/blockMeshDict"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Reading patches section
+
+Creating block mesh topology
+
+Reading physicalType from existing boundary file
+
+Default patch type set to empty
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.3
+        j : 0.3 .. 0.3
+        k : 0.3
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (-2.1 0 -2.1) (2.1 6.6 2.1)
+  nPoints: 5175
+  nCells: 4312
+  nFaces: 13748
+  nInternalFaces: 12124
+----------------
+Patches
+----------------
+  patch 0 (start: 12124 size: 196) name: ground
+  patch 1 (start: 12320 size: 1232) name: side
+  patch 2 (start: 13552 size: 196) name: outlet
+
+End
+

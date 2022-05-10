@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      radiationProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+radiation       on;
+
+radiationModel  fvDOM;
+
+fvDOMCoeffs
+{
+    nPhi    3;         // azimuthal angles in PI/2 on X-Y.(from Y to X)
+    nTheta  6;         // polar angles in PI (from Z to X-Y plane)
+    convergence 1e-3;  // convergence criteria for radiation iteration
+    maxIter 5;         // maximum number of iterations
+}
+
+// Number of flow iterations per radiation iteration
+solverFreq 20;
+
+absorptionEmissionModel wsggmAbsorptionEmissionDynamicPathLengthRectangle;
+
+wsggmAbsorptionEmissionDynamicPathLengthRectangleCoeffs
+{
+    inletDiameter inletDiameter [0 1 0 0 0 0 0]  0.5;      //(m)
+    inletWidth inletWidth [0 1 0 0 0 0 0]        0.05;     //(m)
+    emissivityCoeffs 4(  0.192 1.719 11.370 111.016 );     //(atm^-1 * m^-1)
+    fittingFactors  
+        4        
+        (
+         5(0.5617e-1 7.8440e-4 -8.5630e-7  4.2460e-10 -7.4400e-14)
+         5(1.4260e-1 1.7950e-4 -0.1077e-7  -0.6972e-10 1.7440e-14)
+         5(1.3620e-1 2.5740e-4 -3.7110e-7  1.5750e-10 -2.2670e-14)
+         5(1.2220e-1 -0.2327e-4 -0.7492e-7  0.4275e-10 -0.6608e-14)
+        );
+}
+
+scatterModel    none;
+
+// ************************************************************************* //

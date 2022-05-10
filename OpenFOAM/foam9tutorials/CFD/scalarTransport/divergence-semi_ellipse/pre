@@ -1,0 +1,21 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+runApplication blockMesh 
+rm -f log.blockMesh 
+
+runApplication topoSet
+rm -f log.topoSet 
+
+runApplication createPatch -overwrite
+rm -f log.createPatch 
+
+runApplication funkySetBoundaryField -time 0
+rm -f log.funkySetBoundaryField 
+
+exit
+
+# ----------------------------------------------------------------- end-of-file

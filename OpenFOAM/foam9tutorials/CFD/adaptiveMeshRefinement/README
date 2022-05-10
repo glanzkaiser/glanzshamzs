@@ -1,0 +1,3 @@
+The tutorial has been setup with OpenFOAM and FireFOAM version 2.2.x. It is not a validation case and may contain custom models (e.g., related to turbulence, combustion and radiation) that are not available in the default OpenFOAM version.
+
+For more information please contact Georgios.Maragkos@UGent.be

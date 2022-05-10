@@ -1,0 +1,83 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : extrudeToRegionMesh -overwrite
+Date   : May 10 2022
+Time   : 12:50:34
+Host   : "GFreya"
+PID    : 8800
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/CFD/rackStorage
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading "extrudeToRegionMeshDict"
+
+Selecting extrudeModel linearNormal
+Extruding zones 1(panel) on mesh region0 into shell mesh panelRegion
+Extruding as 1D columns with sides in patch type empty and duplicated points (overlapping volumes).
+Testing:"/root/OpenFOAM/root-9/run/CFD/rackStorage/system/panelRegion/fvSchemes"
+Writing meshes to constant
+
+Zone panel has boundary faces
+extrudePatch : faces:0 points:0 edges:0
+
+Adding coupling patches:
+
+patchID	patch	type
+-------	-----	----
+5	panel_top	patch
+6	region0_to_panelRegion_panel	mappedWall
+Added 2 inter-region patches.
+
+Adding coupling patches:
+
+patchID	patch	type
+-------	-----	----
+5	panel_top	patch
+6	region0_to_panelRegion_panel	mappedWall
+Added 2 inter-region patches.
+
+Adding patches for sides on zones:
+
+patchID	patch
+-------	-----
+7	oneDEmptyPatch
+Added 1 zone-side patches.
+
+Adding processor or cyclic patches:
+
+patchID	patch
+-------	-----
+Added 0 coupled patches.
+
+Deleting patch 0 name:ground
+Deleting patch 1 name:side
+Deleting patch 2 name:outlet
+Deleting patch 3 name:panel
+Deleting patch 4 name:burner
+Deleting patch 5 name:panel_top
+Deleting patch 6 name:region0_to_panelRegion_panel
+Deleting patch 7 name:oneDEmptyPatch
+Writing mesh panelRegion to "constant"
+
+Deleting patch 3 name:panel
+Deleting patch 4 name:burner
+Deleting patch 5 name:panel_top
+Deleting patch 6 name:region0_to_panelRegion_panel
+Writing mesh region0 to "constant"
+
+End
+

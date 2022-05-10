@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      funkySetFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+expressions
+(
+   init
+   {
+        field U;
+        expression "vector (sin(x1)*cos(x2)*cos(x3),-cos(x1)*sin(x2)*cos(x3),0)";
+        variables 
+        (
+            "x1=pos().x;"
+            "x2=pos().y;"
+            "x3=pos().z;"
+        );
+    }
+
+    init
+    {
+        field p;
+        expression "101325 + ((cos(2*x3)+2)*(cos(2*x1)+cos(2*x2))/16)";
+        variables 
+        (
+            "x1=pos().x;"
+            "x2=pos().y;"
+            "x3=pos().z;"
+        );
+    }
+
+    init
+    {
+        field p_rgh;
+        expression "101325 + ((cos(2*x3)+2)*(cos(2*x1)+cos(2*x2))/16)";
+        variables 
+        (
+            "x1=pos().x;"
+            "x2=pos().y;"
+            "x3=pos().z;"
+        );
+    }
+
+    init
+    {
+        field T;
+        expression "(101325 + ((cos(2*x3)+2)*(cos(2*x1)+cos(2*x2))/16)) / (rho*R)";
+        variables 
+        (
+            "R=288.189780685556;"
+            "rho=1;"
+            "x1=pos().x;"
+            "x2=pos().y;"
+            "x3=pos().z;"
+        );
+    }
+);

@@ -1,0 +1,46 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      radiationProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+radiation       on;
+
+radiationModel  none; //fvDOM;
+
+fvDOMCoeffs
+{
+    nPhi    3;         // azimuthal angles in PI/2 on X-Y.(from Y to X)
+    nTheta  4;         // polar angles in PI (from Z to X-Y plane)
+    convergence 1e-3;  // convergence criteria for radiation iteration
+    maxIter 5;         // maximum number of iterations
+}
+
+// Number of flow iterations per radiation iteration
+solverFreq 20;
+
+absorptionEmissionModel greyMeanAbsorptionEmission;
+
+greyMeanAbsorptionEmissionCoeffs
+{
+    lookUpTableFileName     none;
+
+    EhrrCoeff               0.0;
+}
+
+scatterModel    none;
+
+
+// ************************************************************************* //

@@ -1,0 +1,156 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      radiationProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+radiation       on;
+
+radiationModel  fvDOM;
+
+fvDOMCoeffs
+{
+    nPhi    3;         // azimuthal angles in PI/2 on X-Y.(from Y to X)
+    nTheta  4;         // polar angles in PI (from Z to X-Y plane)
+    convergence 1e-3;  // convergence criteria for radiation iteration
+    maxIter 5;         // maximum number of iterations
+}
+
+// Number of flow iterations per radiation iteration
+solverFreq 20;
+
+absorptionEmissionModel greyMeanAbsorptionEmission;
+//Options: wsggmAbsorptionEmission, greyMeanAbsorptionEmission, constRadFractionEmission
+
+greyMeanAbsorptionEmissionCoeffs
+{
+    lookUpTableFileName     none;
+
+    EhrrCoeff               0.2; //Like this corresponds to the constant radiative fraction approach
+
+    //Note: If the following coefficients are uncommentned then set EhrrCoeff 0.0 and make sure there is a file with boundary conditions for every specie in the 0 folder. With these settings the gray gas model is used.
+
+/*
+    CO2
+    {
+        Tcommon         300;   //Common Temp
+        invTemp         true;   //Is the polynomio using inverse temperature.
+        Tlow            200;   //Low Temp
+        Thigh           2500;  //High Temp
+        loTcoeffs       //coefss for T < Tcommon
+        (
+            0           //  a0            +
+            0           //  a1*T          +
+            0           //  a2*T^(+/-)2   +
+            0           //  a3*T^(+/-)3   +
+            0           //  a4*T^(+/-)4   +
+            0           //  a5*T^(+/-)5   +
+        );
+        hiTcoeffs        //coefss for T > Tcommon
+        (
+            18.741
+            -121.31e3
+            273.5e6
+            -194.05e9
+            56.31e12
+            -5.8169e15
+        );
+    }
+    H2O
+    {
+        Tcommon         300;
+        invTemp         true;
+        Tlow            200;
+        Thigh           2500;
+        loTcoeffs
+        (
+            0
+            0
+            0
+            0
+            0
+            0
+        );
+        hiTcoeffs
+        (
+            -0.23093
+            -1.12390e3
+             9.4153e6
+            -2.99885e9
+             0.51382e12
+            -1.868e10
+        );
+    }
+
+    CH4
+    {
+        Tcommon         300;
+        Tlow            200;
+        Thigh           2500;
+        invTemp         false;
+        loTcoeffs
+        (
+            0
+            0
+            0
+            0
+            0
+            0
+        );
+        hiTcoeffs
+        (
+            6.6334
+            -0.0035686
+            1.6682e-8
+            2.5611e-10
+            -2.6558e-14
+            0
+        );
+    }
+*/
+}
+
+wsggmAbsorptionEmissionCoeffs
+{
+    meanBeamPathAutoCalcMode		         false;    //If true calculates the path length as 0.1*3.6V/A. Not a good option better set it manually!
+    sector sector    [ 0  0  0  0  0  0  0]      360.0;    //(Degrees)
+    pathLength pathLength [ 0 1  0  0  0  0  0]  0.1345;   //(m)
+    emissivityCoeffs 4(  0.192 1.719 11.370 111.016 );     //(atm^-1 * m^-1)
+    fittingFactors  
+        4        
+        (
+         5(0.5617e-1 7.8440e-4 -8.5630e-7  4.2460e-10 -7.4400e-14)
+         5(1.4260e-1 1.7950e-4 -0.1077e-7  -0.6972e-10 1.7440e-14)
+         5(1.3620e-1 2.5740e-4 -3.7110e-7  1.5750e-10 -2.2670e-14)
+         5(1.2220e-1 -0.2327e-4 -0.7492e-7  0.4275e-10 -0.6608e-14)
+        );
+}
+
+constRadFractionEmissionCoeffs
+{
+    //Proportionality constant (EhrrCoeff*HRR) to be emitted. Source term in RTE
+    //Note: Use "radScaling true" for flame spread cases where Ehrr1 will be the radiative fraction of the burner (patch1) and Ehrr2 the radiative fraction of a flammable surface (patch2).
+    EhrrCoeff           0.2;  
+    radScaling		false;
+    Ehrr1               0.3;
+    Ehrr2		0.22;
+    patch1		"burner";
+    patch2		"region0_to_*";
+}
+
+scatterModel    none;
+
+
+// ************************************************************************* //

@@ -1,0 +1,35 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : topoSet
+Date   : May 09 2022
+Time   : 11:38:25
+Host   : "GFreya"
+PID    : 4971
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/tutorials/combustion/buoyantReactingFoam/RAS/smallPoolFire2D
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Reading "topoSetDict"
+
+Time = 0
+    mesh not changed.
+Created faceSet f0
+    Applying source boxToFace
+    Adding faces with centre within boxes 1((-0.0529 -0.001 -0.1) (0.0529 0.002 0.1))
+    faceSet f0 now size 16
+End
+

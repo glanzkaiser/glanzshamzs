@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.2                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 294.0;
+
+boundaryField
+{
+    panel_top
+    {
+        type            constHTemperature;
+        value           uniform 294.0;
+        Tinf            uniform 294.0;
+        h               uniform 20;
+    }
+
+    region0_to_panelRegion_panel
+    {
+        type               compressible::turbulentTemperatureRadiationQinCoupledMixed;
+        neighbourFieldName T;
+        kappa              solidThermo;
+        kappaName          none;
+        neighbourFieldRadiativeName Qin;
+        emissivityMode     solidRadiation;
+        value              uniform 294.0;
+    }
+
+}
+
+// ************************************************************************* //

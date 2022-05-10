@@ -1,0 +1,130 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : snappyHexMesh -overwrite
+Date   : May 10 2022
+Time   : 12:50:34
+Host   : "GFreya"
+PID    : 8794
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/CFD/rackStorage
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Read mesh in = 0.05 s
+Reading "snappyHexMeshDict"
+
+
+Overall mesh bounding box  : (-2.1 0 -2.1) (2.1 6.6 2.1)
+Relative tolerance         : 1e-06
+Absolute matching distance : 8.87918915217e-06
+
+Reading refinement surfaces...
+Read refinement surfaces in = 0 s
+
+Reading refinement regions...
+Refinement level 1 for all cells inside refinementBox1
+Refinement level 2 for all cells inside refinementBox2
+Refinement level 3 for all cells inside refinementBox3
+Read refinement regions in = 0 s
+
+Setting refinement level of surface to be consistent with shells..
+Checked shell refinement in = 0 s
+
+Reading features...
+Read features in = 0 s
+
+
+Determining initial surface intersections
+-----------------------------------------
+
+Edge intersection testing:
+    Number of edges             : 13748
+    Number of edges to retest   : 13748
+    Number of intersected edges : 1213
+Calculated surface intersections in = 0.06 s
+
+Initial mesh : cells:4312  faces:13748  points:5175
+Cells per refinement level:
+    0	4312
+
+Adding patches for surface regions
+----------------------------------
+
+Patch Type                Region                        
+----- ----                ------                        
+boxSE1:
+
+3     wall                boxSE1                        
+
+boxNE1:
+
+4     wall                boxNE1                        
+
+boxNW1:
+
+5     wall                boxNW1                        
+
+boxSW1:
+
+6     wall                boxSW1                        
+
+boxSE2:
+
+7     wall                boxSE2                        
+
+boxNE2:
+
+8     wall                boxNE2                        
+
+boxNW2:
+
+9     wall                boxNW2                        
+
+boxSW2:
+
+10    wall                boxSW2                        
+
+boxSE3:
+
+11    wall                boxSE3                        
+
+boxNE3:
+
+12    wall                boxNE3                        
+
+boxNW3:
+
+13    wall                boxNW3                        
+
+boxSW3:
+
+14    wall                boxSW3                        
+
+Added patches in = 0 s
+
+Selecting decompositionMethod none
+
+
+--> FOAM FATAL IO ERROR: 
+keyword relativeSizes is undefined in dictionary "/root/OpenFOAM/root-9/run/CFD/rackStorage/system/snappyHexMeshDict/addLayersControls"
+
+file: /root/OpenFOAM/root-9/run/CFD/rackStorage/system/snappyHexMeshDict/addLayersControls from line 355 to line 417.
+
+    From function const Foam::entry& Foam::dictionary::lookupEntry(const Foam::word&, bool, bool) const
+    in file db/dictionary/dictionary.C at line 811.
+
+FOAM exiting
+

@@ -1,0 +1,14 @@
+faceSet burnerNE new boxToFace (0.0749 0.2249 -0.2251) (0.0751 0.3001 -0.0749)
+faceSet burnerSW new boxToFace (-0.0751 0.2249 0.0749) (-0.0749 0.3001 0.2251)
+faceSet burnerNW2 new boxToFace (0.0749 0.2249 0.0749) (0.2251 0.3001 0.0751)
+faceSet burnerSE2 new boxToFace (-0.2251 0.2249 -0.0751) (-0.0749 0.3001 -0.0749)
+
+faceSet burner new faceToFace burnerNE
+faceSet burner add faceToFace burnerSW
+faceSet burner add faceToFace burnerNW2
+faceSet burner add faceToFace burnerSE2
+faceSet burnerNE remove
+faceSet burnerSW remove
+faceSet burnerNW2 remove
+faceSet burnerSE2 remove
+

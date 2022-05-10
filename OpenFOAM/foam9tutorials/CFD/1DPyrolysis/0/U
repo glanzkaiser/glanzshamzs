@@ -1,0 +1,55 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.2                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0.0 0);
+
+boundaryField
+{
+
+    front
+    {
+        type            zeroGradient;
+    }
+
+    back
+    {
+        type            zeroGradient;
+    }
+
+    sides
+    {
+        type            zeroGradient;
+    }
+
+    region0_to_sampleRegion_sample
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+/*
+        type            flowRateInletVelocityFuelConvertCoupled;
+        phi             phi;
+        nbrPhi          phiGas;
+        rho             rho;
+        hocPyr          18.4e6; // DeltaHcVirgin = 14.6e6 J/kg // (rhoVirgin*DeltaHcVirgin)/(rhoVirgin - rhoChar) //HEAT OF COMBUSTION OF PYROLYSATE IS IN J/kg. 
+
+*/
+    }
+}
+
+// ************************************************************************* //

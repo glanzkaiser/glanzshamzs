@@ -1,0 +1,115 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            hePsiThermo;
+    mixture         multiComponentMixture;
+    transport       const;
+    thermo          hConst;
+    energy          sensibleEnthalpy;
+    equationOfState perfectGas;
+    specie          specie;
+}
+
+species
+(
+   He
+   C3H6O
+   O2
+   N2
+);
+
+He
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       4.0026;
+    }
+    thermodynamics
+    {
+        Cp              1004.5;
+        Hf              0.0;
+    }
+    transport
+    {
+        mu              18.89e-06;
+        Pr              0.22;
+    }
+}
+
+C3H6O
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       58.0807;
+    }
+    thermodynamics
+    {
+        Cp              1004.5;
+        Hf              0.0;
+    }
+    transport
+    {
+        mu              17.64e-06;
+        Pr              0.7;
+    }
+}
+
+O2
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       31.9988;
+    }
+    thermodynamics
+    {
+        Cp              1004.5;
+        Hf              0.0;
+    }
+    transport
+    {
+        mu              17.64e-06;
+        Pr              0.7;
+    }
+} 
+
+N2
+{
+    specie
+    {
+        nMoles          1;
+        molWeight       28.0134;
+    }
+    thermodynamics
+    {
+        Cp              1004.5;
+        Hf              0.0;
+    }
+    transport
+    {
+        mu              17.64e-06;
+        Pr              0.7;
+    }
+}
+
+inertSpecie N2;
+
+// ************************************************************************* //

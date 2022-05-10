@@ -1,0 +1,110 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    {
+        name    blockage1;
+        type    faceSet;
+        action  new;
+        source  boxToFace;
+        sourceInfo
+        {
+            box  (-0.476 -0.001 -0.351) (0.476 0.001 0.351);
+        }
+    }
+
+    {
+        name    coflow;
+        type    faceSet;
+        action  new;
+        source  boxToFace;
+        sourceInfo
+        {
+            box  (-0.376 -0.001 -0.251) (0.376 0.001 0.251);
+        }
+    }
+
+    {
+        name    blockage2;
+        type    faceSet;
+        action  new;
+        source  boxToFace;
+        sourceInfo
+        {
+            box  (-0.301 -0.001 -0.076) (0.301 0.001 0.076);
+        }
+    }
+
+    {
+        name    burner;
+        type    faceSet;
+        action  new;
+        source  boxToFace;
+        sourceInfo
+        {
+            box  (-0.251 -0.001 -0.026) (0.251 0.001 0.026);
+        }
+    }
+
+    {
+        name    blockage1;
+        type    faceZoneSet;
+        action  new;
+        source  setToFaceZone;
+        sourceInfo
+        {
+            faceSet blockage1;
+        }
+    }
+
+    {
+        name    coflow;
+        type    faceZoneSet;
+        action  new;
+        source  setToFaceZone;
+        sourceInfo
+        {
+            faceSet coflow;
+        }
+    }
+
+    {
+        name    blockage2;
+        type    faceZoneSet;
+        action  new;
+        source  setToFaceZone;
+        sourceInfo
+        {
+            faceSet blockage2;
+        }
+    }
+
+    {
+        name    burner;
+        type    faceZoneSet;
+        action  new;
+        source  setToFaceZone;
+        sourceInfo
+        {
+            faceSet burner;
+        }
+    }
+
+);
+
+// ************************************************************************* //

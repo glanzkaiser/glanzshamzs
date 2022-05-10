@@ -1,0 +1,15 @@
+species
+(
+    He
+    O2
+    N2
+);
+
+reactions
+{
+    HeliumReaction
+    {
+        type irreversibleinfiniteReaction;
+        reaction "He + O2 + 3.76N2 = He + O2 + 3.76N2";
+    }
+}

@@ -1,0 +1,79 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      SurfaceFilmProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+surfaceFilmModel thermoSingleLayer;
+
+regionName      wallFilmRegion;
+
+viscosity
+{
+    model       Newtonian;
+}
+
+sigma       0.07;
+
+deltaWet    1e-12;
+
+hydrophilic no;
+
+momentumTransport
+{
+    model       laminar;
+    Cf          0.001;
+}
+
+forces
+{
+    thermocapillary;
+
+    distributionContactAngle
+    {
+        Ccf             1;
+
+        distribution
+        {
+            type            normal;
+            normalDistribution
+            {
+                minValue        50;
+                maxValue        100;
+                expectation     75;
+                variance        100;
+            }
+        }
+    }
+}
+
+upperSurfaceModels
+{
+    heatTransfer
+    {
+        model    constant;
+        c0       1;
+    }
+}
+
+lowerSurfaceModels
+{
+    heatTransfer
+    {
+        model    constant;
+        c0       1;
+    }
+}
+
+
+// ************************************************************************* //

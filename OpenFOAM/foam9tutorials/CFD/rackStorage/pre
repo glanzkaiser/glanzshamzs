@@ -1,0 +1,23 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Set application name
+application=`getApplication`
+
+runApplication blockMesh 
+
+runApplication snappyHexMesh -overwrite 
+
+runApplication setSet -batch system/burner.setSet
+mv -f log.setSet log.setSet.burner
+
+runApplication createPatch -overwrite 
+
+runApplication setSet -batch system/panel.setSet
+mv -f log.setSet log.setSet.panel
+
+runApplication extrudeToRegionMesh -overwrite
+

@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      funkySetFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+expressions
+(
+        IgnitionTemperature
+        {
+                field ignArea;
+                create false;
+                expression "0.0";
+                condition "(pos().x>=-0.256 && pos().x<=0.256) &&  (pos().z>=-0.03 && pos().z<=0.03) && pos().y <= 0.025";
+                valuePatches ();
+                keepPatches true;
+                dimension [0 0 0 0 0 0 0];
+        }
+);
+
+// ************************************************************************* //

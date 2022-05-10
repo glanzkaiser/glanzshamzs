@@ -1,0 +1,73 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      LESProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+LESModel        oneEqEddy; 
+//Options: oneEqEddy, oneEqEddyBuoyancy, constantSmagorinsky, dynamicSmagorinsky, dynamicSmagorinskyVariablePrt, dynamicSmagorinskyVariableSct
+
+delta           cubeRootVol;
+
+turbulence      on;
+
+printCoeffs     on;
+
+oneEqEddyCoeffs
+{
+    ck         0.05;
+    ce         1.048;
+    Prt        0.5;
+}
+
+oneEqEddyBuoyancyCoeffs
+{
+    ck         0.05;
+    ce         1.048;
+    Prt        0.5;
+}
+
+constantSmagorinskyCoeffs
+{
+    cs         0.1;
+    ck         0.05;
+    ce         1.048;
+    Prt        0.5;
+}
+
+dynamicSmagorinskyCoeffs
+{
+    filter     simple;
+    ce         1.048;
+    Prt        0.5;
+}
+
+dynamicSmagorinskyVariablePrtCoeffs
+{
+    filter     simple;
+    ce         1.048;
+}
+
+dynamicSmagorinskyVariableSctCoeffs //Hard-coded to look for He as fuel - needs update
+{
+    filter     simple;
+    ce         1.048;
+}
+
+cubeRootVolCoeffs
+{
+    deltaCoeff      1;
+}
+
+// ************************************************************************* //

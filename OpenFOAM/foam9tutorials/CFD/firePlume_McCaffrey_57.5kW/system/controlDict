@@ -1,0 +1,230 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    object          controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     myfireFoam;
+
+startFrom       latestTime;
+
+startTime       0.0;
+
+stopAt          endTime;
+
+endTime         35.01;
+
+deltaT          0.003;
+
+writeControl    adjustableRunTime;
+
+writeInterval   5.0;
+
+purgeWrite      2;
+
+writeFormat     ascii;
+
+writePrecision  12;
+
+writeCompression on;
+
+timeFormat      general;
+
+timePrecision   6;
+
+graphFormat     raw;
+
+runTimeModifiable yes;
+
+adjustTimeStep  yes;
+
+maxCo           0.9;
+
+maxDeltaT       0.01;
+/*
+functions
+{
+    write
+    {
+        type            writeRegisteredObject;
+
+        // Where to load it from
+        functionObjectLibs ("libIOFunctionObjects.so");
+
+        // Execute upon options:
+        //  timeStep
+        //  outputTime
+        //  adjustableTime
+        //  runTime
+        //  clockTime
+        //  cpuTime
+        outputControl   adjustableTime;
+
+        // Objects (fields or lagrangian fields in any of the clouds)
+        // to write every outputTime
+        objectNames    (T U);
+
+        exclusiveWriting     false;
+
+        // Interval of time (sec) to write down(
+        writeInterval   0.1; //(adjustableTime, runTime, clockTime, cpuTime)
+    }
+
+    HRR
+    {
+        type            cellSource;
+        functionObjectLibs ("libfieldFunctionObjects.so");
+        enabled         true;
+        outputControl   runTime;  //outputTime;
+        writeInterval   0.002;
+        log             false;     
+        valueOutput     false;
+        source          all;     
+        sourceName      c0;
+        operation       volIntegrate;
+        fields
+        (
+            dQ
+        );
+    }
+
+
+    HRR_burner
+    {
+        type               faceSource;
+        functionObjectLibs ("libfieldFunctionObjects.so");
+        enabled            true;
+        outputControl      runTime; //outputTime; 
+        writeInterval      0.005;
+        log                false;
+        valueOutput        false;
+        source             patch;
+        sourceName         burner;
+        operation          sum;
+        fields
+        (
+            phi
+            HRR_fu
+        );
+    }
+
+    probes
+    {
+        type                probes;
+        functionObjectLibs ("libsampling.so");
+        outputControl      runTime;
+        writeInterval      0.002;
+        probeLocations
+        (
+            ( 0.0 0.3 0.0 )
+        );
+        fields
+        (
+            U
+            T
+        );
+    }
+
+    fieldAverage
+    {
+        type            fieldAverage;
+        functionObjectLibs ( "libfieldFunctionObjects.so" );
+        enabled         true;
+        timeStart       5;
+        timeEnd         35;
+        outputControl   outputTime;
+        fields
+        (
+            rho
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            U
+            {
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            }
+
+            T
+            {
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            }
+
+            k
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            alphaSgs
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            muSgs
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            CH4
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            O2
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            H2O
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            CO2
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            dQ
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+       );
+   }
+
+}
+*/
+// ************************************************************************* //

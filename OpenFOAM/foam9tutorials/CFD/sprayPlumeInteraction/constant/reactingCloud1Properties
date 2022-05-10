@@ -1,0 +1,211 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      reactingCloud1Properties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solution
+{
+    active          true;
+    coupled         true;
+    transient       yes;
+    cellValueSourceCorrection on;
+
+    sourceTerms
+    {
+        schemes
+        {
+            rho             explicit 1;
+            U               explicit 1;
+            Yi              explicit 1;
+            h               explicit 1;
+            radiation       explicit 1;
+        }
+    }
+
+    interpolationSchemes
+    {
+        rho             cell;
+        U               cellPoint;
+        thermo:mu       cell;
+        T               cell;
+        kappa           cell;
+        Cp              cell;
+        p               cell;
+        DUcDt           cellPoint;
+    }
+
+    integrationSchemes
+    {
+        U               Euler;
+        T               analytical;
+    }
+}
+
+constantProperties
+{
+    rhoMin          1e-15;
+    TMin            200;
+    pMin            1000;
+    minParticleMass 1e-15;
+
+    rho0            1000;
+    T0              293;
+    Cp0             4187;
+
+    youngsModulus   1e9;
+    poissonsRatio   0.35;
+
+    epsilon0        1;
+    f0              0.5;
+    Pr              0.7;
+    Tvap            273;
+    Tbp             373;
+
+    constantVolume  false;
+}
+
+subModels
+{
+    particleForces
+    {
+        sphereDrag;
+        gravity;
+        //nonSphereDrag {phi 1.0;};
+        //pressureGradient {U U;};
+    }
+
+    injectionModels
+    {
+        model1
+        {
+            type               coneInjection;
+            SOI                0;                      // Start Of Injection
+            duration           1.0;                    // [s] Duration of spray injection
+            positionAxis
+            (
+                ((0 0.56 0) (0 -1 0))
+            );
+            massTotal          0.0014;                 // [kg] Total mass to inject-massTotal =  0.084Lpm = 0.084kg/m = 0.084/60s*1s = 0.0014kg
+            parcelsPerInjector 100000;                 // number of parcels (100000) * duration
+            parcelBasisType    mass;
+            flowRateProfile    constant 0.1;
+            Umag               constant 26.4;
+            thetaInner         constant 0;
+            thetaOuter         constant 30;
+                                                    
+            sizeDistribution
+            {
+                type        RosinRammler;
+                RosinRammlerDistribution
+                {
+                   minValue        12e-06;           // [m] Minimum droplet diameter
+                   d               56e-06;           // [m] Mean droplet diameter
+                   maxValue        176e-06;          // [m] Maximum droplet diameter
+                   n               2.0;              // [-] Spread parameter
+                }
+            }
+        }
+    }
+
+    dispersionModel none;                               //Options: 1.stochasticDispersionRAS; 2.gradientDispersionRAS (not good in the far field); 3.none;
+
+    patchInteractionModel standardWallInteraction;      //Options: 1.standardWallInteraction; 2.none;
+
+    heatTransferModel RanzMarshall;                     //Options: 1.RanzMarshall; 2.none;
+
+    compositionModel singlePhaseMixture;             
+
+    phaseChangeModel liquidEvaporationBoil;             //Options: 1.liquidEvaporationBoil; 2.none;
+
+    surfaceFilmModel none;
+
+    atomizationModel none;                             //Options: 1.LISA; 2.blobsSheetAtomization; 3.none;
+
+    breakupModel     none;                             //Options: 1.ReitzDiwakar; 2.ReitzKHRT; 3. PilchErdman; 4.none;
+
+    stochasticCollisionModel none;                     //Options: 1.ORourke; 2.trajectory (don't use);
+
+    radiation       off;
+
+    standardWallInteractionCoeffs
+    {
+        type            escape;                        //Options: 1.stick; 2.escape; 3.rebound;
+    }
+
+    RanzMarshallCoeffs
+    {
+        BirdCorrection  true;
+    }
+
+    singlePhaseMixtureCoeffs
+    {
+        phases
+        (
+            liquid
+            {
+                H2O    1;
+            }
+        );
+    }
+
+    liquidEvaporationBoilCoeffs
+    {
+        enthalpyTransfer enthalpyDifference;
+
+        activeLiquids    (H2O);
+    }
+}
+
+
+cloudFunctions
+{
+    NearField530mm
+    {
+        type            particleCollector;
+        mode            concentricCircle;
+        origin          (0 0.53 0);
+        radius          (0.0025 0.005 0.01 0.0125 0.015 0.0175 0.02 0.0225 0.025 0.0275 0.03 0.0325 0.035);
+        nSector         4;
+        refDir          (1 0 0);
+        normal          (0 1 0);
+
+        negateParcelsOppositeNormal no;
+        surfaceFormat   vtk;
+        resetOnWrite    yes;
+        log             yes;
+        removeCollected no;
+        sampleParticles no;
+    }
+
+    FarField260mm
+    {
+        type            particleCollector;
+        mode            concentricCircle;
+        origin          (0 0.26 0);
+        radius          (0.0025 0.005 0.0075 0.01 0.015 0.02 0.025 0.03 0.035 0.04 0.045 0.05 0.055 0.06 0.065 0.070);
+        nSector         4;
+        refDir          (1 0 0);
+        normal          (0 1 0);
+
+        negateParcelsOppositeNormal no;
+        surfaceFormat   vtk;
+        resetOnWrite    yes;
+        log             yes;
+        removeCollected no;
+        sampleParticles no;
+    }
+}
+
+// ************************************************************************* //

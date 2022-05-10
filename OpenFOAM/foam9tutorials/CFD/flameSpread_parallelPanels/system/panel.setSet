@@ -1,0 +1,7 @@
+faceSet panel new boxToFace (-0.1501 0.0 -0.301)(-0.1499 2.4 0.301)
+faceSet panelRight new boxToFace (0.1499 0.0 -0.301)(0.1501 2.4 0.301)
+faceSet panel add faceToFace panelRight
+cellSet panelSlaveCells new boxToCell (-0.15 0.0 -0.3) (0.15 2.4 0.3) 
+cellZoneSet panelSlaveCells new setToCellZone panelSlaveCells
+faceSet panelRight remove
+faceSet burnerFace remove

@@ -1,0 +1,15 @@
+species
+(
+    O2
+    N2
+    H2O
+);
+
+reactions
+{
+    propaneReaction
+    {
+        type         irreversibleinfiniteReaction;
+        reaction     "O2 + 3.76N2 = O2 + 3.76N2";
+    }
+}

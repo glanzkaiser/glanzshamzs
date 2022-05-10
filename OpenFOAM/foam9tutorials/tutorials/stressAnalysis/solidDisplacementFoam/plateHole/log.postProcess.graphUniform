@@ -1,0 +1,390 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : postProcess -func graphUniform
+Date   : May 10 2022
+Time   : 10:02:37
+Host   : "GFreya"
+PID    : 5313
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/tutorials/stressAnalysis/solidDisplacementFoam/plateHole
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading set description:
+    line
+
+Time = 0
+
+Reading fields:
+
+Executing functionObjects
+--> FOAM Warning : 
+    From function Foam::label Foam::sampledSets::classifyFields()
+    in file sampledSet/sampledSets/sampledSetsGrouping.C at line 140
+    Cannot find registered field matching sigmaxx
+
+Time = 20
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 40
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 60
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 80
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 100
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 120
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 140
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 160
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 180
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 200
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 220
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 240
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 260
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 280
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 300
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 320
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 340
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 360
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 380
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 400
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 420
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 440
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 460
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 480
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 500
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 520
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 540
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 560
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 580
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 600
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 620
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 640
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 660
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 680
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 700
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 720
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 740
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 760
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 780
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 800
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 820
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 840
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 860
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 880
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 900
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 920
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 940
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 960
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 980
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+Time = 1000
+
+Reading fields:
+    volScalarFields: sigmaxx
+
+Executing functionObjects
+
+End
+

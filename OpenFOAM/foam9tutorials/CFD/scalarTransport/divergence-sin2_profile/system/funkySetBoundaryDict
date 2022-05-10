@@ -1,0 +1,33 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.7.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      funkySetBoundaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scalar 
+{
+    field T;
+    expressions
+    (
+        {
+            target value;
+            patchName left2;
+            //condition "pos().y < 0.2"; //does not work
+            expression "pow(sin(3.0*pi*(pos().y-0.1666)),2.0)";
+        }
+    );
+}
+
+// ************************************************************************* //
+

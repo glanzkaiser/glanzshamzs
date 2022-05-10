@@ -1,0 +1,10 @@
+# vtk DataFile Version 2.0
+burnerNE
+BINARY
+DATASET POLYDATA
+POINTS 0 float
+
+CELL_DATA 0
+FIELD attributes 1
+faceID 1 0 int
+

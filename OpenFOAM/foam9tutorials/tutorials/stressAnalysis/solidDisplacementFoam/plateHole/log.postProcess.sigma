@@ -1,0 +1,385 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : postProcess -func components(sigma)
+Date   : May 10 2022
+Time   : 10:02:35
+Host   : "GFreya"
+PID    : 5312
+I/O    : uncollated
+Case   : /root/OpenFOAM/root-9/run/tutorials/stressAnalysis/solidDisplacementFoam/plateHole
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Time = 0
+
+Reading fields:
+
+Executing functionObjects
+--> FOAM Warning :     functionObjects::components components(sigma) cannot find required object sigma
+--> FOAM Warning :     functionObjects::components components(sigma) failed to execute.
+
+Time = 20
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 40
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 60
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 80
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 100
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 120
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 140
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 160
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 180
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 200
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 220
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 240
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 260
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 280
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 300
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 320
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 340
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 360
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 380
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 400
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 420
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 440
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 460
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 480
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 500
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 520
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 540
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 560
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 580
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 600
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 620
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 640
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 660
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 680
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 700
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 720
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 740
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 760
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 780
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 800
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 820
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 840
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 860
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 880
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 900
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 920
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 940
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 960
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 980
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+Time = 1000
+
+Reading fields:
+    volSymmTensorFields: sigma
+
+Executing functionObjects
+
+End
+

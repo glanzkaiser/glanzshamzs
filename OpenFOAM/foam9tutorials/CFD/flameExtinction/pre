@@ -1,0 +1,30 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Set application name
+application=`getApplication`
+
+runApplication blockMesh
+rm -f log.blockMesh
+
+runApplication snappyHexMesh -overwrite
+rm -f log.snappyHexMesh
+
+runApplication topoSet -dict system/topoSetDict
+rm -f log.topoSet
+
+runApplication createPatch -overwrite 
+rm -f log.createPatch
+
+runApplication createPatch -dict system/createPatchDictBlockage -overwrite
+rm -f log.createPatch
+
+rm 0/ignArea.gz
+cp -f 0ignArea 0/ignArea
+runApplication funkySetFields -time 0
+rm -f log.funkySetFields
+
+# ----------------------------------------------------------------- end-of-file

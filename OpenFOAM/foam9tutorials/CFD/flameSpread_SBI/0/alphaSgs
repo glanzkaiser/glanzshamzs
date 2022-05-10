@@ -1,0 +1,56 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.2                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      alphaSgs;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    hood
+    {
+        type        zeroGradient;
+    }
+
+    walls
+    {
+        type        zeroGradient;
+    }
+
+    open
+    {
+        type        zeroGradient;
+    }
+
+    burner
+    {
+        type        zeroGradient;
+    }
+
+    "(region0_to.*)" 
+    {
+        type              SFTWallFunctionFlameSpread; 
+        L                 1.5;
+        Tv                319.;
+        chi               0.79;
+        chi_burner        0.3;
+        chu_wall          0.35; 
+        value             uniform 0;
+    }
+}
+
+// ************************************************************************* //

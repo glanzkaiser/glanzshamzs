@@ -1,0 +1,62 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.7.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+velocity 
+{
+    field U;
+    expressions
+    (
+        {
+            target value;
+            patchName inlet;
+          //  expression "pow((pow(pos().x,2.0)+pow(pos().z,2.0)),0.5)";
+            expression "vector(0,1,0) * 5.3 * exp(- pow ( (pow((pow(pos().x,2.0)+pow(pos().z,2.0)),0.5) / (0.5*0.072)) , 10.0) )";
+        }  
+    );
+}
+/*
+velocity2 
+{
+    field U;
+    expressions
+    (
+        {
+            target referenceField;
+            patchName inlet;
+          //  expression "pow((pow(pos().x,2.0)+pow(pos().z,2.0)),0.5)";
+            expression "vector(0,1,0) * 5.3 * exp(- pow ( (pow((pow(pos().x,2.0)+pow(pos().z,2.0)),0.5) / (0.5*0.072)) , 10.0) )";
+        }  
+    );
+}
+
+temperature 
+{
+    field T;
+    expressions
+    (
+        {
+            target value;
+            patchName inlet;
+          //  expression "pow((pow(pos().x,2.0)+pow(pos().z,2.0)),0.5)";
+            expression "293.15 + ( (205-20) * exp(- pow ( (pow((pow(pos().x,2.0)+pow(pos().z,2.0)),0.5) / (0.57*0.072)) , 10.0)) )";
+        }  
+    );
+}
+*/
+// ************************************************************************* //
+
+
