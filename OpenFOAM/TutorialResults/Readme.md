@@ -5,7 +5,10 @@ This is the result of running the OpenFOAM tutorials either in video or picture 
 You need to install Gnuplot first, it can be used to plot the numerical solutions and the analytic solutions.
 The computer that we use with OpenFOAM software will calculate numerical solutions after the solver is being run.
 
-To plot StressAnalysis tutorial from OpenFOAM official user guide (after running the solver or run the ./Allrun):
+To plot StressAnalysis tutorial from OpenFOAM official user guide (https://cfd.direct/openfoam/user-guide/v9-plateHole/).
+
+(Assuming you have run the solver or run the ./Allrun):
+
 #### cd $FOAM_RUN/stressAnalysis/solidDisplacementFoam/plateHole/postProcessing/graphUniform/100/
 #### gnuplot
 #### set xlabel "Distance (m)"
