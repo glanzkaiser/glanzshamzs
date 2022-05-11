@@ -9,11 +9,11 @@ To plot StressAnalysis tutorial from OpenFOAM official user guide (https://cfd.d
 
 (Assuming you have run the solver or run the ./Allrun):
 
-#### cd $FOAM_RUN/stressAnalysis/solidDisplacementFoam/plateHole/postProcessing/graphUniform/100/
-#### gnuplot
-#### set xlabel "Distance (m)"
-#### set ylabel "Stress (kPa)"
-#### plot [0.5:2] [0:] "line_sigmaxx.xy" title "Numerical prediction",
+        cd $FOAM_RUN/stressAnalysis/solidDisplacementFoam/plateHole/postProcessing/graphUniform/100/
+        gnuplot
+        set xlabel "Distance (m)"
+        set ylabel "Stress (kPa)"
+        plot [0.5:2] [0:] "line_sigmaxx.xy" title "Numerical prediction",
         1e4*(1+(0.125/(x**2))+(0.09375/(x**4))) title "Analytical solution"
 
 ![Stress Analysis](StressAnalysis.png)
