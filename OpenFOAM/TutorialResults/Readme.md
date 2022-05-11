@@ -16,7 +16,7 @@ To plot StressAnalysis tutorial from OpenFOAM official user guide (https://cfd.d
 #### plot [0.5:2] [0:] "line_sigmaxx.xy" title "Numerical prediction",
         1e4*(1+(0.125/(x**2))+(0.09375/(x**4))) title "Analytical solution"
 
-[StressAnalysis.png]
+![Stress Analysis](StressAnalysis.png)
 
 # Mathematics class to comprehend and understand more
 1. Mathematical Methods (textbook: Elementary Differential Equations and Boundary Value Problems, Boyce DiPrima)
