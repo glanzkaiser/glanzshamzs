@@ -1,5 +1,5 @@
 # About
-Visualization is the transformation of data or information into pictures. isualization engages the primary human sensory apparatus, vision,
+Visualization is the transformation of data or information into pictures. Visualization engages the primary human sensory apparatus, vision,
 as well as the processing power of the human mind. The result is a simple and effective medium for communicating complex and/or voluminous information.
 
 # Challenge in Visualization
@@ -61,5 +61,9 @@ When we specify a hue we use the range from zero to one, where zero corresponds 
 # Lights
 The point source lighting model assumes that the light is emitted in all directions from a single point in space. For an infinite light source, we assume that it is positioned infinitely far away from what it is illuminating. This is significant because it implies that the incoming rays from such a source will be parallel to each other. The emissions of a local light source, such as a lamp in a room, are not parallel.
 
+# Surface Properties
+As rays of light travel through space, some of them intersect our actors. When this happens, the rays of light interact with the surface of the actor to produce a color. Part of this resulting color is actually not due to direct light, but rather from ambient light that is being reflected or scattered from other objects. An ambient lighting model accounts for this and is a simple approximation of the complex scattering of light that occurs in the real world.
+
+It is important to realize that a white light shining on a blue ball is indistinguishable from a blue light shining on a white ball.
 
 
