@@ -1,5 +1,5 @@
 git add .
-git commit -m "Tidying up"
+git commit -m "Add Numerical Engineering in Python"
 git branch -M main
 git remote add origin https://github.com/glanzkaiser/glanzshamzs.git
 git push -u origin main
