@@ -31,5 +31,28 @@ A lot of problems around, and we want to solve them, but we need to learn togeth
 
 Congratulation for your Master degree Glanz, hopefully it will brings more knowledge and ideas for us the 8 Queens.
 
+# Status
+ODE-> Done, check and simulate
+Project Chrono -> check and simulate
+PyBullet -> check and simulate
+Tokamak -> MOVE ONLY check to create demo with this
+
+## Links
+https://api.projectchrono.org/tutorial_install_project.html
+http://www.adrianboeing.com/pal/index.html
+https://adamdawes.com/programming/tokamak/01_Framework.html
+
+# Lasthrim Reference
+Lasthrim reference:
+https://github.com/NaysanSaran/visualMath
+https://docs.juliaplots.org/stable/
+https://mitmath.github.io/18S096SciML/lecture2/ml
+https://github.com/tonygallen/JPUG/blob/master/Plotting%20Tutorial.ipynb
+https://www.analyticsvidhya.com/blog/2017/10/comprehensive-tutorial-learn-data-science-julia-from-scratch/
+https://gist.github.com/gizmaa/7214002
+https://numpy.org/numpy-tutorials/content/tutorial-svd.html
+https://docs.scipy.org/doc/scipy/tutorial/optimize.html
+https://www.youtube.com/watch?v=RNKVHQzvaRM
+
 # Written by:
 Hamzst/Alice
