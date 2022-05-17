@@ -7,19 +7,19 @@ OpenFOAM is a framework for developing application executables that use packaged
 # Geometry in OpenFOAM
 Salome is a good option for creating complex geometry otherwise use what already provided for simple example in $FOAM_TUTORIAL then
 
-   blockMesh
-   snappyHexMesh
+   #### blockMesh
+   #### snappyHexMesh
   
 are more than enough
  
 # How to Simulate OpenFOAM with Paraview
 When the calculation terminated (e.g. after pisoFoam, simpleFoam, etc) type 
 
-  touch results.foam
+  #### touch results.foam
   
 or
 
-  paraFoam -builtin
+  #### paraFoam -builtin
   
 # Hamzst' Opinion on OpenFOAM
 A nice open source software on CFD, we can solve a lot of real world problems by modifying the current solvers or combining the existing solvers, by permutation methods. 
