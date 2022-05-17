@@ -1,4 +1,7 @@
-# About
+# About VTK
+The Visualization Toolkit (VTK) is open source software for manipulating and displaying scientific data. It comes with state-of-the-art tools for 3D rendering, a suite of widgets for 3D interaction, and extensive 2D plotting capability.
+
+# About Visualization
 Visualization is the transformation of data or information into pictures. Visualization engages the primary human sensory apparatus, vision,
 as well as the processing power of the human mind. The result is a simple and effective medium for communicating complex and/or voluminous information.
 
@@ -65,5 +68,17 @@ The point source lighting model assumes that the light is emitted in all directi
 As rays of light travel through space, some of them intersect our actors. When this happens, the rays of light interact with the surface of the actor to produce a color. Part of this resulting color is actually not due to direct light, but rather from ambient light that is being reflected or scattered from other objects. An ambient lighting model accounts for this and is a simple approximation of the complex scattering of light that occurs in the real world.
 
 It is important to realize that a white light shining on a blue ball is indistinguishable from a blue light shining on a white ball.
+
+We have light sources that are emitting rays of light and actors with surface properties. At every point on the surface of our actors this interaction results in some composite color
+
+# Cameras
+We need a camera to render the scene. There are a number of important factors that determine how a 3D scene gets projected onto a plane to form a 2D image.
+
+These are the position, orientation, and focal point of the camera, the method of camera projection, and the location of the camera clipping planes. The position and focal point of the camera define the location of the camera and where it points. The vector defined from the camera position to the focal point is called the direction of projection. The camera image plane is located at the focal point and is typically perpendicular to the projection vector. The camera orientation is controlled by the position and focal point plus the camera view-up vector. Together these completely define the camera view.
+
+The method of projection controls how the actors are mapped to the image plane. Orthographic projection is a parallel mapping process. In orthographic projection (or parallel projection) all rays of light entering the camera are parallel to the projection vector. Perspective projection occurs when all light rays go through a common point (i.e., the viewpoint or center of projection).
+
+Once we have the camera situated, we can generate our 2D image. Some of the rays of light traveling through our 3D space will pass through the lens on the camera. These rays then strike a flat surface to produce an image. This effectively projects our 3D scene into a 2D image. The camera’s position and other properties determine which rays of light get captured and projected. More specifically, only rays of light that intersect the camera’s position, and are within its viewing frustum, will affect the resulting 2D image.
+
 
 
