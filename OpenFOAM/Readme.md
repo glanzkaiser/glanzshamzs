@@ -6,14 +6,19 @@ OpenFOAM is a framework for developing application executables that use packaged
 
 # Geometry in OpenFOAM
 Salome is a good option for creating complex geometry otherwise use what already provided for simple example in $FOAM_TUTORIAL then
+
   blockMesh
   snappyHexMesh
- are more than enough
+  
+are more than enough
  
 # How to Simulate OpenFOAM with Paraview
 When the calculation terminated (e.g. after pisoFoam, simpleFoam, etc) type 
+
   touch results.foam
+  
 or
+
   paraFoam -builtin
   
 # Hamzst' Opinion on OpenFOAM
