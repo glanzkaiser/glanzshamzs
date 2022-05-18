@@ -133,7 +133,7 @@ int main()
 	'L' in front of the string. The Irrlicht Engine uses wide character
 	strings when displaying text.
 	*/
-	device->setWindowCaption(L"Hello World! - Irrlicht Engine Demo");
+	device->setWindowCaption(L"From GlanzFreya! - Irrlicht Engine Demo");
 
 	/*
 	Get a pointer to the VideoDriver, the SceneManager and the graphical
@@ -150,7 +150,7 @@ int main()
 	The text is placed at the position (10,10) as top left corner and
 	(260,22) as lower right corner.
 	*/
-	guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",
+	guienv->addStaticText(L"Hello World! GlanzFreya disent a Irrlicht: Je vous remercie!",
 		rect<s32>(10,10,260,22), true);
 
 	/*
@@ -165,7 +165,7 @@ int main()
 	other supported file format. By the way, that cool Quake 2 model
 	called sydney was modelled by Brian Collins.
 	*/
-	IAnimatedMesh* mesh = smgr->getMesh("../../media/sydney.md2");
+	IAnimatedMesh* mesh = smgr->getMesh("/opt/hamzstlib/Physics/irrlicht-1.8.5/media/sydney.md2");
 	if (!mesh)
 	{
 		device->drop();
@@ -185,7 +185,7 @@ int main()
 	{
 		node->setMaterialFlag(EMF_LIGHTING, false);
 		node->setMD2Animation(scene::EMAT_STAND);
-		node->setMaterialTexture( 0, driver->getTexture("../../media/sydney.bmp") );
+		node->setMaterialTexture( 0, driver->getTexture("/opt/hamzstlib/Physics/irrlicht-1.8.5/media/sydney.bmp") );
 	}
 
 	/*
