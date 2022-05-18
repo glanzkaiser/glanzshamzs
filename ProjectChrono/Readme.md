@@ -5,7 +5,7 @@ The examples and tutorial in C++ for Project Chrono using Irrlicht
 #### Irrlicht 1.8.5
 
 # Tutorial
-TUtorial Videos for Project Chrono and Irrlicht have been made and available at:
+Tutorial Videos for Project Chrono and Irrlicht have been made and available at:
 
 https://www.youtube.com/watch?v=X7YCNnkWK9I&list=PLjKBQAK4kvpiLYBVSjuHMAfqqKFKwkPa1
 
