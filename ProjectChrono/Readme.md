@@ -11,8 +11,13 @@ You shouldn't use GCC raw, you're making your life much harder. You should use c
 
 You don't need to compile in all of the object files for irrlicht (these are already included in libirrlicht.a), so you only need to link against the library that has already been compiled.
 
-The -IPATH directive tells the compiler to look in PATH for include files
-the -LPATH directive tells the compiler to look in PATH for library files
+#### -IPATH 
+
+directive tells the compiler to look in PATH for include files
+
+#### -LPATH 
+
+directive tells the compiler to look in PATH for library files
 
 #### -I$(IRRLICHT_PATH)/include 
 
