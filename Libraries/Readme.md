@@ -16,6 +16,8 @@ For static library type:
  
  (the first compiles code into object files, and the second archives the object files into a static archive)
  
+ After that, you can link programs with BLAS using -lblas on command-line (and optionnaly, -L/path/to/blas if the library is not in the current directory or the environment variable for LIBRARY_PATH has not been set for BLAS)
+ 
 ## LAPACK
 Enter the src folder that contain the routine files in fortran (.f)
 
