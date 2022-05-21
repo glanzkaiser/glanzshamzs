@@ -32,10 +32,13 @@ A lot of problems around, and we want to solve them, but we need to learn togeth
 Congratulation for your Master degree Glanz, hopefully it will brings more knowledge and ideas for us the 8 Queens.
 
 # Status
-ODE-> Done, check and simulate
-Project Chrono -> check and simulate
-PyBullet -> check and simulate
-Tokamak -> MOVE ONLY check to create demo with this
+
+| Name | Details |
+| -------------     | ------------- | 
+| ODE               | Will check and simulate
+| Project Chrono    | (On Progress) Try to build without Demos will simulate for several modules
+| PyBullet          | Will check and simulate
+| LTokamak          | Can't be installed with premake -> Learn to create demo with the headers (.h)
 
 ## Links
 https://api.projectchrono.org/tutorial_install_project.html
