@@ -38,7 +38,7 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 | ODE               | Will check and simulate
 | Project Chrono    | (On Progress) Try to build without Demos will simulate for several modules
 | PyBullet          | Will check and simulate
-| LTokamak          | Can't be installed with premake -> Learn to create demo with the headers (.h)
+| Tokamak          | Can't be installed with premake -> Learn to create demo with the headers (.h)
 
 ## Links
 https://api.projectchrono.org/tutorial_install_project.html
