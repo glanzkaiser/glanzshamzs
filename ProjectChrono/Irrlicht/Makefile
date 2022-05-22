@@ -13,7 +13,7 @@ endif
 
 LIBS += -lGL -lXxf86vm  -lX11 -L$(IRRLICHT_PATH)/lib/$(SYSTEM) -lIrrlicht
 
-TARGET = experimental
+TARGET = ex18-splitscreen
 
 SOURCES += $(TARGET).cpp
 # if more cpp files are created, add them here
