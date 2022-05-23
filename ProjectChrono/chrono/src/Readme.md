@@ -1,29 +1,16 @@
 # About
-The src folder contains the C++ (.cpp) files for demo in project Chrono.
+This src folder contains the C++ (.cpp) files for building demo in Project Chrono after you have built it as a whole.
 
 Project Chrono is a physics-based simulation infrastructure based on a platform-independent, open-source design.
 
-# Edit Makefile
-You can edit the Makefile to adjust with your target file, the default target is experimental.cpp
+# Set Environment Variable
+Set the variable Chrono_DIR to specify the location of the ChronoConfig.cmake, after you build Project Chrono-7.0.3 or from the develop branch of their github, you will have the cmake folder under the build folder.
 
-# Notes on using Makefile instead of Gcc
-Based on a forum that I read:
+Set:
 
-You shouldn't use GCC raw, you're making your life much harder. 
-You should use cmake or another build tool for any serious project. Using GCC or a makefile is only good for when you have small projects without many dependencies.
+#### $Chrono_DIR = "/opt/hamzstlib/Physics/chrono-7.0.3/build/cmake"
 
-You don't need to compile in all of the object files for irrlicht (these are already included in libirrlicht.a), 
-so you only need to link against the library that has already been compiled.
+# Edit CMakeLists.txt
+You can edit the CMakeLists.txt to adjust with your target file, the default target is my_example.cpp
 
-#### -IPATH 
 
-directive tells the compiler to look in PATH for include files
-
-#### -LPATH 
-
-directive tells the compiler to look in PATH for library files
-
-#### -I$(IRRLICHT_PATH)/include 
-
-tells the compiler to look in that path for the include files
-When <irrlicht.h> is included in the cpp file it will look in this path for it (the other includes from this will be found as well)
