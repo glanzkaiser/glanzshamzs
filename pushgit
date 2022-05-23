@@ -1,5 +1,5 @@
 git add .
-git commit -m "Chrono Bin and Libs, Freya thanks for the Eagle on Kathmandu today"
+git commit -m "Quest'ce que je ne veux pas faire pour toi Freya?"
 git branch -M main
 git remote add origin https://github.com/glanzkaiser/glanzshamzs.git
 git push -u origin main
