@@ -10,6 +10,14 @@ Set:
 
 #### $Chrono_DIR = "/opt/hamzstlib/Physics/chrono-7.0.3/build/cmake"
 
+# Test it
+At this directory type:
+    
+    mkdir build && cd build
+    cmake ..
+    make
+    ./myexe
+    
 # Edit CMakeLists.txt
 You can edit the CMakeLists.txt to adjust with your target file, the default target is my_example.cpp
 
