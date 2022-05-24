@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
     {
         // Getting thread number
         tid = omp_get_thread_num();
-        printf("Beinvenue sur GFreya OS = %d\n",
+        printf("Bienvenue sur GFreya OS = %d\n",
                tid);
   
         if (tid == 0) {
