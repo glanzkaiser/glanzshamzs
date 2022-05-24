@@ -36,7 +36,8 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 | Name | Details |
 | -------------     | ------------- | 
 | ODE               | Will check and simulate
-| Project Chrono    | (On Progress) Try to build without Demos will simulate for several modules
+| Kratos            | Will check and simulate and see the different between Chrono
+| Project Chrono    | (On Progress) Compile stop at 91% but Demos Run Fine
 | PyBullet          | Will check and simulate
 | Tokamak          | Can't be installed with premake -> Learn to create demo with the headers (.h)
 
