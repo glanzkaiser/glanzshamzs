@@ -11,15 +11,15 @@ Multiple threads of a process will have access to the same memory.
 
 ## Check the GCC version of the compiler
   
-  gcc --version
+    gcc --version
   
 ## Check whether the OpenMP features are configured into our compiler or not
 
-  echo |cpp -fopenmp -dM |grep -i open
+    echo |cpp -fopenmp -dM |grep -i open
 
 ## Setting the number of threads
   
-  export OMP_NUM_THREADS=8
+    export OMP_NUM_THREADS=8
 
 For hardware with 8 cores processors.
 n OpenMP, Before running the code, we can initialise the number of threads to be executed using the following command. 
@@ -27,8 +27,8 @@ Here, we set the number of threads to be getting executed to be 8 threads.
 
 # Run the Test
 
-  gcc -o test -fopenmp test.c
-  ./test
+    gcc -o test -fopenmp test.c
+    ./test
 
 # Source: 
 https://www.geeksforgeeks.org/openmp-introduction-with-installation-guide/
