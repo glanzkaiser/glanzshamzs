@@ -1,6 +1,9 @@
 # glanzshamzs
 Science Libraries and Files for GFreya OS
 
+## Current Size (May 25th 2022)
+1.73 GB
+
 # Why We Create this repository?
 When we created GFreya OS, we have a plan on our mind to create a software like MATLAB but for different branch of science and engineering. Let me introduce those:
 1. Hamzstlab -> for Physics
@@ -36,10 +39,12 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 | Name | Details |
 | -------------     | ------------- | 
 | ODE               | Will check and simulate
-| Kratos            | Will check and simulate and see the different between Chrono
+| Kratos            | Rebuild to add all applications, simulate and see the different between Chrono
 | Project Chrono    | (On Progress) Compile stop at 91% but Demos Run Fine
 | PyBullet          | Will check and simulate
-| Tokamak          | Can't be installed with premake -> Learn to create demo with the headers (.h)
+| Tokamak           | Can't be installed with premake -> Learn to create demo with the headers (.h)
+| Trilinos          | Learn to configure and build it
+| oneMKL            | Install it after Trilinos
 
 ## Links
 https://api.projectchrono.org/tutorial_install_project.html
