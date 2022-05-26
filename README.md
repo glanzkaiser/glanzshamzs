@@ -38,13 +38,16 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 
 | Name | Details |
 | -------------     | ------------- | 
+| GSL               | Create examples and simulate
+| oneTBB            | Create examples and simulate
 | ODE               | Will check and simulate
 | Kratos            | Rebuild to add all applications, simulate and see the different between Chrono
 | Project Chrono    | (On Progress) Compile stop at 91% but Demos Run Fine
 | PyBullet          | Will check and simulate
 | Tokamak           | Can't be installed with premake -> Learn to create demo with the headers (.h)
 | Trilinos          | Learn to configure and build it
-| oneMKL            | Install it after Trilinos
+
+
 
 ## Links
 https://api.projectchrono.org/tutorial_install_project.html
