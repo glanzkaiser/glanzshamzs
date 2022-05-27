@@ -66,6 +66,10 @@ The build directory (trilinosbuild) and the source directory (the one you git cl
     -D Boost_INCLUDE_DIRS:FILEPATH="/usr/include" \
     ../Trilinos &&
     make -j4
-  
- # Other Info
- Much of Trilinos was developed under funding from the Advanced Scientific Computing Initiative (ASCI). A major focus of ASCI is Software Quality Engineering(SQE), which is the set of practices for ensuring that high-quality, relevant software is produced, and that software processes are well defined, documented and followed. 
+ 
+You may adjust the options above and choose packages suitable for your needs and system, look at the list of packages here:
+
+https://github.com/trilinos/Trilinos/blob/master/PackagesList.cmake
+
+# Other Info
+Much of Trilinos was developed under funding from the Advanced Scientific Computing Initiative (ASCI). A major focus of ASCI is Software Quality Engineering(SQE), which is the set of practices for ensuring that high-quality, relevant software is produced, and that software processes are well defined, documented and followed. 
