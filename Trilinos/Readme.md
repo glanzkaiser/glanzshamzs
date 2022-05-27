@@ -38,7 +38,7 @@ Presently Trilinos are focused on the following algorithmic areas:
 # How to Build
 The build directory (trilinosbuild) and the source directory (the one you git clone -> Trilinos) need to be made parallel, unlike other package where we create the build inside the source directory, this one needs to be made parallel. Parallel means if you see a directory you can see the folder of the source and build directory together side by side.
 
-Below is the scripts for configuring, building and installing Trilinos on GFreya OS. It has been tested and worked.
+Below is the scripts for configuring, building and installing Trilinos with Tpetra and all linear solvers on GFreya OS. It has been tested and worked.
 
     git clone https://github.com/trilinos/Trilinos.git
     mkdir -v trilinosbuild
