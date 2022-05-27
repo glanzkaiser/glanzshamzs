@@ -8,3 +8,9 @@ The examples and tutorial in C++ for Project Chrono using Irrlicht
 Tutorial Videos for Project Chrono and Irrlicht have been made and available at:
 
 https://www.youtube.com/watch?v=X7YCNnkWK9I&list=PLjKBQAK4kvpiLYBVSjuHMAfqqKFKwkPa1
+
+
+# Sources
+https://irrlicht.sourceforge.io/docu/index.html
+
+https://api.projectchrono.org/tutorial_root.html
