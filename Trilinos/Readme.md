@@ -1,4 +1,9 @@
 # About
+
+The Trilinos Project is an effort to facilitate the design, development, integration and ongoing support of mathematical software libraries within an object-oriented framework for the solution of large-scale, complex multi-physics engineering and scientific problems. Trilinos addresses two fundamental issues of developing software for these problems: (i) Providing a streamlined pro- cess and set of tools for development of new algorithmic implementations and (ii) promoting interoperability of independently developed software.
+
+Trilinos uses a two-level software structure designed around collections of packages. A Trilinos package is an integral unit usually developed by a small team of experts in a particular algorithms area such as algebraic preconditioners, nonlinear solvers, etc. Packages exist underneath the Trilinos top level, which provides a common look-and-feel, including configuration, documentation, licensing, and bug-tracking.
+
 A core requirement of many engineering and scientific applications is the need to solve linear and non-linear systems of equations, eigensystems and other related problems. Thus it is no surprise that any part of the application that solves these problems is called a “solver.” The exact definition of what specifically constitutes a solver depends on many factors. However, a good working definition of a solver is the following: any piece of software that finds unknown values for some set of discrete governing equations in an application.
 
 Another characteristic of solvers is that we can often implement them in such a way that they are “general-purpose”, so that the details of how the discrete problem was formed are not specifically needed for the solver to work (although information about problem characteristics can often be vital to robust solutions.) Advanced solution techniques increasingly require more than “just a matrix” since a the matrix alone discards so much information about the origin of the problem and how it might best be solved. 
@@ -61,4 +66,6 @@ The build directory (trilinosbuild) and the source directory (the one you git cl
     -D Boost_INCLUDE_DIRS:FILEPATH="/usr/include" \
     ../Trilinos &&
     make -j4
-    
+  
+ # Other Info
+ Much of Trilinos was developed under funding from the Advanced Scientific Computing Initiative (ASCI). A major focus of ASCI is Software Quality Engineering(SQE), which is the set of practices for ensuring that high-quality, relevant software is produced, and that software processes are well defined, documented and followed. 
