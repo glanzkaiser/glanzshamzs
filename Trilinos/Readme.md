@@ -141,5 +141,3 @@ https://trilinos.github.io/getting_started.html
 https://github.com/trilinos/Trilinos_tutorial/wiki/TrilinosHandsOnTutorial
 
 https://trilinos.github.io/packages.html
-
-https://github.com/trilinos/Trilinos/blob/master/PackagesList.cmake
