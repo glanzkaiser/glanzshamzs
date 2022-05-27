@@ -24,7 +24,7 @@ You can edit the CMakeLists.txt to adjust with your target file, the default tar
 # citybus.cpp Still Not Works
 OpenMP is not installed?
 
-# Source
+# Sources
 https://api.projectchrono.org/tutorial_install_project.html
 
 https://api.projectchrono.org/tutorial_root.html
