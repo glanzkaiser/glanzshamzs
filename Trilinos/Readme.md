@@ -38,6 +38,8 @@ Presently Trilinos are focused on the following algorithmic areas:
 # How to Build
 The build directory (trilinosbuild) and the source directory (the one you git clone -> Trilinos) need to be made parallel, unlike other package where we create the build inside the source directory, this one needs to be made parallel. Parallel means if you see a directory you can see the folder of the source and build directory together side by side.
 
+Below is the scripts for configuring, building and installing Trilinos on GFreya OS. It has been tested and worked.
+
     git clone https://github.com/trilinos/Trilinos.git
     mkdir -v trilinosbuild
     cd trilinosbuild
@@ -45,7 +47,12 @@ The build directory (trilinosbuild) and the source directory (the one you git cl
     -D CMAKE_INSTALL_PREFIX=/opt/hamzstlib/trilinos \
     -D Trilinos_ENABLE_Teuchos=ON \
     -D Trilinos_ENABLE_Tpetra=ON \
-    -D Trilinos_ENABLE_Tpetra=ON \
+    -D Trilinos_ENABLE_Anasazi=ON \
+    -D Trilinos_ENABLE_Amesos2=ON \
+    -D Trilinos_ENABLE_Belos=ON \
+    -D Trilinos_ENABLE_Ifpack2=ON \
+    -D Trilinos_ENABLE_MueLu=ON \
+    -D Trilinos_ENABLE_Stratimikos=ON \
     -D BUILD_SHARED_LIBS:BOOL=ON \
     -D TPL_ENABLE_MPI:BOOL=ON \
     -D MPI_BASE_DIR="/opt/hamzstlib" \
