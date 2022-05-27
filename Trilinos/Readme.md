@@ -71,5 +71,57 @@ You may adjust the options above and choose packages suitable for your needs and
 
 https://github.com/trilinos/Trilinos/blob/master/PackagesList.cmake
 
+# Linear Solvers
+Trilinos provides a wide-variety of solution methods for linear and eigen systems.
+
+You should first decide whether you want to use the Epetra or Tpetra sparse linear algebra library. This decision will determine which solvers and preconditioners you can use, as not all solvers are compatible with both.
+
+Epetra uses integer ordinal types and double scalar types. 
+
+Tpetra is templated on the ordinal type, scalar type, and node type. Tpetra allows creation of problems with any number of DOFs, problems other than of type double, optimized computations on a variety of many-core architectures (including GPUs) through Kokkos, and mixing of MPI and threading.
+
+#### Almost all linear solvers packages compatible with Epetra
+
+## Linear solver interfaces
+
+1. Stratimikos contains a unified set of wrappers to linear solver and preconditioner capabilities in Trilinos. Stratimikos essentially consists of the single class DefaultLinearSolverBuilder. This class takes as input a (nested) parameter list that contains options for the desired solvers and preconditioners.
+
+## Iterative linear and eigen-solvers
+1. AztecOO includes a number of Krylov iterative methods such as conjugate gradient (CG), generalized minimum residual (GMRES) and stabilized biconjugate gradient (BiCGSTAB) to solve systems of equations. AztecOO may use a variety of internally implemented preconditioners, such as SOR, polynomial, domain decomposition, and incomplete factorization preconditioning, as well as preconditioners provided by other Trilinos packages. AztecOO also fully contains the C-language Aztec linear solver package, so any application that is using Aztec can use the AztecOO library in place of Aztec. Note that only bug fixes are being applied to AztecOO. 
+2. Belos provides next-generation iterative linear solvers and a powerful linear solver developer framework.
+3. Anasazi is an extensible and interoperable framework for large-scale eigenvalue algorithms. The motivation for this framework is to provide a generic interface to a collection of algorithms for solving large-scale eigenvalue problems. Anasazi is interoperable because both the matrix and vectors (defining the eigenspace) are considered to be opaque objects—only knowledge of the matrix and vectors via elementary operations is necessary. An implementation of Anasazi is accomplished via the use of interfaces. Current interfaces available include Epetra and so any libraries that understand Epetra matrices and vectors (such as AztecOO) may also be used in conjunction with Anasazi.
+4. KOMPLEX is an add-on module to AZTEC that allows users to solve complex-valued linear systems. KOMPLEX solves a complex-valued linear system Ax=b by solving an equivalent real-valued system of twice the dimension.
+
+## Direct linear solvers
+1. Amesos is a set of C++ interfaces to serial and parallel sparse direct solvers. Amesos contains two nice sparse solvers: KLU and Paraklete. KLU is serial, while Paraklete (distributed with Trilinos 7.0 or higher) is a parallel solver. Amesos also offers an interface to LAPACK, and several other well-know solvers available on the web.
+2. Amesos2 can be considered a templated version of Amesos that supports a wider variety of scalar and index types. Amesos2 provides two internal serial direct solvers, KLU2 (as of release 11.12) and Basker (as of release 11.14). Users of prior releases will need a third-party direct solver, such as SuperLU.
+3. Pliris is an object-oriented interface to a LU solver for dense matrices on parallel platforms. These matrices are double precision real matrices distributed on a parallel machine.
+
+## Preconditioners
+1. ShyLU is designed as a set of domain-decomposition solvers that us distributed memory and node-level solvers and kernels that support the distributed memory solvers. The approaches in ShyLU are algebraic and so can be used as a black-box solvers.
+2. Teko is a package for development and implementation of block preconditioners. This includes support for manipulation and setup of block operators. Furthermore tools exist to support decomposition of a fully coupled operator. Additionally, facilities that allow the construction of approximate inverse operators using the full complement of available preconditioners and solvers are available in Teko. Finally, a small number of generic block preconditioners has been implemented in Teko, including block Jacobi, and block Gauss-Seidel. For the Navier-Stokes equation, Teko has implementations of SIMPLE, PCD and LSC.
+3. Ifpack provides a suite of object-oriented algebraic preconditioners. Ifpack constructors expect an Epetra_RowMatrix object for construction. Ifpack objects interact well with other Trilinos classes. In particular,Ifpack can be used as a preconditioner for AztecOO and smoother in ML.
+4. Ifpack2 can be considered a templated version of Ifpack. It provides SOR type relaxation methods, incomplete factorizations, and additive Schwarz methods.
+5. ML contains a variety of parallel multigrid schemes for preconditioning or solving large sparse linear systems of equations arising primarily from elliptic PDE discretizations. 
+6. MueLu provides a framework for parallel multigrid preconditioning methods for large sparse linear systems. MueLu provides algebraic multigrid methods for symmetric and nonsymmetric systems based on smoothed aggregation. It is designed to be extensible and can in principle support other algebraic multigrid (e.g., Ruge-Stueben) and geometric multigrid methods. MueLu does not provide any smoothers itself, but instead relies on other Trilinos packages for these capabilities. MueLu is templated on the ordinal and scalar types, and it can also exploit the hybrid communication benefits of Tpetra and Kokkos.
+
+# Nonlinear Solvers (Trilinos’ Embedded Nonlinear Analysis Tools)
+The Trilinos Embedded Nonlinear Analysis Tools Capability Area collects the top level algorithms (outermost loops) in a computational simulation or design study. These include: the solution of nonlinear equations, time integration, bifurcation tracking, parameter continuation, optimization, and uncertainty quantification. 
+
+1. The Nonlinear Solver NOX solves a set of nonlinear algebraic equations $f(x)=0$ for $x$ The methods included Newton-based algorithms such as inexact Newton, matrix-free Newton-Krylov, line-search methods, trust-region methods, tensor methods, and homotopy methods. Most of these methods ask the user to supply a Jacobian matrix $J = \frac{df}{dx} $ and include the computational step of approximating $J = \frac{df}{dx} $.
+
+2. The Time Integration algorithms in Tempus solve ODEs of the forms $f(\dot{x}, x, t)=0$ and $\dot{x}=f(x, t)$. The algorithms include explicit and implicit methods with adaptive step size control, including Forward/Backward Euler, Trapezoidal, Explicit Runge-Kutta, Diagonally Implicit Runge-Kutta, Implicit/Explicit Runge-Kutta, Leapfrog, Newmark-Beta, HHT-Alpha, BDF2, operator-splitting, and subcycling. For systems with parameter dependence, $f(\dot{x}, x, t, p)=0$, a sensitivity analysis capability is now available to solve for $\frac{dx}{dp}$.
+
+3. The Time Integration algorithms in Rythmos solve ODEs and DAEs of the form $f(\dot{x}, x, t)=0$. The algorithms include explicit and implicit methods with adaptive step size control and integration order control, including BDF and Runge-Kutta methods. Given an initial conditions $x(t=0)$ , the methods find a series of solutions $x(t_i)$ at time points $t=t_i$. For systems with parameter dependence, $f(\dot{x}, x, t, p)=0$, a sensitivity analysis capability is now available to solve for $\frac{dx}{dp} $ simultaneously. A checkpointing interface for adjoint integrations is under development.
+
+4. A set of Bifurcation Tracking algorithms have been implemented in LOCA. These algorithms augment the steady-state system of equations with extra distinguishing conditions that find a parameter value where there is an exchange of stability ($F(X) = \left[ \begin{array}{c}f(x,p)\ h(x,p) \end{array} \right] =0$). This augmented system is then solved by the nonlinear solver package. Specifically, turning point (folds), pitchfork bifurcations, and Hopf bifurcations can be located and tracked. Similarly, this formulation can be used for Constraint Enforcement, where the extra equations $h(x,p)$ can be supplied by the user, and the same number of parameters can be freed to be part of the solution.
+
+5. PDE-Constrained Optimization algorithms have been implemented in MOOCHO and Aristos packages to take advantage of the efficiencies accessible by embedded algorithms. These have the form: $\mbox{minimize } g(x,p) \mbox{ subject to } f(x,p)=0$ The algorithms use Quasi-Newton approaches to simultaneously minimize the objective function and satisfy the constraint equations. The algorithms can make use if adjoint information if available to most efficiently solve systems with large design spaces. Both reduced-space (MOOCHO) and full-space (Aristos) algorithms have been developed.
+
+6. Automatic Differentiation tools for C++ codes have been developed in SACADO to automatically extract analytic derivative information from codes. This capability is implemented with expression templates that essentially inline code that performs the chain rule. The application code must template a key part of their code (such as the single element fill portion in a finite element code) on the type.
+
+7. Embedded UQ methods are under active development. This includes the Stokhos tools to automate the propagation of random variables through codes, such as stochastic finite element formulations, leveraging the same templated interfaces as the automatic differentiation capability. Other pieces include the subsequent nonlinear solution, transient propoagation, and linear solution of the full stochastic system.
+
+
 # Other Info
 Much of Trilinos was developed under funding from the Advanced Scientific Computing Initiative (ASCI). A major focus of ASCI is Software Quality Engineering(SQE), which is the set of practices for ensuring that high-quality, relevant software is produced, and that software processes are well defined, documented and followed. 
