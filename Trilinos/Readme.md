@@ -132,3 +132,12 @@ The Trilinos Embedded Nonlinear Analysis Tools Capability Area collects the top 
 
 # Other Info
 Much of Trilinos was developed under funding from the Advanced Scientific Computing Initiative (ASCI). A major focus of ASCI is Software Quality Engineering(SQE), which is the set of practices for ensuring that high-quality, relevant software is produced, and that software processes are well defined, documented and followed. 
+
+# Sources
+https://trilinos.github.io/pdfs/Trilinos10.10Tutorial.pdf
+
+https://trilinos.github.io/getting_started.html
+
+https://github.com/trilinos/Trilinos_tutorial/wiki/TrilinosHandsOnTutorial
+
+https://trilinos.github.io/packages.html
