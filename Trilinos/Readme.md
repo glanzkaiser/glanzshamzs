@@ -96,8 +96,8 @@ Tpetra is templated on the ordinal type, scalar type, and node type. Tpetra allo
 ## Iterative linear and eigen-solvers
 1. AztecOO includes a number of Krylov iterative methods such as conjugate gradient (CG), generalized minimum residual (GMRES) and stabilized biconjugate gradient (BiCGSTAB) to solve systems of equations. AztecOO may use a variety of internally implemented preconditioners, such as SOR, polynomial, domain decomposition, and incomplete factorization preconditioning, as well as preconditioners provided by other Trilinos packages. AztecOO also fully contains the C-language Aztec linear solver package, so any application that is using Aztec can use the AztecOO library in place of Aztec. Note that only bug fixes are being applied to AztecOO. 
 2. Belos provides next-generation iterative linear solvers and a powerful linear solver developer framework.
-3. Anasazi is an extensible and interoperable framework for large-scale eigenvalue algorithms. The motivation for this framework is to provide a generic interface to a collection of algorithms for solving large-scale eigenvalue problems. Anasazi is interoperable because both the matrix and vectors (defining the eigenspace) are considered to be opaque objects—only knowledge of the matrix and vectors via elementary operations is necessary. An implementation of Anasazi is accomplished via the use of interfaces. Current interfaces available include Epetra and so any libraries that understand Epetra matrices and vectors (such as AztecOO) may also be used in conjunction with Anasazi. (https://docs.trilinos.org/dev/packages/anasazi/doc/html/index.html)
-4. KOMPLEX is an add-on module to AZTEC that allows users to solve complex-valued linear systems. KOMPLEX solves a complex-valued linear system Ax=b by solving an equivalent real-valued system of twice the dimension. (https://docs.trilinos.org/dev/packages/komplex/doc/html/index.html)
+3. Anasazi is an extensible and interoperable framework for large-scale eigenvalue algorithms. The motivation for this framework is to provide a generic interface to a collection of algorithms for solving large-scale eigenvalue problems. Anasazi is interoperable because both the matrix and vectors (defining the eigenspace) are considered to be opaque objects—only knowledge of the matrix and vectors via elementary operations is necessary. An implementation of Anasazi is accomplished via the use of interfaces. Current interfaces available include Epetra and so any libraries that understand Epetra matrices and vectors (such as AztecOO) may also be used in conjunction with Anasazi. 
+4. KOMPLEX is an add-on module to AZTEC that allows users to solve complex-valued linear systems. KOMPLEX solves a complex-valued linear system Ax=b by solving an equivalent real-valued system of twice the dimension. 
 
 ## Direct linear solvers
 1. Amesos is a set of C++ interfaces to serial and parallel sparse direct solvers. Amesos contains two nice sparse solvers: KLU and Paraklete. KLU is serial, while Paraklete (distributed with Trilinos 7.0 or higher) is a parallel solver. Amesos also offers an interface to LAPACK, and several other well-know solvers available on the web.
@@ -133,6 +133,13 @@ The Trilinos Embedded Nonlinear Analysis Tools Capability Area collects the top 
 # Other Info
 Much of Trilinos was developed under funding from the Advanced Scientific Computing Initiative (ASCI). A major focus of ASCI is Software Quality Engineering(SQE), which is the set of practices for ensuring that high-quality, relevant software is produced, and that software processes are well defined, documented and followed. 
 
+# Packages Documentation
+1. Amesos (https://docs.trilinos.org/latest-release/packages/amesos/doc/html/)
+2. Amesos2 (https://docs.trilinos.org/latest-release/packages/amesos2/doc/html/)
+3. Anasazi (https://docs.trilinos.org/latest-release/packages/anasazi/doc/html/)
+4. Kokkos (https://docs.trilinos.org/latest-release/packages/kokkos/doc/html/index.html)
+5. Komplex (https://docs.trilinos.org/dev/packages/komplex/doc/html/index.html)
+
 # Sources
 https://trilinos.github.io/pdfs/Trilinos10.10Tutorial.pdf
 
@@ -141,3 +148,5 @@ https://trilinos.github.io/getting_started.html
 https://github.com/trilinos/Trilinos_tutorial/wiki/TrilinosHandsOnTutorial
 
 https://trilinos.github.io/packages.html
+
+https://docs.trilinos.org/latest-release/packages/
