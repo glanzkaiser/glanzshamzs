@@ -31,6 +31,8 @@ Presently Trilinos are focused on the following algorithmic areas:
 6. Product Manager (The Trilinos Project Manager serves as a single point of contact for Trilinos stakeholders. They provide an important role that crosscuts the product areas and facilitates a more coordinated effort to user support for our customers. )
 
 # How to Build
+The build directory (trilinosbuild) and the source directory (the one you git clone -> Trilinos) need to be made parallel, unlike other package where we create the build inside the source directory, this one needs to be made parallel. Parallel means if you see a directory you can see the folder of the source and build directory together side by side.
+
     git clone https://github.com/trilinos/Trilinos.git
     mkdir -v trilinosbuild
     cd trilinosbuild
