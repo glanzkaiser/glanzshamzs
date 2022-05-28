@@ -139,6 +139,7 @@ Much of Trilinos was developed under funding from the Advanced Scientific Comput
 3. Anasazi (https://docs.trilinos.org/latest-release/packages/anasazi/doc/html/)
 4. Kokkos (https://docs.trilinos.org/latest-release/packages/kokkos/doc/html/index.html)
 5. Komplex (https://docs.trilinos.org/dev/packages/komplex/doc/html/index.html)
+6. Tpetra (https://docs.trilinos.org/dev/packages/tpetra/doc/html/index.html)
 
 # Sources
 https://trilinos.github.io/pdfs/Trilinos10.10Tutorial.pdf
