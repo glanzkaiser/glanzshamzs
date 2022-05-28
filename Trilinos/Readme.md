@@ -137,9 +137,10 @@ Much of Trilinos was developed under funding from the Advanced Scientific Comput
 1. Amesos (https://docs.trilinos.org/latest-release/packages/amesos/doc/html/)
 2. Amesos2 (https://docs.trilinos.org/latest-release/packages/amesos2/doc/html/)
 3. Anasazi (https://docs.trilinos.org/latest-release/packages/anasazi/doc/html/)
-4. Kokkos (https://docs.trilinos.org/latest-release/packages/kokkos/doc/html/index.html)
-5. Komplex (https://docs.trilinos.org/dev/packages/komplex/doc/html/index.html)
-6. Tpetra (https://docs.trilinos.org/dev/packages/tpetra/doc/html/index.html)
+4. Epetra (https://docs.trilinos.org/dev/packages/epetra/doc/html/index.html)
+5. Kokkos (https://docs.trilinos.org/latest-release/packages/kokkos/doc/html/index.html)
+6. Komplex (https://docs.trilinos.org/dev/packages/komplex/doc/html/index.html)
+7. Tpetra (https://docs.trilinos.org/dev/packages/tpetra/doc/html/index.html)
 
 # Sources
 https://trilinos.github.io/pdfs/Trilinos10.10Tutorial.pdf
@@ -151,3 +152,5 @@ https://github.com/trilinos/Trilinos_tutorial/wiki/TrilinosHandsOnTutorial
 https://trilinos.github.io/packages.html
 
 https://docs.trilinos.org/latest-release/packages/
+
+https://docs.trilinos.org/files/TrilinosBuildReference.html
