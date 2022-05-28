@@ -1,0 +1,1 @@
+#include "MueLu_AggregationPhase2aAlgorithm_kokkos_decl.hpp"

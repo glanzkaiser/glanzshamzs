@@ -1,0 +1,16 @@
+#ifndef SHYLU_NODEHTS_CONFIG_H
+#define SHYLU_NODEHTS_CONFIG_H
+
+/* #undef HAVE_SHYLU_NODEHTS_MKL */
+
+#define HAVE_SHYLU_NODEHTS_BLAS
+
+/* #undef HAVE_SHYLU_NODEHTS_COMPLEX */
+
+#define HAVE_SHYLU_NODEHTS_KOKKOSKERNELS
+
+#ifndef F77_BLAS_MANGLE
+# define F77_BLAS_MANGLE(name,NAME) name ## _
+#endif
+
+#endif

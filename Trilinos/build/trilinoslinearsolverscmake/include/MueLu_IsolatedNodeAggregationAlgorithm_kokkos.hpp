@@ -1,0 +1,1 @@
+#include "MueLu_IsolatedNodeAggregationAlgorithm_kokkos_decl.hpp"

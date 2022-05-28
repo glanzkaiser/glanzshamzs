@@ -1,0 +1,1 @@
+#include "MueLu_OnePtAggregationAlgorithm_kokkos_decl.hpp"
