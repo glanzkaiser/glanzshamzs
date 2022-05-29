@@ -7,6 +7,7 @@ Compilations of .cpp files to learn OpenGL and how we make graphics with compute
 
 ![greentriangle](24-46.png)
 ![greentriangle](greentriangle.png)
+![greentriangle](images/Bildschirmfoto_2022-05-29_21-37-05.png)
 
 # About OpenGL
 OpenGL is mainly considered an API (an Application Programming Interface) that provides us with a large set of functions that we can use to manipulate graphics and images. However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.
