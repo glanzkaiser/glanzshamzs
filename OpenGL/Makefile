@@ -11,7 +11,7 @@ endif
 
 # mirrored from the irrlicht example code (included in the irrlicht path: $(IRRLICHT_PATH)/examples
 
-LIBS += -L$(GLAD_PATH) -lglfw -ldl
+LIBS += $(GLAD_PATH) -lglfw -ldl
 
 TARGET = shaders_interpolation
 
