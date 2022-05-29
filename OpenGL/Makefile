@@ -7,8 +7,6 @@ else
 CXXFLAGS += -O3
 endif
 
-# mirrored from the irrlicht example code (included in the irrlicht path: $(IRRLICHT_PATH)/examples
-
 LIBS += $(GLAD_PATH) -lglfw -ldl
 
 TARGET = shaders_interpolation
