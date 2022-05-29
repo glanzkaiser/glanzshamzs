@@ -10,3 +10,26 @@ It is a set of API declarations on message passing (such as send, receive, broad
 MPI is a way to program on distributed memory devices. This means that the parallelism occurs where every parallel process is working in its own memory space in isolation from the others.
 
 You can think of it as: every bit of code you've written is executed independently by every process. The parallelism occurs because you tell each process exactly which part of the global problem they should be working on based entirely on their process ID.
+
+# Compiler Wrappers
+mpicc (and similarly mpic++, mpif90, etc.) is a program that wraps over an existing compiler to set the necessary command-line flags when compiling code that uses MPI. Typically, it adds a few flags that enable the code to be the compiled and linked against the MPI library.
+
+# Run the Hello World
+There are two examples here:
+1. For mpi_hello_world.c, type:
+    make
+    
+2. For example.c, type
+    mpicc example.c && mpiexec -n 4
+    ./a.out
+If you get the output right then you can use MPI
+
+#### mpiexec is a command used to execute the example program with 4 processes, each of which is an independent instance of the program at run time and assigned ranks (i.e. numeric IDs) 0, 1, 2, and 3. The name mpiexec is recommended by the MPI standard, although some implementations provide a similar command under the name mpirun. The MPI_COMM_WORLD is the communicator that consists of all the processes. 
+
+# MPI in the Future
+1. Nearly all of the projects in the Exascale Computing Project build explicitly on MPI; MPI has been shown to scale to the largest machines as of the early 2020s and is widely considered to stay relevant for a long time to come. 
+2. Architectures are changing, with greater internal concurrency (multi-core), better fine-grained concurrency control (threading, affinity), and more levels of memory hierarchy. Multithreaded programs can take advantage of these developments more easily than single-threaded applications. This has already yielded separate, complementary standards for symmetric multiprocessing, namely OpenMP. MPI-2 defines how standard-conforming implementations should deal with multithreaded issues, but does not require that implementations be multithreaded, or even thread-safe. MPI-3 adds the ability to use shared-memory parallelism within a node. Implementations of MPI such as Adaptive MPI, Hybrid MPI, Fine-Grained MPI, MPC and others offer extensions to the MPI standard that address different challenges in MPI. 
+3. 
+
+# Source
+https://en.wikipedia.org/wiki/Message_Passing_Interface
