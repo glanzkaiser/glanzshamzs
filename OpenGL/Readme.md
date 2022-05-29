@@ -1,8 +1,11 @@
+# About
+Compilations of .cpp files to learn OpenGL and how we make graphics with computer and how your graphics card works.
+
 # To build / compile the .cpp file
         g++ shaders_uniform.cpp -Ibuild/include /opt/hamzstlib/glanzshamzs/glanzshamzs/GLAD/build/src/glad.c -lglfw -ldl
         ./a.out
 
-# About
+# About OpenGL
 OpenGL is mainly considered an API (an Application Programming Interface) that provides us with a large set of functions that we can use to manipulate graphics and images. However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.
 
 The OpenGL specification specifies exactly what the result/output of each function should be and how it should perform. It is then up to the developers implementing this specification to come up with a solution of how this function should operate.
