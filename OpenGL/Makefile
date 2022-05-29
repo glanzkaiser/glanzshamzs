@@ -1,7 +1,5 @@
 GLAD_PATH = /opt/hamzstlib/glanzshamzs/glanzshamzs/GLAD/build/src/glad.c
 
-SYSTEM=Linux
- g++ shaders_uniform.cpp -Ibuild/include /opt/hamzstlib/glanzshamzs/glanzshamzs/GLAD/build/src/glad.c -lglfw -ldl
 CPPFLAGS += -Ibuild/include
 ifndef NDEBUG
 CXXFLAGS += -g -Wall
