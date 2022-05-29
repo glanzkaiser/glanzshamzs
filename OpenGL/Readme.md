@@ -5,8 +5,8 @@ Compilations of .cpp files to learn OpenGL and how we make graphics with compute
         g++ shaders_uniform.cpp -Ibuild/include /opt/hamzstlib/glanzshamzs/glanzshamzs/GLAD/build/src/glad.c -lglfw -ldl
         ./a.out
 
-![greentriangle](24-46.png)
-![greentriangle](greentriangle.png)
+![greentriangle](images/24-46.png)
+![greentriangle](images/greentriangle.png)
 ![greentriangle](images/Bildschirmfoto_2022-05-29_21-37-05.png)
 
 # About OpenGL
