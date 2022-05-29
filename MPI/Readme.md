@@ -16,10 +16,13 @@ mpicc (and similarly mpic++, mpif90, etc.) is a program that wraps over an exist
 
 # Run the Hello World
 There are two examples here:
+
 1. For mpi_hello_world.c, type:
+
     make
     
 2. For example.c, type
+
     mpicc example.c && mpiexec -n 4
     ./a.out
 If you get the output right then you can use MPI
