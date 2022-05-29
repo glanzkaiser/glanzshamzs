@@ -48,3 +48,5 @@ That is why, we need GLAD to do the cumbersome tasks.
     
 # Source
 https://learnopengl.com/Getting-started/OpenGL
+
+https://learnopengl.com/Getting-started/Shaders
