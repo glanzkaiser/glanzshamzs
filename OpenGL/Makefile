@@ -1,4 +1,4 @@
-GLAD_PATH = /opt/hamzstlib/glanzshamzs/glanzshamzs/GLAD/build/src/glad.c
+GLAD_PATH = /opt/hamzstlib/glanzshamzs/GLAD/build/src/glad.c
 
 CPPFLAGS += -Ibuild/include
 ifndef NDEBUG
