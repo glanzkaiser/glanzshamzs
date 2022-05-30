@@ -18,6 +18,10 @@ Clone the git:
       mkdir build
       cd build
       ccmake ..
+
+Configure and locate the library of ASSIMP and GLFW then type:
+
+      make
       
 # About OpenGL
 OpenGL is mainly considered an API (an Application Programming Interface) that provides us with a large set of functions that we can use to manipulate graphics and images. However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.
