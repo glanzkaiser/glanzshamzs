@@ -29,9 +29,20 @@ The people developing the actual OpenGL libraries are usually the graphics card 
 8. Shaders are little programs that rest on the GPU. These programs are run for each specific section of the graphics pipeline. In a basic sense, shaders are nothing more than programs transforming inputs to outputs. Shaders are also very isolated programs in that they're not allowed to communicate with each other; the only communication they have is via their inputs and outputs. 
 
 #### 1 byte = 8-bit
-
 #### We will be using GLFW for learning OpenGL
+
 There are quite a few libraries out there that provide the functionality we seek, some specifically aimed at OpenGL. Those libraries save us all the operation-system specific work and give us a window and an OpenGL context to render in. Some of the more popular libraries are GLUT, SDL, SFML and GLFW. 
+
+# Textures in OpenGL
+1. A texture is a 2D image (even 1D and 3D textures exist) used to add detail to an object;
+2. In order to map a texture to the triangle we need to tell each vertex of the triangle which part of the texture it corresponds to. Each vertex should thus have a texture coordinate associated with them that specifies what part of the texture image to sample from. Fragment interpolation then does the rest for the other fragments. 
+3. Texture coordinates range from 0 to 1 in the x and y axis (remember that we use 2D texture images). Retrieving the texture color using texture coordinates is called sampling. Texture coordinates start at (0,0) for the lower left corner of a texture image to (1,1) for the upper right corner of a texture image. 
+4. Texture coordinates usually range from (0,0) to (1,1) but if we specify coordinates outside this range then the default behavior of OpenGL is to repeat the texture images.
+5. Texture images can be stored in dozens of file formats, each with their own structure and ordering of data
+6. The mipmaps concept is basically a collection of texture images where each subsequent texture is twice as small compared to the previous one. 
+
+#### stb_image.h is a very popular single header image loading library by Sean Barrett that is able to load most popular file formats and is easy to integrate in your project(s)
+
 
 # GLFW
 GLFW is a library, written in C, specifically targeted at OpenGL. GLFW gives us the bare necessities required for rendering goodies to the screen. It allows us to create an OpenGL context, define window parameters, and handle user input, which is plenty enough for our purposes. 
