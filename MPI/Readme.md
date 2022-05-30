@@ -29,6 +29,15 @@ Where [../openmpi/] is your openMPI install directory
 
 #### Check that your system didn't come with another OpenMPI already installed. If so, you may accidentally be mixing and matching two different versions. For example those who install OpenFOAM-9 will have OpenMPI-2.1.1 in the ThirdParty-9 ./Allwmake, thus you need to set the path to this OpenMPI instead of using the OpenMPI of the newest version (as of May 30th 2022 it is OpenMPI-4.1.4)
 
+# Install OpenSSH (if you haven't)
+MPI needs OpenSSH, to connect to other computer, just like the main purpose multiple computers/processors work together, need to permit each other.
+
+Follow the installation here:
+
+https://www.linuxfromscratch.org/blfs/view/11.0/postlfs/openssh.html
+
+Just till installation is enough no need to configure the password-less configuration.
+
 # Run the Hello World
 There are two examples here:
 
