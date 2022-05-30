@@ -42,6 +42,7 @@ There are two examples here:
         ./a.out
 If you get the output right then you can use MPI
 
+![openmpi](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/MPI/images/blfs-prob-38-4.png)
 #### mpiexec is a command used to execute the example program with 4 processes, each of which is an independent instance of the program at run time and assigned ranks (i.e. numeric IDs) 0, 1, 2, and 3. The name mpiexec is recommended by the MPI standard, although some implementations provide a similar command under the name mpirun. The MPI_COMM_WORLD is the communicator that consists of all the processes. 
 
 # MPI in the Future
