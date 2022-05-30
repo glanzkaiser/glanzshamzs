@@ -73,10 +73,19 @@ Below is the scripts for configuring, building and installing Trilinos with Tpet
     -D Boost_INCLUDE_DIRS:FILEPATH="/usr/include" \
     ../Trilinos &&
     make -j4
+    make install
  
 You may adjust the options above and choose packages suitable for your needs and system, look at the list of packages here:
-
 https://github.com/trilinos/Trilinos/blob/master/PackagesList.cmake
+
+The installation directory will be in /opt/hamzstlib/trilinos and it will contain
+    
+    /bin  /include  /lib
+    
+## Adjust the Environment Variables
+1. Add /opt/hamzstlib/trilinos/bin to PATH
+2. Add /opt/hamzstlib/trilinos/lib to LD_LIBRARY_PATH
+3. Add /opt/hamzstlib/trilinos/include to CPLUS_INCLUDE_PATH
 
 # Linear Solvers
 Trilinos provides a wide-variety of solution methods for linear and eigen systems.
