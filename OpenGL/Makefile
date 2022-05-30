@@ -9,7 +9,7 @@ endif
 
 LIBS += $(GLAD_PATH) -lglfw -ldl
 
-TARGET = shaders_interpolation
+TARGET = textures
 
 SOURCES += $(TARGET).cpp
 # if more cpp files are created, add them here
