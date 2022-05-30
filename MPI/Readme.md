@@ -37,6 +37,13 @@ Where [../openmpi/] is your openMPI install directory
 
 #### Check that your system didn't come with another OpenMPI already installed. If so, you may accidentally be mixing and matching two different versions. For example those who install OpenFOAM-9 will have OpenMPI-2.1.1 in the ThirdParty-9 ./Allwmake, thus you need to set the path to this OpenMPI instead of using the OpenMPI of the newest version (as of May 30th 2022 it is OpenMPI-4.1.4)
 
+If you want to use OpenMPI-4.1.4 you can type the whole path to the bin of mpicc or mpiCC or mpirun:
+
+    /opt/hamzstlib/glanzshamzs/MPI/openmpi4/bin/mpicc --showme
+    /opt/hamzstlib/glanzshamzs/MPI/openmpi4/bin/mpiCC --showme
+    
+![openmpi](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/MPI/images/Bildschirmfoto_2022-05-30_21-54-57.png)
+
 # Install OpenSSH (if you haven't)
 MPI needs OpenSSH, to connect to other computer, just like the main purpose multiple computers/processors work together, need to permit each other.
 
