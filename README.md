@@ -45,8 +45,7 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 | Project Chrono    | (On Progress) Compile stop at 91% but Demos Run Fine
 | PyBullet          | Will check and simulate
 | Tokamak           | Can't be installed with premake -> Learn to create demo with the headers (.h)
-| Trilinos          | Built successful, try demos mpirun errors: Opal_shmem_base_select failed returned value -1 instead of OPAL_SUCCESS
-
+| Trilinos          | Built successful, try demos but libmpi.so.40 not found
 
 ## Links
 https://api.projectchrono.org/tutorial_install_project.html
