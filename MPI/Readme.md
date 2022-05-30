@@ -11,6 +11,13 @@ MPI is a way to program on distributed memory devices. This means that the paral
 
 You can think of it as: every bit of code you've written is executed independently by every process. The parallelism occurs because you tell each process exactly which part of the global problem they should be working on based entirely on their process ID.
 
+# OpenMPI folder
+
+1. openmpi-2.1.1 is the installation folder from OpenFOAM-9' Third Party Library (linking mpicc and gcc with this makes Hello World for MPI works)
+2. openmpi4 is the installation folder from OpenMPI 4.1.4
+
+Both of them can be used / modified for making Trilinos examples work.
+
 # Compiler Wrappers
 mpicc (and similarly mpic++, mpif90, etc.) is a program that wraps over an existing compiler to set the necessary command-line flags when compiling code that uses MPI. Typically, it adds a few flags that enable the code to be the compiled and linked against the MPI library.
 
