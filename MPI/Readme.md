@@ -14,6 +14,21 @@ You can think of it as: every bit of code you've written is executed independent
 # Compiler Wrappers
 mpicc (and similarly mpic++, mpif90, etc.) is a program that wraps over an existing compiler to set the necessary command-line flags when compiling code that uses MPI. Typically, it adds a few flags that enable the code to be the compiled and linked against the MPI library.
 
+# MPI Configuration in GFreya OS
+
+To get the list of compiler/ linker flags to put into, type
+
+                mpiCC --showme:compile
+                mpiCC --showme:link
+  
+Set the Environment variables: 
+1. Add ../openmpi/lib to LD_LIBRARY_PATH 
+2. Add ../openmpi/bin to PATH 
+
+Where [../openmpi/] is your openMPI install directory
+
+#### Check that your system didn't come with another OpenMPI already installed. If so, you may accidentally be mixing and matching two different versions. For example those who install OpenFOAM-9 will have OpenMPI-2.1.1 in the ThirdParty-9 ./Allwmake, thus you need to set the path to this OpenMPI instead of using the OpenMPI of the newest version (as of May 30th 2022 it is OpenMPI-4.1.4)
+
 # Run the Hello World
 There are two examples here:
 
