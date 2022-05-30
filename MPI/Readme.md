@@ -41,7 +41,10 @@ If you want to use OpenMPI-4.1.4 you can type the whole path to the bin of mpicc
 
     /opt/hamzstlib/glanzshamzs/MPI/openmpi4/bin/mpicc --showme
     /opt/hamzstlib/glanzshamzs/MPI/openmpi4/bin/mpiCC --showme
-    
+ 
+ Don't forget to adjust the environment variables:
+ 1. Add /opt/hamzstlib/glanzshamzs/MPI/openmpi4/lib to LD_LIBRARY_PATH
+ 
 ![openmpi](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/MPI/images/Bildschirmfoto_2022-05-30_21-54-57.png)
 
 # Install OpenSSH (if you haven't)
