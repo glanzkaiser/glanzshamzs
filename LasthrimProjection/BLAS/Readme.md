@@ -19,7 +19,7 @@ or you can type:
 
     make
 
-(from the Makefile it is set to compile vectorscalarmultiplication.f90 thus you can type less)
+(from the Makefile, it is set to compile vectorscalarmultiplication.f90 thus you can type less)
 
 The path of /opt/hamzstlib is assuming you are using GFreya OS, if you read the book or create your own OS the path needs to be adjusted due to your installation path for LAPACK and BLAS.
 
