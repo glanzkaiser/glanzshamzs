@@ -9,9 +9,87 @@
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
 
+
+// Global variables for Tokamak
+neSimulator *gSim = NULL;
+// The number of cubes to render in the simulation (try values between 2 and about 50)
+#define CUBECOUNT 5
+neRigidBody *gCubes[CUBECOUNT];
+neAnimatedBody *gFloor = NULL;
+
+// Timer variables
+bool gbUseHFTimer;
+INT64 gCurrentTime;
+float gfTimeScale;
+
+
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+
+// Vertex data for the cubes
+// Note that the cube's dimensions are 1 unit in each axis.
+
+strVertex gCubeVertices[] =
+{
+	{-0.5f,-0.5f,-0.5f,   0.0f, 0.0f,-1.0f,   0xffff0000, 0.0f, 1.0f },  //Front face
+	{-0.5f, 0.5f,-0.5f,   0.0f, 0.0f,-1.0f,   0xffffffff, 0.0f, 0.0f },
+	{ 0.5f, 0.5f,-0.5f,   0.0f, 0.0f,-1.0f,   0xffffffff, 1.0f, 0.0f },
+	{ 0.5f, 0.5f,-0.5f,   0.0f, 0.0f,-1.0f,   0xffffffff, 1.0f, 0.0f },
+	{ 0.5f,-0.5f,-0.5f,   0.0f, 0.0f,-1.0f,   0xffffffff, 1.0f, 1.0f },
+	{-0.5f,-0.5f,-0.5f,   0.0f, 0.0f,-1.0f,   0xffffffff, 0.0f, 1.0f },
+
+	{ 0.5f,-0.5f, 0.5f,   0.0f, 0.0f, 1.0f,   0xff00ff00, 0.0f, 1.0f },  //Back face
+	{ 0.5f, 0.5f, 0.5f,   0.0f, 0.0f, 1.0f,   0xffffffff, 0.0f, 0.0f },
+	{-0.5f, 0.5f, 0.5f,   0.0f, 0.0f, 1.0f,   0xffffffff, 1.0f, 0.0f },
+	{-0.5f, 0.5f, 0.5f,   0.0f, 0.0f, 1.0f,   0xffffffff, 1.0f, 0.0f },
+	{-0.5f,-0.5f, 0.5f,   0.0f, 0.0f, 1.0f,   0xffffffff, 1.0f, 1.0f },
+	{ 0.5f,-0.5f, 0.5f,   0.0f, 0.0f, 1.0f,   0xffffffff, 0.0f, 1.0f },
+
+	{-0.5f, 0.5f,-0.5f,   0.0f, 1.0f, 0.0f,   0xff0000ff, 0.0f, 1.0f },  //Top face
+	{-0.5f, 0.5f, 0.5f,   0.0f, 1.0f, 0.0f,   0xffffffff, 0.0f, 0.0f },
+	{ 0.5f, 0.5f, 0.5f,   0.0f, 1.0f, 0.0f,   0xffffffff, 1.0f, 0.0f },
+	{ 0.5f, 0.5f, 0.5f,   0.0f, 1.0f, 0.0f,   0xffffffff, 1.0f, 0.0f },
+	{ 0.5f, 0.5f,-0.5f,   0.0f, 1.0f, 0.0f,   0xffffffff, 1.0f, 1.0f },
+	{-0.5f, 0.5f,-0.5f,   0.0f, 1.0f, 0.0f,   0xffffffff, 0.0f, 1.0f },
+
+	{ 0.5f,-0.5f,-0.5f,   0.0f,-1.0f, 0.0f,   0xffffff00, 0.0f, 1.0f },  //Bottom face
+	{ 0.5f,-0.5f, 0.5f,   0.0f,-1.0f, 0.0f,   0xffffffff, 0.0f, 0.0f },
+	{-0.5f,-0.5f, 0.5f,   0.0f,-1.0f, 0.0f,   0xffffffff, 1.0f, 0.0f },
+	{-0.5f,-0.5f, 0.5f,   0.0f,-1.0f, 0.0f,   0xffffffff, 1.0f, 0.0f },
+	{-0.5f,-0.5f,-0.5f,   0.0f,-1.0f, 0.0f,   0xffffffff, 1.0f, 1.0f },
+	{ 0.5f,-0.5f,-0.5f,   0.0f,-1.0f, 0.0f,   0xffffffff, 0.0f, 1.0f },
+
+	{-0.5f,-0.5f, 0.5f,  -1.0f, 0.0f, 0.0f,   0xffff00ff, 0.0f, 1.0f },  //Left face
+	{-0.5f, 0.5f, 0.5f,  -1.0f, 0.0f, 0.0f,   0xffffffff, 0.0f, 0.0f },
+	{-0.5f, 0.5f,-0.5f,  -1.0f, 0.0f, 0.0f,   0xffffffff, 1.0f, 0.0f },
+	{-0.5f, 0.5f,-0.5f,  -1.0f, 0.0f, 0.0f,   0xffffffff, 1.0f, 0.0f },
+	{-0.5f,-0.5f,-0.5f,  -1.0f, 0.0f, 0.0f,   0xffffffff, 1.0f, 1.0f },
+	{-0.5f,-0.5f, 0.5f,  -1.0f, 0.0f, 0.0f,   0xffffffff, 0.0f, 1.0f },
+
+	{ 0.5f,-0.5f,-0.5f,   1.0f, 0.0f, 0.0f,   0xff00ffff, 0.0f, 1.0f },  //Right face
+	{ 0.5f, 0.5f,-0.5f,   1.0f, 0.0f, 0.0f,   0xffffffff, 0.0f, 0.0f },
+	{ 0.5f, 0.5f, 0.5f,   1.0f, 0.0f, 0.0f,   0xffffffff, 1.0f, 0.0f },
+	{ 0.5f, 0.5f, 0.5f,   1.0f, 0.0f, 0.0f,   0xffffffff, 1.0f, 0.0f },
+	{ 0.5f,-0.5f, 0.5f,   1.0f, 0.0f, 0.0f,   0xffffffff, 1.0f, 1.0f },
+	{ 0.5f,-0.5f,-0.5f,   1.0f, 0.0f, 0.0f,   0xffffffff, 0.0f, 1.0f },
+
+};
+#define NUM_VERTICES_CUBE (sizeof(gCubeVertices)/sizeof(strVertex))
+
+// Vertex data for the floor (change FLOORSIZE for larger/smaller floor area)
+#define FLOORSIZE 30
+strVertex gFloorVertices[] =
+{
+	{-(FLOORSIZE/2), 0, -(FLOORSIZE/2),   0.0f, 1.0f, -0.0f,   0xffff0000, 0.0f, 1.0f },  //Top face
+	{-(FLOORSIZE/2), 0,  (FLOORSIZE/2),   0.0f, 1.0f, -0.0f,   0xffffffff, 0.0f, 0.0f },
+	{ (FLOORSIZE/2), 0,  (FLOORSIZE/2),   0.0f, 1.0f, -0.0f,   0xffffffff, 1.0f, 0.0f },
+	{ (FLOORSIZE/2), 0,  (FLOORSIZE/2),   0.0f, 1.0f, -0.0f,   0xffffffff, 1.0f, 0.0f },
+	{ (FLOORSIZE/2), 0, -(FLOORSIZE/2),   0.0f, 1.0f, -0.0f,   0xffffffff, 1.0f, 1.0f },
+	{-(FLOORSIZE/2), 0, -(FLOORSIZE/2),   0.0f, 1.0f, -0.0f,   0xffffffff, 0.0f, 1.0f },
+};
+#define NUM_VERTICES_FLOOR (sizeof(gFloorVertices)/sizeof(strVertex))
+
 
 int main()
 {
