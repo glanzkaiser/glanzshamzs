@@ -5,19 +5,19 @@ To link your Fortran application against BLAS at the end type: -lblas
 # To Compile
 There is an example of vector multiplication with scalar, to test it type this in your console:
 
-#### gfortran -o example vectorscalarmultiplication.f90 -lblas
+    gfortran -o example vectorscalarmultiplication.f90 -lblas
 
 (for using shared libraries)
 
 or
 
-#### gfortran -o example vectorscalarmultiplication.f90 /opt/hamzstlib/lib/libblas.a
+    gfortran -o example vectorscalarmultiplication.f90 /opt/hamzstlib/lib/libblas.a
 
 (for using static libraries)
 
 or you can type:
 
-#### make
+    make
 
 (from the Makefile it is set to compile vectorscalarmultiplication.f90 thus you can type less)
 
