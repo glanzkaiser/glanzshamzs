@@ -50,7 +50,10 @@ To enable MODAL module, we need Spectra thus:
 To use the CRGTerrain feature, you must download, install, and enable the OpenCRG library.
 
     git clone https://github.com/hlrs-vis/opencrg.git
-    
+
+#### About OpenCRG
+ASAM OpenCRG defines a file format for the description of road surfaces. It was originally developed to store high-precision elevation data from road surface scans. The primary use for this data is in tire, vibration or driving simulation. Precise elevation data allows realistic endurance simulation of vehicle components or the entire vehicle. For driving simulators, it allows a realistic 3D-rendering of the road surface. The file format can also be used for other types of road surface properties, e.g. for the friction coefficient or grey values.  
+
 # Sources
 https://irrlicht.sourceforge.io/docu/index.html
 
