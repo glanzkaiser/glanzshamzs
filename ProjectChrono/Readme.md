@@ -12,6 +12,7 @@ https://www.youtube.com/watch?v=X7YCNnkWK9I&list=PLjKBQAK4kvpiLYBVSjuHMAfqqKFKwk
 # How to Build
 
 In building Project Chrono, I use this configuration scripts:
+
     CMAKE_BUILD_TYPE=Release
     CMAKE_INSTALL_PREFIX=/opt/hamzstlib
     IRRLICHT_LIBRARY=/opt/hamzstlib/Physics/irrlicht-1.8.5/lib/Linux/libIrrlicht.so.1.8.5
@@ -28,6 +29,7 @@ In building Project Chrono, I use this configuration scripts:
     USE_BULLET_OPENMP=ON
     USE_EIGEN_OPENMP=ON
     USE_SIMD=ON
+
 To enable MODAL module, we need Spectra thus:
 
     git clone https://github.com/yixuan/spectra.git
