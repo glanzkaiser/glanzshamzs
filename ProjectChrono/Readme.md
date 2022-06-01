@@ -30,10 +30,16 @@ In building Project Chrono, I use this configuration scripts:
     USE_EIGEN_OPENMP=ON
     USE_SIMD=ON
 
+## MODAL Module
 To enable MODAL module, we need Spectra thus:
 
     git clone https://github.com/yixuan/spectra.git
+    
+## VEHICLE Module
+To use the CRGTerrain feature, you must download, install, and enable the OpenCRG library.
 
+    git clone https://github.com/hlrs-vis/opencrg.git
+    
 # Sources
 https://irrlicht.sourceforge.io/docu/index.html
 
