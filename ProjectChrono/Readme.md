@@ -9,10 +9,21 @@ Tutorial Videos for Project Chrono and Irrlicht have been made and available at:
 
 https://www.youtube.com/watch?v=X7YCNnkWK9I&list=PLjKBQAK4kvpiLYBVSjuHMAfqqKFKwkPa1
 
+# Install Project Chrono-7.0.3
+
+From /opt/hamzstlib/physics, type:
+
+        wget https://github.com/projectchrono/chrono/archive/refs/tags/7.0.3.tar.gz
+        tar -xvf 7.0.3.tar.gz
+        cd chrono-7.0.3
+
 # How to Build
 
 In building Project Chrono, I use this configuration scripts:
-
+    
+    mkdir build
+    cd build
+    
     CMAKE_BUILD_TYPE=Release
     CMAKE_INSTALL_PREFIX=/opt/hamzstlib
     IRRLICHT_LIBRARY=/opt/hamzstlib/Physics/irrlicht-1.8.5/lib/Linux/libIrrlicht.so.1.8.5
