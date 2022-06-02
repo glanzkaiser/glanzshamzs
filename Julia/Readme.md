@@ -61,3 +61,9 @@ pwd()
 To move the working directory in Julia REPL type:
 ```
 cd("/opt/hamzstlib/glanzshamzs/glanzshamzs/Julia/Plots")
+```
+
+# Homework
+https://discourse.julialang.org/t/how-to-solve-this-ax-b-faster/81693
+
+https://github.com/barche/Trilinos.jl
