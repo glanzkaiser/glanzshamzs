@@ -15,4 +15,4 @@ Julia joins C, C++, and Fortran as high-level languages in which petaFLOPS compu
 
 # Run the Example
 For the test.c
-~~~test -fPIC -I\$JULIA\_DIR/include/julia -L\$JULIA\_DIR/lib -Wl,-rpath,\$JULIA\_DIR/lib test.c -ljulia~~~
+>test -fPIC -I\$JULIA\_DIR/include/julia -L\$JULIA\_DIR/lib -Wl,-rpath,\$JULIA\_DIR/lib test.c -ljulia
