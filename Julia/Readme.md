@@ -14,7 +14,7 @@ Julia is used by NASA, e.g. for modeling spacecraft separation dynamics (15,000 
 Julia joins C, C++, and Fortran as high-level languages in which petaFLOPS computations have been achieved. 
 
 # Download Julia 
-
+With GFreya OS type:
 ```
 wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.2-linux-x86\_64.tar.gz
 ```
@@ -29,7 +29,23 @@ then:
 2. Add JULIA_DIR/bin to PATH
 
 # Run the Example
-For the test.c, it is a Julia code to calculate the square root of a number
+For the test.c, it is a C code to calculate the square root of a number but calculated using Julia library:
 ```
 test -fPIC -I$JULIA_DIR/include/julia -L$JULIA_DIR/lib -Wl,-rpath,$JULIA_DIR/lib test.c -ljulia
+```
+
+# Install Packages
+in Julia you can easily install the packages when entering Julia interpreter by typing:\\
+```
+julia
+]
+add TaylorSeries
+```
+You can browse for the package that you want here:
+
+https://juliapackages.com/packages
+		
+To remove packages, use rm, from Julia REPL type:
+```
+rm TaylorSeries
 ```
