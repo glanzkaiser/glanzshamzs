@@ -49,3 +49,15 @@ To remove packages, use rm, from Julia REPL type:
 ```
 rm TaylorSeries
 ```
+
+If you want to know all the installed packages for Julia in GFreya OS is in
+#### ~/.julia/packages 
+
+If you want to know which directory is Julia in type:\\
+```
+pwd()
+```
+
+To move the working directory in Julia REPL type:
+```
+cd("/opt/hamzstlib/glanzshamzs/glanzshamzs/Julia/Plots")
