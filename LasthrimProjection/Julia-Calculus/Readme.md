@@ -3,7 +3,7 @@ Compilation of Julia code for Calculus learning for Undergraduate degree.
 
 #### based on Lasthrim Projection book 
 
-### Julia Source
+### Julia Learning Source
 
 https://docs.julialang.org/en/v1/manual/getting-started/
 
