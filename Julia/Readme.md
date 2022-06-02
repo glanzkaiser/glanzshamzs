@@ -13,8 +13,23 @@ Julia is used by NASA, e.g. for modeling spacecraft separation dynamics (15,000 
 # Achievement
 Julia joins C, C++, and Fortran as high-level languages in which petaFLOPS computations have been achieved. 
 
-# Run the Example
-For the test.c
+# Download Julia 
+
 ```
-test -fPIC -I\$JULIA\_DIR/include/julia -L\$JULIA\_DIR/lib -Wl,-rpath,\$JULIA\_DIR/lib test.c -ljulia
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.2-linux-x86\_64.tar.gz
+```
+
+# Adjust Environment Variables
+Type
+```
+vim ~/export
+```
+then:
+1. Add export JULIA_DIR="$hamzstlib/julia-1.7.2
+2. Add JULIA_DIR/bin to PATH
+
+# Run the Example
+For the test.c, it is a Julia code to calculate the square root of a number
+```
+test -fPIC -I$JULIA_DIR/include/julia -L$JULIA_DIR/lib -Wl,-rpath,$JULIA_DIR/lib test.c -ljulia
 ```
