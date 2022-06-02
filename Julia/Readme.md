@@ -67,3 +67,5 @@ cd("/opt/hamzstlib/glanzshamzs/glanzshamzs/Julia/Plots")
 https://discourse.julialang.org/t/how-to-solve-this-ax-b-faster/81693
 
 https://github.com/barche/Trilinos.jl
+
+https://github.com/orgs/JuliaParallel/repositories?type=all
