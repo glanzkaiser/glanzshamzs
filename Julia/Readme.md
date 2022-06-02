@@ -64,6 +64,10 @@ cd("/opt/hamzstlib/glanzshamzs/glanzshamzs/Julia/Plots")
 ```
 
 # Homework
+1. Plot even and odd functions
+2. Sketch graph 2/(x-1)
+3. Plot absolute value function and greatest integer function
+
 https://discourse.julialang.org/t/how-to-solve-this-ax-b-faster/81693
 
 https://github.com/barche/Trilinos.jl
