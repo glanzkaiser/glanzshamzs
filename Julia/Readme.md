@@ -63,6 +63,17 @@ To move the working directory in Julia REPL type:
 cd("/opt/hamzstlib/glanzshamzs/glanzshamzs/Julia/Plots")
 ```
 
+To try Julia file (.jl) open Julia first:
+```
+julia
+pwd()
+```
+
+Check if the current working directory contains the file you want to try then type
+```
+include("trigonometrysincos.jl")
+```
+
 # Homework
 1. Plot even and odd functions
 2. Sketch graph 2/(x-1)
