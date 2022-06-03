@@ -5,7 +5,7 @@ Compilation of Julia code for Calculus learning for Undergraduate degree.
 
 # Test Julia file (Plot with Julia)
 
-To try Julia file (.jl) open Julia first:
+To try Julia file (.jl) open Julia REPL first:
 ```
 julia
 
