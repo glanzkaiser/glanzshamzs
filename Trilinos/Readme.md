@@ -35,6 +35,9 @@ Presently Trilinos are focused on the following algorithmic areas:
 5. Framework (The Framework and Tools Capability Area provides resources for both users and developers. Like User Experience, this capability area is different from most of the other capability areas in that the resources provided extend beyond packages and focus on tools that aid in building, maintaining and documenting Trilinos.)
 6. Product Manager (The Trilinos Project Manager serves as a single point of contact for Trilinos stakeholders. They provide an important role that crosscuts the product areas and facilitates a more coordinated effort to user support for our customers. )
 
+![Trilinos](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Trilinos/images/Summary-of-Trilinos-packages.png)
+![Trilinos](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Trilinos/images/TrilinosPackage1.png)
+
 # How to Build
 The build directory (trilinosbuild) and the source directory (the one you git clone -> Trilinos) need to be made parallel, unlike other package where we create the build inside the source directory, this one needs to be made parallel. Parallel means if you see a directory you can see the folder of the source and build directory together side by side.
 
