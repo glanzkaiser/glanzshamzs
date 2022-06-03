@@ -17,6 +17,8 @@ include("trigonometrysincos.jl")
 ```
 ![Julia](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/JuliaTrigonometry.png)
 
+#### (More details on how to set up and install Julia can be seen at the /glanzshamzs/Julia directory)
+
 ### Julia Learning Source
 
 https://docs.julialang.org/en/v1/manual/getting-started/
