@@ -63,10 +63,12 @@ To move the working directory in Julia REPL type:
 cd("/opt/hamzstlib/glanzshamzs/glanzshamzs/Julia/Plots")
 ```
 
+# Test Julia file (Plot with Julia)
+
 To try Julia file (.jl) open Julia first:
 ```
 julia
-pwd()
+
 ```
 
 Check if the current working directory contains the file you want to try then type
