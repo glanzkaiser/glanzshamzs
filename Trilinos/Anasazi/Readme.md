@@ -13,14 +13,14 @@ Matrices and vectors used in computation are treated as opaque objects; only ele
 
 After providing the interface implementation, a user may access any of Anasazi’s suite of algorithms, including the implementation of the Locally-Optimal Block Preconditioned Conjugate Gradient, a Block Krylov-Schur, a Block Davidson, and an Implicit Riemannian Trust-Region methods, respectively.
 
-# How Anasazi work with other Trilinos' Packages
+## How Anasazi work with other Trilinos' Packages
 1. Uses Teuchos (RCP, LAPACK wrappers
 2. Can use the operators and multivectors of Epetra/Tpetra
 3. Can use the preconditioners of Ifpack/Ifpack2
 4. Can use the linear solvers of Amesos, Belos, and AztecOO
 5. Can (potentially) be used by Zoltan to reorder a graph
 
-# Capabilities
+## Capabilities
 Anasazi supports the following solver/matrix combinations:
 
 ![Anasazi](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Trilinos/Anasazi/images/Anasazi1.png)
@@ -42,6 +42,14 @@ with
 * TraceMin will converge to the smallest eigenpairs
 
 ![image](https://user-images.githubusercontent.com/72222484/171991341-b69c00d2-3306-4032-bbd2-0eef6f191d6c.png)
+
+## Epetra for Anasazi
+1. Epetra provides the basic building blocks needed for serial and parallel linear algebra. 
+2. The Epetra Map class describes the distribution of rows, columns, and vector entries to processes. This class supports both 1D (row-based or column-based) and 2D (nonzero-based) matrix distributions, and plays a key role in enabling the 2D distributions useful for large graphs with skewed degree distributions. 
+3. The Epetra Import and Epetra Export functions perform communication needed to share data among processes. 
+4. Sparse matrices can be stored by Epetra CrsMatrix; users may use their own matrix layouts through the virtual Epetra RowMatrix class. Epetra features a multi-vector class Epetra MultiVector that is, in essence, a collection of vectors; this class enables block-based linear and eigensolvers to be efficiently implemented in Trilinos.
+5. An extension of Epetra called Epetra64 is also available, which enables Epetra classes to be used for graphs
+with more than two billion global vertices or edges.
 
 # Sources
 
