@@ -9,6 +9,10 @@ The generalized eigenvalue problems:
 Ax = λBx
 ```
 
+Matrices and vectors used in computation are treated as opaque objects; only elementary operations on matrices and vectors need to be provided through the interface. 
+
+After providing the interface implementation, a user may access any of Anasazi’s suite of algorithms, including the implementation of the Locally-Optimal Block Preconditioned Conjugate Gradient, a Block Krylov-Schur, a Block Davidson, and an Implicit Riemannian Trust-Region methods, respectively.
+
 # How Anasazi work with other Trilinos' Packages
 1. Uses Teuchos (RCP, LAPACK wrappers
 2. Can use the operators and multivectors of Epetra/Tpetra
@@ -42,3 +46,5 @@ with
 # Sources
 
 https://trilinos.github.io/pdfs/Klinvex-TUG-2014-Anasazi.pdf
+
+https://trilinos.github.io/pdfs/anasazi-ug-public.pdf
