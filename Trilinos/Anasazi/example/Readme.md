@@ -14,3 +14,5 @@ make -j4
 ```
 ./Anasazi
 ```
+# Source
+https://github.com/trilinos/Trilinos/blob/64d50199f342860b00d16cb78cb5730de66438b9/packages/anasazi/epetra/example/LOBPCG/LOBPCGEpetraExSimple.cpp
