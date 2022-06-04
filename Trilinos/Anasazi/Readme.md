@@ -51,6 +51,19 @@ with
 5. An extension of Epetra called Epetra64 is also available, which enables Epetra classes to be used for graphs
 with more than two billion global vertices or edges.
 
+# Directory Structure
+You have to remember the directory paths for the
+1. Trilinos source code (/sources/Hamzstlab/Trilinos)
+2. Trilinos installation directory (/opt/hamzstlib/include)
+
+The Anasazi source is located in the directory /sources/Hamzstlab/Trilinos/packages/anasazi and contains the subdirectories
+```
+cmake  doc  epetra  src  src-rbgen  test  testmatrices  thyra  tpetra
+```
+![image](https://user-images.githubusercontent.com/72222484/171992103-9e096b83-4aba-430b-819d-e3426e871821.png)
+
+
+
 # Sources
 
 https://trilinos.github.io/pdfs/Klinvex-TUG-2014-Anasazi.pdf
