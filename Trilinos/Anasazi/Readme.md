@@ -7,4 +7,5 @@ Anasazi is an extensible and interoperable framework for large-scale eigenvalue 
 # Capabilities
 Anasazi supports the following solver/matrix combinations:
 
+![Anasazi](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Trilinos/Anasazi/images/Anasazi1.png)
 
