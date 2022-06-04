@@ -53,8 +53,9 @@ with more than two billion global vertices or edges.
 
 # Directory Structure
 You have to remember the directory paths for the
-1. Trilinos source code (/sources/Hamzstlab/Trilinos)
+1. Trilinos source code ($TRILINOS_PATH/sources/Hamzstlab/Trilinos)
 2. Trilinos installation directory (/opt/hamzstlib/include)
+3. Trilinos build directory (/sources/Hamzstlab/trilinosbuild6)
 
 The Anasazi source is located in the directory /sources/Hamzstlab/Trilinos/packages/anasazi and contains the subdirectories
 ```
@@ -62,6 +63,15 @@ cmake  doc  epetra  src  src-rbgen  test  testmatrices  thyra  tpetra
 ```
 ![image](https://user-images.githubusercontent.com/72222484/171992103-9e096b83-4aba-430b-819d-e3426e871821.png)
 
+To build Trilinos with Anasazi you can see:
+https://github.com/glanzkaiser/glanzshamzs/tree/main/Trilinos
+(adjust with your own path and system)
+
+If you are building at /trilinosbuild6 then you will see the built example for Epetra and Anasazi (I build again at trilinosbuild2 and it has no examples there)
+
+![image](https://user-images.githubusercontent.com/72222484/171992306-d24f3a42-5379-41f6-8c50-e113d763734f.png)
+
+* The subdirectories BlockDavidson, BlockKrylovSchur, and LOBPCG contain the executables associated with the C++ examples located in $TRILINOS_PATH/packages/anasazi/epetra/example
 
 
 # Sources
