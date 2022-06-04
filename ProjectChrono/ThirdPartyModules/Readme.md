@@ -50,12 +50,12 @@ git clone https://github.com/yixuan/spectra.git
 
 To build and install it from the extracted Spectra directory / source directory, type:
 ```
-mkdir build
+mkdir build &&
 cd build &&
 
 cmake -D CMAKE_INSTALL_PREFIX=/opt/hamzstlib \
 -D CMAKE_BUILD_TYPE=Release \
--D Eigen3_DIR=/opt/hamzstlib/share/eigen3/cmake ..
+-D Eigen3_DIR=/opt/hamzstlib/share/eigen3/cmake .. &&
 
 make &&
 
