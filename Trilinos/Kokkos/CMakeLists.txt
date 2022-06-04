@@ -61,7 +61,3 @@ ELSE()
   SET(MYAPP_MPI FALSE)
 ENDIF()
 
-#Turn on test to be run by ctest
-ENABLE_TESTING()
-ADD_SUBDIRECTORY(KokkosBasics)
-ADD_SUBDIRECTORY(KokkosTpetra)
