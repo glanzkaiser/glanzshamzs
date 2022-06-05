@@ -28,9 +28,18 @@ Contains all the packages / modules for supporting Project Chrono' main modules
 ### 1. OpenCRG
 ASAM OpenCRG defines a file format for the description of road surfaces. It was originally developed to store high-precision elevation data from road surface scans. The primary use for this data is in tire, vibration or driving simulation. Precise elevation data allows realistic endurance simulation of vehicle components or the entire vehicle. For driving simulators, it allows a realistic 3D-rendering of the road surface. The file format can also be used for other types of road surface properties, e.g. for the friction coefficient or grey values.  
 
+* By this time (June 5th 2022, no one has ever try to use the ASAM OpenCRG version 1.2, I tried but failed to compile to 100%, you should get version 1.1.2 , the latest release that is maintained by VIRES, it works with the version 1.1.2)
+
 OpenCRG is a complete free and open-source project for the creation, modification and evaluation of road surfaces, and an open file format specification CRG (curved regular grid). Its objective is to standardize a detailed road surface description and it may be used for applications like tire-, vibration- or driving-simulation. 
 
 OpenCRG is a standardized efficient 3D road data representation defined in base plane by its direction (heading, yaw angle). It is optionally complemented by hilliness (slope, inclination, grade, pitch angle) and cross slope (super-elevation, banking, cant, camber, roll angle). Compact storage and sufficient accuracy, even for long tracks are the objectives for the open file format specification CRG. 
+
+#### To create OpenCRG shared library
+Enter the source directory and cd to ../OpenCRG/c-api/baseline/src then type:\\
+```
+gcc -shared -fPIC libOpenCRG.so *.c
+```
+You may link the library to your CCMake include library for OpenCRG when compiling Project Chrono.
 
 ### 2. Spectra
 Spectra stands for Sparse Eigenvalue Computation Toolkit as a Redesigned ARPACK. It is a C++ library for large scale eigenvalue problems, built on top of Eigen, an open source linear algebra library.
