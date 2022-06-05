@@ -18,6 +18,15 @@ make -j4
 #### The result of Anasazi' LOBPCGEpetra example:
 ![image](https://user-images.githubusercontent.com/72222484/172039555-c4493757-3b21-4988-b404-653f0ab2fdff.png)
 
+## How to Create the CMakeLists.txt
+I followed the flow of the CMakeLists.txt here:
+
+```
+https://github.com/trilinos/Trilinos/blob/master/demos/simpleBuildAgainstTrilinos/CMakeLists.txt
+```
+
+I modify and adjust it after I asked at Trilinos' github issue forum. Thus, it can be compiled for the example above.
+
 # Source
 https://trilinos.github.io/pdfs/anasazi-ug-public.pdf
 
