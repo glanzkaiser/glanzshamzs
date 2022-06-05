@@ -14,5 +14,9 @@ make -j4
 ```
 ./Anasazi
 ```
+
+#### The result of Anasazi' LOBPCGEpetra example:
+![image](https://user-images.githubusercontent.com/72222484/172039555-c4493757-3b21-4988-b404-653f0ab2fdff.png)
+
 # Source
 https://github.com/trilinos/Trilinos/blob/64d50199f342860b00d16cb78cb5730de66438b9/packages/anasazi/epetra/example/LOBPCG/LOBPCGEpetraExSimple.cpp
