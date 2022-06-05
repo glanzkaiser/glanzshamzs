@@ -41,7 +41,7 @@ ar cr liblapack.a *.o
  (the first compiles code into object files, and the second archives the object files into a static archive)
 
 ## OpenCRG
-Enter the source directory and cd to ../OpenCRG/c-api/baseline/src then type:\\
+Enter the source directory and cd to ../OpenCRG/c-api/baseline/src then type:
 ```
 gcc -shared -fPIC libOpenCRG.so *.c
 ```
