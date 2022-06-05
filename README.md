@@ -49,7 +49,9 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 
 ## Links
 https://api.projectchrono.org/tutorial_install_project.html
+
 http://www.adrianboeing.com/pal/index.html
+
 https://adamdawes.com/programming/tokamak/01_Framework.html
 
 # Written by:
