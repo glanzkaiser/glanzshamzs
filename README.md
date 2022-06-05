@@ -44,8 +44,8 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 | Kratos            | Rebuild to add all applications, simulate and see the different between Chrono
 | Project Chrono    | (On Progress) Compile stop at 91% but Demos Run Fine
 | PyBullet          | Will check and simulate
-| Tokamak           | Can't be installed with premake -> Learn to create demo with the headers (.h)
-| Trilinos          | Built successful, try demos but libmpi.so.40 not found
+| Tokamak           | Can't be installed with premake -> Learn to create demo with the headers (.h) and OpenGL
+| Trilinos          | Built successful, without MPI and OpenMP, able to compile and run a single Anasazi example
 
 ## Links
 https://api.projectchrono.org/tutorial_install_project.html
