@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.17.1)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Get Trilinos as one entity but require the packages being used
-find_package(Trilinos REQUIRED COMPONENTS Teuchos Tpetra)
+find_package(Trilinos REQUIRED COMPONENTS Teuchos Tpetra Anasazi)
 
 # Echo trilinos build info just for fun
 MESSAGE("\nFound Trilinos!  Here are the details: ")
