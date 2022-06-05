@@ -1,6 +1,7 @@
 # About 
 KRATOS Multiphysics ("Kratos") is a framework for building parallel, multi-disciplinary simulation software, aiming at modularity, extensibility, and high performance. Kratos is written in C++, and counts with an extensive Python interface. 
 
+#### Use Kratos-9.1
 
 # Download Third Party Modules: GKlib, METIS
 
@@ -40,8 +41,13 @@ make install
     cd Kratos-9.1
 
 # Choose Set Applications to compile
-At the configure file type:
+See the list of available applications here
 
+```
+https://github.com/KratosMultiphysics/Kratos/tree/master/applications
+```
+
+Then edit the configure file (configure.sh located at ../Kratos-9.1/scripts/) type for example :
 ```
 export KRATOS_APPLICATIONS=
 add_app ${KRATOS_APP_DIR}/LinearSolversApplication
@@ -59,6 +65,8 @@ add_app ${KRATOS_APP_DIR}/MetisApplication
 add_app ${KRATOS_APP_DIR}/ShapeOptimizationApplication
 add_app ${KRATOS_APP_DIR}/CoSimulationApplication
 ```
+
+or you can use my configure.sh
 
 # Compile and Install Kratos
 
