@@ -41,12 +41,13 @@ ARPACK is a software written in FORTRAN for solving large scale eigenvalue probl
 
 Download it:
 ```
-wget https://github.com/yixuan/spectra/archive/v1.0.1.tar.gz
+wget https://github.com/yixuan/spectra/archive/refs/heads/develop.zip
 ```
 or
 ```
 git clone https://github.com/yixuan/spectra.git
 ```
+(use the develop branch that has KrylovSchurGEigsSolver.h and KrylovSchurGEigsBase.h)
 
 To build and install it from the extracted Spectra directory / source directory, type:
 ```
