@@ -90,6 +90,10 @@ The installation directory will be in /opt/hamzstlib/trilinos and it will contai
 2. Add /opt/hamzstlib/trilinos/lib to LD_LIBRARY_PATH
 3. Add /opt/hamzstlib/trilinos/include to CPLUS_INCLUDE_PATH
 
+## Video Tutorial
+
+https://www.youtube.com/watch?v=93f1dKTxmgQ&list=PLjKBQAK4kvphaAFJqXcaodXKUOdcJbWBN
+
 # Epetra
 1. The Epetra Comm virtual class is an interface that encapsulates the general information and services needed for the other Epetra classes to run on serial or parallel computer. An Epe- tra Comm object is required for building all Epetra Map objects, which in turn are required for all other Epetra classes.
 2. Epetra Comm has two basic concrete implementations: Epetra SerialComm (for serial executions) and Epetra MpiComm (for MPI distributed memory executions)
