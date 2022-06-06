@@ -27,6 +27,19 @@ https://github.com/trilinos/Trilinos/blob/master/demos/simpleBuildAgainstTrilino
 
 I modify and adjust it after I asked at Trilinos' github issue forum. Thus, it can be compiled for the example above.
 
+## How to Try Another Example (.cpp file)
+If you want to try another .cpp file for Anasazi then edit the CMakeLists.txt and adjust these:
+```
+find_package(Trilinos REQUIRED COMPONENTS Teuchos Tpetra Anasazi)
+```
+(add with the corresponding solver / package)
+
+
+```
+add_executable(Anasazi ${CMAKE_CURRENT_SOURCE_DIR}/LOBPCGEpetraExSimple.cpp)
+```
+(change the cpp name with the file you want to test)
+
 # Source
 https://trilinos.github.io/pdfs/anasazi-ug-public.pdf
 
