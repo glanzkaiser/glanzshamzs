@@ -23,6 +23,9 @@ export CXX=g++
 export KRATOS_SOURCE="${KRATOS_SOURCE:-"$( cd "$(dirname "$0")" ; pwd -P )"/..}"
 export KRATOS_BUILD="${KRATOS_SOURCE}/build"
 export KRATOS_APP_DIR="${KRATOS_SOURCE}/applications"
+export METIS_ROOT_DIR="/opt/hamzstlib/lib"
+export TRILINOS_INCLUDE_DIR="/opt/hamzstlib/trilinos/include"
+export TRILINOS_LIBRARY_DIR="/opt/hamzstlib/trilinos/lib"
 # export KRATOS_INSTALL_PYTHON_USING_LINKS=ON
 
 # Set basic configuration
@@ -89,7 +92,7 @@ rm -rf "${KRATOS_BUILD}/${KRATOS_BUILD_TYPE}/CMakeCache.txt"
 rm -rf "${KRATOS_BUILD}/${KRATOS_BUILD_TYPE}/CMakeFiles"
 
 # Configure
-cmake -H"${KRATOS_SOURCE}" -B"${KRATOS_BUILD}/${KRATOS_BUILD_TYPE}" -DUSE_MPI=OFF -DUSE_EIGEN_MKL=OFF
+cmake -H"${KRATOS_SOURCE}" -B"${KRATOS_BUILD}/${KRATOS_BUILD_TYPE}" -DUSE_TRIANGLE_NONFREE_TPL=ON -DUSE_MPI=OFF -DUSE_EIGEN_MKL=OFF
 
 # Buid
 cmake --build "${KRATOS_BUILD}/${KRATOS_BUILD_TYPE}" --target install -- -j$(nproc)
