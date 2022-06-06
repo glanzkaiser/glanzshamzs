@@ -1,5 +1,9 @@
 # About
-To understand more about Anasazi and how to modify the source code then build it and see the computation result
+To understand more about Anasazi and how to modify the source code then build it and see the computation result.
+
+Solving linear system of equations is responsible for 70%–80% of the total computational time in many problems in computational science and engineering such as continuum and quantum mechanics, multi-physics, geophysics, optimization, linear programing, circuit design etc.
+
+There exist several direct methods for the solution of a linear system of equations, including LU factorization, QR factorization, and singular value decomposition. The fastest method is LU factorization, also known as Gaussian elimination, which is by far the most used algorithm for the direct solution of a system of linear equations. While other methods such as QR factorization may offer added stability minimizing the effect of round-off error, they are simply non-competitive in terms of computational efficiency. The main principle of the LU factorization algorithm is to decompose the original matrix A into the product of a lower triangular matrix L with an upper triangular matrix U .
 
 # Anasazi (an Eigensolvers)
 Anasazi is an extensible and interoperable framework for large-scale eigenvalue algorithms. The motivation for this framework is to provide a generic interface to a collection of algorithms for solving large-scale eigenvalue problems. Anasazi is interoperable because both the matrix and vectors (defining the eigenspace) are considered to be opaque objects—only knowledge of the matrix and vectors via elementary operations is necessary. An implementation of Anasazi is accomplished via the use of interfaces. Current interfaces available include Epetra and so any libraries that understand Epetra matrices and vectors (such as AztecOO) may also be used in conjunction with Anasazi.
@@ -79,3 +83,7 @@ If you are building at /trilinosbuild6 then you will see the built example for E
 https://trilinos.github.io/pdfs/Klinvex-TUG-2014-Anasazi.pdf
 
 https://trilinos.github.io/pdfs/anasazi-ug-public.pdf
+
+https://cug.org/proceedings/cug2016_proceedings/includes/files/pap121s2-file1.pdf
+
+https://www.researchgate.net/profile/Maciej-Paszynski/publication/272409243_Computational_cost_of_isogeometric_multi-frontal_solvers_on_parallel_distributed_memory_machines/links/5dd79bc1458515dc2f4201d0/Computational-cost-of-isogeometric-multi-frontal-solvers-on-parallel-distributed-memory-machines.pdf?origin=publication_detail
