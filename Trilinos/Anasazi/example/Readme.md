@@ -40,6 +40,13 @@ add_executable(Anasazi ${CMAKE_CURRENT_SOURCE_DIR}/LOBPCGEpetraExSimple.cpp)
 ```
 (change the cpp name with the file you want to test)
 
+#### The result of Anasazi' BlockDavidson-Epetra example (from single compiling):
+![image](https://user-images.githubusercontent.com/72222484/172170950-2898e56a-3049-402a-a538-e4962da09230.png)
+
+
+#### The result of Anasazi' BlockDavidson-Epetra example (from all compiling):
+![image](https://user-images.githubusercontent.com/72222484/172170991-dbc425bc-4a24-47a6-a5de-3b5f38dee8e1.png)
+
 # Source
 https://trilinos.github.io/pdfs/anasazi-ug-public.pdf
 
