@@ -69,14 +69,17 @@ add_app ${KRATOS_APP_DIR}/CoSimulationApplication
 or you can use my configure.sh
 
 # Compile and Install Kratos
-
-    mkdir build 
-    cd build
-    ccmake ..
-  
+```
+mkdir build 
+cd build
+ccmake ..
+```  
  Configure it the way you wanted
-  
-    make install
-    
-  The installation folder is inside /opt/hamzstlib/Physics/Kratos-9.1/bin/Release
+```  
+make install
+```    
 
+The installation folder is inside /opt/hamzstlib/Physics/Kratos-9.1/bin/Release
+
+# Sources
+https://github.com/KratosMultiphysics/Kratos/blob/master/INSTALL.md
