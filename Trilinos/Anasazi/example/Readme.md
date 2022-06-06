@@ -47,6 +47,18 @@ add_executable(Anasazi ${CMAKE_CURRENT_SOURCE_DIR}/LOBPCGEpetraExSimple.cpp)
 #### The result of Anasazi' BlockDavidson-Epetra example (from all compiling):
 ![image](https://user-images.githubusercontent.com/72222484/172170991-dbc425bc-4a24-47a6-a5de-3b5f38dee8e1.png)
 
+
+#### The result of Anasazi' BlockKrylovSchur-Epetra example (from single compiling):
+It is slower in term of time
+
+![image](https://user-images.githubusercontent.com/72222484/172185659-a6231197-15e2-4a85-8e70-50edbc200122.png)
+
+
+#### The result of Anasazi' BlockKrylovSchur-Epetra example (from all compiling):
+It is faster in term of time
+
+![image](https://user-images.githubusercontent.com/72222484/172185549-84dfc717-4e90-4153-9de5-b3043fd8cd3e.png)
+
 # Source
 https://trilinos.github.io/pdfs/anasazi-ug-public.pdf
 
