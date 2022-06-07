@@ -46,11 +46,15 @@ plot(sin, 0, 2pi)
 
 https://docs.julialang.org/en/v1/manual/getting-started/
 
+https://docs.juliaplots.org/latest/input_data/#Functions
+
 https://mth229.github.io/graphing.html
 
 https://github.com/JuliaGraphs/GraphPlot.jl
 
 https://www.math.csi.cuny.edu/~verzani/tmp/julia/graphing.html
+
+
 
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
