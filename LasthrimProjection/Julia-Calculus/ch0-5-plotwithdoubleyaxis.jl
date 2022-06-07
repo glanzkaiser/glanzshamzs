@@ -1,4 +1,5 @@
 using Plots, Measures
+pylot()
 
 x = [3, 5, 7, 9];
 y = [10, 20, 30 , 40];
