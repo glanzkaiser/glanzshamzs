@@ -31,6 +31,7 @@ using namespace chrono;
 using namespace chrono::irrlicht;
 
 int main(int argc, char* argv[]) {
+    SetChronoDataPath(CHRONO_DATA_DIR);
     GetLog() << "Copyright (c) 2017 projectchrono.org\nChrono version: " << CHRONO_VERSION << "\n\n";
 
     // Create a Chrono physical system
@@ -41,7 +42,7 @@ int main(int argc, char* argv[]) {
 
     // Shared visualization material
     auto vis_mat = chrono_types::make_shared<ChVisualMaterial>();
-    vis_mat->SetKdTexture(GetChronoDataFile("/opt/hamzstlib/Physics/chrono/build/data/textures/pinkwhite.png"));
+    vis_mat->SetKdTexture(GetChronoDataFile("/textures/pinkwhite.png"));
 
     // Create all the rigid bodies.
 
