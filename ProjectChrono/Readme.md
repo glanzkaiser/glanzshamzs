@@ -9,8 +9,15 @@ Tutorial Videos for Project Chrono and Irrlicht have been made and available at:
 
 https://www.youtube.com/watch?v=X7YCNnkWK9I&list=PLjKBQAK4kvpiLYBVSjuHMAfqqKFKwkPa1
 
-# Install Project Chrono-7.0.3
+# Download Project Chrono-7.0.3
 
+## Project Chrono (latest develop version)
+From /opt/hamzstlib/physics, type:
+
+        git clone  https://github.com/projectchrono/chrono.git
+        cd chrono
+
+## Project Chrono-7.0.3
 From /opt/hamzstlib/physics, type:
 
         wget https://github.com/projectchrono/chrono/archive/refs/tags/7.0.3.tar.gz
