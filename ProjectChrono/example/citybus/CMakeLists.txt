@@ -126,7 +126,7 @@ endif()
 # files in your project. 
 #--------------------------------------------------------------
 
-add_executable(myexe my_example.cpp)
+add_executable(myexe demo_VEH_CityBus.cpp)
 
 #--------------------------------------------------------------
 # Set properties for your executable target
