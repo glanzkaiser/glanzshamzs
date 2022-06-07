@@ -3,7 +3,7 @@ Compilation of Julia code for Calculus learning for Undergraduate degree.
 
 #### based on Lasthrim Projection book 
 
-# Test Julia file (Plot with Julia)
+# Example to Plot with Julia (Using Julia file and Type directly at REPL)
 
 To try Julia file (.jl) open Julia REPL first:
 ```
@@ -12,6 +12,12 @@ julia
 ```
 
 Check if the current working directory contains the file you want to try then type
+```
+include("ch0-5-plotimaginary.jl")
+```
+![Julia](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/plotimaginary.png)
+
+If you want to try to plot any kind of function then type
 ```
 Using Plots
 pyplot()
@@ -22,7 +28,7 @@ plot(f, -51, 51)
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
-# Plotting
+# Basic Plotting with Julia
 The most basic usage for plotting a function follows this pattern:
 ```
 plot(function_object, from, to)
