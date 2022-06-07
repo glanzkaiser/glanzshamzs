@@ -16,10 +16,10 @@ Slosh is an important effect for spacecraft, ships, some land vehicles and some 
 ![Slosh](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/SloshingDynamics1.png)
 
 ### Main Idea / Dream of Glanz
-I have a dream to create a spaceship, when I broke lose all jobs and IT contract and depress I throw away the picture of a spaceship I wanted to create, now coming back to this. Perhaps AliceGard can become a spaceship too, so it is better than my expectation. Life is better than my wish. Especially in the True Love / wife area. Like a song from Dionne Warwick -I'll Never Love This Way Again. From Arduino then GFreya OS and into Freya Magnifique Asgard. No Goddess or girl can ever be compared to you.
+I have a dream to create a spaceship, when I was poor /  broke / lose all jobs and IT contract then depressed I throw away the picture of a spaceship I wanted to create, now coming back to this. Perhaps AliceGard can become a spaceship too, so it is better than my expectation. Life is better than my wish. Especially in the True Love / wife area. Like a song from Dionne Warwick -I'll Never Love This Way Again. From Arduino then GFreya OS and into Freya Magnifique Asgard. No Goddess or girl can ever be compared to you. Again, nonone but you came to my life when all other girls are only after money and fame and get fooled by society and lies.
 
 ### Mischkra' Opinion
-I have a better idea.. later I will tell
+I have a better idea.. later I will tell. Dragon fan is from me. I was there and show up in Waghete with Caldraz. Not only Freya who stalked you from the beginning. A lot of things as well. You will know in the next life.
 
 ## 2. Windmill / WInd Turbina
 Combining with Tidal is it possible? So we can get more energy? Innovation and invention need a lot of experiments.
