@@ -19,6 +19,12 @@ include("trigonometrysincos.jl")
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
+# Plotting
+The most basic usage for plotting a function follows this pattern:
+```
+plot(function_object, from, to)
+```
+
 ### Julia Learning Source
 
 https://docs.julialang.org/en/v1/manual/getting-started/
