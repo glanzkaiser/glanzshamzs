@@ -1,5 +1,5 @@
 # About
-How to run single example from 1 C++ (.cpp) file in Project Chrono
+How to run single example from one single C++ (.cpp) file in Project Chrono
 
 ## 1. Set the Environment Variable
 You will have to set the variable Chrono_DIR to specify the location of the ChronoConfig.cmake script.
@@ -31,3 +31,13 @@ cmake .
 make -j4
 ./myexe
 ```
+
+# Status
+:sunflower: = Done
+:writing_hand: = On Progress
+
+| Example | Details |
+| -------------     | ------------- | 
+| citybus           | :writing_hand:
+| gears             | :sunflower:
+| pendulum          | :sunflower:
