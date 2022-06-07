@@ -29,6 +29,7 @@ In building Project Chrono, I use this configuration scripts:
     IRRLICHT_LIBRARY=/opt/hamzstlib/Physics/irrlicht-1.8.5/lib/Linux/libIrrlicht.so.1.8.5
     IRRLICHT_ROOT=/opt/hamzstlib/Physics/irrlicht-1.8.5/
     BUILD_DEMOS=ON
+    ENABLE_MODULE_COSIMULATION=ON
     ENABLE_MODULE_IRRLICHT=ON
     ENABLE_MODULE_MODAL=ON
     ENABLE_MODULE_OPENGL=ON
@@ -36,6 +37,14 @@ In building Project Chrono, I use this configuration scripts:
     ENABLE_MODULE_SYNCHRONO=ON
     ENABLE_MODULE_VEHICLE=ON
     ENABLE_OPENMP=ON
+    ENABLE_OPENCRG=ON
+    GLEW_LIBRARY=/usr/lib/libGLEW.so
+    GLEW_INCLUDE_DIR=/usr/include
+    GLFW_LIBRARY=/opt/hamzstlib/lib/libglfw.so.3
+    GLFW_INCLUDE_DIR=/opt/hamzstlib/include/GLFW
+    OPENCRG_LIBRARY=/opt/hamzstlib/lib/libOpenCRG.so
+    OPENCRG_INCLUDE_DIR=/opt/hamzstlib/Physics/OpenCRG.1.1.2/c-api/baseline/inc
+    SPECTRA_INCLUDE_DIR=/opt/hamzstlib/include/Spectra
     Eigen3_DIR=/opt/hamzstlib/share/eigen3/cmake
     USE_BULLET_OPENMP=ON
     USE_EIGEN_OPENMP=ON
