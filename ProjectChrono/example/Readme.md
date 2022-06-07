@@ -32,6 +32,8 @@ make -j4
 ./myexe
 ```
 
+![gears](https://github.com/glanzkaiser/glanzshamzs/blob/main/ProjectChrono/images/GearsetPulley.png)
+
 # Status
 :sunflower: = Done
 
