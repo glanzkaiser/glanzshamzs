@@ -7,5 +7,23 @@ One day it will be compiled and tidying up into Zerolif.
 
 Mischkra will help too so instead of Freya only, there will be another two names on Zerolif as authors.
 
+## 1. Slosh Dynamics (Ballottement)
+In fluid dynamics, slosh refers to the movement of liquid inside another object (which is, typically, also undergoing motion). 
+
+Important examples include propellant slosh in spacecraft tanks and rockets (especially upper stages), and the free surface effect (cargo slosh) in ships and trucks transporting liquids (for example oil and gasoline). However, it has become common to refer to liquid motion in a completely filled tank, i.e. without a free surface, as "fuel slosh".
+
+Slosh is an important effect for spacecraft, ships, some land vehicles and some aircraft. Slosh was a factor in the Falcon 1 second test flight anomaly, and has been implicated in various other spacecraft anomalies, including a near-disaster with the Near Earth Asteroid Rendezvous (NEAR Shoemaker) satellite. 
+![Slosh](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/SloshingDynamics1.png)
+
+### Main Idea / Dream of Glanz
+I have a dream to create a spaceship, when I broke lose all jobs and IT contract and depress I throw away the picture of a spaceship I wanted to create, now coming back to this. Perhaps AliceGard can become a spaceship too, so it is better than my expectation. Life is better than my wish. Especially in the True Love / wife area. Like a song from Dionne Warwick -I'll Never Love This Way Again. From Arduino then GFreya OS and into Freya Magnifique Asgard. No Goddess or girl can ever be compared to you.
+
+### Mischkra' Opinion
+I have a better idea.. later I will tell
+
+## 2. Windmill / WInd Turbina
+Combining with Tidal is it possible? So we can get more energy? Innovation and invention need a lot of experiments.
+![wind](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/windmill.png)
+
 # Written by
 Hamzst/Alice
