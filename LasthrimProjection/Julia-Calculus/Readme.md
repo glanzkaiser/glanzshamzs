@@ -26,6 +26,13 @@ plot(f, -51, 51)
 ```
 ![Julia](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/Logfunction.png)
 
+For plotting complex numbers with Polar coordinate type:
+```
+using PyPlot
+nums = ComplexF64.([1,2,4],[2,2,-1])
+polar.(Base.vect.(0.0,angle.(nums)),Base.vect.(0.0,abs.(nums)),marker="o")
+```
+![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png)
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
 # Basic Plotting with Julia
@@ -54,7 +61,7 @@ https://github.com/JuliaGraphs/GraphPlot.jl
 
 https://www.math.csi.cuny.edu/~verzani/tmp/julia/graphing.html
 
-
+https://stackoverflow.com/questions/70551977/how-to-plot-complex-numbers-in-julia
 
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
