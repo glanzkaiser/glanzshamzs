@@ -1,4 +1,5 @@
 using Plots
+pyplot()
 
 function test(a)
     alpha = 1
@@ -10,3 +11,5 @@ end
 
 a = 1:100
 plot(test, 1, 100, xaxis=:log)
+
+# plot(x -> exp(x) + exp(-x), -2, 2) 
