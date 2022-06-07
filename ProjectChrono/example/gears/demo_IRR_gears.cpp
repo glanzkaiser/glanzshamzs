@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
 
     // Shared visualization material
     auto vis_mat = chrono_types::make_shared<ChVisualMaterial>();
-    vis_mat->SetKdTexture(GetChronoDataFile("textures/pinkwhite.png"));
+    vis_mat->SetKdTexture(GetChronoDataFile("/opt/hamzstlib/Physics/chrono/build/data/textures/pinkwhite.png"));
 
     // Create all the rigid bodies.
 
