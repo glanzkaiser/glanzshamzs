@@ -41,6 +41,8 @@ In building Project Chrono, I use this configuration scripts:
     USE_EIGEN_OPENMP=ON
     USE_SIMD=ON
 
+![ccmake](https://github.com/glanzkaiser/glanzshamzs/blob/main/ProjectChrono/images/chronoccmake.png)
+
 # Sources
 https://irrlicht.sourceforge.io/docu/index.html
 
