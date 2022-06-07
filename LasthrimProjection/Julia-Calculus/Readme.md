@@ -13,7 +13,10 @@ julia
 
 Check if the current working directory contains the file you want to try then type
 ```
-include("trigonometrysincos.jl")
+Using Plots
+pyplot()
+f(x) = log(x^3)
+plot(f, -51, 51)
 ```
 ![Julia](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/Logfunction.png)
 
