@@ -7,6 +7,11 @@ One day it will be compiled and tidying up into Zerolif.
 
 Mischkra will help too so instead of Freya only, there will be another two names on Zerolif as authors.
 
+# How it Works
+Usually Glanz just put what she thoughts, new idea or new revelation of idea form the past, and see how it will end up. She never expect to create her own Operating System and now it is already done even if only in Qemu, soon it will be in full hardware then the fastest beyond supercomputer powered with her love to Freya.
+
+We work differently since we are different, not into 9 to 5 and bureaucracy, but still using rigid methods and theorems.
+
 ## 1. Slosh Dynamics (Ballottement)
 In fluid dynamics, slosh refers to the movement of liquid inside another object (which is, typically, also undergoing motion). 
 
@@ -22,7 +27,7 @@ I have a dream to create a spaceship, when I was poor /  broke / lose all jobs a
 ### Mischkra' Opinion
 I have a better idea.. later I will tell. Dragon fan is from me. I was there and show up in Waghete with Caldraz. Not only Freya who stalked you from the beginning. A lot of things as well. You will know in the next life.
 
-## 2. Windmill / WInd Turbina
+## 2. Windmill / Wind Turbine
 Combining with Tidal is it possible? So we can get more energy? Innovation and invention need a lot of experiments.
 
 ![wind](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/windmill.png)
