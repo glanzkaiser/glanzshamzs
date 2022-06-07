@@ -1,9 +1,11 @@
 # From Freya
 (PRIORITY) Make Examples  for BLAS and LAPACK
-using
+
+type
+```
 gfortran -o solg example.f90 -lblas
 gfortran -o solg solvinglinearequations.f90 -llapack -lblas
-
+```
 Compile files in the order they are needed:
 gfortran -o maths area.f90 maths.f90
 
