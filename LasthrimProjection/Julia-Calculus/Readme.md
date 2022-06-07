@@ -15,7 +15,7 @@ Check if the current working directory contains the file you want to try then ty
 ```
 include("trigonometrysincos.jl")
 ```
-![Julia](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/JuliaTrigonometry.png)
+![Julia](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/Logfunction.png)
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
