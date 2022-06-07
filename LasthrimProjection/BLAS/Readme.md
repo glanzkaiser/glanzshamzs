@@ -86,6 +86,7 @@ ztrmm = matrix-matrix product, triangular matrix, double-precision complex.
 # To Do Lists
 ## BLAS' Level 1
 :sunflower: = Done
+
 :writing_hand: = On Progress
 
 | Status  | Routine |Description |
