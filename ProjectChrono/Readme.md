@@ -9,7 +9,7 @@ Tutorial Videos for Project Chrono and Irrlicht have been made and available at:
 
 https://www.youtube.com/watch?v=X7YCNnkWK9I&list=PLjKBQAK4kvpiLYBVSjuHMAfqqKFKwkPa1
 
-# Download Project Chrono-7.0.3
+# Download Project Chrono
 
 ## Project Chrono (latest develop version)
 From /opt/hamzstlib/physics, type:
