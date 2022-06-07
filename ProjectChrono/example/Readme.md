@@ -34,6 +34,7 @@ make -j4
 
 # Status
 :sunflower: = Done
+
 :writing_hand: = On Progress
 
 | Example | Details |
