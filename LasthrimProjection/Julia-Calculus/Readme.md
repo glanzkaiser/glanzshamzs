@@ -25,6 +25,14 @@ The most basic usage for plotting a function follows this pattern:
 plot(function_object, from, to)
 ```
 
+example
+```
+Using Plots
+pyplot()
+plot(sin, 0, 2pi)
+```
+
+
 ### Julia Learning Source
 
 https://docs.julialang.org/en/v1/manual/getting-started/
