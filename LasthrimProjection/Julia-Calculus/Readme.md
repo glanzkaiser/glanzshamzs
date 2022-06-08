@@ -93,5 +93,7 @@ https://stackoverflow.com/questions/70551977/how-to-plot-complex-numbers-in-juli
 
 https://diffeq.sciml.ai/stable/basics/plot/
 
+https://uilis.unsyiah.ac.id/oer/files/original/aa4c33bd9eeba8b979b3033a615b60c8.pdf
+
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
