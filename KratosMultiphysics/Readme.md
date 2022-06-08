@@ -3,7 +3,7 @@ KRATOS Multiphysics ("Kratos") is a framework for building parallel, multi-disci
 
 #### Use Kratos-9.1
 
-# Download Third Party Modules: GKlib, METIS
+# Download Third Party Modules: GKlib, METIS, MMG
 
 ## Gklib
 A library of various helper routines and frameworks used by many of the lab's software.
@@ -34,6 +34,29 @@ Enter the directory then type:
 make config shared=1 cc=gcc prefix=/opt/hamzstlib
 make install
 ```
+
+## MMG
+Mmg is an open source software for simplicial remeshing. It provides 3 applications and 4 libraries:
+
+* the mmg2d application and the libmmg2d library: adaptation and optimization of a two-dimensional triangulation and generation of a triangulation from a set of points or from given boundary edges
+* the mmgs application and the libmmgs library: adaptation and optimization of a surface triangulation and isovalue discretization
+* the mmg3d application and the libmmg3d library: adaptation and optimization of a tetrahedral mesh and implicit domain meshing
+* the libmmg library gathering the libmmg2d, libmmgs and libmmg3d libraries
+
+To download it
+```
+git clone https://github.com/MmgTools/mmg.git
+```
+
+Enter the directory then type:
+```
+ccmake ..
+make 
+make install
+```
+
+My ccmake configuration for MMG:
+![mmg](https://github.com/glanzkaiser/glanzshamzs/blob/main/KratosMultiphysics/images/mmgccmake.png)
 
 # Download Kratos
     wget https://github.com/KratosMultiphysics/Kratos/archive/refs/tags/v9.1.tar.gz
@@ -66,7 +89,7 @@ add_app ${KRATOS_APP_DIR}/ShapeOptimizationApplication
 add_app ${KRATOS_APP_DIR}/CoSimulationApplication
 ```
 
-or you can use my configure.sh
+or you can use my configure.sh or standard-configure.sh that will work with you, don't forget to adjust with your own path to each dependencies and libraries.
 
 # Compile and Install Kratos
 ```
@@ -74,12 +97,20 @@ mkdir build
 cd build
 ccmake ..
 ```  
- Configure it the way you wanted
+
+ Configure it the way you wanted then type
+ 
 ```  
+make
 make install
 ```    
 
-The installation folder is inside /opt/hamzstlib/Physics/Kratos-9.1/bin/Release
+or just cd to /Kratos/scripts/ then type:
+```
+./configure.sh
+```
+
+The installation folder is inside /opt/hamzstlib/Physics/Kratos/bin/Release
 
 # Sources
 https://github.com/KratosMultiphysics/Kratos/blob/master/INSTALL.md
