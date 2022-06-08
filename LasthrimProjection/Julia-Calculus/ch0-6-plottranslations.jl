@@ -1,4 +1,4 @@
-Using plots
+Using Plots
 pyplot()
 
 f(x) = abs(x)
