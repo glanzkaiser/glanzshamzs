@@ -91,5 +91,7 @@ https://www.math.csi.cuny.edu/~verzani/tmp/julia/graphing.html
 
 https://stackoverflow.com/questions/70551977/how-to-plot-complex-numbers-in-julia
 
+https://diffeq.sciml.ai/stable/basics/plot/
+
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
