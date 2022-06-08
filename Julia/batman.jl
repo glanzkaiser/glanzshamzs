@@ -1,4 +1,6 @@
 using Plots
+pyplot()
+
 P2 = Plots.P2
 function make_batman()
     p = P2[(0, 0), (0.5, 0.2), (1, 0), (1, 2),  (0.3, 1.2), (0.2, 2), (0, 1.7)]
@@ -65,4 +67,4 @@ plt
 # Holy plotting, Batman!
 batman = Plots.scale(make_batman(), 0.07, 0.07, (0, 0))
 batman = translate(batman, 0.7, 1.23)
-plot!(batman, fillcolor = :black)
+plot!(batman, fillcolor = :green)
