@@ -33,6 +33,34 @@ nums = ComplexF64.([1,2,4],[2,2,-1])
 polar.(Base.vect.(0.0,angle.(nums)),Base.vect.(0.0,abs.(nums)),marker="o")
 ```
 ![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png)
+
+For plotting multiple plots at once (translations example):
+```
+using Plots, LaTeXStrings
+pyplot()
+
+f(x) = sqrt(x)
+g(x) = sqrt(x-3)
+h(x) = sqrt(x)+2
+i(x) = sqrt(x-3)+2
+
+p1 = plot(f, -8, 8)
+p2 = plot(g, -8, 8)
+p3 = plot(h, -8, 8)
+p4 = plot(i, -8, 8)
+
+s1 = L"y = \sqrt{x}";
+s2 = L"y = \sqrt{x-3}";
+s3 = L"y = \sqrt{x}+2";
+s4 = L"y = \sqrt{x-3}+2";
+
+plot(p1, p2, p3, p4, layout = (2, 2), xaxis = "x", yaxis = s1, label=[s1 s2 s3 s4], 
+title=["Original function" "Translated 3 units to the right" "Translated upward by 2 units" "Translated 3 units to the right then 2 units upward"],
+titleloc = :bottom, titlefont = font(8))
+```
+
+![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png)
+
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
 # Basic Plotting with Julia
