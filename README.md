@@ -42,7 +42,7 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 | oneTBB            | Create examples and simulate
 | ODE               | Will check and simulate
 | Kratos            | Rebuild to add all applications, simulate and see the different between Chrono
-| Project Chrono    | Compile successful till 100% but Demo of CityBus can't work
+| Project Chrono    | Compile single demo example of CityBus can't work
 | PyBullet          | Will check and simulate
 | Tokamak           | Can't be installed with premake -> Learn to create demo with the headers (.h) and OpenGL
 | Trilinos          | Built successful, without MPI and OpenMP, able to compile and run a single Anasazi example
