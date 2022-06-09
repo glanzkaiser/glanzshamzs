@@ -66,13 +66,14 @@ ${KRATOS_CMAKE_OPTIONS_FLAGS} \
 -DCMAKE_CXX_FLAGS="${KRATOS_CMAKE_CXX_FLAGS} -O0 -Wall" \
 -DTRILINOS_INCLUDE_DIR="/opt/hamzstlib/trilinos/include" \
 -DTRILINOS_LIBRARY_DIR="/opt/hamzstlib/trilinos/lib" \
--DMMG_INCLUDE_DIR="/opt/hamzstlib/include/mmg" \
--DMMG_LIBRARY_DIR="/opt/hamzstlib/lib" \
--DMETIS_ROOT_DIR="/opt/hamzstlib/lib" \
+-DINCLUDE_MMG=ON \
+-DMMG_INCLUDE_DIRS="/opt/hamzstlib/include/mmg" \
+-DMMG_LIBRARIES="/opt/hamzstlib/lib" \
+-DMMGS_INCLUDE_DIRS="/opt/hamzstlib/include/mmg/mmgs" \
+-DMMG2D_INCLUDE_DIRS="/opt/hamzstlib/include/mmg/mmg2d" \
+-DMMG3D_INCLUDE_DIRS="/opt/hamzstlib/include/mmg/mmg3d" \
+-DMETIS_LIBRARY="/opt/hamzstlib/lib" \
+-DMETIS_INCLUDE_DIR="/opt/hamzstlib/include" \
 -DUSE_TRIANGLE_NONFREE_TPL=ON \
 -DCMAKE_UNITY_BUILD=ON \
--DINCLUDE_MMG=ON \
 -DUSE_EIGEN_MKL=OFF \
-
-# Buid
-cmake --build "${KRATOS_BUILD}/${KRATOS_BUILD_TYPE}" --target install -- -j4
