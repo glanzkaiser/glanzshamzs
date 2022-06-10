@@ -52,7 +52,7 @@ add_app ${KRATOS_APP_DIR}/LinearSolversApplication;
 add_app ${KRATOS_APP_DIR}/MappingApplication;
 add_app ${KRATOS_APP_DIR}/MeshingApplication;
 add_app ${KRATOS_APP_DIR}/MeshMovingApplication;
-#add_app ${KRATOS_APP_DIR}/MetisApplication;
+add_app ${KRATOS_APP_DIR}/MetisApplication;
 add_app ${KRATOS_APP_DIR}/MultilevelMonteCarloApplication;
 add_app ${KRATOS_APP_DIR}/ParticleMechanicsApplication;
 add_app ${KRATOS_APP_DIR}/RANSApplication;
@@ -99,17 +99,10 @@ cmake -H"${KRATOS_SOURCE}" -B"${KRATOS_BUILD}/${KRATOS_BUILD_TYPE}" \
 ${KRATOS_CMAKE_OPTIONS_FLAGS} \
 -DUSE_MPI=ON \
 -DPYBIND11_PYTHON_VERSION="3.9" \
--DCMAKE_CXX_FLAGS="${KRATOS_CMAKE_CXX_FLAGS} -O0 -Wall" \
+-DCMAKE_CXX_FLAGS="${KRATOS_CMAKE_CXX_FLAGS} -std=c++14 -O0 -Wall" \
 -DTRILINOS_INCLUDE_DIR="/opt/hamzstlib/trilinos/include" \
 -DTRILINOS_LIBRARY_DIR="/opt/hamzstlib/trilinos/lib" \
--DMMG_INCLUDE_DIR="/opt/hamzstlib/include/mmg" \
--DMMGS_INCLUDE_DIR="/opt/hamzstlib/include/mmgs" \
--DMMG2D_INCLUDE_DIR="/opt/hamzstlib/include/mmg2d" \
--DMMG3D_INCLUDE_DIR="/opt/hamzstlib/include/mmg3d" \
--DMMG_LIBRARIES="/opt/hamzstlib/lib/libmmg.so.5.6.0" \
--DMMGS_LIBRARIES="/opt/hamzstlib/lib/libmmgs.so.5.6.0" \
--DMMG2D_LIBRARIES="/opt/hamzstlib/lib/libmmg2d.so.5.6.0" \
--DMMG3D_LIBRARIES="/opt/hamzstlib/lib/libmmg3d.so.5.6.0" \
+-DMMG_ROOT="/sources/Hamzstlab/mmg/build" \
 -DMETIS_LIBRARY="/opt/hamzstlib/lib/libmetis.so" \
 -DMETIS_INCLUDE_DIR="/opt/hamzstlib/include" \
 -DUSE_TRIANGLE_NONFREE_TPL=ON \
