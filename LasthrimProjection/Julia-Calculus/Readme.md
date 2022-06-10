@@ -95,5 +95,7 @@ https://diffeq.sciml.ai/stable/basics/plot/
 
 https://uilis.unsyiah.ac.id/oer/files/original/aa4c33bd9eeba8b979b3033a615b60c8.pdf
 
+http://www2.math.uu.se/~xinca341/euclidean-plane-geometry-with-julia.html
+
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
