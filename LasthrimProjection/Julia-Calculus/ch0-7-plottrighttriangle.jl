@@ -58,6 +58,11 @@ end;
 shape(tri::Triangle) = shape(vertices(tri));
 
 trishape=shape(tri)
+    
+s1 = L"\theta";
+s2 = L"sin \theta = \frac{opp}{hyp}";
+s3 = L"cos \theta = \frac{adj}{hyp}";
+s4 = L"tan \theta = \frac{opp}{adj}";
 
 plot(trishape, leg=false, fill=(0, :green), aspect_ratio=:equal, fillalpha= 0.2)
 scatter!(trishape.x, trishape.y, color=:red, series_annotations = text.(["A", "B", "C"], :bottom))
