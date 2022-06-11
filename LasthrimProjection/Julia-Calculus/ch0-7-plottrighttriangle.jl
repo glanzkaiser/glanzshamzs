@@ -66,5 +66,8 @@ s4 = L"tan \theta = \frac{opp}{adj}";
 
 plot(trishape, leg=false, fill=(0, :green), aspect_ratio=:equal, fillalpha= 0.2)
 scatter!(trishape.x, trishape.y, color=:red, series_annotations = text.(["A", "B", "C"], :bottom))
-annotate!([2.5, 2.5, (s1, 8, :green)), (4.5, 1, ("adj", :right, 8, "courier")), (6.5, 3.5, ("opp", :right, 8, "courier")), (4.5, 4.5, ("hyp", :right, 8, "courier")) ])
+annotate!([(2.5, 2.5, (s1, 8, :green)), 
+    (4.5, 1, ("adj", :right, 8, "courier")), 
+    (6.5, 3.5, ("opp", :right, 8, "courier")), 
+    (4.5, 4.5, ("hyp", :right, 8, "courier"))])
     
