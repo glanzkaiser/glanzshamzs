@@ -61,6 +61,10 @@ titleloc = :bottom, titlefont = font(8))
 
 ![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png)
 
+For right side triangle (ch0-7-plottrighttriangle.jl):
+
+![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png)
+
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
 # Basic Plotting with Julia
