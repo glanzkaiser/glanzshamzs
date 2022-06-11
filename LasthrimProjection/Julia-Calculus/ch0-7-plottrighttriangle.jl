@@ -60,14 +60,16 @@ shape(tri::Triangle) = shape(vertices(tri));
 trishape=shape(tri)
     
 s1 = L"\theta";
-s2 = L"sin \theta = \frac{opp}{hyp}";
-s3 = L"cos \theta = \frac{adj}{hyp}";
-s4 = L"tan \theta = \frac{opp}{adj}";
+s2 = L"sin \ \theta = \frac{opp}{hyp}";
+s3 = L"cos \ \theta = \frac{adj}{hyp}";
+s4 = L"tan \ \theta = \frac{opp}{adj}";
 
 plot(trishape, leg=false, fill=(0, :green), aspect_ratio=:equal, fillalpha= 0.2)
-scatter!(trishape.x, trishape.y, color=:red, series_annotations = text.(["A", "B", "C"], :bottom))
-annotate!([(2.5, 2.5, (s1, 8, :green)), 
-    (4.5, 1, ("adj", :right, 8, "courier")), 
-    (6.5, 3.5, ("opp", :right, 8, "courier")), 
-    (4.5, 4.5, ("hyp", :right, 8, "courier"))])
-    
+scatter!(trishape.x, trishape.y, color=:red)
+annotate!([(2.3, 2.1, (s1, 14, :red)), 
+            (4, 2.1, ("adj", 10, :red)), 
+            (6.2, 3.1, ("opp", 10, :red)),
+            (4, 3.7, ("hyp", 10, :red)),
+            (2.2, 4.5, (s2, 10, :red)), 
+            (2.9, 4.5, (s3, 10, :red)),
+            (3.6, 4.5, (s4, 10, :red))])
