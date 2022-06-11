@@ -1,4 +1,4 @@
-using Plots
+using Plots, LaTeXStrings
 pyplot()
 import Base: isequal, ==
 
