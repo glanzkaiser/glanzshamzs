@@ -77,13 +77,9 @@ include("trigonometrysincos.jl")
 ```
 ![Julia](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/JuliaTrigonometry.png)
 
-# Homework
-1. Plot even and odd functions
-2. Sketch graph 2/(x-1)
-3. Plot absolute value function and greatest integer function
+For calling Green Batman:
+```
+include("batman.jl")
+```
+![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/GreenBatman.png)
 
-https://discourse.julialang.org/t/how-to-solve-this-ax-b-faster/81693
-
-https://github.com/barche/Trilinos.jl
-
-https://github.com/orgs/JuliaParallel/repositories?type=all
