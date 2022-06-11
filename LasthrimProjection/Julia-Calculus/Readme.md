@@ -108,5 +108,9 @@ https://www.math.csi.cuny.edu/~verzani/tmp/julia/graphing.html
 
 http://www2.math.uu.se/~xinca341/euclidean-plane-geometry-with-julia.html
 
+#### PyPlot
+
+https://gist.github.com/floswald/d62488c28af2e803da6d
+
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
