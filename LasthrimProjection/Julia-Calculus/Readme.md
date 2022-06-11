@@ -80,28 +80,33 @@ pyplot()
 plot(sin, 0, 2pi)
 ```
 
-
 ### Julia Learning Source
+
+https://diffeq.sciml.ai/stable/basics/plot/
+
+https://discourse.julialang.org/t/how-to-solve-this-ax-b-faster/81693
 
 https://docs.julialang.org/en/v1/manual/getting-started/
 
 https://docs.juliaplots.org/latest/input_data/#Functions
 
-https://mth229.github.io/graphing.html
+https://github.com/barche/Trilinos.jl
+
+https://github.com/goropikari/PlotsGallery.jl
 
 https://github.com/JuliaGraphs/GraphPlot.jl
 
-https://www.math.csi.cuny.edu/~verzani/tmp/julia/graphing.html
+https://github.com/orgs/JuliaParallel/repositories?type=all
+
+https://mth229.github.io/graphing.html
 
 https://stackoverflow.com/questions/70551977/how-to-plot-complex-numbers-in-julia
 
-https://diffeq.sciml.ai/stable/basics/plot/
-
 https://uilis.unsyiah.ac.id/oer/files/original/aa4c33bd9eeba8b979b3033a615b60c8.pdf
 
-http://www2.math.uu.se/~xinca341/euclidean-plane-geometry-with-julia.html
+https://www.math.csi.cuny.edu/~verzani/tmp/julia/graphing.html
 
-https://github.com/goropikari/PlotsGallery.jl
+http://www2.math.uu.se/~xinca341/euclidean-plane-geometry-with-julia.html
 
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
