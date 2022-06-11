@@ -47,7 +47,7 @@ end
 
 ccenter(c::Circle) = c.center
 
-A = Point(0,0); B = Point(1, 3); C = Point(4,2);
+A = Point(2,2); B = Point(6, 2); C = Point(6,5);
 tri = Triangle(A, B, C)
 
 function shape(ptlist::Vector{Point})
@@ -66,3 +66,5 @@ s4 = L"tan \theta = \frac{opp}{adj}";
 
 plot(trishape, leg=false, fill=(0, :green), aspect_ratio=:equal, fillalpha= 0.2)
 scatter!(trishape.x, trishape.y, color=:red, series_annotations = text.(["A", "B", "C"], :bottom))
+annotate!([2.5, 2.5, (s1, 8, :green)), (4.5, 1, ("adj", :right, 8, "courier")), (6.5, 3.5, ("opp", :right, 8, "courier")), (4.5, 4.5, ("hyp", :right, 8, "courier")) ])
+    
