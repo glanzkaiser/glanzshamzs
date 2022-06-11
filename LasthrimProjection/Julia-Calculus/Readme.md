@@ -116,5 +116,7 @@ https://juliagraphics.github.io/Luxor.jl/v0.9.1/polygons.html#Regular-polygons-(
 
 https://gist.github.com/floswald/d62488c28af2e803da6d
 
+https://www.juliapackages.com/p/implicit3dplotting
+
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
