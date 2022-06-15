@@ -16,7 +16,8 @@ plot!([0], seriestype="vline", color=:green, label="")
 plot!([0], seriestype="hline", color=:green, label="")
 plot!([0.707106781,0.707106781],[0.707106781,0], linecolor=:green, linestyle=:dash)
 plot!(f, linecolor=:green, linestyle=:dash)
-
+plot!(Plots.partialcircle(0,1//4*pi), linewidth=2)
+     
 annotate!([(1.1,0, ("x", 10, :red)), 
            (0.15,1.03, ("y", 10, :red)), 
            (0.1,-0.1, ("(0,0)", 10, :red)),
