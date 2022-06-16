@@ -61,7 +61,7 @@ titleloc = :bottom, titlefont = font(8))
 
 | Name | Details | Name | Details |
 | ------------- | ------------- | ------------- | ------------- | 
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png" width="46%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png" width="46%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png" width="46%"> | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png" width="46"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png" width="46"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png" width="46"> | 
 | ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) |
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
