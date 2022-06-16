@@ -60,8 +60,8 @@ titleloc = :bottom, titlefont = font(8))
 
 | Unit Circle | Rosenbrock Function | 
 | ------------- | ------------- | 
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/unitcircle.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rosenbrock2.png" width="83%"> | 
-| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-7-plottunitcircle4.jl">ch0-7-plottunitcircle4.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/rosenbrockfunction2.jl">rosenbrockfunction2.jl</a> | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/unitcirclewitharrow.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rosenbrock2.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-7-plottunitcircle4witharrow.jl">ch0-7-plottunitcircle4witharrow.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/rosenbrockfunction2.jl">rosenbrockfunction2.jl</a> | 
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
