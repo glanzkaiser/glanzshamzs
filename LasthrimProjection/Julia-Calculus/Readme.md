@@ -51,6 +51,8 @@ title=["Original function" "Translated 3 units to the right" "Translated upward 
 titleloc = :bottom, titlefont = font(8))
 ```
 
+## Lasthrim' Galleries for Julia-Calculus
+
 | Modified Axes | Complex Plot | Translations (Multiple Plots) | Right Side Triangle |
 | ------------- | ------------- | ------------- | ------------- | 
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sin18x.png?raw=true" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png" width="83%"> | 
