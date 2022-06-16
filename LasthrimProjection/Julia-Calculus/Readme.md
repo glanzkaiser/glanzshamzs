@@ -26,14 +26,6 @@ plot(f, -51, 51)
 ```
 ![Julia](https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/Logfunction.png)
 
-For plotting complex numbers with Polar coordinate type:
-```
-using PyPlot
-nums = ComplexF64.([1,2,4],[2,2,-1])
-polar.(Base.vect.(0.0,angle.(nums)),Base.vect.(0.0,abs.(nums)),marker="o")
-```
-![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png)
-
 For plotting multiple plots at once (translations example):
 ```
 using Plots, LaTeXStrings
@@ -61,7 +53,7 @@ titleloc = :bottom, titlefont = font(8))
 
 | Name | Details | Name | Details |
 | ------------- | ------------- | ------------- | ------------- | 
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png" width="46"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png" width="46"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png" width="46"> | 
+| <img src="https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/Logfunction.png" width="66%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png" width="66%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png" width="66%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png" width="66%"> | 
 | ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) |
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
