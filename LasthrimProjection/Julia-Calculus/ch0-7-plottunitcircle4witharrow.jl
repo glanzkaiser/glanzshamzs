@@ -12,6 +12,7 @@ plot(circleShape(0, 0, 1), seriestype = [:shape,], lw = 0.5,
 
 t = L"45^0"
 f(x) = x
+a = L"$\ulcorner$"
 
 plot!([0], seriestype="vline", color=:green, label="")
 plot!([0], seriestype="hline", color=:green, label="")
@@ -21,6 +22,7 @@ plot!(Plots.partialcircle(0,1//4*pi,100,0.1), color=:red, arrow=true)
 plot!(Plots.partialcircle(0,1//4*pi), color=:red, linewidth=2)
      
 annotate!([(1.1,0, ("x", 10, :red)), 
+           (0.69,-0.01, (a, 20, :red)),
            (0.17,005, (t, 8, :red)),
            (0.15,1.03, ("y", 10, :red)), 
            (0.17,-0.1, ("O (0,0)", 10, :red)),
