@@ -59,11 +59,10 @@ title=["Original function" "Translated 3 units to the right" "Translated upward 
 titleloc = :bottom, titlefont = font(8))
 ```
 
-![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png)
-
-For right side triangle (ch0-7-plottrighttriangle.jl):
-
-![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png)
+| Name | Details |
+| ------------- | ------------- | ------------- | ------------- | 
+| ![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png) | ![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png) | ![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png) | 
+| ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) | ch0-7-plottrighttriangle.jl) |
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
