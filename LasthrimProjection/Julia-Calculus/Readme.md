@@ -51,10 +51,10 @@ title=["Original function" "Translated 3 units to the right" "Translated upward 
 titleloc = :bottom, titlefont = font(8))
 ```
 
-| Name | Details | Name | Details |
+| Log Function | Complex Plot | Translations (Multiple Plots) | Right Side Triangle |
 | ------------- | ------------- | ------------- | ------------- | 
 | <img src="https://raw.githubusercontent.com/glanzkaiser/glanzshamzs/main/Julia/images/Logfunction.png" width="66%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png" width="66%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png" width="66%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png" width="66%"> | 
-|  <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-6-plottranslations2.jl">ch0-7-plottrighttriangle.jl</a> | ch0-7-plottrighttriangle.jl) | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-6-plottranslations2.jl">ch0-6-plottranslations2.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-7-plottrighttriangle.jl">ch0-7-plottrighttriangle.jl</a>) |
+|  <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-6-plottranslations2.jl">ch0-7-plottrighttriangle.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-5-plotimaginary2.jl">ch0-5-plotimaginary2.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-6-plottranslations2.jl">ch0-6-plottranslations2.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-7-plottrighttriangle.jl">ch0-7-plottrighttriangle.jl</a> |
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
