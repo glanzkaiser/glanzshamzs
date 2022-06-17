@@ -77,8 +77,13 @@ Using Plots
 pyplot()
 plot(sin, 0, 2pi)
 ```
+### Root(im)
+
+![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/root(im).png)
 
 ### Julia Learning Source
+
+https://computationalthinking.mit.edu/Spring21/
 
 https://diffeq.sciml.ai/stable/basics/plot/
 
