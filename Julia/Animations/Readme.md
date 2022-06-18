@@ -47,3 +47,12 @@ The file will be saved as .png at the current working directory.
 | ------------- | ------------- | ------------- |
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle2.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle3.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle1.jl">turtle1.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle4.jl">turtle4.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle-hilbertcurve.jl">turtle-hilbertcurve.jl</a> | 
+
+# Sources
+https://juliagraphics.github.io/Luxor.jl/stable/howto/turtle/
+
+https://juliagraphics.github.io/Luxor.jl/stable/reference/api/
+
+https://docs.juliahub.com/Luxor/HA9ps/2.15.0/howto/createdrawings/
+
+https://juliagraphics.github.io/Luxor.jl/v0.11/basics.html
