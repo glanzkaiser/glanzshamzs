@@ -1,5 +1,5 @@
 using Luxor
-Drawing(1400, 900)
+Drawing()
 origin()
 
 function hilbert(t::Turtle, level, angle, lengthstep)
@@ -24,7 +24,7 @@ function hilbert(t::Turtle, level, angle, lengthstep)
     Turn(t, angle)
 end
 
-@draw begin
+@png begin
 background("black")
 setline(2)
 setlinecap("round")
