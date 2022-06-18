@@ -41,7 +41,7 @@ Message(🐢, "finished")
 finish()
 ```
 
-| Basic Turtle | Rosenbrock Function | 
+| Basic Turtle | 9 Turtles | 
 | ------------- | ------------- | 
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle2.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle1.jl">turtle1.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle4.jl">turtle4.jl</a> | 
