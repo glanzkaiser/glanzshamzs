@@ -1,26 +1,37 @@
 using Luxor
 Drawing(1400, 900)
 origin()
-background("antiquewhite")
 
-function square(t)
-  for i in 1:4
-    Forward(t, 200)
-    Turn(t, 90)
-  end
+function hilbert(t::Turtle, level, angle, lengthstep)
+    level == 0 && return
+
+    HueShift(t, 0.1)
+
+    Turn(t, angle)
+    hilbert(t, level-1, -angle, lengthstep)
+
+    Forward(t, lengthstep)
+    Turn(t, -angle)
+    hilbert(t, level-1, angle, lengthstep)
+
+    Forward(t, lengthstep)
+    hilbert(t, level-1, angle, lengthstep)
+
+    Turn(t, -angle)
+    Forward(t, lengthstep)
+    hilbert(t, level-1, -angle, lengthstep)
+
+    Turn(t, angle)
 end
-
 
 @draw begin
-  background("antiquewhite")
-  t = Turtle()
-  n = 10
-  Penwidth(t, 0.5)
-  Pencolor(t, "darkblue")
-  for i in 1:n
-    square(t)
-    Turn(t, 360/n)
-  end
-  Message(t, "Freya")
+background("black")
+setline(2)
+setlinecap("round")
+
+hilbert(Turtle(first(BoundingBox()) + (12, 12), true, 0, (1, 0, 0)),
+        6,  # level
+        90, # turn angle, in degrees
+        6   # steplength
+        )
 end
-finish()
