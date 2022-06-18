@@ -57,7 +57,6 @@ function square(t)
   end
 end
 
-
 @draw begin
   background("antiquewhite")
   t = Turtle()
