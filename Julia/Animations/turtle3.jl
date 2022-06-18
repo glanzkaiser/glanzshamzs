@@ -1,4 +1,7 @@
 using Luxor
+Drawing(1400, 900)
+origin()
+background("antiquewhite")
 
 function square(t)
   for i in 1:4
