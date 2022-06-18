@@ -1,3 +1,13 @@
+using Luxor
+
+function square(t)
+  for i in 1:4
+    Forward(t, 200)
+    Turn(t, 90)
+  end
+end
+
+
 @draw begin
   background("antiquewhite")
   t = Turtle()
