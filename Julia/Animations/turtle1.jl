@@ -1,5 +1,5 @@
 using Luxor, Colors
-Drawing(600, 400, "../assets/figures/turtles.png")
+Drawing(600, 400)
 origin()
 background("midnightblue")
 
