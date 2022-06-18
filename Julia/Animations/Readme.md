@@ -40,6 +40,8 @@ fontsize(20)
 Message(🐢, "finished")
 finish()
 ```
+The file will be saved as .png at the current working directory.
+
 
 | Basic Turtle | 9 Turtles | 
 | ------------- | ------------- | 
