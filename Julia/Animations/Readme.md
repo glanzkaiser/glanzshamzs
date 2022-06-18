@@ -16,9 +16,13 @@ The ideas behind turtle graphics can be extended to include three-dimensional sp
 ## Turtle graphics in Luxor.jl
 Some simple "turtle graphics" functions are included. Functions to control the turtle begin with a capital letter: Forward, Turn, Circle, Orientation, Rectangle, Pendown, Penup, Pencolor, Penwidth, and Reposition, and so on, and angles are specified in degrees.
 
+#### Counterclockwise -> -(degree)
+#### Clockwise -> +(degree)
+
+
 ```
 using Luxor, Colors
-Drawing(600, 400, "assets/figures/turtles.png")
+Drawing(600, 400)
 origin()
 background("midnightblue")
 
