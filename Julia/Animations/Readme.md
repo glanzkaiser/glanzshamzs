@@ -19,7 +19,7 @@ Some simple "turtle graphics" functions are included. Functions to control the t
 #### Counterclockwise -> -(degree)
 #### Clockwise -> +(degree)
 
-
+An example for drawing Basic Turtle:
 ```
 using Luxor, Colors
 Drawing(600, 400)
