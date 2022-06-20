@@ -21,7 +21,7 @@ TetGen is a software for tetrahedral mesh generation. Its goal is to generate go
 
 TetGen generates the Delaunay tetrahedralization, Voronoi diagram, and convex hull for three-dimensional point sets, generates the constrained Delaunay tetrahedralizations and quality tetrahedral meshes for three-dimensional domains with piecewise linear boundary.
 
-Manual:
+### TetGen Manual:
 
 https://wias-berlin.de/software/tetgen/1.5/doc/manual/manual.pdf
 
@@ -29,7 +29,18 @@ https://wias-berlin.de/software/tetgen/1.5/doc/manual/manual.pdf
 ## 2. TetView
 TetView is a small graphic program for viewing tetrahedral meshes and piecewise linear complexes. It is created sepcifically for viewing and analyzing the input and output files of TetGen. However, it has the general features for viewing geometry objects and triangular and tetrahedral meshes.
 
-Tutorial:
+### Install TetView
+After you download TetView either from this directory or the website, unzip it then type:
+```
+chmod +x tetview-xxx
+```
+Unzip and extract the example files (examples.tar.gz) of TetView. Save these files into the same directory where you have the executable version of TetView, then type:
+```
+./tetview
+```
+TetView starts the lua script environment, you can run lua scripts or special commands available in TetView. To exit type 'Ctrl+D'
+
+### TetView Tutorial:
 
 https://wias-berlin.de/software/tetgen/tetview.tutorial.html
 
