@@ -16,7 +16,30 @@ It is becoming more and more important to extract structure from very large diso
 # Research
 The Weierstrass Institute dedicates itself to fundamental mathematical research in analysis, stochastics and numerical methods, as well as the development of algorithms and scientific software, and the software's long-term maintenance. During the problem-solving process, mathematical models of physical and technological systems are designed that properly capture observed phenomena, thereby providing access to highly developed mathematical analysis. At WIAS the phases of the solving process are repeated and coordinated until an optimal solution is found.
 
+## 1. TetGen
+TetGen is a software for tetrahedral mesh generation. Its goal is to generate good quality tetrahedral meshes suitable for numerical methods and scientific computing. It can be used as either a standalone program or a library component integrated in other software.
+
+TetGen generates the Delaunay tetrahedralization, Voronoi diagram, and convex hull for three-dimensional point sets, generates the constrained Delaunay tetrahedralizations and quality tetrahedral meshes for three-dimensional domains with piecewise linear boundary.
+
+Manual:
+
+https://wias-berlin.de/software/tetgen/1.5/doc/manual/manual.pdf
+
+
+## 2. TetView
+TetView is a small graphic program for viewing tetrahedral meshes and piecewise linear complexes. It is created sepcifically for viewing and analyzing the input and output files of TetGen. However, it has the general features for viewing geometry objects and triangular and tetrahedral meshes.
+
+Tutorial:
+
+https://wias-berlin.de/software/tetgen/tetview.tutorial.html
+
+https://wias-berlin.de/software/tetgen/tetview.html
+
 # Sources
 https://wias-berlin.de/about/mission.jsp?lang=1
 
 https://wias-berlin.de/research/rgs/index.jsp?lang=1
+
+https://wias-berlin.de/software/tetgen/features.html
+
+https://wias-berlin.de/software/tetgen/tetview.tutorial.html
