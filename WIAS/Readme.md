@@ -1,3 +1,15 @@
+# Background Story
+Why we put WIAS here ?
+On June 20th 2022, I saw this VTK question:
+#### I have a .stl mesh file that is hollow inside. Can I change this to a solid mesh file in vtk? 
+
+Then someone answered it:
+
+#### VTK does not have general 3D meshing capabilities. vtkDelaunay3D can fill the volume but it will output the convex hull of your input. You may look at CGAL ( or a python wrapper of CGAL), Gmsh (or a python wrapper of Gmsh) or TetGen 1 (or PyVista Wrapper of TetGen) for more general mesh generation capabilities. All three can output to VTK formats.
+
+I already browsed Gmsh, and Freya said that CGAL is only a pain better focus on BLAS and LAPACK instead of CGAL. Then why not try TetGen?
+When I see the organization that created TetGen (WIAS), is more or less like SANL that created Trilinos.. Meaning. Tons of Mathematics packages, in Stochastics and Numerics area. 
+
 # About
 The Weierstrass Institute conducts project oriented research in applied mathematics with the aim of solving complex problems in technology, science and the economy. The institute deals with the whole scientific solution process, starting with mathematical modeling, followed by the theoretical analysis of models, and ending with the numerical simulation of the solution. In this context, the WIAS maintains long term, wide-ranging contacts with those who apply mathematics in industry and other areas of research and for whom it is a reliable partner.
 
