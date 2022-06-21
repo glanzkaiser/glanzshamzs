@@ -14,10 +14,10 @@ plot!([0], seriestype="hline", color=:black)
 plot!(f, linecolor=:green)
 plot!(g, linecolor=:green)
 plot!(Plots.partialcircle(0,1//14*pi,50,1.33), color=:red, arrow=true)
-plot!(Plots.partialcircle(0,1//11*pi,100,1.73), color=:red, arrow=true)
+plot!(Plots.partialcircle(0,1//10*pi,100,1.75), color=:red, arrow=true)
      
 annotate!([(1.81,0.9, (t, 8, :red)), 
            (2.05,1.07, (l1, 8, :red)),
            (2.05,1.66, (l2, 8, :red)),
            (1.37,0.173, (t1, 8, :red)),
-           (1.75,0.23, (t2, 8, :red))])
+           (1.75,0.25, (t2, 8, :red))])
