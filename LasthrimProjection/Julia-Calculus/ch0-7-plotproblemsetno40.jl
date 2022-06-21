@@ -1,9 +1,9 @@
 using Plots, LaTeXStrings
 pyplot()
 
-t = L"$/theta$""
-t1 = L"$/theta_1$""
-t2 = L"$/theta_2$""
+t = L"$/theta$"
+t1 = L"$/theta_1$"
+t2 = L"$/theta_2$"
 f(x) = x-1
 g(x) = 3.33*x-5
 l1 = L"$l_1$"
