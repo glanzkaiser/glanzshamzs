@@ -18,6 +18,6 @@ s2 = L"y(t) = cos(\pi t/5)";
 s3 = L"y(t) = cos((\pi t/5) - 3)";
 s4 = L"y(t) = 3 cos((\pi t/5) - 2) + cos(\pi t/5) + cos((\pi t/5) - 3)";
 
-plot(p1, p2, p3, p4, layout = (4, 1), xaxis = "x", yaxis = s1, label="", 
+plot(p1, p2, p3, p4, layout = (4, 1), xaxis = "t", yaxis = "y(t)", label="", 
 title=[s1 s2 s3 s4],
 titleloc = :bottom, titlefont = font(8))
