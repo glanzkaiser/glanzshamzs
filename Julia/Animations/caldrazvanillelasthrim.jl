@@ -47,9 +47,7 @@ connection = [] # To store the connectors
 Object(@JShape begin
     sethue(color)
     push!(connection, [p1, p2])
-    push!(connection, [p2, p3])
     map(x -> line(x[1], x[2], :stroke), connection)
-    map!(x -> line(x[1], x[2], :stroke), connection)
 end connection = connection p1 = pos(vanille) p2 = pos(caldraz) color = "#ceeab7")
 
 connection = [] # To store the connectors
@@ -57,6 +55,6 @@ Object(@JShape begin
     sethue(color)
     push!(connection, [p2, p3])
     map(x -> line(x[1], x[2], :stroke), connection)
-end connection = connection p1 = pos(caldraz) p2 = pos(lasthrim) color = "#f9e8b3")
+end connection = connection p2 = pos(caldraz) p3 = pos(lasthrim) color = "#f9e8b3")
 
 render(myvideo; pathname = "vcl_dance.gif")
