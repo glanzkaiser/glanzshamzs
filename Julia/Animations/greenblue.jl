@@ -33,7 +33,7 @@ act!(green_ball, Action(anim_rotate_around(2π, O)))
 blue_ball = Object(1:70, (args...)->object(O, "blue"), Point(200,80))
 act!(blue_ball, Action(anim_rotate_around(2π, 0.0, green_ball)))
 Object(1:70, (args...)->connector(pos(green_ball), pos(blue_ball), "black"))
-Object(1:70, (args...)->path!(path_of_green, pos(red_ball), "green"))
+Object(1:70, (args...)->path!(path_of_green, pos(green_ball), "green"))
 Object(1:70, (args...)->path!(path_of_blue, pos(blue_ball), "blue"))
 
 render(myvideo; pathname="greenblue.gif")
