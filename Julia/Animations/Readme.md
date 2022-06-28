@@ -48,10 +48,20 @@ The file will be saved as .png at the current working directory.
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle2.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle3.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle1.jl">turtle1.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle4.jl">turtle4.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle-hilbertcurve.jl">turtle-hilbertcurve.jl</a> | 
 
+# Javis
+Javis.jl focuses on creating an easy to use interface written in Julia to create visualizations and animations. What Javis is, is a tool for exploration that gives great freedom and flexibility to a user. What it is not is a domain specific library for making a limited subset of visualizations or a true data analytics tool.
+
+| VanilleCaldraz | VanilleCaldrazLasthrim | Gravity |
+| ------------- | ------------- | ------------- |
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/vanillecaldraz.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/turtle2.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/gravity.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/cosmicdance.jl">cosmicdance.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/turtle4.jl">turtle4.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/gravities.jl">gravities.jl</a> | 
+
 # Sources
 https://juliagraphics.github.io/Luxor.jl/stable/howto/turtle/
 
 https://juliagraphics.github.io/Luxor.jl/stable/reference/api/
+
+https://juliaanimators.github.io/Javis.jl/stable/
 
 https://docs.juliahub.com/Luxor/HA9ps/2.15.0/howto/createdrawings/
 
