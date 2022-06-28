@@ -43,18 +43,18 @@ act!(vanille, Action(anim_rotate_around(12.5 * 2π * (224.7 / 365), O)))
 act!(caldraz, Action(anim_rotate_around(12.5 * 2π , O)))
 act!(lasthrim, Action(anim_rotate_around(12.5 * 2π * (224.7 / 687), O)))
 
-connection = [] # To store the connectors
+connection1 = [] # To store the connectors
 Object(@JShape begin
     sethue(color)
-    push!(connection, [p1, p2])
-    map(x -> line(x[1], x[2], :stroke), connection)
-end connection = connection p1 = pos(vanille) p2 = pos(caldraz) color = "#ceeab7")
+    push!(connection1, [p1, p2])
+    map(x -> line(x[1], x[2], :stroke), connection1)
+end connection1 = connection1 p1 = pos(vanille) p2 = pos(caldraz) color = "#ceeab7")
 
-connection = [] # To store the connectors
+connection2 = [] # To store the connectors
 Object(@JShape begin
     sethue(color)
-    push!(connection, [p2, p3])
-    map(x -> line(x[1], x[2], :stroke), connection)
-end connection = connection p2 = pos(caldraz) p3 = pos(lasthrim) color = "#f9e8b3")
+    push!(connection2, [p2, p3])
+    map(x -> line(x[1], x[2], :stroke), connection2)
+end connection2 = connection2 p2 = pos(caldraz) p3 = pos(lasthrim) color = "#f9e8b3")
 
 render(myvideo; pathname = "vcl_dance.gif")
