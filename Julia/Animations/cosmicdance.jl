@@ -37,6 +37,6 @@ Object(@JShape begin
     sethue(color)
     push!(connection, [p1, p2])
     map(x -> line(x[1], x[2], :stroke), connection)
-end connection = connection p1 = pos(earth) p2 = pos(venus) color = "#f05a4f")
+end connection = connection p1 = pos(earth) p2 = pos(venus) color = "#accd8a")
 
 render(myvideo; pathname = "cosmic_dance.gif")
