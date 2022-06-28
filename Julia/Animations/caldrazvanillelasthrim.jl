@@ -39,9 +39,9 @@ end color = "white" action = :stroke edge = "solid")
 # Earth completes its one revolution in 365 days and Venus does that in 224.7 days.
 # Hence, we need to multiply (224.7/365) so that the time period matches properly i.e.,
 # When earth completes its full revolution, Venus has done (224.7/365) th of its revolution.
-act!(vanille, Action(anim_rotate_around(12.5 * 2π * (365 / 687), O)))
-act!(caldraz, Action(anim_rotate_around(12.5 * 2π * (224.7 / 687), O)))
-act!(lasthrim, Action(anim_rotate_around(12.5 * 2π, O)))
+act!(vanille, Action(anim_rotate_around(12.5 * 2π * (224.7 / 365), O)))
+act!(caldraz, Action(anim_rotate_around(12.5 * 2π , O)))
+act!(lasthrim, Action(anim_rotate_around(12.5 * 2π * (224.7 / 687), O)))
 
 connection = [] # To store the connectors
 Object(@JShape begin
