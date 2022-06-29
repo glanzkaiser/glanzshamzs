@@ -53,7 +53,7 @@ Javis.jl focuses on creating an easy to use interface written in Julia to create
 
 | VanilleCaldraz | GreenBlue Hypotrochoids | Gravity |
 | ------------- | ------------- | ------------- |
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/vanillecaldraz.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/greenblue.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/gravity.png" width="83%"> | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/vanillecaldraz.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/greenblue.gif" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/gravities.gif" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/cosmicdance.jl">cosmicdance.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/greenblue.jl">greenblue.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/gravities.jl">gravities.jl</a> | 
 
 | VanilleCaldrazLasthrim | GreenBlue Hypotrochoids | Gravity |
