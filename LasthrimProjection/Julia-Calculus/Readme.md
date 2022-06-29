@@ -111,6 +111,10 @@ https://www.math.csi.cuny.edu/~verzani/tmp/julia/graphing.html
 
 http://www2.math.uu.se/~xinca341/euclidean-plane-geometry-with-julia.html
 
+#### Animation
+
+https://github.com/da-james/djs-office-hours
+
 #### Polygon
 
 https://juliagraphics.github.io/Luxor.jl/v0.9.1/polygons.html#Regular-polygons-(%22ngons%22)-1
