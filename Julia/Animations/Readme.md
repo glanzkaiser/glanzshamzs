@@ -51,16 +51,16 @@ The file will be saved as .png at the current working directory.
 # Javis
 Javis.jl focuses on creating an easy to use interface written in Julia to create visualizations and animations. What Javis is, is a tool for exploration that gives great freedom and flexibility to a user. What it is not is a domain specific library for making a limited subset of visualizations or a true data analytics tool.
 
-| VanilleCaldraz | GreenBlue Hypotrochoids | Gravity |
-| ------------- | ------------- | ------------- |
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/cosmic_dance2.gif" width="73%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/greenblue.gif" width="73%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/gravities.gif" width="73%"> | 
-| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/cosmicdance.jl">cosmicdance.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/greenblue.jl">greenblue.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/gravities.jl">gravities.jl</a> | 
+|  GreenBlue Hypotrochoids | Gravity |
+| ------------- | ------------- |
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/greenblue.gif" width="73%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/gravities.gif" width="73%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/greenblue.jl">greenblue.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/gravities.jl">gravities.jl</a> | 
 
-| VanilleCaldrazLasthrim | GreenBlue Hypotrochoids | Gravity |
-| ------------- | ------------- | ------------- |
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/vcl_dance.gif" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/greenblue.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/gravity.png" width="83%"> | 
+| VanilleCaldrazLasthrim | VanilleCaldraz | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/vcl_dance.gif" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/cosmic_dance2.gif" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/caldrazvanillelasthrim.jl">
-caldrazvanillelasthrim.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/greenblue.jl">greenblue.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/gravities.jl">gravities.jl</a> | 
+caldrazvanillelasthrim.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/cosmicdance.jl">cosmicdance.jl</a> | 
 
 # Sources
 https://juliagraphics.github.io/Luxor.jl/stable/howto/turtle/
