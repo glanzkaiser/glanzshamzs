@@ -1,5 +1,6 @@
 using Plots
 using DifferentialEquations
+pyplot()
 
 @userplot threebodyplot
 @recipe function f(tbp::threebodyplot)
