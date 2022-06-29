@@ -81,3 +81,7 @@ https://juliaanimators.github.io/Javis.jl/stable/
 https://docs.juliahub.com/Luxor/HA9ps/2.15.0/howto/createdrawings/
 
 https://juliagraphics.github.io/Luxor.jl/v0.11/basics.html
+
+https://20akshay00.github.io/PhysicsJavisAnim/docs/SHM.jl.html
+
+https://opensourc.es/blog/bezier-curve/
