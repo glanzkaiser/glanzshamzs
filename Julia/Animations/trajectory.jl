@@ -1,4 +1,5 @@
 using Plots
+pyplot()
 
 @userplot orbitanim
 @recipe function f!(oa::orbitanim)
