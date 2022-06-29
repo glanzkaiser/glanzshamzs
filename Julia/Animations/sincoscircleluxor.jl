@@ -3,11 +3,6 @@ if !(@isdefined var"@play")
     include(dirname(pathof(Luxor)) * "/play.jl")
 end
 
-function frame(scene, i)
-movie = Movie(600, 400, "Lasthrim")
-animate(movie, [Scene(demo, frame, 0:359)], creategif=true, pathname = "sincoscircleluxor.gif")
-end
-
 let
     w, h = 600, 400
 
@@ -66,4 +61,9 @@ let
         i %= ntrig
         i += 1
     end
+end
+
+function frame(scene, i)
+movie = Movie(600, 400, "Lasthrim")
+animate(movie, [Scene(demo, frame, 0:359)], creategif=true, pathname = "sincoscircleluxor.gif")
 end
