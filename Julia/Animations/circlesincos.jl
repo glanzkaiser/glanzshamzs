@@ -35,6 +35,7 @@ begin
 	myvideo = Video(500, 500)
 	Background(1:nframes, ground)
 	
+	# r = the three circles radius, R = the radius for the whole rotation
 	r = 25
 	R = 100
 	θ = range(0, stop = 2π, length = 140)
