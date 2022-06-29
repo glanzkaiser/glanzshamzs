@@ -61,10 +61,14 @@ Javis.jl focuses on creating an easy to use interface written in Julia to create
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/vcl_dance.gif" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/cosmic_dance2.gif" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/caldrazvanillelasthrim.jl">caldrazvanillelasthrim.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/cosmicdance.jl">cosmicdance.jl</a> | 
 
-#### Vanille = Earth      Zalsvik = Jupiter
-#### Caldraz = Venus      Mischkra = Mercury
-#### Lasthrim = Mars      Lucrif = Moon
-#### Freya = Neptune      Glanz = Uranus 
+#### Vanille = Earth      
+#### Caldraz = Venus      
+#### Mischkra = Mercury
+#### Lasthrim = Mars      
+#### Lucrif = Moon
+#### Zalsvik = Jupiter
+#### Freya = Neptune     
+#### Glanz = Uranus 
 #### Zalsimourg = Pluto 
 
 # Sources
