@@ -1,4 +1,4 @@
-using Javis, Animation
+using Javis, Animations
 
 begin	
 	function ground(args...)
