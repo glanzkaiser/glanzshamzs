@@ -58,7 +58,7 @@ Javis.jl focuses on creating an easy to use interface written in Julia to create
 
 | VanilleCaldrazLasthrim | VanilleCaldraz | 
 | ------------- | ------------- | 
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/vcl_dance.gif" width="66%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/cosmic_dance2.gif" width="66"> | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/vcl_dance.gif" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/cosmic_dance2.gif" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/caldrazvanillelasthrim.jl">caldrazvanillelasthrim.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/cosmicdance.jl">cosmicdance.jl</a> | 
 
 # Sources
