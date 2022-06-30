@@ -1,4 +1,4 @@
-using Luxor
+using Luxor, LaTeXStrings
 
 let
     w, h = 600, 400
@@ -9,7 +9,7 @@ let
 
     function frame(scene, i)
         w h begin
-        background("gray"); sethue("white")
+        background("green"); sethue("white")
 
         # translate near bottom right corner
         origin(0.8w, 0.8h)
@@ -17,7 +17,11 @@ let
         cr = 0.15h
         circle(0, 0, cr, :stroke)
         circle_marker_pos = getworldposition(Point(cr*cosarray[i], cr*sinarray[i]))
-
+        
+        text(string("cos $framenumber of $(scene.framerange.stop)"),
+        Point(O.x, O.y-190),
+        halign=:center)
+            
         # translate to lower 20%, on the left
         origin(0, 0.8h)
         setline(1); setopacity(1)
@@ -59,6 +63,6 @@ let
         i += 1
     end
     demo = Movie(600, 400, "sincos trig")
-    animate(demo, [Scene(demo, frame, 1:360)], creategif=true, pathname="sincostrig.gif")
+    animate(demo, [Scene(demo, frame, 1:360)], creategif=true)
 end
     
