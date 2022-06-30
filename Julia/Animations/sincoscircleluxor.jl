@@ -1,17 +1,14 @@
-using Luxor, MiniFB
-if !(@isdefined var"@play")
-    include(dirname(pathof(Luxor)) * "/play.jl")
-end
+using Luxor
 
 let
     w, h = 600, 400
-
     ntrig = 360
     sinarray = sind.(1:ntrig)
     cosarray = cosd.(1:ntrig)
     i = 1
 
-    @play w h begin
+    function frame(scene, i)
+        w h begin
         background("gray"); sethue("white")
 
         # translate near bottom right corner
@@ -61,6 +58,7 @@ let
         i %= ntrig
         i += 1
     end
-    demo = Movie(600, 400, "Lasthrim")
+    demo = Movie(600, 400, "sincos trig")
     animate(demo, [Scene(demo, frame, 1:360)], creategif=true, pathname="sincostrig.gif")
 end
+    
