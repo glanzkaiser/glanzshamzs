@@ -51,6 +51,11 @@ The file will be saved as .png at the current working directory.
 # Javis
 Javis.jl focuses on creating an easy to use interface written in Julia to create visualizations and animations. What Javis is, is a tool for exploration that gives great freedom and flexibility to a user. What it is not is a domain specific library for making a limited subset of visualizations or a true data analytics tool.
 
+| MyLeo | Sin Cos Circle | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/myleo.gif" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sincos%20trig%20white.gif" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/myleo.jl">myleo.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/sincoscircleluxor.jl">sincoscircleluxor.jl</a> | 
+
 |  GreenBlue Hypotrochoids | Gravity |
 | ------------- | ------------- |
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/greenblue.gif" width="73%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/gravities.gif" width="73%"> | 
