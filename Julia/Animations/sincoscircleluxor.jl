@@ -8,7 +8,7 @@ let
     i = 1
 
     function frame(scene, i)
-        w h begin
+        
         background("green"); sethue("white")
 
         # translate near bottom right corner
@@ -18,9 +18,13 @@ let
         circle(0, 0, cr, :stroke)
         circle_marker_pos = getworldposition(Point(cr*cosarray[i], cr*sinarray[i]))
         
-        text(string("cos $framenumber of $(scene.framerange.stop)"),
+        text(string("cos $i \pi "),
         Point(O.x, O.y-190),
         halign=:center)
+            
+        text(string("cos $i \pi "),
+        Point(O.x, O.y-190),
+        halign=:center)    
             
         # translate to lower 20%, on the left
         origin(0, 0.8h)
