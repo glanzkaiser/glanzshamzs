@@ -61,9 +61,6 @@ let
         i %= ntrig
         i += 1
     end
-end
-
-function frame(scene, i)
-movie = Movie(600, 400, "Lasthrim")
-animate(movie, [Scene(demo, frame, 0:359)], creategif=true, pathname = "sincoscircleluxor.gif")
+    demo = Movie(600, 400, "Lasthrim")
+    animate(demo, [Scene(demo, frame, 1:360)], creategif=true, pathname="sincostrig.gif")
 end
