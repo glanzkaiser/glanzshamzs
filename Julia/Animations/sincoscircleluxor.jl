@@ -1,7 +1,7 @@
 using Luxor
 
 let
-    w, h = 800, 600
+    w, h = 600, 400
     ntrig = 360
     sinarray = sind.(1:ntrig)
     cosarray = cosd.(1:ntrig)
@@ -9,7 +9,7 @@ let
  
     function frame(scene, i)
         
-        background("green"); sethue("white")
+        background("white"); sethue("green")
 
         # translate near bottom right corner
         origin(0.8w, 0.5h)
@@ -18,16 +18,14 @@ let
         circle(0, 0, cr, :stroke)
         circle_marker_pos = getworldposition(Point(cr*-cosarray[i], cr*sinarray[i]))
 	
-
-	for k = i + 180
+	for k = mod(180 + i, 360)
 		setfont("Georgia Bold", 73)
-		sethue("orange")
+		sethue("black")
 		text(string("cos $k"),
 		Point(O.x-83, O.y-108),
 		halign=:center)
 
-		setfont("Georgia Bold", 73)
-		sethue("red")
+		sethue("black")
 		text(string("sin $k"),
 		Point(O.x-83, O.y+108),
 		halign=:center)    
@@ -37,7 +35,7 @@ let
         # translate to lower 20%, on the left
         origin(0, 0.8h)
         setline(1); setopacity(1)
-		sethue("red")
+		sethue("orange")
         scale(1.0, cr)
         # draw a sin wave
         for j in 1:ntrig-1
@@ -77,6 +75,6 @@ let
         i += 1
 
     end
-    demo = Movie(800, 600, "sincos trig")
+    demo = Movie(600, 400, "sincos trig")
     animate(demo, [Scene(demo, frame, 1:360)], creategif=true)
 end
