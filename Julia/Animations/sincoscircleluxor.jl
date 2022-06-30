@@ -18,6 +18,7 @@ let
         circle(0, 0, cr, :stroke)
         circle_marker_pos = getworldposition(Point(cr*-cosarray[i], cr*sinarray[i]))
 	
+
 	for k = mod(180 + i, 360)
 		setfont("Georgia Bold", 73)
 		sethue("black")
