@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
 
     chrono::utils::PDSampler<float> sampler(2 * r_particle);
     std::vector<ChVector<float>> positions;
+    auto points = sampler.SampleCylinderZ(ChVector<float>(0.,0.,z_cylinder), r_cylinder, 0.0);
     auto points = sampler.SampleCylinderZ((0.,0.,z_cylinder), r_cylinder, 0.0);
     positions.insert(positions.end(), points.begin(), points.end());
 
