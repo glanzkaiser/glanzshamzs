@@ -29,3 +29,5 @@ function main()
     plot_with_bernstein(px,py)
     png("using_bernstein")
 end
+
+main()
