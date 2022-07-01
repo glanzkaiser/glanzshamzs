@@ -2,12 +2,6 @@ using Plots, Javis, LaTeXStrings
 # for the LaTeX labels in the legend
 pyplot()
 
-function title(args...)
-    fontsize(20)
-    text("Bezier Curve", Point(0, -200),
-        valign=:middle, halign=:center)
-end
-
 function compute_bernstein(i,n; steps=100)
     return [binomial(n,i)*t^i*(1-t)^(n-i) for t in LinRange(0,1,steps)]
 end
