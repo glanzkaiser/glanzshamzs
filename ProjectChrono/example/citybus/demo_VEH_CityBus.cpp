@@ -20,7 +20,6 @@
 // =============================================================================
 
 #include "chrono/core/ChStream.h"
-#include "chrono/core/ChRealtimeStep.h"
 #include "chrono/utils/ChUtilsInputOutput.h"
 
 #include "chrono_vehicle/ChConfigVehicle.h"
@@ -99,15 +98,11 @@ bool povray_output = false;
 
 int main(int argc, char* argv[]) {
     GetLog() << "Copyright (c) 2017 projectchrono.org\nChrono version: " << CHRONO_VERSION << "\n\n";
-    
-    //char buff[PATH_MAX];
-    //_getcwd(buff, PATH_MAX);
-    //std::string current_working_dir(buff);
-    //GetLog() << "Working dir = " << current_working_dir << "\n\n";
-    chrono::SetChronoDataPath("/opt/hamzstlib/chrono2/data/");
-    vehicle::SetDataPath("/opt/hamzstlib/chrono2/data/vehicle/");
-    //SetChronoDataPath(CHRONO_DATA_DIR);
-    //vehicle::SetDataPath(CHRONO_VEHICLE_DATA_DIR);
+
+    // Set path to Chrono data directories
+    SetChronoDataPath(CHRONO_DATA_DIR);
+    vehicle::SetDataPath(CHRONO_VEHICLE_DATA_DIR);
+
     // --------------
     // Create systems
     // --------------
@@ -235,7 +230,7 @@ int main(int argc, char* argv[]) {
         vis->EnableContactDrawing(ContactsDrawMode::CONTACT_FORCES);
     }
 
-    ChRealtimeStepTimer realtime_timer;
+    my_bus.GetVehicle().EnableRealtime(true);
     while (vis->Run()) {
         double time = my_bus.GetSystem()->GetChTime();
 
@@ -288,9 +283,6 @@ int main(int argc, char* argv[]) {
 
         // Increment frame number
         step_number++;
-
-        // Spin in place for real time to catch up
-        realtime_timer.Spin(step_size);
     }
 
     if (driver_mode == RECORD) {
