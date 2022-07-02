@@ -33,12 +33,13 @@
 #include "chrono_models/vehicle/citybus/CityBus.h"
 
 #include "chrono_thirdparty/filesystem/path.h"
+#define PATH_MAX 1024
 
 using namespace chrono;
 using namespace chrono::irrlicht;
 using namespace chrono::vehicle;
 using namespace chrono::vehicle::citybus;
-#define PATH_MAX 1024
+
 // =============================================================================
 
 // Initial vehicle location and orientation
