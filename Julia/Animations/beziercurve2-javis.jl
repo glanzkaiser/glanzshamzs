@@ -1,4 +1,4 @@
-using Plots
+using Plots, LaTeXStrings 
 
 function animate_bezier(px,py;steps=100)
     n = length(px)-1
@@ -32,3 +32,7 @@ function animate_bezier(px,py;steps=100)
     end
     gif(anim, "bezier_d2.gif", fps=30)
 end
+px = [0, 3, 7]
+py = [2, 9, 3]
+
+animate_bezier(px, py)
