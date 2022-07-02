@@ -38,7 +38,7 @@ using namespace chrono;
 using namespace chrono::irrlicht;
 using namespace chrono::vehicle;
 using namespace chrono::vehicle::citybus;
-
+#define PATH_MAX 1024
 // =============================================================================
 
 // Initial vehicle location and orientation
@@ -100,7 +100,6 @@ bool povray_output = false;
 int main(int argc, char* argv[]) {
     GetLog() << "Copyright (c) 2017 projectchrono.org\nChrono version: " << CHRONO_VERSION << "\n\n";
     
-    #define PATH_MAX 1024
     char buff[PATH_MAX];
     _getcwd(buff, PATH_MAX);
     std::string current_working_dir(buff);
