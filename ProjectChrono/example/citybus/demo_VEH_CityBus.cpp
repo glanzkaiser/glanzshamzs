@@ -99,7 +99,15 @@ bool povray_output = false;
 
 int main(int argc, char* argv[]) {
     GetLog() << "Copyright (c) 2017 projectchrono.org\nChrono version: " << CHRONO_VERSION << "\n\n";
-    SetChronoDataPath(CHRONO_DATA_DIR);
+    
+    #define PATH_MAX 1024
+    char buff[PATH_MAX];
+    _getcwd(buff, PATH_MAX);
+    std::string current_working_dir(buff);
+    GetLog() << "Working dir = " << current_working_dir << "\n\n";
+    chrono::SetChronoDataPath("/opt/hamzstlib/chrono2/data/");
+    vehicle::SetDataPath("/opt/hamzstlib/chrono2/data/vehicle/");
+    //SetChronoDataPath(CHRONO_DATA_DIR);
     // --------------
     // Create systems
     // --------------
