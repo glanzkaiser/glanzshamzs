@@ -99,7 +99,7 @@ bool povray_output = false;
 
 int main(int argc, char* argv[]) {
     GetLog() << "Copyright (c) 2017 projectchrono.org\nChrono version: " << CHRONO_VERSION << "\n\n";
-
+    SetChronoDataPath(CHRONO_DATA_DIR);
     // --------------
     // Create systems
     // --------------
