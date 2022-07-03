@@ -32,5 +32,82 @@ Combining with Tidal is it possible? So we can get more energy? Innovation and i
 
 ![wind](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/windmill.png)
 
+## 3. Discovering Genes, Proteins, and Biological Processes 
+### Main Idea / Dream of Glanz
+From reading this:
+https://developer.nvidia.com/blog/meet-the-researcher-avantika-lal-discovering-genes-proteins-and-biological-processes-altered-by-covid-19/
+
+Genetics was quickly becoming a science of big data analytics. It became increasingly clear that the future of biology lay in mining massive genomic datasets to understand the relationships between biological components and being able to make new predictions based on that.
+
+When cells are infected by a virus, it triggers an immune response that changes the activity of the cell and signals to the immune system. The virus also ‘hijacks’ many components of the cell to support its lifecycle, which disrupts their normal functioning.
+
+I want to analyze my own gene, DNAs and RNAs, I have a history in my family of diabetes, I want to know if it can be eliminated by doing research on this. Use Nvidia CUDA with AI.
+
+Methods for virus (e.g. COVID-19. SARS, EBOLA) : 
+1. We analyzed public data from DNA and RNA sequencing experiments 
+2. To decipher and in some cases to predict, which genes, proteins, and biological processes are affected in human lung cells infected by a certain virus.
+3. Must have the full picture of how the virus affects human cells. 
+
+![genomics](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/genomics.png)
+
+The figure above shows that the factors specific to SARS-CoV-2 infection include human RBPs whose binding sites are enriched and conserved in the SARS-CoV-2 genome but not in the genomes of related viruses; and genes, isoforms and metabolites that are consistently altered in response to SARS-CoV-2 infection of lung epithelial cells but not in infection with the other tested viruses; ECM (extracellular matrix).
+
+## 4. The effect of electrostatics in protein systems
+### Main Idea / Dream of Glanz
+From reading this:
+https://developer.nvidia.com/blog/open-reproducible-computational-chemistry-python-cuda/
+
+There are quite a few number of ways to do biomolecular modeling (Molecular Dynamics, Generalized Born, Poisson-Boltzmann, etc.), with various levels of detail.
+
+Nanoscale biosensors are devices that detect antigens with very high sensitivity and selectivity. The antigen is sensed when it binds to a ligand that is adsorbed on the sensor, which needs to be properly oriented. To find the best conditions to obtain favorable ligand orientations, and that way help the development of better sensors.
+
+Antibodies are widely used as ligands, there is active research engineering new ligands to enhance the sensitivity even more.
+
+Methods:
+1. Use continuum models to represent the solvent around the protein (water with salt) via the Poisson-Boltzmann equation
+2. Solve it with an accelerated boundary element method. 
+
+![peptide](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/peptide.png)
+The colors represent the electrostatic potential on the molecular surface.
+
+### Mischkra' Opinion
+Could the application and methods be used for other application like heat transfer or determining the cloud condition for weather forecast ?
+
+## 5. Invent New Material
+### Main Idea / Dream of Glanz
+From reading this:
+https://developer.nvidia.com/blog/developing-new-materials-gpu-accelerated-supercomputers/
+
+Methods:
+1. Use computer simulation to discover the fundamental principles of how nanoscale systems of building blocks self-assemble,
+2. To discover how to control the assembly process to engineer new materials. 
+3. Focus on the role of particle shape and how changing the shape can result in different material properties.
+4. Develop, implement, and optimize the parallel algorithms necessary for these studies.
+
+The researcher has been focusing on two-dimensional systems, using large scale simulations to study hexatic phase transitions for hard disks, and how patterning surfaces of polygons can create shape allophiles that improve self-assembly.
+
+Shape allophiles are polygonal shapes cut so they fit together like puzzle pieces. These research projects are computationally demanding and could not have been run on any existing code.
+
+Imagine a box full of tiny polyhedral dice shaken so that they are allowed to find their most favorable state. There are no attractive forces, simply a penalty force so that particles cannot overlap. Entropy alone causes systems of hard particles to self-assemble into a variety of complex ordered phases.
+
+### Mischkra' Opinion
+Link with known materials with science formulas to create the starting database.
+
+## 6. CUDA for Mathematics, Physics, Chemistry, Biology
+### Main Idea / Dream of Glanz
+From reading this:
+https://developer.nvidia.com/blog/cuda-spotlight-dr-cris-cecka-on-gpu-accelerated-computational-mathematics/
+
+CUDA is used for non-linear PDEs (partial differential equations) and real-time computing with applications in simulation and virtual surgery.
+CUDA can also be used for mathematical and computational abstractions to produce efficient, library-quality scientific software. Specifically, on generalized n-body problems, including integral equation methods, particle methods, and structured dense matrices.
+
+Plenty of algorithms exist for dense matrices, e.g. all of BLAS and LAPACK. These use values of the matrix to compute products, eigenvalues, factorizations, etc. But there are huge classes of problems where we never actually want to construct all of the elements of the matrix — generalized n-body problems — and can be accelerated either by compressing rows, columns, or blocks of the matrix or by avoiding computing elements of the matrix all-together.
+
+Methods:
+1. Summarizing basic undergraduate textbooks and knowledge that then can be used to create the library like BLAS and LAPACK for each branches of science, BLAS and LAPACK is for linear algebra, there are other Mathematics branches like Differential Equations, Probability and Statistics, Network Flows, Stochastics Process.
+2. With better hardware that are being developed in the future, we can analyze through camera or our own sense that has been connected to the core intelligent of GFreya OS.
+
 # Written by
 Hamzst/Alice
+Glanz
+Mischkra
