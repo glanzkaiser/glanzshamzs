@@ -1,6 +1,8 @@
 # About
 Bullet Physics is a professional open source collision detection, rigid body and soft body dynamics library. Bullet Physics target real-time and interactive  use in games, visual effects in movies and robotics.
 
+#### This folder contain all the Bullet-3.24 examples that can be tested and modified then build with CMakeLists.txt.
+
 # Install Bullet 3
 To download it first type:
 ```
