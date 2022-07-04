@@ -58,6 +58,14 @@ Software developers, scientists and researchers can add support for GPU accelera
 * Automatically parallelize loops in Fortran or C code using OpenACC directives for accelerators
 * Develop custom parallel algorithms and libraries using a familiar programming language such as C, C++, C#, Fortran, Java, Python, etc.
 
+## Missing cuda.h
+
+* When I compile it there is an error of missing cuda.h file, thus I use the cuda.h that I have found here:
+
+https://github.com/shinpei0208/gdev/blob/master/cuda/driver/cuda.h
+		
+Extract cuda_gdb_src-all-all-11.7.50.tar.gz then put the cuda.h file in /cuda_gdb_src/gdb/cuda.h \\
+    
 # Examples: Compiling Cuda
 
 The CUDA C compiler, nvcc, is part of the NVIDIA CUDA Toolkit.  
@@ -78,7 +86,9 @@ nvcc -o saxpy saxpy.cu
 ./saxpy
 ```
 
-####   Nvidia has compiler for this which will handle everything named nvcc, if you use nvcc, you won't need to explicitly select the -I and -L path.
+#### 1. Nvidia has compiler for this which will handle everything named nvcc, if you use nvcc, you won't need to explicitly select the -I and -L path.
+
+#### 2. cuda.h is automatically included by nvcc
 
 # Sources
 
