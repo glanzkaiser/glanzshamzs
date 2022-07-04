@@ -5,7 +5,12 @@ Learning to create a robot to help human, I will add more study case in the futu
 Source: 
 https://github.com/erwincoumans/motion_imitation/tree/master
 
-You can git clone the master branch then install the dependencies:
+You can git clone the master branch:
+```
+git clone https://github.com/erwincoumans/motion_imitation.git
+```
+
+Then install the dependencies:
 1. OpenMPI
 
 After that, install requirements:
