@@ -2,7 +2,7 @@
 Science Libraries and Files for GFreya OS
 
 ## Current Size (July 1st 2022)
-2.1 GB
+5.3 GB
 
 # Why We Create this repository?
 When we created GFreya OS, we have a plan on our mind to create a software like MATLAB but for different branch of science and engineering. Let me introduce those:
