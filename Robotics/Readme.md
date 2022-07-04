@@ -18,7 +18,7 @@ After that, install requirements:
 pip install -r requirements.txt
 ```
 
-Then, you can explore the environments by running:
+You can explore the environments by running:
 ```
 python3 -m motion_imitation.examples.test_env_gui --robot_type=A1 --motor_control_mode=Position --on_rack=True
 ```
