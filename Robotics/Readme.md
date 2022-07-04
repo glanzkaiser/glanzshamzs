@@ -5,9 +5,8 @@ Learning to create a robot to help human, I will add more study case in the futu
 by Xue Bin Peng et al. It provides a Gym environment for training a simulated quadruped robot to imitate various reference motions, and example training code for learning the policies.
 
 Source: 
-https://github.com/erwincoumans/motion_imitation/tree/master
-
-https://www.youtube.com/watch?v=lKYh6uuCwRY
+* https://github.com/erwincoumans/motion_imitation/tree/master
+* https://www.youtube.com/watch?v=lKYh6uuCwRY
 
 You can git clone the master branch:
 ```
