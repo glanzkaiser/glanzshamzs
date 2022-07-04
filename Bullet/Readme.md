@@ -17,8 +17,7 @@ Make sure cmake is installed then enter the directory then type:
 
 After finish then cd to build_cmake, then type:
 ```
-ccmake .
-		
+ccmake .	
 ```
 #### Set the CMAKE_INSTALL_PREFIX=/opt/hamzstlib
 
@@ -34,9 +33,14 @@ Install PyBullet using:
 pip3 install pybullet --user --upgrade
 ```
 
-## Try myexamples.zip
+## Try my_example.zip
 
-Unzip the folder then type:
+Unzip the folder:
+```
+unzip my_example.zip -d /sources/Hamzstlab/
+```
+
+Then type:
 ```
 pip install trimesh[easy]
 python example_01.py
