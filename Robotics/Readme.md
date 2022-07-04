@@ -6,6 +6,7 @@ Animals are capable of performing diverse and agile locomotion behaviors in natu
 
 Sources: 
 * https://github.com/erwincoumans/motion_imitation/tree/master
+* https://github.com/bulletphysics/pybullet_robots
 * https://www.youtube.com/watch?v=lKYh6uuCwRY
 * https://arxiv.org/abs/2109.13362
 
