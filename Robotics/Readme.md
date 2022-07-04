@@ -6,6 +6,7 @@ by Xue Bin Peng et al. It provides a Gym environment for training a simulated qu
 
 Source: 
 https://github.com/erwincoumans/motion_imitation/tree/master
+
 https://www.youtube.com/watch?v=lKYh6uuCwRY
 
 You can git clone the master branch:
