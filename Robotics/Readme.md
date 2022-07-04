@@ -2,12 +2,14 @@
 Learning to create a robot to help human, I will add more study case in the future and the problem-solution as well.
 
 # 1. Motion Imitation
-
-by Xue Bin Peng et al. It provides a Gym environment for training a simulated quadruped robot to imitate various reference motions, and example training code for learning the policies.
+Animals are capable of performing diverse and agile locomotion behaviors in nature, but transferring such behaviors on robots remains a challenge. Robots operating in human environments should be equipped with diverse skills like trot and pace when walking slowly or speeding up, turn around corners, and side-step around obstacles. However, building a universal controller that is robust enough to perform such a wide range of skills is still an unsolved problem.
 
 Sources: 
 * https://github.com/erwincoumans/motion_imitation/tree/master
 * https://www.youtube.com/watch?v=lKYh6uuCwRY
+* https://arxiv.org/abs/2109.13362
+
+I am going to try the example using the work of Xue Bin Peng et al. It provides a Gym environment for training a simulated quadruped robot to imitate various reference motions, and example training code for learning the policies.
 
 You can git clone the master branch:
 ```
