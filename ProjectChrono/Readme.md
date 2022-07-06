@@ -68,4 +68,8 @@ https://irrlicht.sourceforge.io/docu/index.html
 
 https://api.projectchrono.org/tutorial_root.html
 
+https://api.projectchrono.org/7.0.0/manual_root.html
+
+https://github.com/projectchrono/chrono/blob/develop/CHANGELOG.md#changed-cmake-project-configuration-script
+
 
