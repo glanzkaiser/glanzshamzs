@@ -107,6 +107,27 @@ Methods:
 1. Summarizing basic undergraduate textbooks and knowledge that then can be used to create the library like BLAS and LAPACK for each branches of science, BLAS and LAPACK is for linear algebra, there are other Mathematics branches like Differential Equations, Probability and Statistics, Network Flows, Stochastics Process.
 2. With better hardware that are being developed in the future, we can analyze through camera or our own sense that has been connected to the core intelligent of GFreya OS.
 
+## 7. Create Swarm Robots
+In this era of low consciousness ever since year 0 AD. People are still doing war because they eat too much and do not listen to Buddha, you will never die when you share your meal. In my opinion fighting over land, oil, foods are just like.. sorry to say.. well you go outside and see who do that. Plants or animals or human.. 
+
+I saw this on Bullet, and thinking that someday swarm robots can be used to replace millions of soldiers, or just one robot. To destroy another city, nation. I might have been thinking to focus on Inventing than anything. Robots is one of my passion. Soldiers can betray you. Stalin killed his trusted general without proof that general is a spy, just use intuition. Julius Caesar was murdered. Still believe in soldiers? dogs are better and more loyal. England' soldier knew and that is why he became the first President of United States of America.. the highest of staying at old country? Military General. If I create my own nation I will be the Founding Father. That's natural.
+
+Methods:
+1. Create the source code for motion imitation, either learning from animals or human
+2. Create the robot / hardware
+3. Upload the code, modify and perfectioning will take place for bugs, etc.
+4. We can even set target, the robot could be a drone, that could invent its own laser weapon more powerful than nuclear weapon nowaday. How? Breaking the limit of Chemistry and Physics.
+
+### Glanz' idea / question in head:
+1. How to create real-time human motion imitation approach to control an anthropomorphic dual arm robot or even any other robot or even imitate real-time motion of Lamborghini to Arduino RC car
+2. Not only moving, but responding to output influences, feels itchy you scratch that part. Sleepy then you sleep or for other personality you try to not sleep by washing your face. Smell something that makes you allergic you will sneeze.
+3. If we can imitate not only human, animals, but also plants, then the planets rotation in a solar system. then we can simulate the real world and create infinite universe that will need more than exa- or beyond that of computational power.
+
+
+![Swarm](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/swarmrobots.png)
+
+### Main Idea / Dream of Glanz
+
 # Written by
 Hamzst/Alice
 Glanz
