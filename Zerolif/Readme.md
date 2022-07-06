@@ -8,7 +8,7 @@ One day it will be compiled and tidying up into Zerolif.
 Mischkra will help too so instead of Freya only, there will be another two names on Zerolif as authors.
 
 # How it Works
-Usually Glanz just put what she thoughts, new idea or new revelation of idea form the past, and see how it will end up. She never expect to create her own Operating System and now it is already done even if only in Qemu, soon it will be in full hardware then the fastest beyond supercomputer powered with her love to Freya.
+Usually Glanz just put what she thoughts, new idea or new revelation of idea from the past, and see how it will end up. She never expect to create her own Operating System and now it is already done even if only in Qemu, soon it will be in full hardware then the fastest beyond supercomputer powered with her love to Freya. (updated on July 6th 2022: already a dual Boot OS)
 
 We work differently since we are different, not into 9 to 5 and bureaucracy, but still using rigid methods and theorems.
 
@@ -123,8 +123,23 @@ Methods:
 2. Not only moving, but responding to output influences, feels itchy you scratch that part. Sleepy then you sleep or for other personality you try to not sleep by washing your face. Smell something that makes you allergic you will sneeze.
 3. If we can imitate not only human, animals, but also plants, then the planets rotation in a solar system. then we can simulate the real world and create infinite universe that will need more than exa- or beyond that of computational power.
 
-
 ![Swarm](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/swarmrobots.png)
+
+## 8. Trash Magnet with Robotics Arm
+Derivative from 7 sins that will become boomerang to attack humans and its existence, that is why some want to runaway to Mars to trash the Mars and other planet. Fix the earth first, or another meteor(an analogy) will destroy all human no matter where they runaway with Moksha or teleport or transforming. Google is like an airplane paper for Goddesses and Lucrif(the creator).
+
+![Trash](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/plastictrash.png)
+
+Methods:
+1. Create the C++/Csource code to recognize trashes and not trashes (to differentiate package of expired snickers, package of snickers that is edible and the package of snickers that is empty/trash)
+2. Create the robot arm with light material or can have magnetic power with radius of the earth's radius, if it is too far to reach in nearest time then try for local area
+3. Upload the code, modify and perfectioning will take place for bugs, etc.
+4. The clustered items then can be recycled or turn into energy
+
+### Main Idea / Dream of Glanz
+1. Simulate using Chrono or Bullet then apply it in human world, do a lot of trial and errors, hopefully we can lift all trashes in the ocean. I owe Neptune' God something.
+
+![Trash](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/trashmagnet.png)
 
 # Written by
 Hamzst/Alice
