@@ -83,6 +83,8 @@ plot(sin, 0, 2pi)
 
 ### Julia Learning Source
 
+https://cidamo.com.br/JuliaIntroBR.jl/deploy/index.html#chap01
+
 https://computationalthinking.mit.edu/Spring21/
 
 https://diffeq.sciml.ai/stable/basics/plot/
