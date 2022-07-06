@@ -118,15 +118,13 @@ Methods:
 3. Upload the code, modify and perfectioning will take place for bugs, etc.
 4. We can even set target, the robot could be a drone, that could invent its own laser weapon more powerful than nuclear weapon nowaday. How? Breaking the limit of Chemistry and Physics.
 
-### Glanz' idea / question in head:
+### Main Idea / Dream of Glanz
 1. How to create real-time human motion imitation approach to control an anthropomorphic dual arm robot or even any other robot or even imitate real-time motion of Lamborghini to Arduino RC car
 2. Not only moving, but responding to output influences, feels itchy you scratch that part. Sleepy then you sleep or for other personality you try to not sleep by washing your face. Smell something that makes you allergic you will sneeze.
 3. If we can imitate not only human, animals, but also plants, then the planets rotation in a solar system. then we can simulate the real world and create infinite universe that will need more than exa- or beyond that of computational power.
 
 
 ![Swarm](https://github.com/glanzkaiser/glanzshamzs/blob/main/Zerolif/images/swarmrobots.png)
-
-### Main Idea / Dream of Glanz
 
 # Written by
 Hamzst/Alice
