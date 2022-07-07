@@ -39,6 +39,28 @@ choose between `Position` or `Torque` for different motor control modes.
 #### on_rack: 
 whether to fix the robot's base on a rack. Setting `on_rack=True` is handy for debugging visualizing open-loop gaits.
 
+# 2. Pybullet Robots
+PyBullet is a fast and easy to use Python module for robotics simulation and machine learning, with a focus on sim-to-real transfer. With PyBullet you can load articulated bodies from URDF, SDF, MJCF and other file formats. PyBullet provides forward dynamics simulation, inverse dynamics computation, forward and inverse kinematics, collision detection and ray intersection queries. The Bullet Physics SDK includes PyBullet robotic examples such as a simulated Minitaur quadruped, humanoids running using TensorFlow inference and KUKA arms grasping objects. 
+
+To download it
+```
+git clone https://github.com/bulletphysics/pybullet_robots.git
+```
+
+Install pybullet with `pip` then you can run the example:
+
+```
+pip install pybullet
+python3 cassie.py
+```
+You can use these keyboard shortcuts:
+S -> Lighting ON/OFF
+G -> Eliminate Windows
+V -> Eliminate Objects
+
+![cassie](https://github.com/glanzkaiser/glanzshamzs/blob/main/Robotics/images/cassie.png)
+
+
 ## Glanz' idea / question in head:
 1. How to create real-time human motion imitation approach to control an anthropomorphic dual arm robot or even any other robot or even imitate real-time motion of Lamborghini to Arduino RC car
 2. Not only moving, but responding to output influences, feels itchy you scratch that part. Sleepy then you sleep or for other personality you try to not sleep by washing your face. Smell something that makes you allergic you will sneeze. 
