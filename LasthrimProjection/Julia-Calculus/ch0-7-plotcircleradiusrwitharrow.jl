@@ -17,7 +17,7 @@ plot!([0], seriestype="hline", color=:green, label="")
 plot!([-0.707106781,0],[0.707106781,0], linecolor=:green)
 plot!(Plots.partialcircle(0,3//4*pi,50,0.3), color=:red, arrow=true)
      
-annotate!([(0.17,005, (t, 14, :red)),
+annotate!([(0.17,0.05, (t, 14, :red)),
            (-0.85,0.77, ("(x,y)", 14, :red)),
            (-0.51,0.37, ("r", 14, :red))])
 
