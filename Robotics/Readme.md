@@ -54,9 +54,9 @@ pip install pybullet
 python3 cassie.py
 ```
 You can use these keyboard shortcuts:
-S -> Lighting ON/OFF
-G -> Eliminate Windows
-V -> Eliminate Objects
+* S -> Lighting ON/OFF
+* G -> Eliminate Windows
+* V -> Eliminate Objects
 
 ![cassie](https://github.com/glanzkaiser/glanzshamzs/blob/main/Robotics/images/cassie.png)
 
