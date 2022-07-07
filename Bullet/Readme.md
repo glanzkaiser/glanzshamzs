@@ -17,7 +17,7 @@ Make sure cmake is installed then enter the directory then type:
 
 After finish then cd to build_cmake, then type:
 ```
-ccmake .	
+ccmake .
 ```
 #### Set the CMAKE_INSTALL_PREFIX=/opt/hamzstlib
 
@@ -26,6 +26,16 @@ Then type:
 make
 make install
 ```  
+
+If you want to configure Bullet installation more, you can directly build and install it with:
+
+```
+mkdir build
+cd build
+ccmake ..
+make -j4
+make install
+```
 
 # Install PyBullet
 Install PyBullet using:
