@@ -60,7 +60,6 @@ You can use these keyboard shortcuts:
 
 ![cassie](https://github.com/glanzkaiser/glanzshamzs/blob/main/Robotics/images/cassie.png)
 
-
 ## Glanz' idea / question in head:
 1. How to create real-time human motion imitation approach to control an anthropomorphic dual arm robot or even any other robot or even imitate real-time motion of Lamborghini to Arduino RC car
 2. Not only moving, but responding to output influences, feels itchy you scratch that part. Sleepy then you sleep or for other personality you try to not sleep by washing your face. Smell something that makes you allergic you will sneeze. 
