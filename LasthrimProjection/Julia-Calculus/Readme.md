@@ -127,5 +127,9 @@ https://gist.github.com/floswald/d62488c28af2e803da6d
 
 https://www.juliapackages.com/p/implicit3dplotting
 
+#### Parametric Visualization
+
+https://github.com/ma-laforge/CMDimData.jl
+
 # Source of summarization
 1. Calculus 9th Edition, Varberg-Purcell-Rigdon, Pearson Education International
