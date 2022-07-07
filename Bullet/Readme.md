@@ -33,6 +33,15 @@ Install PyBullet using:
 pip3 install pybullet --user --upgrade
 ```
 
+## Example at PyBullet
+
+```
+cd /$physics/bullet/examplesfull/pybullet/examples
+python3 addPlanarReflection.py
+```
+
+![ducks](https://github.com/glanzkaiser/glanzshamzs/blob/main/Robotics/images/ducks.png)
+
 ## Try my_example.zip
 
 Unzip the folder:
@@ -45,3 +54,7 @@ Then type:
 pip install trimesh[easy]
 python example_01.py
 ```
+
+# Sources:
+
+https://github.com/bulletphysics/bullet3/tree/master/docs
