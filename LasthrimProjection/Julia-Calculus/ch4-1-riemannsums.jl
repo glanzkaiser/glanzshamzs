@@ -5,7 +5,6 @@ f(x) = √(4 - x^2)
 
 #plot(f, 0, 2, aspect_ratio=:equal, fill=(0, :green), alpha=0.2, label="")
 
-
 function make_intervals(N=10)
     xs = range(0, stop=2, length=N+1)
     return [xs[i]..xs[i+1] for i in 1:length(xs)-1]
@@ -26,7 +25,6 @@ for X in intervals
 end
 
 plot!(f, 0, 2, label=t)
-
 
 #=
 # Sum up the areas of each partition of the rectangle to approximate the area of one quadrant of a circle 
