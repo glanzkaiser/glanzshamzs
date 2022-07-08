@@ -103,3 +103,5 @@ https://juliagraphics.github.io/Luxor.jl/v0.11/basics.html
 https://20akshay00.github.io/PhysicsJavisAnim/docs/SHM.jl.html
 
 https://opensourc.es/blog/bezier-curve/
+
+https://docs.juliaplots.org/latest/generated/plotthemes/
