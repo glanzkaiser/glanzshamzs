@@ -1,4 +1,22 @@
 using Plots, LaTeXStrings 
+pyplot()
+
+function compute_bernstein(i,n; steps=100)
+    return [binomial(n,i)*t^i*(1-t)^(n-i) for t in LinRange(0,1,steps)]
+end
+
+function compute_bernstein_poly(px,py; steps=100)
+    n = length(px)-1
+    bernsteins = [compute_bernstein(i,n) for i=0:n]
+    x_vals = [sum(px[k]*bernsteins[k][t] for k=1:n+1) for t=1:steps]
+    y_vals = [sum(py[k]*bernsteins[k][t] for k=1:n+1) for t=1:steps]
+    return x_vals, y_vals
+end
+
+function plot_with_bernstein(px,py; steps=100, subplot=1)
+    x_vals, y_vals = compute_bernstein_poly(px,py; steps=steps)
+    plot!(x_vals, y_vals, color=:blue, label="",subplot=subplot)
+end
 
 function animate_bezier(px,py;steps=100)
     n = length(px)-1
@@ -30,9 +48,15 @@ function animate_bezier(px,py;steps=100)
             end
         end
     end
-    gif(anim, "bezier_d2.gif", fps=30)
+    gif(anim, "bezier_d2-1.gif", fps=30)
 end
-px = [0, 3, 7]
-py = [2, 9, 3]
+# M
+px = [0, 3, 6, 9, 12]
+py = [2, 17, 7, 17, 2]
 
+# C
+#=
+px = [9, 3, 2, 4, 9]
+py = [17, 12, 9, 6, 2]
+=#
 animate_bezier(px, py)
