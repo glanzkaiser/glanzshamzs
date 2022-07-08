@@ -78,10 +78,10 @@ Javis.jl focuses on creating an easy to use interface written in Julia to create
 #### Glanz = Uranus 
 #### Zalsimourg = Pluto 
 
-| Bezier Curve | Trajectory | 
+| Bezier Curve M | Bezier Curve C | 
 | ------------- | ------------- | 
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/bezier_d2-1.gif" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/cosmic_dance2.gif" width="83%"> | 
-| <a href="https://github.com/glanzkaiser/glanzshamzs/edit/main/Julia/Animations/beziercurve2-javis.jl">beziercurve2-javis.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Animations/cosmicdance.jl">cosmicdance.jl</a> | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/bezier_d2-1.gif" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/bezier_c.gif" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/edit/main/Julia/Animations/beziercurve2-javis.jl">beziercurve2-javis.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/edit/main/Julia/Animations/beziercurve2-javis.jl">beziercurve2-javis.jl</a> | 
 
 # Plots
 | Trajectory | Trajectory | 
