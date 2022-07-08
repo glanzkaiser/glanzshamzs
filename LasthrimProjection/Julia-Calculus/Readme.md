@@ -63,10 +63,10 @@ titleloc = :bottom, titlefont = font(8))
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/unitcirclewitharrow.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rosenbrock2.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-7-plotunitcircle4witharrow.jl">ch0-7-plotunitcircle4witharrow.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/rosenbrockfunction2.jl">rosenbrockfunction2.jl</a> | 
 
-| Riemann Sums | Rosenbrock Function | 
+| Riemann Sums | Parametric Function | 
 | ------------- | ------------- | 
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/riemannsums1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rosenbrock2.png" width="83%"> | 
-| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch4-1-riemannsums.jl">ch4-1-riemannsums.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/rosenbrockfunction2.jl">rosenbrockfunction2.jl</a> | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/riemannsums1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/parametricfunctions.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch4-1-riemannsums.jl">ch4-1-riemannsums.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch5-4-parametricequations.jl">ch5-4-parametricequations.jl</a> | 
 
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
