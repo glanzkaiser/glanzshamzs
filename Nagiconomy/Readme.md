@@ -15,7 +15,7 @@ include("importcsv.jl")
 ```
 A table of Asia's countries reliance on imported energy, sources: IEA(International Energy Agency); EIU(Economist Intelligence Unit)
 
-![julianagiconomy1][https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia1.png]
+![julianagiconomy1](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia1.png)
 
 # Authors
 Nagi, Glanz
