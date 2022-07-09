@@ -17,5 +17,10 @@ A table of Asia's countries reliance on imported energy, sources: IEA(Internatio
 
 ![julianagiconomy1](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia1.png)
 
+# Sources
+https://juliadatascience.io
+
+The Economist
+
 # Authors
 Nagi, Glanz
