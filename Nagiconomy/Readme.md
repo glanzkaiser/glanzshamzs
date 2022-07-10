@@ -17,7 +17,7 @@ A table of Asia's countries reliance on imported energy, sources: IEA(Internatio
 
 ![julianagiconomy1](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia1.png)
 
-## Example of Plotting from CSV file
+## Example of Plotting from csv file
 
 ```
 include("importcsv-statsplot.jl")
