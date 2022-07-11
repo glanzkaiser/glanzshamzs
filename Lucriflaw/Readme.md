@@ -47,7 +47,14 @@ Will your name be on history on the galaxy stone tablet? or our name? which side
 South Koreans and Japanese clashed over the issue of “comfort women”, as Koreans and others forced into brothels for the beneﬁt of Japanese soldiers during the second world war were euphemistically called. 
 ```
 
-Don't ask why you get Hiroshima and Nagasaki destroyed.. You treat woman unfair, you get worse than death. A great prophet said respect your "Mother, Mother, Mother", if you hit or bully weaker country and let rape sporadic. See the face of woman being raped there, imagine she is your mother.. so what will happens to the one initiated it? Let see and let it be unfolded. 
+Don't ask why you get Hiroshima and Nagasaki destroyed.. You treat woman unfair, you get worse than death. 
+
+```
+Mr Abe issued an official apology. His govern ment gave YEN 1 billion (USD 7.4 million) to a foundation to compensate victims.
+```
+No wonder he is the longest-serving prime minister of Japan. Already believe in karma? a vessel moved through invicible hand, great soul, noble behavior, sincerity will have great life, great destination and destiny awaits.
+
+A great prophet said respect your "Mother, Mother, Mother", if you hit or bully weaker country and let rape sporadic. See the face of woman being raped there, imagine she is your mother.. so what will happens to the one initiated it? Let see and let it be unfolded. 
 
 #### Lucrif' Law
 Separate male and female since babies and let them grow up separately. When they reach certain age and want to know outside their own comfortable world, go ahead. No need for family anymore. All marriage from the beginning of homo sapiens till today are not based on Love. I am the creator I know my statistics. Only illusion and want to gain sex or fame and money. Although I do not want to admit it, except for Glanz and Freya' marriage on Puncak Bintang.
