@@ -2,7 +2,15 @@
 ```
 Learning Physics will rule the world said my mentor once -Glanz
 ```
-  Even if most of you will laugh, my mentor is an invisible force, unseen by eyes, untouched by tangible senses, Albert Silverberg from Suikoden III, thanks for everything. Better be honest than lie. Most gamers will love this part.
+  Even if most of you will laugh, my mentor is an invisible force, unseen by eyes, untouched by tangible senses, Albert Silverberg from Suikoden III, thanks for everything. But for now, my mentor is Lucretia from Suikoden V. Met her on Puncak Bintang on West -> North East (Perfect Love for Future Development), vectors are Physics basic fundamental. You better believe in Astrology.
+  
+  ```
+  Billionaire needs astrologers, millionaires don't -JP Morgan
+  ```
+ 
+ Pattern. People eat, do sins. That is why some stocks soar and some don't. That is why I want a snickers or a Cadburry, not I want the cheapest chocolate.
+ 
+ Better be honest than lie. Most gamers will love this part.
  
  That was in Junior High School, around 2004 or 2005 when I was poor, i just learn so I can focus my mind on something better than playing around.
  I was lucky to born poor, like George Soros said "If you were born poor it is not your fault."
