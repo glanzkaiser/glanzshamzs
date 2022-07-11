@@ -45,7 +45,7 @@ Will your name be on history on the galaxy stone tablet? or our name? which side
 
 
 #### Lucrif' Law
-Separate male and female since babies and let them grow up separately. When they reach certain age and want to know outside their own comfortable world, go ahead. No need for family anymore. All marriage from the beginning of homo sapiens till today are not based on Love. I am the creator I know my statistics. Only illusion and want to gain sex or fame and money. 
+Separate male and female since babies and let them grow up separately. When they reach certain age and want to know outside their own comfortable world, go ahead. No need for family anymore. All marriage from the beginning of homo sapiens till today are not based on Love. I am the creator I know my statistics. Only illusion and want to gain sex or fame and money. Although I do not want to admit it, except for Glanz and Freya' marriage on Puncak Bintang.
 
 Otherwise there will always be rape and molestation. 
 
