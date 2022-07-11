@@ -28,5 +28,8 @@ So in the end, Joker is right to burn the money? Since he still be happy and ali
 3. Bullet
 4. Box2D
 
+# Sources
+1. Fundamental of Physics 10th Edition, Halliday & Resnick
+
 # Authors
 Hamzst/Alice, Glanz
