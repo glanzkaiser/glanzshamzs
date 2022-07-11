@@ -34,7 +34,7 @@ Be grateful, you have a beautiful wife, rich or poor you are still the same. Do 
 
 Trust me.. Lucrif is the other co-author. I am not the only vessel. 
 
-A spin-off or suggestion a bit wild from me: If no abortion then bring the rapist and brutally torture him till death and the one torture that person will get USD 100,000. Fair enough? Want a crazy world, it will happens if you always bring inequality especially to female. They are smarter, more independent, smarter, and will wipe out any that bother them.
+A spin-off or suggestion a bit wild from me: If no abortion then bring the rapist and brutally torture him till death and the one torture that person will get USD 100,000. Fair enough? Want a crazy world, it will happens if you always bring inequality especially to female. They are smarter, more independent, richer, faster, and will wipe out any that bother them.
 ```
 "Si tu es le fils de Dieu et descends de la croix" 
 ```
