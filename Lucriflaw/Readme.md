@@ -50,7 +50,7 @@ South Koreans and Japanese clashed over the issue of “comfort women”, as Kor
 Don't ask why you get Hiroshima and Nagasaki destroyed.. You treat woman unfair, you get worse than death. 
 
 ```
-Mr Abe issued an official apology. His govern ment gave YEN 1 billion (USD 7.4 million) to a foundation to compensate victims.
+Mr Abe issued an official apology. His government gave YEN 1 billion (USD 7.4 million) to a foundation to compensate victims.
 ```
 No wonder he is the longest-serving prime minister of Japan. Already believe in karma? a vessel moved through invicible hand, great soul, noble behavior, sincerity will have great life, great destination and destiny awaits.
 
