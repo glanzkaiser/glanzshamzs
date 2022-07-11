@@ -39,8 +39,15 @@ A spin-off or suggestion a bit wild from me: If no abortion then bring the rapis
 "Si tu es le fils de Dieu et descends de la croix" 
 ```
 
-but he never descends from the cross thus have hundreds of millions praying under His name till now. The one said that never even mentioned who.. Need proof? Will your name be on history on the galaxy stone tablet? or our name? which side will you choose? use your third eye. What can be seen can be gone.
+but he never descends from the cross thus have hundreds of millions praying under His name till now. The one mocks and said that never even mentioned who.. Need proof? Still the strongest religion till now. 
 
+Will your name be on history on the galaxy stone tablet? or our name? which side will you choose? use your third eye. What can be seen can be gone. Dinosaurs' fate is the Homo Sapiens' fate in the future.
+
+
+#### Lucrif' Law
+Separate male and female since babies and let them grow up separately. When they reach certain age and want to know outside they own comfortable world, go ahead. No need for family anymore. All marriage from the beginning of homo sapiens till today are not based on Love. I am the creator I know my statistics. Only illusion and want to gain sex or fame and money. 
+
+Otherwise there will always be rape and molestation. 
 
 2. 
 
