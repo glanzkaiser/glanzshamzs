@@ -27,7 +27,7 @@ You are what you eat. You eat bad, what goes out will be? bad menure, smells bad
 
 If this is not going to be internationally applied. Brutally disciplined all those thinking they are above the other. Otherwise. Let's examine with new technology, rapists all around the world. Let's humiliate you..
 
-Youtube will be banckrupt..
+Youtube Google Facebook TikTok will be bankcrupt..
 
 Next social(scratch it) media -> real life no lies.. I want to see how JD' CEO raped a girl, can he even makes her orgasm? or give her full sensation? how is his genital? You will be a laughing stock.. that is for example.. You want that? It will happens with or without me.. 
 Be grateful, you have a beautiful wife, rich or poor you are still the same. Do not trust by words, proof it first. Everyone can say "Love" and "I will die for you.." Truth? With technology we can see who is the real deal. Law and technology enhance each other.
