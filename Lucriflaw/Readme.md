@@ -7,14 +7,16 @@ To the Deity under Lucrif' command. Help us to gain the equality for all in all 
 # Cases
 ## 1. United States
 
-1. Roe vs Wade (2022)
+### 1. Roe vs Wade (2022)
 Roe v. Wade, 410 U.S. 113 (1973),was a landmark decision of the U.S. Supreme Court in which the Court ruled that the Constitution of the United States conferred the right to choose to have an abortion. The decision struck down many federal and state abortion laws, and fueled an ongoing abortion debate in the United States about whether, or to what extent, abortion should be legal, who should decide the legality of abortion, and what the role of moral and religious views in the political sphere should be. The decision also shaped debate concerning which methods the Supreme Court should use in constitutional adjudication. 
 
 The case was brought by Norma McCorvey—known by the legal pseudonym "Jane Roe"—who in 1969 became pregnant with her third child. McCorvey wanted an abortion, but she lived in Texas where abortion was illegal, except when necessary to save the mother's life. Her attorneys, Sarah Weddington and Linda Coffee, filed a lawsuit on her behalf in U.S. federal court against her local district attorney, Henry Wade, alleging that Texas's abortion laws were unconstitutional. A special three-judge court of the U.S. District Court for the Northern District of Texas heard the case and ruled in her favor. The parties appealed this ruling to the Supreme Court. 
 
-In 2022, certain states if woman gets abortion 
+In 2022, certain states if woman gets abortion she is breaking the law, even if her pregnancy is the result of a rape. Is it fair? Think if it is happening to you.
 
-### Glanz' Thoughts
+Today's condition: federal laws do not reﬂect what Americans actually want.
+
+#### Glanz' Thoughts
 I read a book in a local library at the Jesuit place in Waghete. The book' tittle is forgotten by me, but there is a words saying from local Papuans
 ```
 male and female have to be separated from child
@@ -32,7 +34,15 @@ Be grateful, you have a beautiful wife, rich or poor you are still the same. Do 
 
 Trust me.. Lucrif is the other co-author. I am not the only vessel. 
 
-2. sa
+A spin-off or suggestion a bit wild from me: If no abortion then bring the rapist and brutally torture him till death and the one torture that person will get USD 100,000. Fair enough? Want a crazy world, it will happens if you always bring inequality especially to female. They are smarter, more independent, smarter, and will wipe out any that bother them.
+```
+"Si tu es le fils de Dieu et descends de la croix" 
+```
+
+but he never descends from the cross thus have hundreds of millions praying under His name till now. The one said that never even mentioned who.. Need proof? Will your name be on history on the galaxy stone tablet? or our name? which side will you choose? use your third eye. What can be seen can be gone.
+
+
+2. 
 
 # Sources
 Wikipedia
