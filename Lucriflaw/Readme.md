@@ -44,7 +44,7 @@ but he never descends from the cross thus have hundreds of millions praying unde
 Will your name be on history on the galaxy stone tablet? or our name? which side will you choose? use your third eye. What can be seen can be gone. Dinosaurs' fate is the Homo Sapiens' fate in the future.
 
 ```
-South Koreans and Japanese clashed over the issue of “comfort women”, as Koreans and others forced into brothels for the beneﬁt of Japanese soldiers during thesecond world war were euphemistically called. 
+South Koreans and Japanese clashed over the issue of “comfort women”, as Koreans and others forced into brothels for the beneﬁt of Japanese soldiers during the second world war were euphemistically called. 
 ```
 
 Don't ask why you get Hiroshima and Nagasaki destroyed.. You treat woman unfair, you get worse than death. A great prophet said respect your "Mother, Mother, Mother", if you hit or bully weaker country and let rape sporadic. See the face of woman being raped there, imagine she is your mother.. so what will happens to the one initiated it? Let see and let it be unfolded. 
