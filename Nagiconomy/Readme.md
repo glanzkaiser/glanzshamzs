@@ -36,6 +36,17 @@ Ingredients:
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia3.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia4.png" width="83%"> | 
 | <a href="https://data.worldbank.org/indicator/FI.RES.TOTL.CD">Click here</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/totalreserveswithgold_db.csv">CSV data</a> | 
 
+| Central Bank' Reserves and Debts |
+| ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia6.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/nagiconomy-totalreserves.jl">nagiconomy-totalreserves.jl</a> | 
+
+### Nagi & Glanz' Opinion:
+
+#### Glanz: 
+How can a country pay a debt if the reserve is far below the debt? Is it to give foods to those that can be worthy for the country' asset? I do not think that all deserve to be fed by country if they create a chain effect that will lower the country' ability to improve its GDP, productivity, and innovations
+
+
 # Economic Problems
 We are going to summarize economic problems and find the solution to eliminate poverty and inequality, with the tools of science, engineering, technology and other fields.
 
