@@ -15,14 +15,18 @@ include("importcsv.jl")
 ```
 A table of Asia's countries reliance on imported energy, sources: IEA(International Energy Agency); EIU(Economist Intelligence Unit)
 
-![julianagiconomy1](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia1.png)
-
 ## Example of Plotting from csv file
 
 ```
 include("importcsv-statsplot.jl")
 ```
 ![julianagiconomy2](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia2.png)
+
+| Import CSV | Plot from CSV | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia2.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/importcsv.jl">importcsv.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/importcsv-statsplot.jl">importcsv-statsplot.jl</a> | 
+
 
 # Nagiconomy' Methods
 
