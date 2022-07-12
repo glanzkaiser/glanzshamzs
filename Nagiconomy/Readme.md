@@ -24,7 +24,21 @@ include("importcsv-statsplot.jl")
 ```
 ![julianagiconomy2](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia2.png)
 
+# Nagiconomy' Methods
+
+## 1. Countries Reserves and Debts' Data
+Ingredients:
+1. Julia-1.7.3
+2. PlotlyJS
+
+| Central Bank' Reserves | Database | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia3.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia4.png" width="83%"> | 
+| <a href="https://data.worldbank.org/indicator/FI.RES.TOTL.CD">Click here</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/totalreserveswithgold_db.csv">CSV data</a> | 
+
 # Economic Problems
+We are going to summarize economic problems and find the solution to eliminate poverty and inequality, with the tools of science, engineering, technology and other fields.
+
 ## 1. United Kingdom
 1. UK has the highest inﬂation in the G7
 2. Britain is stuck in a 15 year low productivity rut. 
