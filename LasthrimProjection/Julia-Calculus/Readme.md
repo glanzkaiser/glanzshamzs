@@ -105,6 +105,8 @@ https://github.com/barche/Trilinos.jl
 
 https://github.com/goropikari/PlotsGallery.jl
 
+https://github.com/JuliaGraphics/Colors.jl/blob/master/src/names_data.jl
+
 https://github.com/JuliaGraphs/GraphPlot.jl
 
 https://github.com/orgs/JuliaParallel/repositories?type=all
