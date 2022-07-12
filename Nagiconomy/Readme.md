@@ -44,7 +44,10 @@ Ingredients:
 ### Nagi & Glanz' Opinion:
 
 #### Glanz: 
-How can a country pay a debt if the reserve is far below the debt? Is it to give foods to those that can be worthy for the country' asset? I do not think that all deserve to be fed by country if they create a chain effect that will lower the country' ability to improve its GDP, productivity, and innovations
+How can a country pay a debt if the reserve is far below the debt? Is it to give foods to those that can be worthy for the country' asset? I do not think that all deserve to be fed by country if they create a chain effect that will lower the country' ability to improve its GDP, productivity, and innovations. Take care of the crime in all area if it is lower emerging to 0 your debts will be gone. That's my opinion.
+
+#### Nagi: 
+The debts are for paying the country ambition that differ, such as America needs a lot of ammunition and weapons to fund the war. To build infrastructure like China' Belt and Road Initiative that can ensure China's long-term income and position as the landlord of trade in Euro-Asia area.
 
 
 # Economic Problems
