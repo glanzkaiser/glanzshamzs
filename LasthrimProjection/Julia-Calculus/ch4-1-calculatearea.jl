@@ -12,5 +12,6 @@ f(x) = x^2
 Area(x -> x^2, 0, 1, 50_000)
 
 plot(f,0,1, label=L"y = x^2", legend=:outertop)
+plot!(f,0.5,0.75, fill=(0, 0.25, :blue))
 annotate!([(0.77,0.95, ("Area = ", 11, :black)),
 	  (0.77,0.85, (Area(x -> x^2, 0, 1, 50_000), 11, :black))])
