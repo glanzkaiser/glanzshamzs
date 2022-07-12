@@ -37,7 +37,7 @@ GK(gK, n) = gK * (n ^ 4.0)
 GNa(gNa, m) = gNa * (m ^ 3.0) * h
 GL(gL) = gL
  
-# Differential equations
+# Differential equations, The integration method is simple forward euler inside the for loop.
 function dv(Vm, GK, GNa, GL, Cm, EK, ENa, El, I, dt);
     ((I  - (GK * (v - EK)) - (GNa * (v - ENa)) - (GL * (v - El))) / Cm) * dt
 end
