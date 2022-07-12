@@ -13,14 +13,13 @@ Open Julia REPL (Install packages CSV and DataFrames)
 ```
 include("importcsv.jl")
 ```
-A table of Asia's countries reliance on imported energy, sources: IEA(International Energy Agency); EIU(Economist Intelligence Unit)
+It will show a table of Asia's countries reliance on imported energy, sources: IEA(International Energy Agency); EIU(Economist Intelligence Unit)
 
 ## Example of Plotting from csv file
 
 ```
 include("importcsv-statsplot.jl")
 ```
-![julianagiconomy2](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia2.png)
 
 | Import CSV | Plot from CSV | 
 | ------------- | ------------- | 
