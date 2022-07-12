@@ -70,6 +70,14 @@ We are going to summarize economic problems and find the solution to eliminate p
 ### 2022/07
 1. During the ﬁrst two years of the pandemic more than 80% of schooldays in Latin America and South Asia were disrupted by closures of some sort. Even today schools in some countries, such as the Philippines, remain shut to most pupils. The harm that school closures have done to children has vastly outweighed any beneﬁts they may have had for public health.  If children cannot read and understand a simple story, they will struggle to earn a good living. Nearly every problem that confronts humanity can be alleviated by good schooling. Better educated people are more likely to devise a cleaner energy source, a cure for malaria or a smarter town plan. Workers who can read and manipulate numbers are more productive. Bookish populations will ﬁnd it easier to adapt to climate change. They will also have fewer babies, and educate them better. If the damage the pandemic has done to education is not reversed, all these goals will be harder to reach.
 
+## 4. China
+### 2022/07
+1. In 2018 ByteDance was forced to shutdown Neihan Duanzi, its joke-sharing app,which once had more than 200m users, after China’s media regulator claimed that its “off-colour” content had “triggered intense resentment among internet users”
+#### Glanz & Nagi' Opinion
+China is smart, they penetrate through culture or soft power, like France with their language and it is one of the most spoken language on this planet.
+
+2. 
+
 # Sources
 https://juliadatascience.io
 
