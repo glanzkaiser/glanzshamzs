@@ -43,7 +43,7 @@ Congratulation for your Master degree Glanz, hopefully it will brings more knowl
 | ODE               | Will check and simulate
 | Kratos            | Rebuild to add all applications, simulate and see the different between Chrono (find alternative for GiD)
 | Project Chrono    | Compile single demo example of CityBus can't work
-| PyBullet          | Will check and simulate
+| PyBullet          | Great simulation, can we create a custom simulation from Arduino robot and simulate it with PyBullet?
 | Tokamak           | Can't be installed with premake -> Learn to create demo with the headers (.h) and OpenGL
 | Trilinos          | Built successful, without MPI and OpenMP, able to compile and run a single Anasazi example
 
