@@ -27,12 +27,12 @@ include("importcsv-statsplot.jl")
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/importcsv.jl">importcsv.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/importcsv-statsplot.jl">importcsv-statsplot.jl</a> | 
 
 
-# Nagiconomy' Methods
-
-## 1. Countries Reserves and Debts' Data
+# Nagiconomy' Topics
 Ingredients:
 1. Julia-1.7.3
 2. PlotlyJS
+
+## 1. Countries Reserves and Debts' Data
 
 | Central Bank' Reserves | Database | 
 | ------------- | ------------- | 
@@ -52,6 +52,24 @@ How can a country pay a debt if the reserve is far below the debt? Is it to give
 #### Nagi: 
 The debts are for paying the country ambition that differ, such as America needs a lot of ammunition and weapons to fund the war. To build infrastructure like China' Belt and Road Initiative that can ensure China's long-term income and position as the landlord of trade in Euro-Asia area.
 
+## 2. Energy Economics
+
+| Energy Data | Database | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia7-1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia7-2.png" width="83%"> | 
+| <a href="https://energy-charts.info/charts/energy/chart.htm?l=en&c=DE&chartColumnSorting=default&interval=month&year=-1">Click here</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/csv/energy-charts_Public_net_electricity_generation_in_Germany_in_March_Excel.csv">CSV data</a> | 
+
+| Central Bank' Reserves and Debts |
+| ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia7.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/nagiconomy-statsplot-energy.jl">nagiconomy-statsplot-energy.jl</a> | 
+
+### Nagi & Glanz' Opinion:
+#### Glanz: 
+Wind energy has a great potential in Germany. I wonder for another country, what kind of energy they used ? Is it mostly the conventional oil or coal? or shifting to renewable? We can see the geographical correlation with the energy used. 
+
+#### Nagi: 
+The data can be analyze more if we have the price per watt hour for each energy, the cost to generate per watt hour, more transparency, how much the government takes from generating till selling to public. Sufficient energy fulfilled is the basic needs for better economy.
 
 # Economic Problems
 We are going to summarize economic problems and find the solution to eliminate poverty and inequality, with the tools of science, engineering, technology and other fields.
