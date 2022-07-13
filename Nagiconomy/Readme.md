@@ -59,7 +59,7 @@ The debts are for paying the country ambition that differ, such as America needs
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia7-1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia7-2.png" width="83%"> | 
 | <a href="https://energy-charts.info/charts/energy/chart.htm?l=en&c=DE&chartColumnSorting=default&interval=month&year=-1">Click here</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/csv/energy-charts_Public_net_electricity_generation_in_Germany_in_March_Excel.csv">CSV data</a> | 
 
-| Central Bank' Reserves and Debts |
+| Public net electricity generation in Germany |
 | ------------- | 
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia7.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/nagiconomy-statsplot-energy.jl">nagiconomy-statsplot-energy.jl</a> | 
