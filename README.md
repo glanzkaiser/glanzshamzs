@@ -34,7 +34,7 @@ A lot of problems around, and we want to solve them, but we need to learn togeth
 
 Congratulation for your Master degree Glanz, hopefully it will brings more knowledge and ideas for us the 8 Queens.
 
-# Status
+# Status (July 13th, 2022)
 
 | Name | Details |
 | -------------     | ------------- | 
