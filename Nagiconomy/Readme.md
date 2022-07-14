@@ -60,7 +60,7 @@ The debts are for paying the country ambition that differ, such as America needs
 | <a href="https://energy-charts.info/charts/energy/chart.htm?l=en&c=DE&chartColumnSorting=default&interval=month&year=-1">Click here</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/csv/energy-charts_Public_net_electricity_generation_in_Germany_in_March_Excel.csv">CSV data</a> | 
 
 | Public net electricity generation in Germany (Quarterly) | Public net electricity generation in Germany (2015-2022) | 
-| ------------- | 
+| ------------- | ------------- | 
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia7.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/nagiconomy-julia7-3.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/nagiconomy-statsplot-energy.jl">nagiconomy-statsplot-energy.jl</a> |  <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/Julia/nagiconomy-statsplot-energytotal.jl">nagiconomy-statsplot-energytotal.jl</a> |
 
