@@ -69,7 +69,7 @@ The debts are for paying the country ambition that differ, such as America needs
 Wind energy has a great potential in Germany. I wonder for another country, what kind of energy they used ? Is it mostly the conventional oil or coal? or shifting to renewable? We can see the geographical correlation with the energy used. 
 
 #### Nagi: 
-The data can be analyze more if we have the price per watt hour for each energy, the cost to generate per watt hour, more transparency, how much the government takes from generating till selling to public. Sufficient energy fulfilled is the basic needs for better economy.
+The data can be analyze more if we have the price per watt hour for each energy, the cost to generate per watt hour, more transparency, how much the government takes from generating till selling to public. Sufficient energy fulfilled is the basic needs for better economy. Add a new correlation between type of energy mostly used and the country' GDP or any other significant economics indicator.
 
 # Economic Problems
 We are going to summarize economic problems and find the solution to eliminate poverty and inequality, with the tools of science, engineering, technology and other fields.
