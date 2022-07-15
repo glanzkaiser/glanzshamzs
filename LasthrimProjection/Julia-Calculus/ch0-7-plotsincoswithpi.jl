@@ -31,5 +31,5 @@ a, b = -2π, 2π
 #plot(sin, a, b; xtick=pitick(a, b, 4), label="y = sin t", size=(720, 250))
 #plot(cos, a, b; xtick=pitick(a, b, 4), label="y = cos t", size=(720, 250))
 
-plot(sin, a, b; xtick=pitick(a, b, 4; mode=:latex), label="y = sin t", size=(720, 250), tickfontsize=10)
-plot!(cos, a, b; xtick=pitick(a, b, 4; mode=:latex), label="y = cos t", size=(720, 250), tickfontsize=10)
+plot(sin, a, b; xtick=pitick(a, b, 4; mode=:latex), label="y = sin t", size=(720, 360), tickfontsize=10)
+plot!(cos, a, b; xtick=pitick(a, b, 4; mode=:latex), label="y = cos t", size=(720, 360), tickfontsize=10)
