@@ -58,6 +58,11 @@ titleloc = :bottom, titlefont = font(8))
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sin18x.png?raw=true" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/Complex.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/sqrtx.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rightsidetriangle.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/plotmodifiedaxes.jl">plotmodifiedaxes.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-5-plotimaginary2.jl">ch0-5-plotimaginary2.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-6-plottranslations2.jl">ch0-6-plottranslations2.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-7-plotrighttriangle.jl">ch0-7-plotrighttriangle.jl</a> |
 
+| Chapter 0: Preliminaries | Chapter 1: Limits | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/LPcalculus-0.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/LPcalculus-1.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch0-7-plotsincoswithpi.jl">ch0-7-plotsincoswithpi.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch1-1-plotlimitfunctions.jl">ch1-1-plotlimitfunctions.jl</a> | 
+
 | Unit Circle | Rosenbrock Function | 
 | ------------- | ------------- | 
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/unitcirclewitharrow.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rosenbrock2.png" width="83%"> | 
