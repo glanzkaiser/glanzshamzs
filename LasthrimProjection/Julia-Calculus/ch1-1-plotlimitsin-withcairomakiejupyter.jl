@@ -5,14 +5,14 @@
 
 using CairoMakie
 
-x = LinRange(-0.1, 0.1, 700)
+x = LinRange(-0.3, 0.01, 500)
 y = sin.(1 ./x)
 
-x1 = LinRange(-0.1, 0.2, 700)
-y1 = sin.(1 ./x)
+x1 = LinRange(-0.01, 0.3, 500)
+y1 = sin.(1 ./x1)
 
-x2 = LinRange(-3, 3, 700)
-y2 = sin.(1 ./x)
+x2 = LinRange(-2, 2, 500)
+y2 = sin.(1 ./x2)
 
 fig = Figure()
 lines(fig[1, 1], x, y, color = :red)
