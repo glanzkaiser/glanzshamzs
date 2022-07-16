@@ -121,6 +121,7 @@ https://github.com/SciML/SciMLTutorials.jl
 #### Makie
 
 https://juliadatascience.io/glmakie
+
 https://lazarusa.github.io/Webpage/codeJuliaMakie.html
 
 #### PyPlot
