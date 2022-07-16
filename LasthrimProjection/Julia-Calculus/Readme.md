@@ -92,37 +92,21 @@ plot(sin, 0, 2pi)
 
 ![Julia](https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/root(im).png)
 
-### Julia Learning Source
+#### Julia Learning Source
 
 https://cidamo.com.br/JuliaIntroBR.jl/deploy/index.html#chap01
 
 https://computationalthinking.mit.edu/Spring21/
 
-https://diffeq.sciml.ai/stable/basics/plot/
-
-https://discourse.julialang.org/t/how-to-solve-this-ax-b-faster/81693
-
 https://docs.julialang.org/en/v1/manual/getting-started/
-
-https://docs.juliaplots.org/latest/input_data/#Functions
 
 https://github.com/barche/Trilinos.jl
 
 https://github.com/goropikari/PlotsGallery.jl
 
-https://github.com/JuliaGraphics/Colors.jl/blob/master/src/names_data.jl
-
-https://github.com/JuliaGraphs/GraphPlot.jl
-
 https://github.com/orgs/JuliaParallel/repositories?type=all
 
-https://mth229.github.io/graphing.html
-
-https://stackoverflow.com/questions/70551977/how-to-plot-complex-numbers-in-julia
-
 https://uilis.unsyiah.ac.id/oer/files/original/aa4c33bd9eeba8b979b3033a615b60c8.pdf
-
-https://www.math.csi.cuny.edu/~verzani/tmp/julia/graphing.html
 
 http://www2.math.uu.se/~xinca341/euclidean-plane-geometry-with-julia.html
 
@@ -130,9 +114,14 @@ http://www2.math.uu.se/~xinca341/euclidean-plane-geometry-with-julia.html
 
 https://github.com/da-james/djs-office-hours
 
-#### Polygon
+#### Science 
 
-https://juliagraphics.github.io/Luxor.jl/v0.9.1/polygons.html#Regular-polygons-(%22ngons%22)-1
+https://github.com/SciML/SciMLTutorials.jl
+
+#### Makie
+
+https://juliadatascience.io/glmakie
+https://lazarusa.github.io/Webpage/codeJuliaMakie.html
 
 #### PyPlot
 
