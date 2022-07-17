@@ -19,9 +19,7 @@ julia> notebook()
 
 | OpenStreetMap Simulation: Machida, Japan | OpenStreetMap Simulation Plot: Cambridge, UK | 
 | ------------- | ------------- | 
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/
-JuliaSimulation1-1.png" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/
-JuliaSimulation1-2.png" width="83%"> | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/JuliaSimulation1-1.png" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/JuliaSimulation1-2.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/OpenStreetMapCambridge.ipynb">OpenStreetMapCambridge.ipynb</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/OpenStreetMapMachida.ipynb">OpenStreetMapMachida.ipynb</a> | 
 
 # Sources
