@@ -73,6 +73,11 @@ titleloc = :bottom, titlefont = font(8))
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/riemannsums1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/parametricfunctions.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch4-1-riemannsums.jl">ch4-1-riemannsums.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch5-4-parametricequations.jl">ch5-4-parametricequations.jl</a> | 
 
+| CairoMakie (needs IDE / Jupyter Notebook) | GLMakie (able to use terminal directly | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/CairoMakie.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/CairoMakie.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/CairoMakie.ipynb">CairoMakie.ipynb</a> | <a href="[https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch5-4-parametricequations.jl](https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/GLMakie.ipynb)">GLMakie.ipynb</a> | 
+
 
 #### (More details on how to set up and install Julia can be seen at the glanzshamzs/Julia directory)
 
