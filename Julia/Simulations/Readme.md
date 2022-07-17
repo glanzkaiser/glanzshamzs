@@ -17,9 +17,9 @@ julia> notebook()
 
 # Gallery
 
-## About OpenStreetMapX
+## 1. OpenStreetMapX
 
-OpenStreetMapX is a package for spatial analysis, simulation and visualization of Open Street Map data. This simulation provides a backbone for multi-agent modelling and simulation of cities. The library provides a bridging functionality between real world spatial data available in the OpenStreetMap project and Graphs.jl. 
+A package for spatial analysis, simulation and visualization of Open Street Map data. This simulation provides a backbone for multi-agent modelling and simulation of cities. The library provides a bridging functionality between real world spatial data available in the OpenStreetMap project and Graphs.jl. 
 
 First we create complex graphs in transportation networks for vehicles moving under certain time, afterwards we simulate agents and moving it inside the area selected and after certain time we can predict how many people will be infected in that area.
 
