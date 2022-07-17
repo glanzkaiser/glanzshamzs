@@ -1,5 +1,5 @@
 # About
-Simulation of a lot of science and engineering application to real life problems.
+Simulations of a lot of science and engineering applications to real life problems.
 
 ## Tools
 ### 1. Julia-1.7.3
