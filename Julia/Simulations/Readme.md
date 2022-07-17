@@ -7,7 +7,7 @@ Simulations of a lot of science and engineering applications to real life proble
 ### 3. Jupyter Notebook
 ### 4. Mozilla Firefox
 
-To open Jupyter Notebook(you need a web browser installed first), then open you terminal and type
+To open Jupyter Notebook(you need a web browser installed first), then open your terminal and type
 ```
 julia
 
