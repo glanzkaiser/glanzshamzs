@@ -77,7 +77,7 @@ titleloc = :bottom, titlefont = font(8))
 
 I will update this Jupyter Notebook frequently. I just tested it since yesterday ( July 16th 2022) and know how the backend of Makie works. Will adjust it with Calculus plotting.
 
-| CairoMakie (needs IDE / Jupyter Notebook) | GLMakie (able to use terminal directly | 
+| CairoMakie (needs IDE / Jupyter Notebook) | GLMakie (able to use terminal directly / better to use terminal) | 
 | ------------- | ------------- | 
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/CairoMakie.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/GLMakie.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/CairoMakie.ipynb">CairoMakie.ipynb</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/GLMakie.ipynb">GLMakie.ipynb</a> | 
