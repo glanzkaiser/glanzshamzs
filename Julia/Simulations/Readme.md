@@ -32,7 +32,7 @@ First we create complex graphs in transportation networks for vehicles moving un
 | OpenStreetMap' Pandemic Simulation: Machida, Japan | OpenStreetMap' Pandemic Simulation Plot: Cambridge, UK | 
 | ------------- | ------------- | 
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/JuliaSimulation1-1.png" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/JuliaSimulation1-2.png" width="83%"> | 
-| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/OpenStreetMapMachida.html">OpenStreetMapMachida</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/OpenStreetMapCambridge.html">OpenStreetMapCambridge</a> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/OpenStreetMapMachida.ipynb">OpenStreetMapMachida</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/OpenStreetMapCambridge.ipynb">OpenStreetMapCambridge</a> | 
 
 # Sources
 
