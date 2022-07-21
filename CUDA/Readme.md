@@ -217,6 +217,8 @@ time ./vector_add
 nvprof ./vector_add
 ```
 
+#### * The simplest way to find out how long the kernel takes to run is by using nvprof
+
 # Sources
 
 https://cuda-tutorial.readthedocs.io/en/latest/tutorials/tutorial01/
