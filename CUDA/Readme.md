@@ -132,10 +132,14 @@ Methods:
 
 Convert vector_add() to GPU kernel and.
 Change vector_add() call in main() to kernel call.
+
 2. Allocate device memory
-4. Transfer input data from host to device memory
-5. Execute kernels Transfer output from device memory to host
-6. Compile and run the program
+
+3. Transfer input data from host to device memory
+
+4. Execute kernels Transfer output from device memory to host
+
+5. Compile and run the program
 
 The CUDA file will be like this:
 ```
