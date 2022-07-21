@@ -90,8 +90,134 @@ nvcc -o saxpy saxpy.cu
 
 #### 2. cuda.h is automatically included by nvcc
 
+# Examples: Converting C Files to CUDA
+We will learn how to convert vector_add.c to CUDA program vector_add.cu
+
+Consider this C file:
+```
+#define N 10000000
+
+void vector_add(float *out, float *a, float *b, int n) {
+    for(int i = 0; i < n; i++){
+        out[i] = a[i] + b[i];
+    }
+}
+
+int main(){
+    float *a, *b, *out; 
+
+    // Allocate memory
+    a   = (float*)malloc(sizeof(float) * N);
+    b   = (float*)malloc(sizeof(float) * N);
+    out = (float*)malloc(sizeof(float) * N);
+
+    // Initialize array
+    for(int i = 0; i < N; i++){
+        a[i] = 1.0f; b[i] = 2.0f;
+    }
+
+    // Main function
+    vector_add(out, a, b, N);
+}
+```
+
+Now change the name of the file:
+```
+cp vector_add.c vector_add.cu
+
+```
+
+Methods:
+1. Allocate host memory and initialized host data 
+
+Convert vector_add() to GPU kernel and.
+Change vector_add() call in main() to kernel call.
+2. Allocate device memory
+4. Transfer input data from host to device memory
+5. Execute kernels Transfer output from device memory to host
+6. Compile and run the program
+
+The CUDA file will be like this:
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <assert.h>
+#include <cuda.h>
+#include <cuda_runtime.h>
+
+#define N 10000000
+#define MAX_ERR 1e-6
+
+__global__ void vector_add(float *out, float *a, float *b, int n) {
+    for(int i = 0; i < n; i ++){
+        out[i] = a[i] + b[i];
+    }
+}
+
+int main(){
+    float *a, *b, *out;
+    float *d_a, *d_b, *d_out; 
+
+    // Allocate host memory
+    a   = (float*)malloc(sizeof(float) * N);
+    b   = (float*)malloc(sizeof(float) * N);
+    out = (float*)malloc(sizeof(float) * N);
+
+    // Initialize host arrays
+    for(int i = 0; i < N; i++){
+        a[i] = 1.0f;
+        b[i] = 2.0f;
+    }
+
+    // Allocate device memory
+    cudaMalloc((void**)&d_a, sizeof(float) * N);
+    cudaMalloc((void**)&d_b, sizeof(float) * N);
+    cudaMalloc((void**)&d_out, sizeof(float) * N);
+
+    // Transfer data from host to device memory
+    cudaMemcpy(d_a, a, sizeof(float) * N, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, b, sizeof(float) * N, cudaMemcpyHostToDevice);
+
+    // Executing kernel 
+    vector_add<<<1,1>>>(d_out, d_a, d_b, N);
+    
+    // Transfer data back to host memory
+    cudaMemcpy(out, d_out, sizeof(float) * N, cudaMemcpyDeviceToHost);
+
+    // Verification
+    for(int i = 0; i < N; i++){
+        assert(fabs(out[i] - a[i] - b[i]) < MAX_ERR);
+    }
+    printf("out[0] = %f\n", out[0]);
+    printf("PASSED\n");
+
+    // Deallocate device memory
+    cudaFree(d_a);
+    cudaFree(d_b);
+    cudaFree(d_out);
+
+    // Deallocate host memory
+    free(a); 
+    free(b); 
+    free(out);
+}
+
+```
+
+Save it as vector_add.cu. You can check it at vector_add.cu at this repository or create your own. Run it by typing:
+```
+nvcc vector_add.cu -o vector_add
+time ./vector_add
+
+nvprof ./vector_add
+```
+
 # Sources
+
+https://cuda-tutorial.readthedocs.io/en/latest/tutorials/tutorial01/
 
 https://developer.nvidia.com/about-cuda
 
 https://developer.nvidia.com/blog/easy-introduction-cuda-c-and-c/
+
