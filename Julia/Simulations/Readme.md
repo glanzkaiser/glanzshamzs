@@ -34,6 +34,20 @@ First we create complex graphs in transportation networks for vehicles moving un
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/JuliaSimulation1-1.png" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/JuliaSimulation1-2.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/OpenStreetMapMachida.ipynb">OpenStreetMapMachida</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/OpenStreetMapCambridge.ipynb">OpenStreetMapCambridge</a> | 
 
+## 2. Oblique Slice for MRI
+
+The orthoradial slice is straight up and down, while the oblique slice is slanted, similar to a forward slash on a computer. These slices help periodontists visualize the anatomical structures in the mouth and evaluate where the optimal placement of a dental implant would be.
+
+In this 3-dimensional world, if we have a 3-d object, like a brain sample we can cut a slice at certain angle to obtain the oblique slice. To analyze the brain, or help in doing surgery or research about neurons.
+
+| Oblique Slice | Oblique Slice from below | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/JuliaSimulation2-1.png" width="55%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/JuliaSimulation2-2.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/Simulations/obliqueslicemri.jl">obliqueslicemri.jl</a> | | 
+
+
 # Sources
+
+https://discourse.julialang.org/t/oblique-slices-in-makie/83879/6
 
 https://pszufe.github.io/OpenStreetMapX_Tutorial/JuliaCon2020/
