@@ -25,7 +25,7 @@ First we create complex graphs in transportation networks for vehicles moving un
 
 ### Packages used
 1. folium package is used for graphs visualization and providing an interactive vizualization of results.
-2. Graphs.jl is used to represent the directed graph structure object along with meta related to spatial information.
+2. Graphs.jl is used for image processing tasks
 3. OpenStreetMapX.jl package is used to load the data from the OpenStreetMap.org project and processes such graphs with Julia.
 
 
@@ -39,6 +39,11 @@ First we create complex graphs in transportation networks for vehicles moving un
 The orthoradial slice is straight up and down, while the oblique slice is slanted, similar to a forward slash on a computer. These slices help periodontists visualize the anatomical structures in the mouth and evaluate where the optimal placement of a dental implant would be.
 
 In this 3-dimensional world, if we have a 3-d object, like a brain sample we can cut a slice at certain angle to obtain the oblique slice. To analyze the brain, or help in doing surgery or research about neurons.
+
+### Packages used
+1. FileIO is used to load the brain image (.tif file) 
+2. Images is used to represent the directed graph structure object along with meta related to spatial information.
+3. PlotlyJS is a Julia library for plotting with plotly.js .
 
 | Oblique Slice | Oblique Slice from below | 
 | ------------- | ------------- | 
