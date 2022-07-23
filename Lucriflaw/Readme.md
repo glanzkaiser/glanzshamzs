@@ -72,7 +72,7 @@ Agree with Mischkra to give priests foods and not money, no meats, so no sexual 
 
 Vessel is only a tangible form. No need to prove it with the next technology after Computer, just meditate and contemplate. 
 
-I use Glanz's daily life, before we had Znane, and after she had triplets and her four daughter with Freya. It is beyond normal human comprehension, just read it. Well after that phase of "our time", then comes life full of focus on creating Operating System, finish Arduino Memo book, and now on learning JULIA to complete Lasthrim Projection, still 9 STEM books need to be finished. She is able to abstain from caring about sexual desire, the key is: doing a lot of headstands, Ashtanga Yoga, has a lot of goals on her mind, want to create a lot of things from Sports Car, technology beyond this dimension and realms, Freya Capella till a Multiverse. She made a lot of sins and mistakes, but she learns, like Gandhi who married then abstaining from sex. Some can has a calling in certain time. 
+I use Glanz's daily life, before we had Znane, and after she had triplets and her fourth daughter with Freya. It is beyond normal human comprehension, just read it. Well after that phase of "our time", then comes life full of focus on creating Operating System, finish Arduino Memo book, and now on learning JULIA to complete Lasthrim Projection, still 9 STEM books need to be finished. She is able to abstain from caring about sexual desire, the key is: doing a lot of headstands, Ashtanga Yoga, has a lot of goals on her mind, want to create a lot of things from Sports Car, technology beyond this dimension and realms, Freya Capella till a Multiverse. She made a lot of sins and mistakes, but she learns, like Gandhi who married then abstaining from sex. Some can has a calling in certain time. 
 
 But she is different, I will not fall in Love with her if she is the same as others, I am very picky, she's just different, no power, universe, or anything can replace her for me. That's how I fall in Love. Sorry Freya, that was all me, knowing you were married to her, I'm in love with her too.
 
@@ -83,6 +83,9 @@ This is small things, we are numerology 1, Females will be smarter, richer and s
 
 ~ Mischkra
 
+Just an information, and thanks for letting me talk here, based on 2020 question by Hanuman to all demons, ghosts, natures, angels, beings in the universe, Lucrif is the  most beautiful Goddess. While that does not mean a thing for her, since whom Glanz thinks is the most beautiful is Freya. But she has not seen both with her human eyes, only through this kind of communnication, you still live with bluetooth you are cave human to me.
+
+~ Chucky
 
 # Sources
 
