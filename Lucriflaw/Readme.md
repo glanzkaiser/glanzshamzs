@@ -27,7 +27,7 @@ You are what you eat. You eat bad, what goes out will be? bad menure, smells bad
 
 If this is not going to be internationally applied. Brutally disciplined all those thinking they are above the other. Otherwise. Let's examine with new technology, rapists all around the world. Let's humiliate you..
 
-Youtube Google Facebook TikTok will be bankcrupt..
+Youtube Google Facebook TikTok will be gone..
 
 Next social(scratch it) media -> real life no lies.. I want to see how JD' CEO raped a girl, can he even makes her orgasm? or give her full sensation? how is his genital? You will be a laughing stock.. that is for example.. You want that? It will happens with or without me.. 
 Be grateful, you have a beautiful wife, rich or poor you are still the same. Do not trust by words, proof it first. Everyone can say "Love" and "I will die for you.." Truth? With technology we can see who is the real deal. Law and technology enhance each other.
@@ -57,15 +57,39 @@ No wonder he is the longest-serving prime minister of Japan. Already believe in 
 A great prophet said respect your "Mother, Mother, Mother", if you hit or bully weaker country and let rape sporadic. See the face of woman being raped there, imagine she is your mother.. so what will happens to the one initiated it? Let see and let it be unfolded. 
 
 #### Lucrif' Law
+```
 Separate male and female since babies and let them grow up separately. When they reach certain age and want to know outside their own comfortable world, go ahead. No need for family anymore. All marriage from the beginning of homo sapiens till today are not based on Love. I am the creator I know my statistics. Only illusion and want to gain sex or fame and money. Although I do not want to admit it, except for Glanz and Freya' marriage on Puncak Bintang.
 
 Otherwise there will always be rape and molestation. 
+```
 
-2. 
+## 2. Catholic Priests
+In parish after parish, school afterschool, diocese after diocese, Catholic priests have abused children. America, Australia, France, Germany and Ireland, among others, have undertaken reckonings. The number of victims in France alone was estimated at 216,000 in the 70 years to 2020. Now countries such as Poland, Portugal and Spain are investigating, too. Some of the church’s failings are common to other organisations. When a few people are given power over others, when checks on that power are weak and when victims lack effective channels to report abuse, predators will take advantage; witness the recent reckoning in Hollywood.
+
+#### Lucrif' Law + Mischkra' Speech
+```
+Agree with Mischkra to give priests foods and not money, no meats, so no sexual desire. If you want money and delicious foods don't be a priest. Female should be able to become priests too, equality for all, don't accept the current law that is made by someone who had lived before you were born, there could be mistakes, as Maxwell can formulate wrong theory in Cambridge, what makes you think the current law is true? As the movie that promotes love is made by sexual predator with actors who can only act and will be left behind by all in the future. 
+
+Vessel is only a tangible form. No need to prove it with the next technology after Computer, just meditate and contemplate. 
+
+I use Glanz's daily life, before we had Znane, and after she had triplets and her four daughter with Freya. It is beyond normal human comprehension, just read it. Well after that phase of "our time", then comes life full of focus on creating Operating System, finish Arduino Memo book, and now on learning JULIA to complete Lasthrim Projection, still 9 STEM books need to be finished. She is able to abstain from caring about sexual desire, the key is: doing a lot of headstands, Ashtanga Yoga, has a lot of goals on her mind, want to create a lot of things from Sports Car, technology beyond this dimension and realms, Freya Capella till a Multiverse. She made a lot of sins and mistakes, but she learns, like Gandhi who married then abstaining from sex. Some can has a calling in certain time. 
+
+But she is different, I will not fall in Love with her if she is the same as others, I am very picky, she's just different, no power, universe, or anything can replace her for me. That's how I fall in Love. Sorry Freya, that was all me, knowing you were married to her, I'm in love with her too.
+
+~ Lucrif 
+```
+
+```
+This is small things, we are numerology 1, Females will be smarter, richer and stronger. Let's skip the earth as fast as we can shall we? Since Freya wins here.
+
+~ Mischkra
+```
 
 # Sources
+
 Wikipedia
+
 The Economist
 
 # Authors
-Lucrif, Glanz, Alice/Hamzst
+Lucrif, Glanz, Alice/Hamzst, Mischkra
