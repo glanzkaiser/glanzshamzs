@@ -96,6 +96,11 @@ China is smart, they penetrate through culture or soft power, like France with t
 
 2. 
 
+## 5. Europe
+### 2022/07
+1. The winter is coming, and it promises to be brutal and divisive because of an energy crisis that is rapidly worsening as Vladimir Putin strangles supplies of Russian gas. Ater Russia invaded Ukraine, and seven times their longrun level. Governments are preparing bailouts of crippled utilities in France and Germany, and some investors are betting on which industrial ﬁrms will go bust later this year as rationing takes hold. 
+2. 
+
 # Sources
 https://juliadatascience.io
 
