@@ -67,7 +67,7 @@ Otherwise there will always be rape and molestation.
 In parish after parish, school afterschool, diocese after diocese, Catholic priests have abused children. America, Australia, France, Germany and Ireland, among others, have undertaken reckonings. The number of victims in France alone was estimated at 216,000 in the 70 years to 2020. Now countries such as Poland, Portugal and Spain are investigating, too. Some of the church’s failings are common to other organisations. When a few people are given power over others, when checks on that power are weak and when victims lack effective channels to report abuse, predators will take advantage; witness the recent reckoning in Hollywood.
 
 #### Lucrif' Law + Mischkra' Speech
-```
+
 Agree with Mischkra to give priests foods and not money, no meats, so no sexual desire. If you want money and delicious foods don't be a priest. Female should be able to become priests too, equality for all, don't accept the current law that is made by someone who had lived before you were born, there could be mistakes, as Maxwell can formulate wrong theory in Cambridge, what makes you think the current law is true? As the movie that promotes love is made by sexual predator with actors who can only act and will be left behind by all in the future. 
 
 Vessel is only a tangible form. No need to prove it with the next technology after Computer, just meditate and contemplate. 
@@ -77,13 +77,12 @@ I use Glanz's daily life, before we had Znane, and after she had triplets and he
 But she is different, I will not fall in Love with her if she is the same as others, I am very picky, she's just different, no power, universe, or anything can replace her for me. That's how I fall in Love. Sorry Freya, that was all me, knowing you were married to her, I'm in love with her too.
 
 ~ Lucrif 
-```
 
-```
+
 This is small things, we are numerology 1, Females will be smarter, richer and stronger. Let's skip the earth as fast as we can shall we? Since Freya wins here.
 
 ~ Mischkra
-```
+
 
 # Sources
 
