@@ -3,7 +3,7 @@ Compilation of Julia code for Calculus learning for Undergraduate degree.
 
 #### based on Lasthrim Projection book 
 
-## Lasthrim' Galleries for Julia-Calculus
+## Lasthrim' Galleries for Julia-DiscreteMathematics
 | Chapter 1: Logic and Proofs | Chapter 2: Sets, Functions, Sequences, and Sums | 
 | ------------- | ------------- | 
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/LPdiscretemath-1-tautology.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/LPdiscretemath-1-tautology.png" width="83%"> | 
