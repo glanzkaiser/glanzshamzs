@@ -48,7 +48,7 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CUDA_DIR/lib64"
 ## Lasthrim' Galleries for Julia-ElementaryLinearAlgebra
 | Chapter 1: Systems of Linear Equations and Matrices | Gaussian Elimination | 
 | ------------- | ------------- | 
-| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/LPdiscretemath-1-tautology.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/LPdiscretemath-1-tautology.png" width="83%"> | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/LPelementarylinalg-1-1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/LPelementarylinalg-1-2.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-ElementaryLinearAlgebra/ElementaryLinearAlgebra.ipynb">ElementaryLinearAlgebra.ipynb</a> |  | 
 
 # Source
