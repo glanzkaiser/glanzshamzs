@@ -73,6 +73,11 @@ titleloc = :bottom, titlefont = font(8))
 | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/riemannsums1.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/parametricfunctions.png" width="83%"> | 
 | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch4-1-riemannsums.jl">ch4-1-riemannsums.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/ch5-4-parametricequations.jl">ch5-4-parametricequations.jl</a> | 
 
+| Surface Plot | Rosenbrock Function | 
+| ------------- | ------------- | 
+| <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/surfaceplot-plotlyjs.png" width="83%"> | <img src="https://github.com/glanzkaiser/glanzshamzs/blob/main/Julia/images/rosenbrock2.png" width="83%"> | 
+| <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/surfaceplot-plotlyjs.jl">surfaceplot-plotlyjs.jl</a> | <a href="https://github.com/glanzkaiser/glanzshamzs/blob/main/LasthrimProjection/Julia-Calculus/rosenbrockfunction2.jl">rosenbrockfunction2.jl</a> | 
+
 ## Lasthrim' Galleries for Julia-Calculus with CairoMakie and GLMakie
 
 I will update this Jupyter Notebook frequently. I just tested it since yesterday ( July 16th 2022) and know how the backend of Makie works. Will adjust it with Calculus plotting.
