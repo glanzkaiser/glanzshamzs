@@ -88,6 +88,35 @@ We are going to summarize economic problems and find the solution to eliminate p
 ### 2022/07
 1. During the ﬁrst two years of the pandemic more than 80% of schooldays in Latin America and South Asia were disrupted by closures of some sort. Even today schools in some countries, such as the Philippines, remain shut to most pupils. The harm that school closures have done to children has vastly outweighed any beneﬁts they may have had for public health.  If children cannot read and understand a simple story, they will struggle to earn a good living. Nearly every problem that confronts humanity can be alleviated by good schooling. Better educated people are more likely to devise a cleaner energy source, a cure for malaria or a smarter town plan. Workers who can read and manipulate numbers are more productive. Bookish populations will ﬁnd it easier to adapt to climate change. They will also have fewer babies, and educate them better. If the damage the pandemic has done to education is not reversed, all these goals will be harder to reach.
 
+2. After bought The Communist Manifesto book written by Karl Marx and Friedrich Engels (a gift from Mischkra to Glanz), when reading first chapter of Introduction, there is a simple sentence that makes us think can be applied to today's problem. What is an answer to mass unemployment? Without the need to read further (will be continued on later) here are our thoughts:
+
+### Nagi & Glanz' Opinion:
+#### Glanz: 
+I see a lot of world problems. I read the Economists that Finland take a sample of few population and give them free basic income to be used accordign to their will. Will it be sporadic in the future? How about those unemployment has to work to solve the world problems in regards with their talents and skill, those with computer aptitude can create robots to clean trashes or repair the road or make more efficient application to track national budget why does it always deficit? Those without computer skills can manually do labor to clean up trashes or the road, or help local farmers. 
+
+The payments can be done by the government, giving local basic income or foods for exchange of their daily work. What will they feel. Ask them to write diary of what they have done in a week and how that makes them feel and become. 
+
+I see this book in Jesuit place, and try to write diary, it actually nice, we can read again what we have done in the future.
+
+#### Nagi: 
+Glanz is right, for determining skills and abilities, we can use technologies and old knowledge like Bazi, Zi Wei Do Shou, we can do interpolation on successful people from past with their Bazi, is it true that all great leaders and CEOs has Guardian of Destiny as Chief? See competency in their Bazi chart and we can plot it for mass unemployment ready to be deployed to work and solve world problems at the same time.
+
+This is the link that can be used: 
+
+```
+https://bazibz.masteryacademy.com/App/Basic/Default.aspx
+```
+
+An example of Glanz' chart, indeed she is a great assistant to all of us
+
+![image](https://github.com/glanzkaiser/glanzshamzs/blob/main/Nagiconomy/images/GlanzBazi.png)
+
+Thanks great CTO without you all of the 10 STEM books and softwares or beyond technologies will not be realized. We need you more than you know.
+
+If you plot Bill Gates and Warren Buffett their Guardian of Destiny is Chief, thus that explains why they are able to be richest person and create magnificent corporations / conglomerates.
+
+We are scientific people and we use trial and errors with proofs to make our hypothesis become theorems
+
 ## 4. China
 ### 2022/07
 1. In 2018 ByteDance was forced to shutdown Neihan Duanzi, its joke-sharing app,which once had more than 200m users, after China’s media regulator claimed that its “off-colour” content had “triggered intense resentment among internet users”
